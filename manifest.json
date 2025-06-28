@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Compare Release: Jira vs GitLab",
+  "version": "1.0",
+  "description": "Provides a consolidated summary and overview of releases by integrating Jira and GitLab data.",
+  "icons": {
+    "16": "icons/16.icon.png",
+    "48": "icons/48.icon.png",
+    "128": "icons/128.icon.png"
+  },
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_icon": {
+      "16": "icons/16.icon.png",
+      "48": "icons/48.icon.png",
+      "128": "icons/128.icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "services/background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.atlassian.net/*",
+    "https://jira.dell.com/*",
+    "https://gitlab.com/*",
+    "https://gitlab.dell.com/*"
+  ],
+  "options_page": "user/options.html"
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { width: 400px; font-family: sans-serif; background-color: #1a202c; color: #a0aec0; padding: 1.5rem; }
+        .container { max-width: 100%; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #e2e8f0; }
+        input[type="text"], input[type="password"] {
+            background-color: #2d3748;
+            border: 1px solid #4a5568;
+            color: #e2e8f0;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+        button {
+            background-color: #4299e1;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+        button:hover { background-color: #3182ce; }
+        .status-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.25rem;
+            text-align: center;
+        }
+        .status-success { background-color: #d4edda; color: #155724; }
+        .status-error { background-color: #f8d7da; color: #721c24; }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ffeeba;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold text-white mb-6 text-center">Extension Settings</h1>
+
+        <div class="alert-warning">
+            <strong>Important Security Notice:</strong> For enterprise production environments, storing API Personal Access Tokens (PATs) directly in the browser's local storage is generally NOT recommended due to security risks. A backend proxy service is the more secure approach for handling credentials. This extension uses client-side storage for simplicity of demonstration.
+        </div>
+
+        <div class="mb-4">
+            <h2 class="text-xl font-semibold text-white mb-4">Jira Configuration</h2>
+            <label for="jiraBaseUrl">Jira Base URL (e.g., https://your-company.atlassian.net)</label>
+            <input type="text" id="jiraBaseUrl" placeholder="https://jira.your-company.com">
+
+            <label for="jiraPat">Jira Personal Access Token (PAT) - <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/" target="_blank" class="text-blue-400 hover:underline">Generate PAT</a></label>
+            <input type="password" id="jiraPat" placeholder="Jira PAT">
+        </div>
+
+        <div class="mb-4">
+            <h2 class="text-xl font-semibold text-white mb-4">GitLab Configuration</h2>
+            <label for="gitlabBaseUrl">GitLab Base URL (e.g., https://gitlab.com)</label>
+            <input type="text" id="gitlabBaseUrl" placeholder="https://gitlab.your-company.com">
+
+            <label for="gitlabPat">GitLab Personal Access Token (PAT) - <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank" class="text-blue-400 hover:underline">Generate PAT</a></label>
+            <input type="password" id="gitlabPat" placeholder="GitLab PAT">
+        </div>
+
+        <button id="saveButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Save Settings</button>
+
+        <div id="status" class="status-message hidden"></div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
