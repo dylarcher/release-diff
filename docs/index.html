@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jira & GitLab: Release Fidelity Infographic</title>
+    <title>Infographic: Building a Jira & GitLab Release Extension</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,19 +33,6 @@
                 height: 350px;
             }
         }
-        .flow-arrow {
-            position: relative;
-            padding: 0 2rem;
-        }
-        .flow-arrow::after {
-            content: '→';
-            position: absolute;
-            top: 50%;
-            right: -0.5rem;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: #94d2bd;
-        }
         .flow-arrow-down::after {
             content: '↓';
             position: absolute;
@@ -59,141 +46,109 @@
 </head>
 <body class="antialiased">
     <div class="container mx-auto px-4 py-8 md:px-8 md:py-12">
+
         <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-2">Bridging the Gap</h1>
-            <h2 class="text-2xl md:text-3xl font-bold text-[#94d2bd]">Achieving Release Fidelity Between Jira & GitLab</h2>
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-2">The Release Black Box</h1>
+            <h2 class="text-2xl md:text-3xl font-bold text-[#94d2bd]">Building a Browser Extension to Unify Jira & GitLab</h2>
+            <p class="max-w-3xl mx-auto mt-4 text-lg text-[#e9d8a6]">This infographic visualizes the strategy for creating a browser extension to solve release data fragmentation, based on the provided technical report.</p>
         </header>
 
         <section id="challenge" class="mb-20">
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Great Divide: Planned vs. Actual</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">Release management often breaks down due to a disconnect between what's planned in Jira and what's actually delivered in the code.</p>
+                <h3 class="text-3xl font-bold text-white">The Problem: A Disconnected Release Picture</h3>
+                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">Release information is scattered across platforms, forcing manual data compilation and leading to a lack of real-time visibility.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center items-center">
                 <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-6xl mb-4">🗓️</div>
-                    <h4 class="text-xl font-bold text-white">Planned Scope</h4>
-                    <p class="text-[#94d2bd]">Jira's `Fix Version` defines the target content for a release. It's the "should be there."</p>
+                    <div class="text-6xl mb-4">📝</div>
+                    <h4 class="text-xl font-bold text-white">Jira: The Plan</h4>
+                    <p class="text-[#94d2bd]">Contains the planned scope via 'Fix Versions' and issue tracking.</p>
                 </div>
-                <div class="flex items-center justify-center">
-                    <p class="text-7xl font-black text-[#ee9b00] opacity-75">≠</p>
+                <div>
+                    <p class="text-7xl font-black text-[#ae2012] opacity-75">≠</p>
+                    <p class="text-xl font-semibold text-[#ee9b00]">Data Silos</p>
                 </div>
                 <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-6xl mb-4">📦</div>
-                    <h4 class="text-xl font-bold text-white">Delivered Code</h4>
-                    <p class="text-[#94d2bd]">GitLab's release tag marks the immutable codebase. It's the "is actually there."</p>
+                    <div class="text-6xl mb-4">↔️</div>
+                    <h4 class="text-xl font-bold text-white">GitLab: The Code</h4>
+                    <p class="text-[#94d2bd]">Holds the actual codebase, commits, and release tags.</p>
                 </div>
             </div>
         </section>
 
-        <section id="foundation" class="mb-20">
+        <section id="solution" class="mb-20">
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">Building the Foundation of Traceability</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">To bridge the divide, every code change must be explicitly linked back to its corresponding Jira issue.</p>
+                <h3 class="text-3xl font-bold text-white">The Solution: An Integrated Extension</h3>
+                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">A browser extension acts as a bridge, querying both platforms to present a single, cohesive release summary directly in the user's workflow.</p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="card rounded-xl shadow-lg p-8 flex flex-col justify-center">
-                    <h4 class="text-2xl font-bold text-white mb-4 text-center">The Linking Workflow</h4>
-                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 text-center">
-                        <div class="p-4 rounded-lg bg-[#005f73] flow-arrow-down md:flow-arrow-down-0 md:flow-arrow">
-                            <p class="font-bold text-white">Jira Issue</p>
-                            <p class="text-sm text-[#94d2bd]">DDSTM-12345</p>
-                        </div>
-                        <div class="p-4 rounded-lg bg-[#005f73] flow-arrow-down md:flow-arrow-down-0 md:flow-arrow">
-                            <p class="font-bold text-white">GitLab Commit</p>
-                            <p class="text-sm text-[#94d2bd]">"DDSTM-12345: Fix login bug"</p>
-                        </div>
-                        <div class="p-4 rounded-lg bg-[#005f73]">
-                            <p class="font-bold text-white">Jira Dev Panel</p>
-                            <p class="text-sm text-[#94d2bd]">Link Appears</p>
-                        </div>
-                    </div>
-                     <p class="text-center mt-6 text-[#94d2bd]">Mandating Jira keys in commits, branches, and merge requests creates an unbreakable audit trail.</p>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center items-center">
+                <div class="card rounded-xl shadow-lg p-4">
+                    <p class="font-bold text-white">Jira API</p>
+                    <p class="text-sm text-[#94d2bd]">Fetches Issues</p>
                 </div>
-                <div class="card rounded-xl shadow-lg p-8">
-                    <h4 class="text-2xl font-bold text-white mb-4 text-center">Anatomy of a Release</h4>
-                    <p class="text-center mb-4 text-[#94d2bd]">A healthy release is composed of issues that are both planned and verifiably present in the code.</p>
-                    <div class="chart-container h-64 md:h-72">
-                        <canvas id="releaseAnatomyChart"></canvas>
-                    </div>
+                <div class="text-4xl text-[#94d2bd]">→</div>
+                <div class="card rounded-xl shadow-lg p-6 bg-[#0a9396]">
+                     <div class="text-4xl mb-2">🧩</div>
+                    <h4 class="text-xl font-bold text-white">Browser Extension</h4>
+                    <p class="text-[#001219] font-semibold">Correlates Data</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="process" class="mb-20">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Automated Reconciliation Process</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">By leveraging APIs, we can automate the comparison of "should be" vs. "is" to find discrepancies in real-time.</p>
-            </div>
-            <div class="card rounded-xl shadow-lg p-8">
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    <div class="text-center">
-                        <h4 class="text-xl font-bold text-[#94d2bd] mb-4">1. Get "Planned Set" from Jira</h4>
-                        <div class="bg-[#005f73] p-4 rounded-lg">
-                            <p class="font-mono text-sm text-left text-white break-all">JQL: project="DDSTM" AND fixVersion="v1.1.0"</p>
-                        </div>
-                        <div class="text-5xl my-4 text-[#94d2bd]">↓</div>
-                        <div class="bg-[#001219] p-4 border border-dashed border-gray-600 rounded-lg">
-                            <p class="font-bold text-white">Planned Issues</p>
-                            <p class="font-mono text-sm text-gray-400">DDSTM-101, DDSTM-102, DDSTM-103</p>
-                        </div>
-                    </div>
-
-                    <div class="text-center pt-0 md:pt-10">
-                        <div class="text-6xl mb-4 text-[#ee9b00]">⚖️</div>
-                        <h4 class="text-xl font-bold text-white">2. Compare Sets</h4>
-                        <p class="text-sm text-[#94d2bd]">The script cross-references both lists to find matches and identify discrepancies automatically.</p>
-                    </div>
-
-                    <div class="text-center">
-                        <h4 class="text-xl font-bold text-[#94d2bd] mb-4">3. Get "Actual Set" from GitLab</h4>
-                        <div class="bg-[#005f73] p-4 rounded-lg">
-                            <p class="font-mono text-sm text-left text-white break-all">Commits between tags v1.0.0...v1.1.0</p>
-                        </div>
-                        <div class="text-5xl my-4 text-[#94d2bd]">↓</div>
-                         <div class="bg-[#001219] p-4 border border-dashed border-gray-600 rounded-lg">
-                            <p class="font-bold text-white">Issues in Code</p>
-                            <p class="font-mono text-sm text-gray-400">DDSTM-101, DDSTM-103, DDSTM-105</p>
-                        </div>
-                    </div>
+                <div class="text-4xl text-[#94d2bd]">→</div>
+                <div class="card rounded-xl shadow-lg p-4">
+                    <p class="font-bold text-white">GitLab API</p>
+                    <p class="text-sm text-[#94d2bd]">Fetches Commits</p>
                 </div>
             </div>
         </section>
         
-        <section id="discrepancies" class="mb-20">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">Uncovering Discrepancies</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The comparison reveals critical insights into release health, highlighting process gaps and unplanned work.</p>
+        <section id="architecture" class="mb-20">
+             <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-white">Manifest V3 Extension Architecture</h3>
+                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension is built on a modern, event-driven architecture to ensure security and performance, with components communicating via message passing.</p>
             </div>
-
-            <div class="card rounded-xl shadow-lg p-8 mb-12">
-                <h4 class="text-2xl font-bold text-white mb-4 text-center">Release Content Over Time</h4>
-                <p class="text-center mb-4 text-[#94d2bd]">Visualizing release composition helps track improvements in process fidelity and reduces discrepancies over time.</p>
-                <div class="chart-container h-80 md:h-96 w-full max-w-4xl">
-                    <canvas id="releaseCompositionChart"></canvas>
+            <div class="card rounded-xl shadow-lg p-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
+                    <h4 class="font-bold text-white text-lg">Popup UI</h4>
+                    <p class="text-sm text-[#94d2bd]">User-facing interface for inputs and displaying the final summary.</p>
+                </div>
+                <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
+                    <h4 class="font-bold text-white text-lg">Background Service Worker</h4>
+                    <p class="text-sm text-[#94d2bd]">Handles all API calls, authentication, and data processing logic.</p>
+                </div>
+                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
+                    <h4 class="font-bold text-white text-lg">Content Scripts</h4>
+                    <p class="text-sm text-[#94d2bd]">Injects into Jira/GitLab pages to read DOM or add UI elements if needed.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card rounded-xl shadow-lg p-6">
-                    <h4 class="text-xl font-bold text-white text-center mb-2">Planned, Not in Code</h4>
-                    <p class="text-center text-sm mb-4 text-[#94d2bd]">Jira issues that missed the release.</p>
-                    <div class="chart-container h-64">
-                        <canvas id="plannedNotInCodeChart"></canvas>
-                    </div>
+        <section id="apis" class="mb-20">
+             <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-white">API Integration & Data Correlation</h3>
+                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension's core logic involves fetching data from specific API endpoints and then correlating it by parsing Jira issue keys from GitLab artifacts.</p>
+            </div>
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card rounded-xl shadow-lg p-8">
+                    <h4 class="text-2xl font-bold text-white mb-4">Key API Endpoints</h4>
+                     <ul class="space-y-4">
+                        <li class="bg-[#005f73] p-3 rounded-md">
+                            <p class="font-bold text-white">Jira: <span class="font-mono text-sm text-[#94d2bd]">/rest/api/3/search</span></p>
+                            <p class="text-sm text-white">Retrieves issues via JQL (e.g., `fixVersion = "1.2.0"`).</p>
+                        </li>
+                        <li class="bg-[#005f73] p-3 rounded-md">
+                            <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/tags</span></p>
+                            <p class="text-sm text-white">Identifies release tags to define scope.</p>
+                        </li>
+                         <li class="bg-[#005f73] p-3 rounded-md">
+                            <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/commits</span></p>
+                            <p class="text-sm text-white">Fetches all code changes between two release tags.</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                    <h4 class="text-xl font-bold text-white text-center mb-2">In Code, Not Planned</h4>
-                    <p class="text-center text-sm mb-4 text-[#94d2bd]">Code merged without being in the plan.</p>
-                    <div class="chart-container h-64">
-                        <canvas id="inCodeNotPlannedChart"></canvas>
-                    </div>
-                </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                     <h4 class="text-xl font-bold text-white text-center mb-2">Status Mismatches</h4>
-                    <p class="text-center text-sm mb-4 text-[#94d2bd]">Work merged but Jira status is not 'Done'.</p>
-                    <div class="chart-container h-64">
-                        <canvas id="statusMismatchChart"></canvas>
+                <div class="card rounded-xl shadow-lg p-8">
+                    <h4 class="text-2xl font-bold text-white mb-4">Security & Authentication</h4>
+                    <p class="text-center mb-4 text-[#94d2bd]">Authentication is challenging. GitLab supports a client-side friendly OAuth (PKCE) flow, while Jira's requires a backend for full security, making PATs a simpler, though less secure, alternative for a pure extension.</p>
+                    <div class="chart-container h-64 md:h-72">
+                        <canvas id="authMethodsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -201,33 +156,35 @@
 
         <section id="benefits" class="mb-12">
              <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Payoff: Predictable, High-Quality Releases</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">Automated reconciliation transforms release management from a reactive chore to a proactive, data-driven process.</p>
+                <h3 class="text-3xl font-bold text-white">The Payoff: Actionable Insights & Efficiency</h3>
+                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">A unified view leads to enhanced transparency, streamlined audits, and empowered teams.</p>
             </div>
-             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="card rounded-xl shadow-lg p-8">
-                    <div class="text-6xl text-[#94d2bd] mb-4">✅</div>
-                    <h4 class="text-2xl font-bold text-white">Enhanced Quality</h4>
-                    <p class="text-lg text-[#e9d8a6]">+30%</p>
-                    <p class="text-[#94d2bd]">Reduction in release defects by catching unplanned changes.</p>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="card rounded-xl shadow-lg p-6">
+                    <div class="text-5xl text-[#94d2bd] mb-3">🔎</div>
+                    <h4 class="text-xl font-bold text-white">Full Transparency</h4>
+                    <p class="text-[#e9d8a6]">A single source of truth for release content.</p>
                 </div>
-                <div class="card rounded-xl shadow-lg p-8">
-                    <div class="text-6xl text-[#94d2bd] mb-4">⚙️</div>
-                    <h4 class="text-2xl font-bold text-white">Streamlined Audits</h4>
-                    <p class="text-lg text-[#e9d8a6]">-5 hrs</p>
-                    <p class="text-[#94d2bd]">Time saved per release on manual verification and reporting.</p>
+                <div class="card rounded-xl shadow-lg p-6">
+                    <div class="text-5xl text-[#94d2bd] mb-3">⏱️</div>
+                    <h4 class="text-xl font-bold text-white">Reduced Overhead</h4>
+                    <p class="text-[#e9d8a6]">Eliminates manual report generation.</p>
                 </div>
-                <div class="card rounded-xl shadow-lg p-8">
-                    <div class="text-6xl text-[#94d2bd] mb-4">📈</div>
-                    <h4 class="text-2xl font-bold text-white">Increased Confidence</h4>
-                    <p class="text-lg text-[#e9d8a6]">95%</p>
-                    <p class="text-[#94d2bd]">Stakeholder confidence with transparent, verifiable release contents.</p>
+                <div class="card rounded-xl shadow-lg p-6">
+                    <div class="text-5xl text-[#94d2bd] mb-3">🛡️</div>
+                    <h4 class="text-xl font-bold text-white">Improved Audits</h4>
+                    <p class="text-[#e9d8a6]">Creates a clear, verifiable audit trail.</p>
+                </div>
+                <div class="card rounded-xl shadow-lg p-6">
+                    <div class="text-5xl text-[#94d2bd] mb-3">🤝</div>
+                    <h4 class="text-xl font-bold text-white">Informed Decisions</h4>
+                    <p class="text-[#e9d8a6]">Empowers stakeholders with accurate data.</p>
                 </div>
             </div>
         </section>
         
         <footer class="text-center mt-20 pt-8 border-t border-gray-700">
-            <p class="text-gray-500">This infographic illustrates a methodology for improving software release management fidelity. All data is representative.</p>
+            <p class="text-gray-500">This infographic summarizes a strategic approach to browser extension development for release management. All data is representative.</p>
         </footer>
     </div>
 
@@ -265,38 +222,6 @@
                 }
             };
             
-            const chartDefaultOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#e0f2f1',
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                           title: tooltipTitleCallback
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        ticks: { color: '#94d2bd' },
-                        grid: { color: 'rgba(148, 210, 189, 0.2)' },
-                        border: { color: '#94d2bd' }
-                    },
-                    x: {
-                        ticks: { color: '#94d2bd' },
-                        grid: { color: 'rgba(148, 210, 189, 0.2)' },
-                        border: { color: '#94d2bd' }
-                    }
-                }
-            };
-            
             const chartDonutOptions = {
                  responsive: true,
                 maintainAspectRatio: false,
@@ -330,100 +255,29 @@
                 textDark: '#001219'
             };
 
-
-            const releaseAnatomyCtx = document.getElementById('releaseAnatomyChart');
-            if(releaseAnatomyCtx) {
-                new Chart(releaseAnatomyCtx, {
+            const authMethodsCtx = document.getElementById('authMethodsChart');
+            if(authMethodsCtx) {
+                new Chart(authMethodsCtx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Matched Items', 'Unplanned Work', 'Unshipped Planned Work'],
+                        labels: [
+                            wrapLabel('GitLab OAuth (PKCE)'), 
+                            wrapLabel('Jira OAuth (Hybrid Backend)'), 
+                            wrapLabel('Personal Access Tokens (PATs)')
+                        ],
                         datasets: [{
-                            data: [85, 10, 5],
-                            backgroundColor: [brilliantBlues.secondary, brilliantBlues.warning, brilliantBlues.danger],
+                            label: 'Authentication Methods',
+                            data: [40, 35, 25],
+                            backgroundColor: [
+                                brilliantBlues.secondary,
+                                brilliantBlues.accent,
+                                brilliantBlues.warning
+                            ],
                             borderColor: brilliantBlues.textDark,
                             borderWidth: 2
                         }]
                     },
-                    options: chartDonutOptions
-                });
-            }
-
-            const releaseCompositionCtx = document.getElementById('releaseCompositionChart');
-            if(releaseCompositionCtx) {
-                new Chart(releaseCompositionCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Release v1.0', 'Release v1.1', 'Release v1.2'],
-                        datasets: [
-                            {
-                                label: 'Matched Items',
-                                data: [70, 80, 92],
-                                backgroundColor: brilliantBlues.secondary,
-                            },
-                            {
-                                label: 'In Code, Not Planned',
-                                data: [20, 12, 5],
-                                backgroundColor: brilliantBlues.warning,
-                            },
-                             {
-                                label: 'Planned, Not in Code',
-                                data: [10, 8, 3],
-                                backgroundColor: brilliantBlues.danger,
-                            }
-                        ]
-                    },
-                    options: { ...chartDefaultOptions, scales: { x: { stacked: true }, y: { stacked: true } } }
-                });
-            }
-
-            const plannedNotInCodeCtx = document.getElementById('plannedNotInCodeChart');
-            if(plannedNotInCodeCtx) {
-                new Chart(plannedNotInCodeCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [wrapLabel('Work Not Completed'), wrapLabel('Incorrect Linking'), wrapLabel('Scope Change')],
-                        datasets: [{
-                            data: [50, 35, 15],
-                            backgroundColor: [brilliantBlues.danger, brilliantBlues.warning, brilliantBlues.highlight],
-                            borderColor: brilliantBlues.textDark,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: chartDonutOptions
-                });
-            }
-
-            const inCodeNotPlannedCtx = document.getElementById('inCodeNotPlannedChart');
-            if(inCodeNotPlannedCtx) {
-                new Chart(inCodeNotPlannedCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [wrapLabel('Emergency Hotfix'), wrapLabel('Incorrect Fix Version'), wrapLabel('Linking Error')],
-                        datasets: [{
-                            data: [60, 25, 15],
-                            backgroundColor: [brilliantBlues.warning, brilliantBlues.danger, brilliantBlues.highlight],
-                            borderColor: brilliantBlues.textDark,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: chartDonutOptions
-                });
-            }
-            
-            const statusMismatchCtx = document.getElementById('statusMismatchChart');
-            if(statusMismatchCtx) {
-                 new Chart(statusMismatchCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [wrapLabel('Jira Not Updated'), wrapLabel('Merged Prematurely'), wrapLabel('Automation Failed')],
-                        datasets: [{
-                            data: [70, 20, 10],
-                            backgroundColor: [brilliantBlues.highlight, brilliantBlues.warning, brilliantBlues.danger],
-                            borderColor: brilliantBlues.textDark,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: chartDonutOptions
+                    options: { ...chartDonutOptions, plugins: { ...chartDonutOptions.plugins, legend: { ...chartDonutOptions.plugins.legend, display: true} } }
                 });
             }
         });
