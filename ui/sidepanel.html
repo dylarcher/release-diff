@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Overview</title>
+    <style>
+        /* Base styles */
+        body { width: 100%; min-width: 320px; font-family: sans-serif; background-color: #1a202c; color: #a0aec0; margin: 0; padding: 0; }
+        .container { padding: 1.5rem; max-width: 800px; margin: 0 auto; }
+        
+        /* Tailwind-like utility classes */
+        .bg-gray-900 { background-color: #1a202c; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
+        .text-white { color: #ffffff; }
+        .text-blue-500 { color: #3b82f6; }
+        .text-red-400 { color: #f87171; }
+        .text-yellow-400 { color: #fbbf24; }
+        .text-purple-400 { color: #a78bfa; }
+        .text-blue-400 { color: #60a5fa; }
+        .bg-gray-700 { background-color: #374151; }
+        .bg-blue-600 { background-color: #2563eb; }
+        .bg-green-600 { background-color: #059669; }
+        .bg-yellow-600 { background-color: #d97706; }
+        .bg-red-800 { background-color: #991b1b; }
+        .bg-yellow-800 { background-color: #92400e; }
+        .bg-purple-800 { background-color: #6b21a8; }
+        .bg-opacity-50 { opacity: 0.5; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .p-4 { padding: 1rem; }
+        .p-3 { padding: 0.75rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .pt-4 { padding-top: 1rem; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        .text-center { text-align: center; }
+        .rounded-md { border-radius: 0.375rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded { border-radius: 0.25rem; }
+        .border-t { border-top-width: 1px; }
+        .border-gray-700 { border-color: #374151; }
+        .block { display: block; }
+        .hidden { display: none; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .focus\:outline-none:focus { outline: none; }
+        .focus\:shadow-outline:focus { box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); }
+        .hover\:bg-blue-700:hover { background-color: #1d4ed8; }
+        .hover\:bg-green-700:hover { background-color: #047857; }
+        .hover\:bg-yellow-700:hover { background-color: #b45309; }
+        .hover\:underline:hover { text-decoration: underline; }
+        
+        /* Side panel specific styles */
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+            .grid-cols-3 { 
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        
+        input[type="text"] {
+            background-color: #2d3748;
+            border: 1px solid #4a5568;
+            color: #e2e8f0;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.875rem;
+        }
+        
+        .input-field {
+            margin-bottom: 1rem;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 600px) {
+            .button-group {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        button {
+            background-color: #4299e1;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            font-size: 0.875rem;
+        }
+        button:hover { background-color: #3182ce; }
+        
+        .btn-primary { background-color: #2563eb; }
+        .btn-primary:hover { background-color: #1d4ed8; }
+        .btn-success { background-color: #059669; }
+        .btn-success:hover { background-color: #047857; }
+        .btn-warning { background-color: #d97706; }
+        .btn-warning:hover { background-color: #b45309; }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4299e1;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+            margin: 1.5rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-message { 
+            color: #fc8181; 
+            background-color: #fed7d7; 
+            padding: 0.75rem 1rem; 
+            border-radius: 0.375rem; 
+            border: 1px solid #feb2b2;
+        }
+        .success-message { 
+            color: #38a169; 
+            background-color: #c6f6d5; 
+            padding: 0.75rem 1rem; 
+            border-radius: 0.375rem; 
+            border: 1px solid #9ae6b4;
+        }
+        .info-message {
+            color: #3182ce;
+            background-color: #bee3f8;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #90cdf4;
+        }
+        
+        .section-header { 
+            font-weight: bold; 
+            margin-top: 1.5rem; 
+            margin-bottom: 1rem;
+            color: #4299e1; 
+            font-size: 1.125rem;
+        }
+        
+        .discrepancy-item { 
+            margin-bottom: 1rem; 
+            padding: 1rem; 
+            background-color: #2d3748; 
+            border-radius: 0.5rem; 
+            border: 1px solid #4a5568;
+        }
+        .discrepancy-label { 
+            font-weight: bold; 
+            color: #e2e8f0; 
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .discrepancy-list { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .discrepancy-list li { 
+            margin-bottom: 0.5rem; 
+            padding: 0.5rem;
+            background-color: #374151;
+            border-radius: 0.25rem;
+        }
+        .jira-link { color: #63b3ed; text-decoration: underline; }
+        .gitlab-link { color: #ecc94b; text-decoration: underline; }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .metric-card {
+            background-color: #374151;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border: 1px solid #4a5568;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .header-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+    <div class="container">
+        <div class="header-section">
+            <h1 class="text-3xl font-bold text-white mb-2 text-center">Release Overview</h1>
+            <p class="text-center text-gray-400">Compare Jira planned releases with GitLab code changes</p>
+        </div>
+
+        <div class="input-group">
+            <div class="input-field">
+                <label for="jiraProjectKey" class="block text-sm font-medium text-gray-400 mb-2">Jira Project Key</label>
+                <input type="text" id="jiraProjectKey" placeholder="e.g., DDSTM" value="DDSTM">
+            </div>
+            <div class="input-field">
+                <label for="jiraFixVersion" class="block text-sm font-medium text-gray-400 mb-2">
+                    Jira Fix Version 
+                    <button id="getVersionsBtn" class="text-xs bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded ml-2">
+                        Get Available Versions
+                    </button>
+                </label>
+                <input type="text" id="jiraFixVersion" placeholder="e.g., Release v1.0.0" value="Release v1.0.0">
+                <div id="versionsList" class="hidden mt-2 text-sm text-gray-400"></div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-field">
+                <label for="gitlabProjectId" class="block text-sm font-medium text-gray-400 mb-2">GitLab Project ID</label>
+                <input type="text" id="gitlabProjectId" placeholder="e.g., 12345" value="12345">
+            </div>
+            <div class="input-field">
+                <label for="gitlabCurrentTag" class="block text-sm font-medium text-gray-400 mb-2">Current Release Tag</label>
+                <input type="text" id="gitlabCurrentTag" placeholder="e.g., v1.0.0" value="v1.0.0">
+            </div>
+        </div>
+
+        <div class="input-field">
+            <label for="gitlabPreviousTag" class="block text-sm font-medium text-gray-400 mb-2">Previous Release Tag</label>
+            <input type="text" id="gitlabPreviousTag" placeholder="e.g., v0.9.0" value="v0.9.0">
+        </div>
+
+        <div class="button-group">
+            <button id="generateSummaryBtn" class="btn-primary">Generate Summary</button>
+            <button id="testBtn" class="btn-success">Test Connection</button>
+            <button id="testJiraBtn" class="btn-warning">Test Jira API</button>
+        </div>
+
+        <div id="loading" class="loading-spinner hidden"></div>
+        <div id="statusMessage" class="mt-4 text-center"></div>
+
+        <div id="summaryResults" class="mt-6 border-t border-gray-700 pt-6 hidden">
+            <h2 class="text-2xl font-bold text-white mb-6">Release Content Summary</h2>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <p class="metric-value text-blue-400" id="totalPlanned">0</p>
+                    <p class="metric-label">Planned Jira Issues</p>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-value text-yellow-400" id="totalInCode">0</p>
+                    <p class="metric-label">Issues in Code</p>
+                </div>
+            </div>
+
+            <h3 class="section-header">Discrepancies</h3>
+            <div id="discrepancyCounts" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-red-800 bg-opacity-50 p-4 rounded-lg text-center border border-red-700">
+                    <p class="metric-label">Planned, Not in Code</p>
+                    <p id="countPlannedNotInCode" class="metric-value text-red-400">0</p>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 p-4 rounded-lg text-center border border-yellow-700">
+                    <p class="metric-label">In Code, Not Planned</p>
+                    <p id="countInCodeNotPlanned" class="metric-value text-yellow-400">0</p>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 p-4 rounded-lg text-center border border-purple-700">
+                    <p class="metric-label">Status Mismatches</p>
+                    <p id="countStatusMismatches" class="metric-value text-purple-400">0</p>
+                </div>
+            </div>
+
+            <div id="discrepancyDetails">
+                <div class="discrepancy-item hidden" id="plannedNotInCodeSection">
+                    <p class="discrepancy-label">Planned in Jira but NOT found in GitLab code:</p>
+                    <ul id="plannedNotInCodeList" class="discrepancy-list"></ul>
+                </div>
+
+                <div class="discrepancy-item hidden" id="inCodeNotPlannedSection">
+                    <p class="discrepancy-label">Found in GitLab code but NOT planned in Jira:</p>
+                    <ul id="inCodeNotPlannedList" class="discrepancy-list"></ul>
+                </div>
+
+                <div class="discrepancy-item hidden" id="statusMismatchSection">
+                    <p class="discrepancy-label">Issues with Status Mismatch (In Code, but Jira status is not 'Done'):</p>
+                    <ul id="statusMismatchList" class="discrepancy-list"></ul>
+                </div>
+            </div>
+
+            <h3 class="section-header">All Matched Issues</h3>
+            <div class="discrepancy-item">
+                <ul id="matchedIssuesList" class="discrepancy-list"></ul>
+            </div>
+        </div>
+        
+        <div class="mt-6 text-center border-t border-gray-700 pt-4">
+            <a href="#" id="optionsLink" class="text-blue-500 hover:underline">Configure API Keys and URLs</a>
+        </div>
+    </div>
+    <script src="sidepanel.js"></script>
+</body>
+</html>

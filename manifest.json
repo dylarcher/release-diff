@@ -9,18 +9,21 @@
     "128": "icons/128.icon.png"
   },
   "action": {
-    "default_popup": "ui/popup.html",
     "default_icon": {
       "16": "icons/16.icon.png",
       "48": "icons/48.icon.png",
       "128": "icons/128.icon.png"
     }
   },
+  "side_panel": {
+    "default_path": "ui/sidepanel.html"
+  },
   "background": {
     "service_worker": "services/background.js"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "sidePanel"
   ],
   "host_permissions": [
     "https://*.atlassian.net/*",
@@ -28,5 +31,8 @@
     "https://gitlab.com/*",
     "https://gitlab.dell.com/*"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "options_page": "user/options.html"
 }
