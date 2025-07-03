@@ -45,7 +45,7 @@
       ],
       "resources": [
         "shared/styles.css",
-        "helpers/i18nHelper.js"
+        "helpers/internationalizationHelper.js"
       ]
     }
   ]
