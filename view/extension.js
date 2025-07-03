@@ -1,3 +1,9 @@
+import { displayStatusMessage } from '../helpers/statusDisplayManager.js';
+import { saveFormDataToStorage, loadFormDataFromStorage } from '../helpers/chromeStorageManager.js';
+import { sendMessageToBackgroundScript } from '../helpers/chromeMessageHandler.js';
+import { clearElementContent, populateDatalistWithOptions, createDiscrepancyItemDiv } from '../helpers/domManipulationHelpers.js';
+import { validateRequiredFields, extractFormFieldValues } from '../helpers/formValidationHelpers.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const generateSummaryBtn = document.getElementById('generateSummaryBtn');
   const getVersionsBtn = document.getElementById('getVersionsBtn');
@@ -35,211 +41,130 @@ document.addEventListener('DOMContentLoaded', () => {
   let fetchController;
   let debounceTimeout;
 
-  // Load saved values from storage on page load
-  loadFormValues();
+    loadFormValuesFromStorage();
 
-  // Handle options link click
   optionsLink.addEventListener('click', (e) => {
       e.preventDefault();
       chrome.runtime.openOptionsPage();
   });
 
   generateSummaryBtn.addEventListener('click', async () => {
-      const jiraProjectKey = jiraProjectKeyInput.value.trim();
-      const jiraFixVersion = jiraFixVersionInput.value.trim();
-      const gitlabProjectId = gitlabProjectIdInput.value.trim();
-      const gitlabCurrentTag = gitlabCurrentTagInput.value.trim();
-      const gitlabPreviousTag = gitlabPreviousTagInput.value.trim();
+      const [jiraProjectKey, jiraFixVersion, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag] =
+          extractFormFieldValues(jiraProjectKeyInput, jiraFixVersionInput, gitlabProjectIdInput, gitlabCurrentTagInput, gitlabPreviousTagInput);
 
-      if (!jiraProjectKey || !jiraFixVersion || !gitlabProjectId || !gitlabCurrentTag || !gitlabPreviousTag) {
-          displayStatus('Please fill in all input fields.', 'error');
+      const validation = validateRequiredFields({
+          jiraProjectKey, jiraFixVersion, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag
+      });
+
+      if (!validation.isValid) {
+          displayStatusMessage(statusMessageDiv, 'Please fill in all input fields.', 'error');
           return;
       }
 
-      // Save form values to storage
-      saveFormValues();
-
-      loadingSpinner.classList.remove('hidden');
-      summaryResultsDiv.classList.add('hidden');
-      displayStatus('Fetching and comparing data...', 'info');
+      await saveFormValuesToStorage();
+      showLoadingStateAndClearResults();
+      displayStatusMessage(statusMessageDiv, 'Fetching and comparing data...', 'info');
 
       try {
-          console.log('Sending message to background script...', {
-              action: 'generateReleaseSummary',
-              data: {
-                  jiraProjectKey,
-                  jiraFixVersion,
-                  gitlabProjectId,
-                  gitlabCurrentTag,
-                  gitlabPreviousTag
-              }
-          });
+          console.log('Sending message to background script...');
 
-          const response = await chrome.runtime.sendMessage({
-              action: 'generateReleaseSummary',
-              data: {
-                  jiraProjectKey,
-                  jiraFixVersion,
-                  gitlabProjectId,
-                  gitlabCurrentTag,
-                  gitlabPreviousTag
-              }
+          const response = await sendMessageToBackgroundScript('generateReleaseSummary', {
+              jiraProjectKey,
+              jiraFixVersion,
+              gitlabProjectId,
+              gitlabCurrentTag,
+              gitlabPreviousTag
           });
 
           console.log('Received response from background script:', response);
           loadingSpinner.classList.add('hidden');
 
-          // Check if response exists and handle undefined response
-          if (!response) {
-              displayStatus('No response from background script. Please check extension setup.', 'error');
-              console.error("Error: No response received from background script");
-              return;
-          }
-
           if (response.success) {
-              displayStatus('Summary generated successfully!', 'success');
-              displaySummary(response.summary);
+              displayStatusMessage(statusMessageDiv, 'Summary generated successfully!', 'success');
+              displaySummaryResults(response.summary);
           } else {
-              displayStatus(`Error: ${response.message || 'Unknown error occurred'}`, 'error');
-              console.error("Error generating summary:", response.error || response);
+              displayStatusMessage(statusMessageDiv, `Error: ${response.message || 'Unknown error occurred'}`, 'error');
           }
       } catch (error) {
           loadingSpinner.classList.add('hidden');
-          displayStatus('An unexpected error occurred. Check console for details.', 'error');
+          displayStatusMessage(statusMessageDiv, 'An unexpected error occurred. Check console for details.', 'error');
           console.error("Side panel script error:", error);
       }
   });
 
-  // Get available fix versions for project
   jiraFixVersionInput.addEventListener('input', () => {
       clearTimeout(debounceTimeout);
       debounceTimeout = setTimeout(() => {
-          getFixVersions();
+          fetchAvailableFixVersions();
       }, 300);
   });
 
   getVersionsBtn.addEventListener('click', () => {
-      getFixVersions();
+      fetchAvailableFixVersions();
   });
 
-  async function getFixVersions() {
+    async function fetchAvailableFixVersions() {
       const jiraProjectKey = jiraProjectKeyInput.value.trim();
-      
+
       if (!jiraProjectKey) {
-          displayStatus('Please enter a Jira project key first.', 'error');
+          displayStatusMessage(statusMessageDiv, 'Please enter a Jira project key first.', 'error');
           return;
       }
-      
-      if (fetchController) {
-          fetchController.abort();
-      }
-      
-      fetchController = new AbortController();
-      const signal = fetchController.signal;
-      
-      displayStatus('Fetching available fix versions...', 'info');
-      loadingSpinner.classList.remove('hidden');
-      
-      try {
-          const response = await chrome.runtime.sendMessage({
-              action: 'getFixVersions',
-              data: { jiraProjectKey }
-          });
-          
-          if (signal.aborted) {
-              return;
-          }
 
-          if (response && response.success) {
-              displayStatus('✓ Fix versions retrieved successfully!', 'success');
-              displayVersions(response.data);
+        abortPreviousFetchIfExists();
+        setupNewFetchController();
+
+        displayStatusMessage(statusMessageDiv, 'Fetching available fix versions...', 'info');
+      loadingSpinner.classList.remove('hidden');
+
+      try {
+          const response = await sendMessageToBackgroundScript('getFixVersions', { jiraProjectKey });
+
+          if (fetchController.signal.aborted) return;
+
+          if (response.success) {
+              displayStatusMessage(statusMessageDiv, '✓ Fix versions retrieved successfully!', 'success');
+              populateDatalistWithOptions(versionsDatalist, response.data);
           } else {
-              displayStatus(`✗ Failed to get fix versions: ${response?.message || 'Unknown error'}`, 'error');
-              versionsDatalist.innerHTML = '';
+              displayStatusMessage(statusMessageDiv, `✗ Failed to get fix versions: ${response.message || 'Unknown error'}`, 'error');
+              clearElementContent(versionsDatalist);
           }
       } catch (error) {
           if (error.name !== 'AbortError') {
-              displayStatus('✗ Error getting fix versions - check console', 'error');
+              displayStatusMessage(statusMessageDiv, '✗ Error getting fix versions - check console', 'error');
               console.error('Get versions error:', error);
-              versionsDatalist.innerHTML = '';
+              clearElementContent(versionsDatalist);
           }
       } finally {
-          if (!signal.aborted) {
+          if (!fetchController.signal.aborted) {
               loadingSpinner.classList.add('hidden');
           }
       }
   }
 
-  function displayStatus(message, type) {
-      statusMessageDiv.textContent = message;
-      statusMessageDiv.className = `status-message visible ${type === 'error' ? 'status-error' : type === 'success' ? 'status-success' : 'status-info'}`;
-  }
-
-  function displaySummary(summary) {
+    function displaySummaryResults(summary) {
       summaryResultsDiv.classList.remove('hidden');
 
-      // Clear previous results
-      jiraTicketsDiv.innerHTML = '';
-      gitlabHistoryDiv.innerHTML = '';
+        clearElementContent(jiraTicketsDiv);
+        clearElementContent(gitlabHistoryDiv);
 
-      // Populate Jira tickets
       summary.allJiraIssues.forEach(issue => {
-          const issueEl = document.createElement('div');
-          issueEl.className = 'discrepancy-item';
-          let issueHtml = `<strong><a href="https://your-jira-instance.com/browse/${issue.key}" target="_blank">${issue.key}</a></strong>: ${issue.summary} <br> <small>Status: ${issue.status}</small>`;
-          issueEl.innerHTML = issueHtml;
+          const issueHtml = `<strong><a href="https://your-jira-instance.com/browse/${issue.key}" target="_blank">${issue.key}</a></strong>: ${issue.summary} <br> <small>Status: ${issue.status}</small>`;
+          const issueEl = createDiscrepancyItemDiv('discrepancy-item', issueHtml);
           jiraTicketsDiv.appendChild(issueEl);
       });
 
-      // Populate GitLab history
-      summary.allGitLabCommits.forEach(commit => {
-          const commitEl = document.createElement('div');
-          commitEl.className = 'discrepancy-item';
+        summary.allGitLabCommits.forEach(commit => {
           let commitHtml = `<strong><a href="https://your-gitlab-instance.com/${summary.gitlabProjectPath}/-/commit/${commit.id}" target="_blank">${commit.short_id}</a></strong>: ${commit.title}`;
-          if (commit.jira_keys.length > 0) {
+          if (commit.jira_keys && commit.jira_keys.length > 0) {
               commitHtml += `<br><small>Related Jira: ${commit.jira_keys.join(', ')}</small>`;
           }
-          commitEl.innerHTML = commitHtml;
+          const commitEl = createDiscrepancyItemDiv('discrepancy-item', commitHtml);
           gitlabHistoryDiv.appendChild(commitEl);
       });
   }
 
-  function displayVersions(versions) {
-      versionsDatalist.innerHTML = '';
-      
-      if (versions.length === 0) {
-          return;
-      }
-      
-      versions.forEach(version => {
-          const option = document.createElement('option');
-          option.value = version.name;
-          option.dataset.id = version.id;
-          versionsDatalist.appendChild(option);
-      });
-  }
-
-  function clearList(ulElement) {
-      ulElement.innerHTML = '';
-  }
-
-  function appendListItem(ulElement, text, link = null) {
-      const li = document.createElement('li');
-      if (link) {
-          const a = document.createElement('a');
-          a.href = link;
-          a.target = "_blank";
-          a.classList.add('jira-link');
-          a.innerHTML = text;
-          li.appendChild(a);
-      } else {
-          li.innerHTML = text;
-      }
-      ulElement.appendChild(li);
-  }
-
-  // Save form values to chrome storage
-  function saveFormValues() {
+    async function saveFormValuesToStorage() {
       const selectedVersion = Array.from(versionsDatalist.options).find(option => option.value === jiraFixVersionInput.value);
       const versionId = selectedVersion ? selectedVersion.dataset.id : jiraFixVersionInput.value;
 
@@ -250,24 +175,31 @@ document.addEventListener('DOMContentLoaded', () => {
           gitlabCurrentTag: gitlabCurrentTagInput.value.trim(),
           gitlabPreviousTag: gitlabPreviousTagInput.value.trim()
       };
-      
-      chrome.storage.local.set({ formData }, () => {
-          console.log('Form values saved to storage');
-      });
+
+        await saveFormDataToStorage(formData);
   }
 
-  // Load form values from chrome storage
-  function loadFormValues() {
-      chrome.storage.local.get(['formData'], (result) => {
-          if (result.formData) {
-              const data = result.formData;
-              if (data.jiraProjectKey) jiraProjectKeyInput.value = data.jiraProjectKey;
-              if (data.jiraFixVersion) jiraFixVersionInput.value = data.jiraFixVersion;
-              if (data.gitlabProjectId) gitlabProjectIdInput.value = data.gitlabProjectId;
-              if (data.gitlabCurrentTag) gitlabCurrentTagInput.value = data.gitlabCurrentTag;
-              if (data.gitlabPreviousTag) gitlabPreviousTagInput.value = data.gitlabPreviousTag;
-              console.log('Form values loaded from storage');
-          }
-      });
+    async function loadFormValuesFromStorage() {
+        const data = await loadFormDataFromStorage();
+        if (data.jiraProjectKey) jiraProjectKeyInput.value = data.jiraProjectKey;
+        if (data.jiraFixVersion) jiraFixVersionInput.value = data.jiraFixVersion;
+        if (data.gitlabProjectId) gitlabProjectIdInput.value = data.gitlabProjectId;
+        if (data.gitlabCurrentTag) gitlabCurrentTagInput.value = data.gitlabCurrentTag;
+        if (data.gitlabPreviousTag) gitlabPreviousTagInput.value = data.gitlabPreviousTag;
+    }
+
+    function showLoadingStateAndClearResults() {
+        loadingSpinner.classList.remove('hidden');
+        summaryResultsDiv.classList.add('hidden');
+    }
+
+    function abortPreviousFetchIfExists() {
+        if (fetchController) {
+            fetchController.abort();
+        }
+    }
+
+    function setupNewFetchController() {
+        fetchController = new AbortController();
   }
 });

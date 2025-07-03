@@ -1,3 +1,8 @@
+import { displayStatusWithAutoHide } from '../helpers/statusDisplayManager.js';
+import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage } from '../helpers/chromeStorageManager.js';
+import { sendMessageToBackgroundScript } from '../helpers/chromeMessageHandler.js';
+import { validateRequiredFields } from '../helpers/formValidationHelpers.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const jiraBaseUrlInput = document.getElementById('jiraBaseUrl');
   const jiraPatInput = document.getElementById('jiraPat');
@@ -9,94 +14,74 @@ document.addEventListener('DOMContentLoaded', () => {
     const testJiraBtn = document.getElementById('testJiraBtn');
     const testGitLabBtn = document.getElementById('testGitLabBtn');
 
-  // Load saved settings when the options page opens
-  chrome.storage.local.get(['jiraBaseUrl', 'jiraPat', 'gitlabBaseUrl', 'gitlabPat'], (result) => {
-      jiraBaseUrlInput.value = result.jiraBaseUrl || '';
-      jiraPatInput.value = result.jiraPat || '';
-      gitlabBaseUrlInput.value = result.gitlabBaseUrl || '';
-      gitlabPatInput.value = result.gitlabPat || '';
-  });
+    loadSavedSettingsIntoForm();
 
-  // Save settings when the button is clicked
-  saveButton.addEventListener('click', () => {
+    saveButton.addEventListener('click', async () => {
       const jiraBaseUrl = jiraBaseUrlInput.value.trim();
       const jiraPat = jiraPatInput.value.trim();
       const gitlabBaseUrl = gitlabBaseUrlInput.value.trim();
       const gitlabPat = gitlabPatInput.value.trim();
 
-      if (!jiraBaseUrl || !jiraPat || !gitlabBaseUrl || !gitlabPat) {
-          displayStatus('All fields are required!', 'error');
+        const validation = validateRequiredFields({
+            jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat
+        });
+
+        if (!validation.isValid) {
+            displayStatusWithAutoHide(statusDiv, 'All fields are required!', 'error');
           return;
       }
 
-      chrome.storage.local.set({ jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat }, () => {
-          displayStatus('Settings saved!', 'success');
-      });
-  });
+        try {
+          await saveApiConfigurationToStorage(jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat);
+          displayStatusWithAutoHide(statusDiv, 'Settings saved!', 'success');
+      } catch (error) {
+            displayStatusWithAutoHide(statusDiv, 'Failed to save settings!', 'error');
+            console.error('Save error:', error);
+        }
+    });
 
-    // Test button to verify background script communication
     testBtn.addEventListener('click', async () => {
-        displayStatus('Testing connection...', 'info');
-        try {
-            const response = await chrome.runtime.sendMessage({ action: 'test' });
-            console.log('Test response:', response);
-            if (response && response.success) {
-                displayStatus('✓ Background script connection successful!', 'success');
-                testBtn.textContent = 'Re-test Connection';
-            } else {
-                displayStatus('✗ Background script connection failed', 'error');
-            }
-        } catch (error) {
-            displayStatus('✗ Test failed - check console', 'error');
-            console.error('Test error:', error);
-        }
+        await testConnectionWithFeedback('test', 'Testing connection...', '✓ Background script connection successful!', testBtn, 'Re-test Connection');
     });
 
-    // Test Jira connection specifically
     testJiraBtn.addEventListener('click', async () => {
-        displayStatus('Testing Jira API connection...', 'info');
-        try {
-            const response = await chrome.runtime.sendMessage({ action: 'testJira' });
-            console.log('Jira test response:', response);
-            if (response && response.success) {
-                displayStatus('✓ Jira API connection successful!', 'success');
-                testJiraBtn.textContent = 'Re-test Jira API';
-                console.log('Jira server info:', response.data);
-            } else {
-                displayStatus(`✗ Jira API test failed: ${response?.message || 'Unknown error'}`, 'error');
-            }
-        } catch (error) {
-            displayStatus('✗ Jira test failed - check console', 'error');
-            console.error('Jira test error:', error);
-        }
+        await testConnectionWithFeedback('testJira', 'Testing Jira API connection...', '✓ Jira API connection successful!', testJiraBtn, 'Re-test Jira API');
     });
 
-    // Test GitLab connection specifically
     testGitLabBtn.addEventListener('click', async () => {
-        displayStatus('Testing GitLab API connection...', 'info');
-        try {
-            const response = await chrome.runtime.sendMessage({ action: 'testGitLab' });
-            console.log('GitLab test response:', response);
-            if (response && response.success) {
-                displayStatus('✓ GitLab API connection successful!', 'success');
-                testGitLabBtn.textContent = 'Re-test GitLab API';
-                console.log('GitLab server info:', response.data);
-            } else {
-                displayStatus(`✗ GitLab API test failed: ${response?.message || 'Unknown error'}`, 'error');
-            }
-        } catch (error) {
-            displayStatus('✗ GitLab test failed - check console', 'error');
-            console.error('GitLab test error:', error);
-        }
+        await testConnectionWithFeedback('testGitLab', 'Testing GitLab API connection...', '✓ GitLab API connection successful!', testGitLabBtn, 'Re-test GitLab API');
     });
 
-  // Function to display status messages
-  function displayStatus(message, type) {
-      statusDiv.textContent = message; ""
-      statusDiv.className = `status-message ${type === 'success' ? 'status-success' : 'status-error'}`;
-      statusDiv.classList.add('visible');
-      setTimeout(() => {
-          statusDiv.classList.remove('visible');
-      }, 3000); // Hide after 3 seconds
-  }
+    async function testConnectionWithFeedback(action, loadingMessage, successMessage, button, successButtonText) {
+        displayStatusWithAutoHide(statusDiv, loadingMessage, 'info', 0);
+
+        try {
+            const response = await sendMessageToBackgroundScript(action);
+
+            if (response.success) {
+                displayStatusWithAutoHide(statusDiv, successMessage, 'success');
+                button.textContent = successButtonText;
+                if (response.data) {
+                    console.log(`${action} response data:`, response.data);
+                }
+            } else {
+                displayStatusWithAutoHide(statusDiv, `✗ ${action} failed: ${response.message || 'Unknown error'}`, 'error');
+            }
+        } catch (error) {
+            displayStatusWithAutoHide(statusDiv, `✗ ${action} failed - check console`, 'error');
+            console.error(`${action} error:`, error);
+        }
+    }
+
+    async function loadSavedSettingsIntoForm() {
+        try {
+            const config = await loadApiConfigurationFromStorage();
+            jiraBaseUrlInput.value = config.jiraBaseUrl || '';
+            jiraPatInput.value = config.jiraPat || '';
+            gitlabBaseUrlInput.value = config.gitlabBaseUrl || '';
+            gitlabPatInput.value = config.gitlabPat || '';
+        } catch (error) {
+            console.error('Error loading settings:', error);
+        }
+    }
 });
