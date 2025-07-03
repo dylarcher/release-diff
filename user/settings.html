@@ -1,53 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Extension Options</title>
-        <link href="./settings.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Tool Settings</title>
+    <link href="../common/styles.css" rel="stylesheet">
     </head>
 
-    <body class="bg-gray-900 text-gray-300">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold text-white mb-6 text-center">Extension Settings</h1>
-
-            <div class="alert-warning">
-                <strong>Important Security Notice:</strong> For enterprise production environments, storing API Personal
-                Access Tokens (PATs) directly in the browser's local storage is generally NOT recommended due to
-                security risks. A backend proxy service is the more secure approach for handling credentials. This
-                extension uses client-side storage for simplicity of demonstration.
-            </div>
-
-            <div class="mb-4">
-                <h2 class="text-xl font-semibold text-white mb-4">Jira Configuration</h2>
-                <label for="jiraBaseUrl">Jira Base URL (e.g., https://your-company.atlassian.net)</label>
-                <input type="text" id="jiraBaseUrl" placeholder="https://jira.your-company.com">
-
-                <label for="jiraPat">Jira Personal Access Token (PAT) - <a
-                       href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/"
-                       target="_blank" class="text-blue-400 hover:underline">Generate PAT</a></label>
-                <input type="password" id="jiraPat" placeholder="Jira PAT">
-            </div>
-
-            <div class="mb-4">
-                <h2 class="text-xl font-semibold text-white mb-4">GitLab Configuration</h2>
-                <label for="gitlabBaseUrl">GitLab Base URL (e.g., https://gitlab.com)</label>
-                <input type="text" id="gitlabBaseUrl" placeholder="https://gitlab.your-company.com">
-
-                <label for="gitlabPat">GitLab Personal Access Token (PAT) - <a
-                       href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank"
-                       class="text-blue-400 hover:underline">Generate PAT</a></label>
-                <input type="password" id="gitlabPat" placeholder="GitLab PAT">
-            </div>
-
-            <button id="saveButton"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Save
-                Settings</button>
-
-            <div id="status" class="status-message hidden"></div>
+<body style="overflow-x: auto; position: relative;">
+    <div class="container" style="min-width: 52.8125rem;">
+        <div role="alert" class="alert alert-warning" style="margin-top: .85rem;">
+            <small>
+                <strong>Important Security Notice:</strong> For enterprise production environments, storing <abbr
+                      title="Application Programming Interface">API</abbr> Personal
+                Access Tokens (<abbr title="Personal Access Token">PAT</abbr>s) directly in the browser's client storage
+                is
+                generally
+                <ins>NOT</ins>
+                recommended due to
+                security risks. A backend proxy service is the more secure approach for handling credentials. <em>This
+                    extension uses <code>localStorage</code> currently.</em>
+            </small>
         </div>
-        <script src="options.js"></script>
+
+        <header class="header-section">
+            <h1>Extension Settings</h1>
+        </header>
+        
+        <main role="main">
+            <div class="grid grid-2-col">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="jiraBaseUrl">Jira <abbr title="Uniform Resource Locator">URL</abbr></label>
+                        <input type="url" id="jiraBaseUrl" placeholder="e.g. https://jira.atlassian.com"
+                               value="https://jira.dell.com/">
+                        <p class="input-hint">e.g. <samp>https://jira.dell.net</samp></p>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="gitlabBaseUrl">GitLab <abbr title="Uniform Resource Locator">URL</abbr></label>
+                        <input type="url" id="gitlabBaseUrl" placeholder="e.g. https://gitlab.enterprise.com"
+                               value="https://gitlab.dell.com/">
+                        <p class="input-hint">e.g. <samp>https://gitlab.dell.net</samp></p>
+                    </div>
+                </div>
+            </div>
+
+        <br />
+
+        <div class="grid grid-2-col">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="jiraPat">Jira <abbr title="Personal Access Token">PAT</abbr></label>
+                    <input type="password" id="jiraPat" placeholder="provide secret token&hellip;">
+                    <p class="input-hint">Create a <abbr title="Personal Access Token">PAT</abbr> in your Atlassian account
+                        settings. The
+                        token needs read
+                        access to projects and issues. <a
+                       href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/"
+                       target="_blank">Learn how to generate a Jira API token</a></p>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="gitlabPat">GitLab <abbr title="Personal Access Token">PAT</abbr></a></label>
+                    <input type="password" id="gitlabPat" placeholder="insert private key&hellip;">
+                    <p class="input-hint">Create a <abbr title="Personal Access Token">PAT</abbr> in your GitLab profile
+                        preferences.
+                        The token
+                        needs at minimum
+                        'read_api' and 'read_repository' scopes. <a
+                           href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank">Learn how
+                            to
+                            create a GitLab <abbr title="Personal Access Token">PAT</abbr></a></p>
+                </div>
+            </div>
+            </div>
+
+            <footer style="margin-top: 3rem">
+                <button id="saveButton" class="btn btn-primary">Save Settings</button>
+                <p id="status" aria-live="polite" aria-atomic="true" aria-relevant="all" class="status-message"></p>
+                </main>
+            </footer>
+
+            <aside class="footer-section">
+                <div class="btn-group">
+                    <button id="testBtn" class="btn btn-secondary">Test Connection</button>
+                    <button id="testJiraBtn" class="btn btn-secondary">Test Jira <abbr
+                              title="Application Programming Interface">API</abbr></button>
+                    <button id="testGitLabBtn" class="btn btn-secondary">Test GitLab <abbr
+                              title="Application Programming Interface">API</abbr></button>
+                </div>
+            </aside>
+
+            <script src="settings.js"></script>
     </body>
 
 </html>

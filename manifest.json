@@ -3,6 +3,7 @@
   "name": "Compare Release: Jira vs GitLab",
   "version": "1.0",
   "description": "Provides a consolidated summary and overview of releases by integrating Jira and GitLab data.",
+  "minimum_chrome_version": "114",
   "icons": {
     "16": "icons/16.icon.png",
     "48": "icons/48.icon.png",
@@ -34,5 +35,11 @@
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
-  "options_page": "user/settings.html"
+  "options_page": "user/settings.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["common/styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

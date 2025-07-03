@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const generateSummaryBtn = document.getElementById('generateSummaryBtn');
-  const testBtn = document.getElementById('testBtn');
-  const testJiraBtn = document.getElementById('testJiraBtn');
-  const testGitLabBtn = document.getElementById('testGitLabBtn');
   const getVersionsBtn = document.getElementById('getVersionsBtn');
   const loadingSpinner = document.getElementById('loading-spinner');
   const statusMessageDiv = document.getElementById('statusMessage');
@@ -29,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const plannedNotInCodeSection = document.getElementById('plannedNotInCodeSection');
   const inCodeNotPlannedSection = document.getElementById('inCodeNotPlannedSection');
   const statusMismatchSection = document.getElementById('statusMismatchSection');
+
+  const jiraTicketsDiv = document.getElementById('jira-tickets');
+  const gitlabHistoryDiv = document.getElementById('gitlab-history');
 
   const optionsLink = document.getElementById('optionsLink');
 
@@ -110,62 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-  // Test button to verify background script communication
-  testBtn.addEventListener('click', async () => {
-      displayStatus('Testing connection...', 'info');
-      try {
-          const response = await chrome.runtime.sendMessage({ action: 'test' });
-          console.log('Test response:', response);
-          if (response && response.success) {
-              displayStatus('✓ Background script connection successful!', 'success');
-              testBtn.textContent = 'Re-test Connection';
-          } else {
-              displayStatus('✗ Background script connection failed', 'error');
-          }
-      } catch (error) {
-          displayStatus('✗ Test failed - check console', 'error');
-          console.error('Test error:', error);
-      }
-  });
-
-  // Test Jira connection specifically
-  testJiraBtn.addEventListener('click', async () => {
-      displayStatus('Testing Jira API connection...', 'info');
-      try {
-          const response = await chrome.runtime.sendMessage({ action: 'testJira' });
-          console.log('Jira test response:', response);
-          if (response && response.success) {
-              displayStatus('✓ Jira API connection successful!', 'success');
-              testJiraBtn.textContent = 'Re-test Jira API';
-              console.log('Jira server info:', response.data);
-          } else {
-              displayStatus(`✗ Jira API test failed: ${response?.message || 'Unknown error'}`, 'error');
-          }
-      } catch (error) {
-          displayStatus('✗ Jira test failed - check console', 'error');
-          console.error('Jira test error:', error);
-      }
-  });
-
-  // Test GitLab connection specifically
-  testGitLabBtn.addEventListener('click', async () => {
-      displayStatus('Testing GitLab API connection...', 'info');
-      try {
-          const response = await chrome.runtime.sendMessage({ action: 'testGitLab' });
-          console.log('GitLab test response:', response);
-          if (response && response.success) {
-              displayStatus('✓ GitLab API connection successful!', 'success');
-              testGitLabBtn.textContent = 'Re-test GitLab API';
-              console.log('GitLab server info:', response.data);
-          } else {
-              displayStatus(`✗ GitLab API test failed: ${response?.message || 'Unknown error'}`, 'error');
-          }
-      } catch (error) {
-          displayStatus('✗ GitLab test failed - check console', 'error');
-          console.error('GitLab test error:', error);
-      }
-  });
-
   // Get available fix versions for project
   jiraFixVersionInput.addEventListener('input', () => {
       clearTimeout(debounceTimeout);
@@ -228,60 +172,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayStatus(message, type) {
       statusMessageDiv.textContent = message;
-      statusMessageDiv.className = `mt-4 text-center ${type === 'error' ? 'error-message' : type === 'success' ? 'success-message' : type === 'info' ? 'info-message' : 'text-gray-400'}`;
+      statusMessageDiv.className = `status-message visible ${type === 'error' ? 'status-error' : type === 'success' ? 'status-success' : 'status-info'}`;
   }
 
   function displaySummary(summary) {
       summaryResultsDiv.classList.remove('hidden');
 
-      totalPlannedSpan.textContent = summary.totalPlannedIssues;
-      totalInCodeSpan.textContent = summary.totalIssuesInCode;
-      countPlannedNotInCodeSpan.textContent = summary.plannedNotInCode.length;
-      countInCodeNotPlannedSpan.textContent = summary.inCodeNotPlanned.length;
-      countStatusMismatchesSpan.textContent = summary.statusMismatches.length;
+      // Clear previous results
+      jiraTicketsDiv.innerHTML = '';
+      gitlabHistoryDiv.innerHTML = '';
 
-      clearList(plannedNotInCodeList);
-      clearList(inCodeNotPlannedList);
-      clearList(statusMismatchList);
-      clearList(matchedIssuesList);
+      // Populate Jira tickets
+      summary.allJiraIssues.forEach(issue => {
+          const issueEl = document.createElement('div');
+          issueEl.className = 'discrepancy-item';
+          let issueHtml = `<strong><a href="https://your-jira-instance.com/browse/${issue.key}" target="_blank">${issue.key}</a></strong>: ${issue.summary} <br> <small>Status: ${issue.status}</small>`;
+          issueEl.innerHTML = issueHtml;
+          jiraTicketsDiv.appendChild(issueEl);
+      });
 
-      if (summary.plannedNotInCode.length > 0) {
-          plannedNotInCodeSection.classList.remove('hidden');
-          summary.plannedNotInCode.forEach(issue => {
-              appendListItem(plannedNotInCodeList, `Jira: ${issue.key} - ${issue.summary} (Status: ${issue.status})`, `https://your-jira-instance.com/browse/${issue.key}`);
-          });
-      } else {
-          plannedNotInCodeSection.classList.add('hidden');
-      }
-
-      if (summary.inCodeNotPlanned.length > 0) {
-          inCodeNotPlannedSection.classList.remove('hidden');
-          summary.inCodeNotPlanned.forEach(issueKey => {
-              appendListItem(inCodeNotPlannedList, `Jira: ${issueKey} (linked in GitLab, but not planned)`);
-          });
-      } else {
-          inCodeNotPlannedSection.classList.add('hidden');
-      }
-
-      if (summary.statusMismatches.length > 0) {
-          statusMismatchSection.classList.remove('hidden');
-          summary.statusMismatches.forEach(issue => {
-              appendListItem(statusMismatchList, `Jira: ${issue.key} - ${issue.summary} (Current Status: ${issue.status})`, `https://your-jira-instance.com/browse/${issue.key}`);
-          });
-      } else {
-          statusMismatchSection.classList.add('hidden');
-      }
-
-      summary.matchedIssues.forEach(issue => {
-          let itemText = `Jira: ${issue.key} - ${issue.summary} (Status: ${issue.status})`;
-          let jiraLink = `https://your-jira-instance.com/browse/${issue.key}`;
-          let gitlabCommits = issue.commits.map(commit => `<a href="https://your-gitlab-instance.com/${summary.gitlabProjectPath}/-/commit/${commit.id}" target="_blank" class="gitlab-link">${commit.short_id}</a>`).join(', ');
-          let gitlabMRs = issue.merge_requests.map(mr => `<a href="https://your-gitlab-instance.com/${summary.gitlabProjectPath}/-/merge_requests/${mr.iid}" target="_blank" class="gitlab-link">!${mr.iid}</a>`).join(', ');
-
-          if (gitlabCommits || gitlabMRs) {
-              itemText += `<br><small>GitLab: ${gitlabCommits} ${gitlabMRs ? 'MRs: ' + gitlabMRs : ''}</small>`;
+      // Populate GitLab history
+      summary.allGitLabCommits.forEach(commit => {
+          const commitEl = document.createElement('div');
+          commitEl.className = 'discrepancy-item';
+          let commitHtml = `<strong><a href="https://your-gitlab-instance.com/${summary.gitlabProjectPath}/-/commit/${commit.id}" target="_blank">${commit.short_id}</a></strong>: ${commit.title}`;
+          if (commit.jira_keys.length > 0) {
+              commitHtml += `<br><small>Related Jira: ${commit.jira_keys.join(', ')}</small>`;
           }
-          appendListItem(matchedIssuesList, itemText, jiraLink);
+          commitEl.innerHTML = commitHtml;
+          gitlabHistoryDiv.appendChild(commitEl);
       });
   }
 

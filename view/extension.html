@@ -1,154 +1,93 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>Release Overview</title>
-        <link href="extension.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Tool Interface</title>
+    <link href="../common/styles.css" rel="stylesheet">
     </head>
 
-    <body role="document" class="bg-gray-900 text-gray-300">
-        <div role="application" class="container">
+<body style="overflow-x: auto;position: relative;">
+    <div class="container" style="min-width: 42.375rem;">
+        <header class="header-section">
+            <p role="note" class="info info-notice">
+                <small>Compare the user stories and git commit history associated with a release to see the differences
+                    between <em>Jira tickets</em> <abbr title="Verses">&</abbr> <em>GitLab changes</em>.</small>
+            </p>
+            <h1 style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem;">
+                Release Overview
+                <a href="#" id="optionsLink" title="Settings" style="font-size: 1.5rem; text-decoration: none;">⚙️</a>
+            </h1>
+        </header>
 
-            <header role="banner" class="header-section">
-                <h1 class="text-3xl font-bold text-white mb-2 text-center">Release Overview | <a href="#"
-                       id="optionsLink" class="hover:bg-blue-700">⚙️</a></h1>
-                <p class="text-center text-gray-400">Compare Jira planned releases with GitLab code changes</p>
-            </header>
-
-            <main role="main" class="main-content">
-                <div class="input-group">
-                    <div class="input-field">
-                        <label for="jiraProjectKey" class="block text-sm font-medium text-gray-400 mb-2">Jira Project
-                            Key</label>
-                        <input type="text" id="jiraProjectKey" placeholder="e.g., DDSTM" value="DDSTM">
-                    </div>
-                    <div class="input-field">
-                        <label for="jiraFixVersion" class="block text-sm font-medium text-gray-400 mb-2">
-                            Jira Fix Version
-                        </label>
-                        <div class="flex items-center">
-                            <button id="getVersionsBtn"
-                                    class="text-xs bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded-l-md">
-                                Get Available Versions
-                            </button>
-                            <input type="text" id="jiraFixVersion" placeholder="e.g., Release v1.0.0"
-                                   value="Release v1.0.0" list="versionsDatalist" class="rounded-r-md">
-                            <datalist id="versionsDatalist"></datalist>
-                            <div id="loading-spinner" class="loading-spinner hidden"></div>
-                        </div>
-                        <div id="versionsList" class="hidden mt-2 text-sm text-gray-400"></div>
+        <main role="main">
+            <div class="grid grid-2-col">
+                <!-- Jira Fields -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="jiraProjectKey">Jira Project Key</label>
+                        <input type="text" id="jiraProjectKey" placeholder="e.g. DDSTM" value="DDSTM">
                     </div>
                 </div>
-
-                <div class="input-group">
-                    <div class="input-field">
-                        <label for="gitlabProjectId" class="block text-sm font-medium text-gray-400 mb-2">GitLab Project
-                            ID</label>
-                        <input type="text" id="gitlabProjectId" placeholder="e.g., 12345" value="12345">
-                    </div>
-                    <div class="input-field">
-                        <label for="gitlabCurrentTag" class="block text-sm font-medium text-gray-400 mb-2">Current
-                            Release
-                            Tag</label>
-                        <input type="text" id="gitlabCurrentTag" placeholder="e.g., v1.0.0" value="v1.0.0">
+                <!-- GitLab Fields -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="gitlabProjectId">GitLab Project ID</label>
+                        <input type="text" id="gitlabProjectId" placeholder="e.g. #####" />
+                        <p class="input-hint">Find in: <samp>Settings > General > Project ID</samp></p>
                     </div>
                 </div>
-
-                <div class="input-field">
-                    <label for="gitlabPreviousTag" class="block text-sm font-medium text-gray-400 mb-2">Previous Release
-                        Tag</label>
-                    <input type="text" id="gitlabPreviousTag" placeholder="e.g., v0.9.0" value="v0.9.0">
                 </div>
 
-                <div class="button-group">
-                    <button id="generateSummaryBtn" class="btn-primary">Generate Summary</button>
+                <br />
+
+            <div class="grid grid-2-col flex align-end">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="jiraFixVersion">Jira Release Version ID</label>
+                        <input type="text" id="jiraFixVersion" placeholder="e.g. #####" list="versionsDatalist" />
+                        <p class="input-hint">Find in the release URL: <samp>.../browse/DDSTM/1.1.0/#####</samp>
+                        </p>
+                        <button id="getVersionsBtn" class="btn btn-secondary btn-sm">Get Releases</button>
+                        <datalist id="versionsDatalist"></datalist>
+                    </div>
                 </div>
-                <div class="button-group-inline">
-                    <button id="testBtn" class="btn-outline">Test Connection</button>
-                    <button id="testJiraBtn" class="btn-outline">Test Jira API</button>
-                    <button id="testGitLabBtn" class="btn-outline">Test GitLab API</button>
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="gitlabCurrentTag">GitLab Current Release Tag</label>
+                        <input type="text" id="gitlabCurrentTag" placeholder="e.g. v1.0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="gitlabPreviousTag">GitLab Previous Release Tag</label>
+                        <input type="text" id="gitlabPreviousTag" placeholder="e.g. v1.0.0">
+                    </div>
+                    </div>
+                    </div>
+                    <br />
+
+            <button id="generateSummaryBtn" class="btn btn-primary">Generate Summary</button>
+            <div id="loading" class="loading-spinner hidden"></div>
+            <div id="statusMessage" class="status-message"></div>
+            <div id="summaryResults" class="results-section hidden">
+                <div class="side-by-side">
+                    <div class="column">
+                        <h2>Jira Tickets</h2>
+                        <div id="jira-tickets"></div>
+                    </div>
+                    <div class="column">
+                        <h2>GitLab History</h2>
+                        <div id="gitlab-history"></div>
+                    </div>
                 </div>
-
-                <div id="loading" class="loading-spinner hidden"></div>
-                <div id="statusMessage" class="mt-4 text-center"></div>
-
-                <div id="summaryResults" class="mt-6 border-t border-gray-700 pt-6 hidden">
-                    <h2 class="text-2xl font-bold text-white mb-6">Release Content Summary</h2>
-
-                    <div class="metrics-grid">
-                        <div class="metric-card">
-                            <p class="metric-value text-blue-400" id="totalPlanned">0</p>
-                            <p class="metric-label">Planned Jira Issues</p>
-                        </div>
-                        <div class="metric-card">
-                            <p class="metric-value text-yellow-400" id="totalInCode">0</p>
-                            <p class="metric-label">Issues in Code</p>
-                        </div>
-                    </div>
-
-                    <h3 class="section-header">Discrepancies</h3>
-                    <div id="discrepancyCounts" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div class="bg-red-800 bg-opacity-50 p-4 rounded-lg text-center border border-red-700">
-                            <p class="metric-label">Planned, Not in Code</p>
-                            <p id="countPlannedNotInCode" class="metric-value text-red-400">0</p>
-                        </div>
-                        <div class="bg-yellow-800 bg-opacity-50 p-4 rounded-lg text-center border border-yellow-700">
-                            <p class="metric-label">In Code, Not Planned</p>
-                            <p id="countInCodeNotPlanned" class="metric-value text-yellow-400">0</p>
-                        </div>
-                        <div class="bg-purple-800 bg-opacity-50 p-4 rounded-lg text-center border border-purple-700">
-                            <p class="metric-label">Status Mismatches</p>
-                            <p id="countStatusMismatches" class="metric-value text-purple-400">0</p>
-                        </div>
-                    </div>
-
-                    <div id="discrepancyDetails">
-                        <div class="discrepancy-item hidden" id="plannedNotInCodeSection">
-                            <p class="discrepancy-label">Planned in Jira but NOT found in GitLab code:</p>
-                            <ul id="plannedNotInCodeList" class="discrepancy-list"></ul>
-                        </div>
-
-                        <div class="discrepancy-item hidden" id="inCodeNotPlannedSection">
-                            <p class="discrepancy-label">Found in GitLab code but NOT planned in Jira:</p>
-                            <ul id="inCodeNotPlannedList" class="discrepancy-list"></ul>
-                        </div>
-
-                        <div class="discrepancy-item hidden" id="statusMismatchSection">
-                            <p class="discrepancy-label">Issues with Status Mismatch (In Code, but Jira status is not
-                                'Done'):</p>
-                            <ul id="statusMismatchList" class="discrepancy-list"></ul>
-                        </div>
-                    </div>
-
-                    <h3 class="section-header">All Matched Issues</h3>
-                    <div class="discrepancy-item">
-                        <ul id="matchedIssuesList" class="discrepancy-list"></ul>
-                    </div>
                 </div>
             </main>
 
-            <footer role="contentinfo" class="footer-section">
-                <hr role="separator" class="border-gray-700">
-                <div class="flex col center mt-6 border-t border-gray-700 pt-4">
-                    <address class="text-xs text-gray-500">
-                        Built with ♥ by
-                        <a href="https://github.com/dylarcher" target="_blank"
-                           title="Visit Dylan Archer's GitHub profile">
-                            @dylarcher
-                        </a>
-                    </address>
-                    <p class="text-xs text-gray-500">
-                        Powered by
-                        <a href="https://developer.chrome.com/docs/extensions/reference/" target="_blank"
-                           title="Chrome Extension API Documentation">Chrome Extension API</a>
-                    </p>
-                    <p class="text-sm text-gray-500">© MMXXV &middot; Release Review Extension v1</p>
-                </div>
+            <footer class="footer-section">
+                <small>Powered by the <strong>Chrome Extension API</strong></small>
             </footer>
         </div>
         <script src="extension.js"></script>
-    </body>
+        </body>
 
 </html>
