@@ -58,7 +58,7 @@ async function apiFetch(url, token, tokenType = 'Bearer') {
     try {
         const response = await fetch(url, { headers });
         console.log('API response status:', response.status, response.statusText);
-        
+
         if (!response.ok) {
             const errorText = await response.text();
             console.error('API Error Response:', errorText.substring(0, 500) + '...');
@@ -96,13 +96,13 @@ async function getJiraIssues(jiraBaseUrl, jiraPat, projectKey, fixVersion) {
     for (const version of apiVersions) {
         try {
             console.log(`Trying Jira API version ${version}...`);
-            
+
             while (true) {
                 // Ensure no double slashes in URL construction
                 const baseUrl = jiraBaseUrl.endsWith('/') ? jiraBaseUrl.slice(0, -1) : jiraBaseUrl;
                 const url = `${baseUrl}/rest/api/${version}/search?jql=${jql}&startAt=${startAt}&maxResults=${maxResults}&fields=${fields}`;
                 console.log("Fetching Jira issues from:", url);
-                
+
                 const data = await apiFetch(url, jiraPat, 'Basic');
 
                 if (!data.issues || data.issues.length === 0) {
@@ -115,25 +115,25 @@ async function getJiraIssues(jiraBaseUrl, jiraPat, projectKey, fixVersion) {
                     break; // All issues fetched
                 }
             }
-            
+
             // If we got here without throwing, the API version worked
             console.log(`Successfully used Jira API version ${version}, found ${allIssues.length} issues`);
             return allIssues;
-            
+
         } catch (error) {
             console.log(`Jira API version ${version} failed:`, error.message);
             lastError = error;
             // Reset for next attempt
             allIssues = [];
             startAt = 0;
-            
+
             // If this is a 400 error about fixVersion not existing, provide better error message
             if (error.message.includes('does not exist for the field \'fixVersion\'')) {
                 throw new Error(`Fix version "${fixVersion}" does not exist in project "${projectKey}". Please check the exact name in your Jira project settings.`);
             }
         }
     }
-    
+
     // If we get here, both API versions failed
     throw new Error(`All Jira API versions failed. Last error: ${lastError.message}`);
 }
@@ -230,7 +230,7 @@ console.log('Setting up message listener...');
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log('Background script received message:', request);
-    
+
     if (request.action === 'generateReleaseSummary') {
         console.log('Processing generateReleaseSummary request...');
         const { jiraProjectKey, jiraFixVersion, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag } = request.data;
@@ -269,7 +269,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             for (const commit of gitlabCommits) {
                 const associatedMrIids = commit.web_url.match(/\/merge_requests\/(\d+)/g) ? commit.web_url.match(/\/merge_requests\/(\d+)/g).map(m => parseInt(m.split('/').pop())) : []; // This is a simplification; ideally, fetch MR details
                 const commitJiraKeys = parseJiraIssueKeys(commit.title + ' ' + (commit.message || ''));
-                
+
                 commitJiraKeys.forEach(jiraKey => {
                     allIssueKeysInCode.add(jiraKey);
                     if (!issuesInCodeMap.has(jiraKey)) {
@@ -348,17 +348,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 sendResponse({ success: false, message: error.message || 'Unknown error occurred.', error: error.toString() });
             }
         })();
-        
+
         return true; // Indicate that the response will be sent asynchronously
     }
-    
+
     // Test action for debugging
     if (request.action === 'test') {
         console.log('Test action received successfully');
         sendResponse({ success: true, message: 'Background script is working!' });
         return true;
     }
-    
+
     // Test Jira connection specifically
     if (request.action === 'testJira') {
         console.log('Testing Jira connection...');
@@ -366,15 +366,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             try {
                 const config = await chrome.storage.local.get(['jiraBaseUrl', 'jiraPat']);
                 const { jiraBaseUrl, jiraPat } = config;
-                
+
                 if (!jiraBaseUrl || !jiraPat) {
                     sendResponse({ success: false, message: 'Jira configuration missing. Please set up your Jira URL and PAT in the options page.' });
                     return;
                 }
-                
+
                 // Test with a simple API call to get server info
                 const baseUrl = jiraBaseUrl.endsWith('/') ? jiraBaseUrl.slice(0, -1) : jiraBaseUrl;
-                
+
                 // Try different endpoints for different Jira versions (v2 first as it's more widely supported)
                 const testEndpoints = [
                     `${baseUrl}/rest/api/2/serverInfo`,
@@ -382,33 +382,33 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     `${baseUrl}/rest/api/3/serverInfo`,
                     `${baseUrl}/rest/api/3/myself`
                 ];
-                
+
                 let lastError = null;
                 for (const endpoint of testEndpoints) {
                     try {
                         console.log('Testing endpoint:', endpoint);
                         const result = await apiFetch(endpoint, jiraPat, 'Basic');
-                        sendResponse({ 
-                            success: true, 
-                            message: `✓ Jira connection successful! Using endpoint: ${endpoint}`, 
-                            data: result 
+                        sendResponse({
+                            success: true,
+                            message: `✓ Jira connection successful! Using endpoint: ${endpoint}`,
+                            data: result
                         });
                         return;
                     } catch (error) {
                         console.log(`Endpoint ${endpoint} failed:`, error.message);
                         lastError = error;
-                        
+
                         // Provide specific guidance for common errors
                         if (error.message.includes('401')) {
-                            sendResponse({ 
-                                success: false, 
-                                message: 'Authentication failed. Please check your Jira PAT and ensure it has the correct permissions.' 
+                            sendResponse({
+                                success: false,
+                                message: 'Authentication failed. Please check your Jira PAT and ensure it has the correct permissions.'
                             });
                             return;
                         } else if (error.message.includes('403')) {
-                            sendResponse({ 
-                                success: false, 
-                                message: 'Access forbidden. Your PAT may not have sufficient permissions to access Jira.' 
+                            sendResponse({
+                                success: false,
+                                message: 'Access forbidden. Your PAT may not have sufficient permissions to access Jira.'
                             });
                             return;
                         } else if (error.message.includes('404')) {
@@ -417,53 +417,53 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                         }
                     }
                 }
-                
-                sendResponse({ 
-                    success: false, 
-                    message: `All Jira test endpoints failed. This might be a Jira Server/Data Center instance with different API paths. Last error: ${lastError?.message || 'Unknown error'}` 
+
+                sendResponse({
+                    success: false,
+                    message: `All Jira test endpoints failed. This might be a Jira Server/Data Center instance with different API paths. Last error: ${lastError?.message || 'Unknown error'}`
                 });
-                
+
             } catch (error) {
                 console.error('Error testing Jira connection:', error);
-                sendResponse({ 
-                    success: false, 
-                    message: `Jira connection test failed: ${error.message}` 
+                sendResponse({
+                    success: false,
+                    message: `Jira connection test failed: ${error.message}`
                 });
             }
         })();
         return true;
     }
-    
+
     // Get available fix versions for a project
     if (request.action === 'getFixVersions') {
         console.log('Getting fix versions for project...');
         const { jiraProjectKey } = request.data;
-        
+
         (async () => {
             try {
                 const config = await chrome.storage.local.get(['jiraBaseUrl', 'jiraPat']);
                 const { jiraBaseUrl, jiraPat } = config;
-                
+
                 if (!jiraBaseUrl || !jiraPat || !jiraProjectKey) {
-                    sendResponse({ 
-                        success: false, 
-                        message: 'Missing configuration. Please ensure Jira URL, PAT, and project key are provided.' 
+                    sendResponse({
+                        success: false,
+                        message: 'Missing configuration. Please ensure Jira URL, PAT, and project key are provided.'
                     });
                     return;
                 }
-                
+
                 const versions = await getJiraFixVersions(jiraBaseUrl, jiraPat, jiraProjectKey);
-                sendResponse({ 
-                    success: true, 
-                    message: `Found ${versions.length} fix versions for project ${jiraProjectKey}`, 
-                    data: versions 
+                sendResponse({
+                    success: true,
+                    message: `Found ${versions.length} fix versions for project ${jiraProjectKey}`,
+                    data: versions
                 });
-                
+
             } catch (error) {
                 console.error('Error getting fix versions:', error);
-                sendResponse({ 
-                    success: false, 
-                    message: `Failed to get fix versions: ${error.message}` 
+                sendResponse({
+                    success: false,
+                    message: `Failed to get fix versions: ${error.message}`
                 });
             }
         })();
@@ -492,7 +492,7 @@ chrome.runtime.onInstalled.addListener(() => {
  */
 async function getJiraFixVersions(jiraBaseUrl, jiraPat, projectKey) {
     const baseUrl = jiraBaseUrl.endsWith('/') ? jiraBaseUrl.slice(0, -1) : jiraBaseUrl;
-    
+
     // Try both API versions
     const apiVersions = ['2', '3'];
     for (const version of apiVersions) {

@@ -16,7 +16,7 @@
     }
   },
   "side_panel": {
-    "default_path": "ui/sidepanel.html"
+    "default_path": "view/extension.html"
   },
   "background": {
     "service_worker": "services/background.js"
@@ -34,5 +34,5 @@
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
-  "options_page": "user/options.html"
+  "options_page": "user/settings.html"
 }
