@@ -13,7 +13,7 @@
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
-  "default_locale": "en",
+  "default_locale": "en_US",
   "description": "__MSG_appDescription__",
   "host_permissions": [
     "https://*.atlassian.net/*",
