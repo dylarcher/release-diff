@@ -1,0 +1,299 @@
+{
+  "appName": {
+    "message": "Compare Release: Jira vs GitLab"
+  },
+  "appDescription": {
+    "message": "Provides a consolidated summary and overview of releases by integrating Jira and GitLab data."
+  },
+  "toolInterface": {
+    "message": "Tool Interface"
+  },
+  "toolSettings": {
+    "message": "Tool Settings"
+  },
+  "compareNotice": {
+    "message": "Compare the user stories and git commit history associated with a release to see the differences between $JIRA_TICKETS$ & $GITLAB_CHANGES$.",
+    "placeholders": {
+      "jira_tickets": {
+        "content": "Jira tickets"
+      },
+      "gitlab_changes": {
+        "content": "GitLab changes"
+      }
+    }
+  },
+  "versesAbbr": {
+    "message": "Verses"
+  },
+  "releaseOverview": {
+    "message": "Release Overview"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "jiraProjectKey": {
+    "message": "Jira Project Key"
+  },
+  "jiraProjectKeyPlaceholder": {
+    "message": "e.g. DDSTM"
+  },
+  "gitlabProjectId": {
+    "message": "GitLab Project ID"
+  },
+  "gitlabProjectIdPlaceholder": {
+    "message": "e.g. #####"
+  },
+  "gitlabProjectIdHint": {
+    "message": "Find in: $SETTINGS_PATH$",
+    "placeholders": {
+      "settings_path": {
+        "content": "Settings > General > Project ID"
+      }
+    }
+  },
+  "jiraReleaseVersionId": {
+    "message": "Jira Release Version ID"
+  },
+  "jiraReleaseVersionIdPlaceholder": {
+    "message": "e.g. #####"
+  },
+  "jiraReleaseVersionIdHint": {
+    "message": "Find in the release URL: $URL_PATTERN$",
+    "placeholders": {
+      "url_pattern": {
+        "content": ".../browse/DDSTM/1.1.0/#####"
+      }
+    }
+  },
+  "getReleases": {
+    "message": "Get Releases"
+  },
+  "gitlabCurrentReleaseTag": {
+    "message": "GitLab Current Release Tag"
+  },
+  "gitlabCurrentReleaseTagPlaceholder": {
+    "message": "e.g. v1.0.1"
+  },
+  "gitlabPreviousReleaseTag": {
+    "message": "GitLab Previous Release Tag"
+  },
+  "gitlabPreviousReleaseTagPlaceholder": {
+    "message": "e.g. v1.0.0"
+  },
+  "generateSummary": {
+    "message": "Generate Summary"
+  },
+  "jiraTickets": {
+    "message": "Jira Tickets"
+  },
+  "gitlabHistory": {
+    "message": "GitLab History"
+  },
+  "poweredBy": {
+    "message": "Powered by the $CHROME_EXTENSION_API$",
+    "placeholders": {
+      "chrome_extension_api": {
+        "content": "Chrome Extension API"
+      }
+    }
+  },
+  "securityNoticeTitle": {
+    "message": "Important Security Notice:"
+  },
+  "securityNoticeText": {
+    "message": "For enterprise production environments, storing $API$ Personal Access Tokens ($PAT$s) directly in the browser's client storage is generally $NOT$ recommended due to security risks. A backend proxy service is the more secure approach for handling credentials. $THIS_EXTENSION$ uses $LOCAL_STORAGE$ currently.",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      },
+      "pat": {
+        "content": "PAT"
+      },
+      "not": {
+        "content": "NOT"
+      },
+      "this_extension": {
+        "content": "This extension"
+      },
+      "local_storage": {
+        "content": "localStorage"
+      }
+    }
+  },
+  "extensionSettings": {
+    "message": "Extension Settings"
+  },
+  "jiraUrl": {
+    "message": "Jira $URL$",
+    "placeholders": {
+      "url": {
+        "content": "URL"
+      }
+    }
+  },
+  "jiraUrlPlaceholder": {
+    "message": "e.g. https://{ORG_NAME}.atlassian.com"
+  },
+  "jiraUrlHint": {
+    "message": "e.g. $EXAMPLE_URL$",
+    "placeholders": {
+      "example_url": {
+        "content": "https://jira.{ORG_NAME}.net"
+      }
+    }
+  },
+  "gitlabUrl": {
+    "message": "GitLab $URL$",
+    "placeholders": {
+      "url": {
+        "content": "URL"
+      }
+    }
+  },
+  "gitlabUrlPlaceholder": {
+    "message": "e.g. https://gitlab.{ORG_NAME}.net"
+  },
+  "gitlabUrlHint": {
+    "message": "e.g. $EXAMPLE_URL$",
+    "placeholders": {
+      "example_url": {
+        "content": "https://gitlab.{ORG_NAME}.net"
+      }
+    }
+  },
+  "jiraPat": {
+    "message": "Jira $PAT$",
+    "placeholders": {
+      "pat": {
+        "content": "PAT"
+      }
+    }
+  },
+  "jiraPatPlaceholder": {
+    "message": "provide secret token…"
+  },
+  "jiraPatHint": {
+    "message": "Create a $PAT$ in your Atlassian account settings. The token needs read access to projects and issues. $LEARN_LINK$",
+    "placeholders": {
+      "pat": {
+        "content": "PAT"
+      },
+      "learn_link": {
+        "content": "Learn how to generate a Jira API token"
+      }
+    }
+  },
+  "gitlabPat": {
+    "message": "GitLab $PAT$",
+    "placeholders": {
+      "pat": {
+        "content": "PAT"
+      }
+    }
+  },
+  "gitlabPatPlaceholder": {
+    "message": "insert private key…"
+  },
+  "gitlabPatHint": {
+    "message": "Create a $PAT$ in your GitLab profile preferences. The token needs at minimum 'read_api' and 'read_repository' scopes. $LEARN_LINK$",
+    "placeholders": {
+      "pat": {
+        "content": "PAT"
+      },
+      "learn_link": {
+        "content": "Learn how to create a GitLab PAT"
+      }
+    }
+  },
+  "saveSettings": {
+    "message": "Save Settings"
+  },
+  "testConnection": {
+    "message": "Test Connection"
+  },
+  "testJiraApi": {
+    "message": "Test Jira $API$",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      }
+    }
+  },
+  "testGitlabApi": {
+    "message": "Test GitLab $API$",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      }
+    }
+  },
+  "apiAbbr": {
+    "message": "Application Programming Interface"
+  },
+  "patAbbr": {
+    "message": "Personal Access Token"
+  },
+  "urlAbbr": {
+    "message": "Uniform Resource Locator"
+  },
+  "allFieldsRequired": {
+    "message": "All fields are required!"
+  },
+  "failedToSaveSettings": {
+    "message": "Failed to save settings!"
+  },
+  "fillAllInputFields": {
+    "message": "Please fill in all input fields."
+  },
+  "unexpectedErrorOccurred": {
+    "message": "An unexpected error occurred. Check console for details."
+  },
+  "enterJiraProjectKeyFirst": {
+    "message": "Please enter a Jira project key first."
+  },
+  "errorGettingFixVersions": {
+    "message": "Error getting fix versions - check console"
+  },
+  "settingsSaved": {
+    "message": "Settings saved!"
+  },
+  "backgroundScriptConnectionSuccessful": {
+    "message": "✓ Background script connection successful!"
+  },
+  "jiraApiConnectionSuccessful": {
+    "message": "✓ Jira API connection successful!"
+  },
+  "gitlabApiConnectionSuccessful": {
+    "message": "✓ GitLab API connection successful!"
+  },
+  "summaryGeneratedSuccessfully": {
+    "message": "Summary generated successfully!"
+  },
+  "fixVersionsRetrievedSuccessfully": {
+    "message": "✓ Fix versions retrieved successfully!"
+  },
+  "testingConnection": {
+    "message": "Testing connection..."
+  },
+  "testingJiraApiConnection": {
+    "message": "Testing Jira API connection..."
+  },
+  "testingGitlabApiConnection": {
+    "message": "Testing GitLab API connection..."
+  },
+  "fetchingAndComparingData": {
+    "message": "Fetching and comparing data..."
+  },
+  "fetchingAvailableFixVersions": {
+    "message": "Fetching available fix versions..."
+  },
+  "retestConnection": {
+    "message": "Re-test Connection"
+  },
+  "retestJiraApi": {
+    "message": "Re-test Jira API"
+  },
+  "retestGitlabApi": {
+    "message": "Re-test GitLab API"
+  }
+}

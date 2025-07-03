@@ -1,51 +1,70 @@
-export function clearElementContent(element) {
-  element.innerHTML = '';
-}
+import { DOM_ELEMENTS, CSS_CLASSES, DEFAULT_VALUES } from '../shared/presetConstants.js';
 
-export function createLinkElement(href, text, targetBlank = true) {
-  const link = document.createElement('a');
-  link.href = href;
-  link.textContent = text;
-  if (targetBlank) {
-    link.target = '_blank';
-  }
-  return link;
-}
-
-export function createListItemWithOptionalLink(text, link = null) {
-  const li = document.createElement('li');
-
-  if (link) {
-    const a = createLinkElement(link, text);
-    a.classList.add('jira-link');
-    li.appendChild(a);
-  } else {
-    li.innerHTML = text;
+class DomManipulationHelpers {
+  static clearElementContent(element) {
+    element.innerHTML = '';
   }
 
-  return li;
-}
-
-export function populateDatalistWithOptions(datalist, options, valueKey = 'name', dataKey = 'id') {
-  clearElementContent(datalist);
-
-  if (options.length === 0) {
-    return;
-  }
-
-  options.forEach(option => {
-    const optionElement = document.createElement('option');
-    optionElement.value = option[valueKey];
-    if (dataKey && option[dataKey]) {
-      optionElement.dataset.id = option[dataKey];
+  static createLinkElement(href, text, targetBlank = true) {
+    const link = document.createElement(DOM_ELEMENTS.ANCHOR);
+    link.href = href;
+    link.textContent = text;
+    if (targetBlank) {
+      link.target = DEFAULT_VALUES.LINK_TARGET_BLANK;
     }
-    datalist.appendChild(optionElement);
-  });
+    return link;
+  }
+
+  static createListItemWithOptionalLink(text, link = null) {
+    const li = document.createElement(DOM_ELEMENTS.LIST_ITEM);
+
+    const content = {
+      true: () => {
+        const a = this.createLinkElement(link, text);
+        a.classList.add(CSS_CLASSES.JIRA_LINK);
+        return a;
+      },
+      false: () => text
+    }[Boolean(link)];
+
+    if (Boolean(link)) {
+      li.appendChild(content());
+    } else {
+      li.innerHTML = content();
+    }
+
+    return li;
+  }
+
+  static populateDatalistWithOptions(datalist, options, valueKey = DEFAULT_VALUES.DATALIST_VALUE_KEY, dataKey = DEFAULT_VALUES.DATALIST_DATA_KEY) {
+    this.clearElementContent(datalist);
+
+    if (options.length === 0) {
+      return;
+    }
+
+    for (const option of options) {
+      const optionElement = document.createElement(DOM_ELEMENTS.OPTION);
+      optionElement.value = option[valueKey];
+      if (dataKey && option[dataKey]) {
+        optionElement.dataset.id = option[dataKey];
+      }
+      datalist.appendChild(optionElement);
+    }
+  }
+
+  static createDiscrepancyItemDiv(className, htmlContent) {
+    const div = document.createElement(DOM_ELEMENTS.DIV);
+    div.className = className;
+    div.innerHTML = htmlContent;
+    return div;
+  }
 }
 
-export function createDiscrepancyItemDiv(className, htmlContent) {
-  const div = document.createElement('div');
-  div.className = className;
-  div.innerHTML = htmlContent;
-  return div;
-}
+// Export individual functions for backward compatibility
+export const clearElementContent = DomManipulationHelpers.clearElementContent;
+export const createLinkElement = DomManipulationHelpers.createLinkElement;
+export const createListItemWithOptionalLink = DomManipulationHelpers.createListItemWithOptionalLink;
+export const populateDatalistWithOptions = DomManipulationHelpers.populateDatalistWithOptions;
+export const createDiscrepancyItemDiv = DomManipulationHelpers.createDiscrepancyItemDiv;
+export default DomManipulationHelpers;
