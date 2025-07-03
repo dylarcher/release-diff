@@ -30,7 +30,7 @@ class InternationalizationHelper {
     const textElements = document.querySelectorAll('[data-i18n]');
     for (const element of textElements) {
       const messageKey = element.getAttribute('data-i18n');
-      const localizedText = this.getMessage(messageKey);
+      const localizedText = InternationalizationHelper.getMessage(messageKey);
 
       if (localizedText && localizedText !== messageKey) {
         // HTML (simple tags) should be directly in messages.json.
@@ -46,7 +46,7 @@ class InternationalizationHelper {
     const titleElements = document.querySelectorAll('[data-i18n-title]');
     for (const element of titleElements) {
       const messageKey = element.getAttribute('data-i18n-title');
-      const localizedText = this.getMessage(messageKey);
+      const localizedText = InternationalizationHelper.getMessage(messageKey);
 
       if (localizedText && localizedText !== messageKey) {
         element.setAttribute('title', localizedText);
@@ -59,7 +59,7 @@ class InternationalizationHelper {
     const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
     for (const element of placeholderElements) {
       const messageKey = element.getAttribute('data-i18n-placeholder');
-      const localizedText = this.getMessage(messageKey);
+      const localizedText = InternationalizationHelper.getMessage(messageKey);
 
       if (localizedText && localizedText !== messageKey) {
         element.setAttribute('placeholder', localizedText);
