@@ -145,7 +145,13 @@ class BackgroundService {
     }
 
     async testGitLabConnectionHandler() {
-        throw new Error(ERROR_MESSAGES.GITLAB_TEST_NOT_IMPLEMENTED);
+        const config = await loadApiConfigurationFromStorage();
+        const { gitlabBaseUrl, gitlabPat } = config;
+
+        if (!gitlabBaseUrl || !gitlabPat) {
+            throw new Error(ERROR_MESSAGES.GITLAB_CONFIGURATION_MISSING);
+        }
+        return await GitLabService.testConnection(gitlabBaseUrl, gitlabPat);
     }
 }
 
@@ -291,6 +297,28 @@ class GitLabService {
             commits.push(commit);
         }
         return commits;
+    }
+
+    static async testConnection(gitlabBaseUrl, gitlabPat) {
+        try {
+            const url = buildCleanApiUrl(gitlabBaseUrl, GITLAB_ENDPOINTS.USER);
+            const result = await makeAuthenticatedApiRequest(url, gitlabPat, AUTH_TYPES.BEARER);
+            return {
+                success: true,
+                message: SUCCESS_MESSAGES.GITLAB_API_CONNECTION_SUCCESSFUL, // This is a user message key
+                data: result
+            };
+        } catch (error) {
+            if (error.message.includes(HTTP_STATUS.UNAUTHORIZED)) {
+                throw new Error(ERROR_MESSAGES.GITLAB_AUTHENTICATION_FAILED);
+            } else if (error.message.includes(HTTP_STATUS.FORBIDDEN)) {
+                throw new Error(ERROR_MESSAGES.GITLAB_ACCESS_FORBIDDEN);
+            } else if (error.message.includes(HTTP_STATUS.NOT_FOUND)) {
+                throw new Error(ERROR_MESSAGES.GITLAB_API_ENDPOINT_NOT_FOUND);
+            }
+            // Generic fallback
+            throw error;
+        }
     }
 }
 

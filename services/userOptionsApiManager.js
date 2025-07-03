@@ -135,13 +135,13 @@ class SettingsManager {
                     }
                 },
                 false: () => {
-                    displayStatusWithAutoHide(statusDiv, `${STATUS_MESSAGES.TEST_FAILED.replace('{action}', action)} ${response.message || ERROR_MESSAGES.UNKNOWN_ERROR}`, STATUS_TYPES.ERROR);
+                    displayStatusWithAutoHide(statusDiv, `${getMessage('testFailedNotice', action)} ${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR);
                 }
             }[Boolean(response.success)];
 
             resultHandler();
         } catch (error) {
-            displayStatusWithAutoHide(statusDiv, STATUS_MESSAGES.TEST_FAILED_CHECK_CONSOLE.replace('{action}', action), STATUS_TYPES.ERROR);
+            displayStatusWithAutoHide(statusDiv, getMessage('testFailedCheckConsoleNotice', action), STATUS_TYPES.ERROR);
             console.error(`${action} error:`, error);
         }
     }

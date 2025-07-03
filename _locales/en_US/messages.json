@@ -12,7 +12,7 @@
     "message": "Tool Settings"
   },
   "compareNotice": {
-    "message": "Compare the user stories and git commit history associated with a release to see the differences between $JIRA_TICKETS$ & $GITLAB_CHANGES$.",
+    "message": "Compare the user stories and git commit history associated with a release to see the differences between <em>$JIRA_TICKETS$</em> & <em>$GITLAB_CHANGES$</em>.",
     "placeholders": {
       "jira_tickets": {
         "content": "Jira tickets"
@@ -132,13 +132,13 @@
     }
   },
   "jiraUrlPlaceholder": {
-    "message": "e.g. https://jira.atlassian.com"
+    "message": "e.g. https://{ORG_NAME}.atlassian.com"
   },
   "jiraUrlHint": {
     "message": "e.g. $EXAMPLE_URL$",
     "placeholders": {
       "example_url": {
-        "content": "https://jira.dell.net"
+        "content": "https://jira.{ORG_NAME}.net"
       }
     }
   },
@@ -151,13 +151,13 @@
     }
   },
   "gitlabUrlPlaceholder": {
-    "message": "e.g. https://gitlab.enterprise.com"
+    "message": "e.g. https://gitlab.{ORG_NAME}.net"
   },
   "gitlabUrlHint": {
     "message": "e.g. $EXAMPLE_URL$",
     "placeholders": {
       "example_url": {
-        "content": "https://gitlab.dell.net"
+        "content": "https://gitlab.{ORG_NAME}.net"
       }
     }
   },

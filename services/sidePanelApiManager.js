@@ -112,7 +112,7 @@ class ExtensionUIManager {
                     this.displaySummaryResults(response.summary);
                 },
                 false: () => {
-                    displayStatusMessage(statusMessageDiv, `Error: ${response.message || ERROR_MESSAGES.UNKNOWN_ERROR}`, STATUS_TYPES.ERROR);
+                    displayStatusMessage(statusMessageDiv, `${getMessage('errorPrefix')}${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR);
                 }
             }[Boolean(response.success)];
 
@@ -188,7 +188,7 @@ class ExtensionUIManager {
         clearElementContent(gitlabHistoryDiv);
 
         for (const issue of summary.allJiraIssues) {
-            const issueHtml = `<strong><a href="${URL_TEMPLATES.JIRA_ISSUE.replace('{key}', issue.key)}" target="_blank">${issue.key}</a></strong>: ${issue.summary} <br> <small>Status: ${issue.status}</small>`;
+            const issueHtml = `<strong><a href="${URL_TEMPLATES.JIRA_ISSUE.replace('{key}', issue.key)}" target="_blank">${issue.key}</a></strong>: ${issue.summary} <br> <small>${getMessage('statusLabel')}${issue.status}</small>`;
             const issueEl = createDiscrepancyItemDiv(CSS_CLASSES.DISCREPANCY_ITEM, issueHtml);
             jiraTicketsDiv.appendChild(issueEl);
         }
@@ -197,7 +197,7 @@ class ExtensionUIManager {
             let commitHtml = `<strong><a href="${URL_TEMPLATES.GITLAB_COMMIT.replace('{projectPath}', summary.gitlabProjectPath).replace('{commitId}', commit.id)}" target="_blank">${commit.short_id}</a></strong>: ${commit.title}`;
 
             if (commit.jira_keys && commit.jira_keys.length > 0) {
-                commitHtml += `<br><small>Related Jira: ${commit.jira_keys.join(', ')}</small>`;
+                commitHtml += `<br><small>${getMessage('relatedJiraLabel')}${commit.jira_keys.join(', ')}</small>`;
             }
 
             const commitEl = createDiscrepancyItemDiv(CSS_CLASSES.DISCREPANCY_ITEM, commitHtml);

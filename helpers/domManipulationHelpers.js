@@ -18,19 +18,14 @@ class DomManipulationHelpers {
   static createListItemWithOptionalLink(text, link = null) {
     const li = document.createElement(DOM_ELEMENTS.LIST_ITEM);
 
-    const content = {
-      true: () => {
-        const a = this.createLinkElement(link, text);
-        a.classList.add(CSS_CLASSES.JIRA_LINK);
-        return a;
-      },
-      false: () => text
-    }[Boolean(link)];
-
-    if (Boolean(link)) {
-      li.appendChild(content());
+    if (link) {
+      const a = this.createLinkElement(link, text); // createLinkElement uses textContent for the link text
+      a.classList.add(CSS_CLASSES.JIRA_LINK);
+      li.appendChild(a);
     } else {
-      li.innerHTML = content();
+      // If 'text' might contain HTML (e.g. from i18n messages that now include tags),
+      // then innerHTML is appropriate for the li content.
+      li.innerHTML = text;
     }
 
     return li;

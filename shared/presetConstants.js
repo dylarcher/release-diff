@@ -36,7 +36,40 @@ export const CONSOLE_MESSAGES = {
   ERROR_SENDING_MESSAGE_WITH_ACTION: 'Error sending message with action'
 };
 
+// ===== USER MESSAGE KEYS (for i18n) =====
+export const USER_MESSAGES = {
+  // Error messages shown to users
+  ALL_FIELDS_REQUIRED: 'allFieldsRequired',
+  FAILED_TO_SAVE_SETTINGS: 'failedToSaveSettings',
+  FILL_ALL_INPUT_FIELDS: 'fillAllInputFields',
+  UNEXPECTED_ERROR_OCCURRED: 'unexpectedErrorOccurred',
+  ENTER_JIRA_PROJECT_KEY_FIRST: 'enterJiraProjectKeyFirst',
+  ERROR_GETTING_FIX_VERSIONS: 'errorGettingFixVersions',
+
+  // Success messages shown to users
+  SETTINGS_SAVED: 'settingsSaved',
+  BACKGROUND_SCRIPT_CONNECTION_SUCCESSFUL: 'backgroundScriptConnectionSuccessful',
+  JIRA_API_CONNECTION_SUCCESSFUL: 'jiraApiConnectionSuccessful',
+  GITLAB_API_CONNECTION_SUCCESSFUL: 'gitlabApiConnectionSuccessful',
+  SUMMARY_GENERATED_SUCCESSFULLY: 'summaryGeneratedSuccessfully',
+  FIX_VERSIONS_RETRIEVED_SUCCESSFULLY: 'fixVersionsRetrievedSuccessfully',
+
+  // Status messages shown to users
+  TESTING_CONNECTION: 'testingConnection',
+  TESTING_JIRA_API_CONNECTION: 'testingJiraApiConnection',
+  TESTING_GITLAB_API_CONNECTION: 'testingGitlabApiConnection',
+  FETCHING_AND_COMPARING_DATA: 'fetchingAndComparingData',
+  FETCHING_AVAILABLE_FIX_VERSIONS: 'fetchingAvailableFixVersions',
+
+  // GitLab specific errors
+  GITLAB_CONFIG_MISSING: 'gitlabConfigMissing',
+  GITLAB_AUTH_FAILED: 'gitlabAuthFailed',
+  GITLAB_FORBIDDEN: 'gitlabForbidden',
+  GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound'
+};
+
 // ===== ERROR MESSAGES (Technical/System) =====
+// These are internal error identifiers, some of which map to USER_MESSAGES keys for localization.
 export const ERROR_MESSAGES = {
   OPENING_SIDE_PANEL: 'Error opening side panel:',
   WINDOW_LEVEL_SIDE_PANEL_FAILED: 'Window-level side panel open also failed:',
@@ -44,7 +77,10 @@ export const ERROR_MESSAGES = {
   MISSING_CONFIGURATION: 'Missing configuration. Please ensure Jira URL, PAT, and project key are provided.',
   JIRA_CONFIGURATION_MISSING: 'Jira configuration missing. Please set up your Jira URL and PAT in the options page.',
   ALL_JIRA_ENDPOINTS_FAILED: 'All Jira test endpoints failed. This might be a Jira Server/Data Center instance with different API paths.',
-  GITLAB_TEST_NOT_IMPLEMENTED: 'GitLab test not implemented yet',
+  GITLAB_CONFIGURATION_MISSING: USER_MESSAGES.GITLAB_CONFIG_MISSING,
+  GITLAB_AUTHENTICATION_FAILED: USER_MESSAGES.GITLAB_AUTH_FAILED,
+  GITLAB_ACCESS_FORBIDDEN: USER_MESSAGES.GITLAB_FORBIDDEN,
+  GITLAB_API_ENDPOINT_NOT_FOUND: USER_MESSAGES.GITLAB_ENDPOINT_NOT_FOUND,
   ALL_JIRA_API_VERSIONS_FAILED: 'All Jira API versions failed. Last error:',
   GITLAB_TAGS_NOT_FOUND: 'Could not find GitLab tags:',
   GITLAB_TAGS_ENSURE_EXISTS: 'Ensure they exist and are correctly named.',
@@ -82,32 +118,6 @@ export const BUTTON_TEXT = {
   RE_TEST_GITLAB_API: 'retestGitlabApi'
 };
 
-// ===== USER MESSAGE KEYS (for i18n) =====
-export const USER_MESSAGES = {
-  // Error messages shown to users
-  ALL_FIELDS_REQUIRED: 'allFieldsRequired',
-  FAILED_TO_SAVE_SETTINGS: 'failedToSaveSettings',
-  FILL_ALL_INPUT_FIELDS: 'fillAllInputFields',
-  UNEXPECTED_ERROR_OCCURRED: 'unexpectedErrorOccurred',
-  ENTER_JIRA_PROJECT_KEY_FIRST: 'enterJiraProjectKeyFirst',
-  ERROR_GETTING_FIX_VERSIONS: 'errorGettingFixVersions',
-
-  // Success messages shown to users
-  SETTINGS_SAVED: 'settingsSaved',
-  BACKGROUND_SCRIPT_CONNECTION_SUCCESSFUL: 'backgroundScriptConnectionSuccessful',
-  JIRA_API_CONNECTION_SUCCESSFUL: 'jiraApiConnectionSuccessful',
-  GITLAB_API_CONNECTION_SUCCESSFUL: 'gitlabApiConnectionSuccessful',
-  SUMMARY_GENERATED_SUCCESSFULLY: 'summaryGeneratedSuccessfully',
-  FIX_VERSIONS_RETRIEVED_SUCCESSFULLY: 'fixVersionsRetrievedSuccessfully',
-
-  // Status messages shown to users
-  TESTING_CONNECTION: 'testingConnection',
-  TESTING_JIRA_API_CONNECTION: 'testingJiraApiConnection',
-  TESTING_GITLAB_API_CONNECTION: 'testingGitlabApiConnection',
-  FETCHING_AND_COMPARING_DATA: 'fetchingAndComparingData',
-  FETCHING_AVAILABLE_FIX_VERSIONS: 'fetchingAvailableFixVersions'
-};
-
 // ===== API ENDPOINTS =====
 export const JIRA_ENDPOINTS = {
   SERVER_INFO_V2: 'rest/api/2/serverInfo',
@@ -121,7 +131,8 @@ export const JIRA_ENDPOINTS = {
 export const GITLAB_ENDPOINTS = {
   PROJECT_DETAILS: 'api/v4/projects/{projectId}',
   PROJECT_TAGS: 'api/v4/projects/{projectId}/repository/tags',
-  PROJECT_COMMITS: 'api/v4/projects/{projectId}/repository/commits'
+  PROJECT_COMMITS: 'api/v4/projects/{projectId}/repository/commits',
+  USER: 'api/v4/user'
 };
 
 // ===== API VERSIONS =====

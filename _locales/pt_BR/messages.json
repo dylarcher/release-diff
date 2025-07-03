@@ -12,7 +12,7 @@
     "message": "Configurações da Ferramenta"
   },
   "compareNotice": {
-    "message": "Compare as histórias de usuário e o histórico de commits do git associados a um release para ver as diferenças entre $JIRA_TICKETS$ e $GITLAB_CHANGES$.",
+    "message": "Compare as histórias de usuário e o histórico de commits do git associados a um release para ver as diferenças entre <em>$JIRA_TICKETS$</em> e <em>$GITLAB_CHANGES$</em>.",
     "placeholders": {
       "jira_tickets": {
         "content": "tickets do Jira"
