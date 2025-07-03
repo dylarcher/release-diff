@@ -65,7 +65,44 @@ export const USER_MESSAGES = {
   GITLAB_CONFIG_MISSING: 'gitlabConfigMissing',
   GITLAB_AUTH_FAILED: 'gitlabAuthFailed',
   GITLAB_FORBIDDEN: 'gitlabForbidden',
-  GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound'
+  GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound',
+
+  // Error messages shown to users
+  ALL_FIELDS_REQUIRED: 'allFieldsRequired',
+  FAILED_TO_SAVE_SETTINGS: 'failedToSaveSettings',
+  FILL_ALL_INPUT_FIELDS: 'fillAllInputFields',
+  UNEXPECTED_ERROR_OCCURRED: 'unexpectedErrorOccurred',
+  ENTER_JIRA_PROJECT_KEY_FIRST: 'enterJiraProjectKeyFirst',
+  ERROR_GETTING_FIX_VERSIONS: 'errorGettingFixVersions',
+
+  // Success messages shown to users
+  SETTINGS_SAVED: 'settingsSaved',
+  BACKGROUND_SCRIPT_CONNECTION_SUCCESSFUL: 'backgroundScriptConnectionSuccessful',
+  JIRA_API_CONNECTION_SUCCESSFUL: 'jiraApiConnectionSuccessful',
+  GITLAB_API_CONNECTION_SUCCESSFUL: 'gitlabApiConnectionSuccessful',
+  SUMMARY_GENERATED_SUCCESSFULLY: 'summaryGeneratedSuccessfully',
+  FIX_VERSIONS_RETRIEVED_SUCCESSFULLY: 'fixVersionsRetrievedSuccessfully',
+
+  // Status messages shown to users
+  TESTING_CONNECTION: 'testingConnection',
+  TESTING_JIRA_API_CONNECTION: 'testingJiraApiConnection',
+  TESTING_GITLAB_API_CONNECTION: 'testingGitlabApiConnection',
+  FETCHING_AND_COMPARING_DATA: 'fetchingAndComparingData',
+  FETCHING_AVAILABLE_FIX_VERSIONS: 'fetchingAvailableFixVersions',
+
+  // GitLab specific errors
+  GITLAB_CONFIG_MISSING: 'gitlabConfigMissing',
+  GITLAB_AUTH_FAILED: 'gitlabAuthFailed',
+  GITLAB_FORBIDDEN: 'gitlabForbidden',
+  GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound',
+
+  // Generic UI messages
+  ERROR_PREFIX: 'errorPrefix',
+  STATUS_LABEL: 'statusLabel',
+  RELATED_JIRA_LABEL: 'relatedJiraLabel',
+  UNKNOWN_SYSTEM_ERROR: 'unknownSystemError',
+  TEST_FAILED_NOTICE: 'testFailedNotice',
+  TEST_FAILED_CHECK_CONSOLE_NOTICE: 'testFailedCheckConsoleNotice'
 };
 
 // ===== ERROR MESSAGES (Technical/System) =====
