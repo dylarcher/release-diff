@@ -33,39 +33,31 @@ class InternationalizationHelper {
       const localizedText = InternationalizationHelper.getMessage(messageKey);
 
       if (localizedText && localizedText !== messageKey) {
-        // HTML (simple tags) should be directly in messages.json.
-        // Default to innerHTML to render them.
+        // Message came from messages.json. Assuming it contains safe HTML for formatting.
         element.innerHTML = localizedText;
       } else if (localizedText === messageKey) {
-        // Fallback or if key is the desired text and no message found
-        element.innerHTML = messageKey; // Use innerHTML for consistency, works for plain text too.
+        // Fallback: Use the attribute value itself as text. MUST use textContent here to prevent XSS.
+        element.textContent = messageKey;
       }
     }
 
-    // Handle title attributes
+    // Handle title attributes (should always be text)
     const titleElements = document.querySelectorAll('[data-i18n-title]');
     for (const element of titleElements) {
       const messageKey = element.getAttribute('data-i18n-title');
       const localizedText = InternationalizationHelper.getMessage(messageKey);
-
-      if (localizedText && localizedText !== messageKey) {
-        element.setAttribute('title', localizedText);
-      } else if (localizedText === messageKey) {
-        element.setAttribute('title', messageKey);
-      }
+      // Set attribute directly. If localizedText is empty/null, title might be empty or fallback to key.
+      // Browsers treat title attribute value as text.
+      element.setAttribute('title', localizedText || messageKey);
     }
 
-    // Handle placeholder attributes for input fields
+    // Handle placeholder attributes (should always be text)
     const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
     for (const element of placeholderElements) {
       const messageKey = element.getAttribute('data-i18n-placeholder');
       const localizedText = InternationalizationHelper.getMessage(messageKey);
-
-      if (localizedText && localizedText !== messageKey) {
-        element.setAttribute('placeholder', localizedText);
-      } else if (localizedText === messageKey) {
-        element.setAttribute('placeholder', messageKey);
-      }
+      // Set attribute directly. Browsers treat placeholder attribute value as text.
+      element.setAttribute('placeholder', localizedText || messageKey);
     }
   }
 
