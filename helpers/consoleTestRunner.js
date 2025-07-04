@@ -25,7 +25,7 @@ export const logAssertionToConsole = (/** @type {TestArgs} */ { subject, fn, arg
     info('🗺️ Expect:', expect);
 
     typeof actual === 'object'
-      ? table(JSON.stringify(actual, null, 2))
+      ? table(actual)
       : info('☑️ Actual:', actual);
     info(`${status ? '✅' : '❌'} %cStatus: ${actual} ${status ? '===' : '!=='} ${expect}`, `color: ${!status ? 'tomato' : 'seagreen'}; font - weight: 800; `);
 
