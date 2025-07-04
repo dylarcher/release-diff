@@ -24,6 +24,23 @@ class ExtensionUIManager {
         this.setupElementReferences();
         this.setupEventListeners();
         this.loadFormValuesFromStorage();
+        this.loadAndApplyTheme(); // Added this line
+    }
+
+    async loadAndApplyTheme() {
+        try {
+            const theme = await loadThemePreference();
+            if (theme) {
+                document.body.dataset.theme = theme;
+            } else {
+                // If no theme is saved, default to light or try to use system preference
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.body.dataset.theme = prefersDark ? 'dark' : 'light';
+            }
+        } catch (error) {
+            console.error(CONSOLE_MESSAGES.THEME_LOAD_ERROR, error);
+            document.body.dataset.theme = 'light'; // Fallback to light theme
+        }
     }
 
     initializeI18n() {

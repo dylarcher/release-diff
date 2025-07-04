@@ -306,5 +306,11 @@
         "content": "$2"
       }
     }
+  },
+  "themeToggle": {
+    "message": "Theme:"
+  },
+  "themeToggleDark": {
+    "message": "Dark Mode"
   }
 }

@@ -295,5 +295,11 @@
   },
   "retestGitlabApi": {
     "message": "Testar API do GitLab Novamente"
+  },
+  "themeToggle": {
+    "message": "Tema:"
+  },
+  "themeToggleDark": {
+    "message": "Modo Escuro"
   }
 }

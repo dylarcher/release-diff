@@ -33,7 +33,10 @@ export const CONSOLE_MESSAGES = {
   FORM_VALUES_SAVED_TO_STORAGE: 'Form values saved to storage',
   BACKGROUND_MESSAGE_HANDLER_ERROR: 'Background message handler error:',
   I18N_MESSAGE_FAILED: 'Failed to get i18n message for',
-  ERROR_SENDING_MESSAGE_WITH_ACTION: 'Error sending message with action'
+  ERROR_SENDING_MESSAGE_WITH_ACTION: 'Error sending message with action',
+  THEME_SAVED: 'Theme preference saved:',
+  THEME_LOAD_ERROR: 'Error loading theme preference:',
+  THEME_SAVE_ERROR: 'Error saving theme preference:'
 };
 
 // ===== USER MESSAGE KEYS (for i18n) =====
@@ -231,6 +234,7 @@ export const ELEMENT_IDS = {
   TEST_BTN: 'testBtn',
   TEST_JIRA_BTN: 'testJiraBtn',
   TEST_GITLAB_BTN: 'testGitLabBtn',
+  THEME_TOGGLE: 'themeToggle',
   GENERATE_SUMMARY_BTN: 'generateSummaryBtn',
   GET_VERSIONS_BTN: 'getVersionsBtn',
   LOADING_SPINNER: 'loading',
@@ -284,7 +288,8 @@ export const STORAGE_KEYS = {
   JIRA_BASE_URL: 'jiraBaseUrl',
   JIRA_PAT: 'jiraPat',
   GITLAB_BASE_URL: 'gitlabBaseUrl',
-  GITLAB_PAT: 'gitlabPat'
+  GITLAB_PAT: 'gitlabPat',
+  THEME_PREFERENCE: 'themePreference'
 };
 
 // ===== DEFAULT VALUES =====
