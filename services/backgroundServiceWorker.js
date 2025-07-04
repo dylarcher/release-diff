@@ -15,21 +15,64 @@ import {
     PAGINATION,
     JIRA_FIELDS,
     JIRA_RESOLVED_STATUSES,
-    JQL_TEMPLATES
+    JQL_TEMPLATES,
+    STORAGE_KEYS
 } from '../shared/presetConstants.js';
+// Import the function directly, not the class
+import { getConsoleTestSetting } from './userOptionsApiManager.js';
 
 console.log(CONSOLE_MESSAGES.BACKGROUND_SCRIPT_LOADED);
+
+// Function to dynamically import and run tests
+async function runAllConsoleTests() {
+    console.log('Attempting to run console tests...');
+    try {
+        // Dynamically import all test modules.
+        // The tests will run if enabled due to the structure of the test files (runTests() call at the end).
+        await import('../helpers/domManipulationHelpers.test.js');
+        await import('../helpers/formValidationHelpers.test.js');
+        await import('../helpers/internationalizationHelper.test.js');
+        await import('../helpers/jiraIssueKeyParser.test.js');
+        console.log('Console tests execution cycle finished.');
+    } catch (error) {
+        console.error('Error during console test execution:', error);
+    }
+}
 
 class BackgroundService {
     constructor() {
         this.setupEventListeners();
         this.setupMessageHandlers();
+        this.initializeConsoleTests(); // Initialize console tests on startup
     }
 
     setupEventListeners() {
         chrome.action.onClicked.addListener(this.handleActionClick.bind(this));
         chrome.runtime.onMessage.addListener(this.handleMessages());
         chrome.runtime.onInstalled.addListener(this.handleInstalled.bind(this));
+        chrome.storage.onChanged.addListener(this.handleStorageChange.bind(this));
+    }
+
+    async initializeConsoleTests() {
+        const consoleTestsEnabled = await getConsoleTestSetting();
+        if (consoleTestsEnabled) {
+            console.log('Console tests enabled on startup. Running tests.');
+            runAllConsoleTests();
+        } else {
+            console.log('Console tests disabled on startup.');
+        }
+    }
+
+    handleStorageChange(changes, areaName) {
+        if (areaName === 'local' && changes[STORAGE_KEYS.ENABLE_CONSOLE_TESTS]) {
+            const newValue = changes[STORAGE_KEYS.ENABLE_CONSOLE_TESTS].newValue;
+            console.log(`Console test setting changed to: ${newValue}`);
+            if (newValue) {
+                runAllConsoleTests();
+            } else {
+                console.log('Console tests disabled by user. Tests will not run.');
+            }
+        }
     }
 
     setupMessageHandlers() {

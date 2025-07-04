@@ -306,5 +306,14 @@
         "content": "$2"
       }
     }
+  },
+  "developerSettings": {
+    "message": "Developer Settings"
+  },
+  "enableConsoleTests": {
+    "message": "Enable Console Tests"
+  },
+  "enableConsoleTestsHint": {
+    "message": "Enable or disable the execution of console tests for debugging."
   }
 }

@@ -231,6 +231,7 @@ export const ELEMENT_IDS = {
   TEST_BTN: 'testBtn',
   TEST_JIRA_BTN: 'testJiraBtn',
   TEST_GITLAB_BTN: 'testGitLabBtn',
+  ENABLE_CONSOLE_TESTS: 'enableConsoleTests',
   GENERATE_SUMMARY_BTN: 'generateSummaryBtn',
   GET_VERSIONS_BTN: 'getVersionsBtn',
   LOADING_SPINNER: 'loading',
@@ -284,7 +285,8 @@ export const STORAGE_KEYS = {
   JIRA_BASE_URL: 'jiraBaseUrl',
   JIRA_PAT: 'jiraPat',
   GITLAB_BASE_URL: 'gitlabBaseUrl',
-  GITLAB_PAT: 'gitlabPat'
+  GITLAB_PAT: 'gitlabPat',
+  ENABLE_CONSOLE_TESTS: 'enableConsoleTests'
 };
 
 // ===== DEFAULT VALUES =====

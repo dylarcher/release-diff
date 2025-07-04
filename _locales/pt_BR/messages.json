@@ -295,5 +295,14 @@
   },
   "retestGitlabApi": {
     "message": "Testar API do GitLab Novamente"
+  },
+  "developerSettings": {
+    "message": "Configurações do Desenvolvedor"
+  },
+  "enableConsoleTests": {
+    "message": "Habilitar Testes de Console"
+  },
+  "enableConsoleTestsHint": {
+    "message": "Habilite ou desabilite a execução de testes de console para depuração."
   }
 }
