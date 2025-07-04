@@ -62,7 +62,7 @@ class SettingsManager {
     }
 
     async handleSave() {
-        const { jiraBaseUrlInput, jiraPatInput, gitlabBaseUrlInput, gitlabPatInput, statusDiv, enableConsoleTestsCheckbox } = this.elements;
+        const { jiraBaseUrlInput, jiraPatInput, gitlabBaseUrlInput, gitlabPatInput, statusDiv } = this.elements;
 
         const [jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat] = [
             jiraBaseUrlInput.value.trim(),
