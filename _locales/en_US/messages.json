@@ -295,5 +295,16 @@
   },
   "retestGitlabApi": {
     "message": "Re-test GitLab API"
+  },
+  "testFailedNotice": {
+    "message": "Test failed for $ACTION$: $MESSAGE$",
+    "placeholders": {
+      "action": {
+        "content": "$1"
+      },
+      "message": {
+        "content": "$2"
+      }
+    }
   }
 }

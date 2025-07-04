@@ -135,7 +135,7 @@ class SettingsManager {
                     }
                 },
                 false: () => {
-                    displayStatusWithAutoHide(statusDiv, `${getMessage('testFailedNotice', action)} ${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR);
+                    displayStatusWithAutoHide(statusDiv, `${getMessage('testFailedNotice', action)} ${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR, 10000);
                 }
             }[Boolean(response.success)];
 
