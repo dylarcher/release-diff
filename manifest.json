@@ -44,7 +44,7 @@
         "<all_urls>"
       ],
       "resources": [
-        "shared/styles.css",
+        "shared/designTokens.css",
         "helpers/internationalizationHelper.js"
       ]
     }
