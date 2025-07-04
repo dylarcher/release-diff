@@ -29,10 +29,12 @@ async function runAllConsoleTests() {
     try {
         // Dynamically import all test modules.
         // The tests will run if enabled due to the structure of the test files (runTests() call at the end).
-        await import('../helpers/domManipulationHelpers.test.js');
-        await import('../helpers/formValidationHelpers.test.js');
-        await import('../helpers/internationalizationHelper.test.js');
-        await import('../helpers/jiraIssueKeyParser.test.js');
+        await Promise.all([
+            import('../helpers/domManipulationHelpers.test.js'),
+            import('../helpers/formValidationHelpers.test.js'),
+            import('../helpers/internationalizationHelper.test.js'),
+            import('../helpers/jiraIssueKeyParser.test.js')
+        ]);
         console.log('Console tests execution cycle finished.');
     } catch (error) {
         console.error('Error during console test execution:', error);
