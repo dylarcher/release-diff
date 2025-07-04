@@ -52,47 +52,63 @@ GLOBAL STYLES
     --warn-text-dark: #ffdfa8;
 }
 
-/* Apply theme based on user's system preference */
-@media (prefers-color-scheme: light) {
-    body {
-        --bg-color: var(--bg-color-light);
-        --surface-color: var(--surface-color-light);
-        --text-primary: var(--text-primary-light);
-        --text-secondary: var(--text-secondary-light);
-        --border-color: var(--border-color-light);
-        --accent-color: var(--accent-color-light);
-        --accent-color-hover: var(--accent-color-hover-light);
-        --accent-text-color: var(--accent-text-color-light);
-        --success-bg: var(--success-bg-light);
-        --success-text: var(--success-text-light);
-        --error-bg: var(--error-bg-light);
-        --error-text: var(--error-text-light);
-        --info-bg: var(--info-bg-light);
-        --info-text: var(--info-text-light);
-        --warn-bg: var(--warn-bg-light);
-        --warn-text: var(--warn-text-light);
-    }
+/* Apply theme based on a data-theme attribute on the body */
+body[data-theme="light"] {
+    --bg-color: var(--bg-color-light);
+    --surface-color: var(--surface-color-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-hover: var(--accent-color-hover-light);
+    --accent-text-color: var(--accent-text-color-light);
+    --success-bg: var(--success-bg-light);
+    --success-text: var(--success-text-light);
+    --error-bg: var(--error-bg-light);
+    --error-text: var(--error-text-light);
+    --info-bg: var(--info-bg-light);
+    --info-text: var(--info-text-light);
+    --warn-bg: var(--warn-bg-light);
+    --warn-text: var(--warn-text-light);
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        --bg-color: var(--bg-color-dark);
-        --surface-color: var(--surface-color-dark);
-        --text-primary: var(--text-primary-dark);
-        --text-secondary: var(--text-secondary-dark);
-        --border-color: var(--border-color-dark);
-        --accent-color: var(--accent-color-dark);
-        --accent-color-hover: var(--accent-color-hover-dark);
-        --accent-text-color: var(--accent-text-color-dark);
-        --success-bg: var(--success-bg-dark);
-        --success-text: var(--success-text-dark);
-        --error-bg: var(--error-bg-dark);
-        --error-text: var(--error-text-dark);
-        --info-bg: var(--info-bg-dark);
-        --info-text: var(--info-text-dark);
-        --warn-bg: var(--warn-bg-dark);
-        --warn-text: var(--warn-text-dark);
-    }
+body[data-theme="dark"] {
+    --bg-color: var(--bg-color-dark);
+    --surface-color: var(--surface-color-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --border-color: var(--border-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --accent-color-hover: var(--accent-color-hover-dark);
+    --accent-text-color: var(--accent-text-color-dark);
+    --success-bg: var(--success-bg-dark);
+    --success-text: var(--success-text-dark);
+    --error-bg: var(--error-bg-dark);
+    --error-text: var(--error-text-dark);
+    --info-bg: var(--info-bg-dark);
+    --info-text: var(--info-text-dark);
+    --warn-bg: var(--warn-bg-dark);
+    --warn-text: var(--warn-text-dark);
+}
+
+/* Default to light theme if no preference is set or JS is disabled */
+body:not([data-theme="dark"]) {
+    --bg-color: var(--bg-color-light);
+    --surface-color: var(--surface-color-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-hover: var(--accent-color-hover-light);
+    --accent-text-color: var(--accent-text-color-light);
+    --success-bg: var(--success-bg-light);
+    --success-text: var(--success-text-light);
+    --error-bg: var(--error-bg-light);
+    --error-text: var(--error-text-light);
+    --info-bg: var(--info-bg-light);
+    --info-text: var(--info-text-light);
+    --warn-bg: var(--warn-bg-light);
+    --warn-text: var(--warn-text-light);
 }
 
 /* Base Styles */
@@ -213,6 +229,10 @@ hr {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px var(--accent-color-dark-alpha, rgba(68, 157, 255, 0.3));
+}
+
+.form-group-no-margin {
+    margin-bottom: 0;
 }
 
 .input-hint {

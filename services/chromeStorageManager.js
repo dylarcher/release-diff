@@ -90,4 +90,33 @@ export const saveFormDataToStorage = ChromeStorageManager.saveFormDataToStorage;
 export const loadFormDataFromStorage = ChromeStorageManager.loadFormDataFromStorage;
 export const saveApiConfigurationToStorage = ChromeStorageManager.saveApiConfigurationToStorage;
 export const loadApiConfigurationFromStorage = ChromeStorageManager.loadApiConfigurationFromStorage;
+
+// Theme preference functions
+export async function saveThemePreference(theme) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme }, () => {
+      if (chrome.runtime.lastError) {
+        console.error(CONSOLE_MESSAGES.SAVE_ERROR, chrome.runtime.lastError);
+        reject(chrome.runtime.lastError);
+      } else {
+        console.log(CONSOLE_MESSAGES.THEME_SAVED, theme);
+        resolve();
+      }
+    });
+  });
+}
+
+export async function loadThemePreference() {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get([STORAGE_KEYS.THEME_PREFERENCE], (result) => {
+      if (chrome.runtime.lastError) {
+        console.error(CONSOLE_MESSAGES.LOAD_ERROR, chrome.runtime.lastError);
+        reject(chrome.runtime.lastError);
+      } else {
+        resolve(result[STORAGE_KEYS.THEME_PREFERENCE]);
+      }
+    });
+  });
+}
+
 export default ChromeStorageManager;

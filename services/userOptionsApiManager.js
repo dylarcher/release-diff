@@ -1,5 +1,5 @@
 import { displayStatusWithAutoHide } from './statusDisplayManager.js';
-import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage } from './chromeStorageManager.js';
+import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage, saveThemePreference, loadThemePreference } from './chromeStorageManager.js';
 import { sendMessageToBackgroundScript } from './chromeMessageHandler.js';
 import { validateRequiredFields } from '../helpers/formValidationHelpers.js';
 import { initializeI18n, getMessage } from '../helpers/internationalizationHelper.js';
@@ -37,24 +37,43 @@ class SettingsManager {
             statusDiv: document.getElementById(ELEMENT_IDS.STATUS),
             testBtn: document.getElementById(ELEMENT_IDS.TEST_BTN),
             testJiraBtn: document.getElementById(ELEMENT_IDS.TEST_JIRA_BTN),
-            testGitLabBtn: document.getElementById(ELEMENT_IDS.TEST_GITLAB_BTN)
+            testGitLabBtn: document.getElementById(ELEMENT_IDS.TEST_GITLAB_BTN),
+            themeToggle: document.getElementById(ELEMENT_IDS.THEME_TOGGLE)
         };
     }
 
     setupEventListeners() {
-        const { saveButton, testBtn, testJiraBtn, testGitLabBtn } = this.elements;
+        const { saveButton, testBtn, testJiraBtn, testGitLabBtn, themeToggle } = this.elements;
 
         this.eventHandlers = new Map([
             ['save', this.handleSave.bind(this)],
             ['testGeneral', this.handleTestGeneral.bind(this)],
             ['testJira', this.handleTestJira.bind(this)],
-            ['testGitLab', this.handleTestGitLab.bind(this)]
+            ['testGitLab', this.handleTestGitLab.bind(this)],
+            ['themeChange', this.handleThemeChange.bind(this)]
         ]);
 
         saveButton.addEventListener('click', this.eventHandlers.get('save'));
         testBtn.addEventListener('click', this.eventHandlers.get('testGeneral'));
         testJiraBtn.addEventListener('click', this.eventHandlers.get('testJira'));
         testGitLabBtn.addEventListener('click', this.eventHandlers.get('testGitLab'));
+        themeToggle.addEventListener('change', this.eventHandlers.get('themeChange'));
+    }
+
+    applyTheme(theme) {
+        document.body.dataset.theme = theme;
+        this.elements.themeToggle.checked = theme === 'dark';
+    }
+
+    async handleThemeChange(event) {
+        const newTheme = event.target.checked ? 'dark' : 'light';
+        this.applyTheme(newTheme);
+        try {
+            await saveThemePreference(newTheme);
+        } catch (error) {
+            console.error(CONSOLE_MESSAGES.THEME_SAVE_ERROR, error);
+            // Optionally, display a status message to the user
+        }
     }
 
     async handleSave() {
@@ -162,8 +181,22 @@ class SettingsManager {
             for (const [configKey, inputElement] of configFields) {
                 inputElement.value = config[configKey] || '';
             }
+
+            // Load and apply theme
+            const savedTheme = await loadThemePreference();
+            if (savedTheme) {
+                this.applyTheme(savedTheme);
+            } else {
+                // If no theme is saved, try to use system preference and save it
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const defaultTheme = prefersDark ? 'dark' : 'light';
+                this.applyTheme(defaultTheme);
+                await saveThemePreference(defaultTheme); // Save this initial theme
+            }
         } catch (error) {
             console.error(CONSOLE_MESSAGES.ERROR_LOADING_SETTINGS, error);
+            // Fallback to light theme if there's an error loading settings or theme
+            this.applyTheme('light');
         }
     }
 }
