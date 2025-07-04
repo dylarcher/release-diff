@@ -1,38 +1,52 @@
 {
-  "manifest_version": 3,
-  "name": "Compare Release: Jira vs GitLab",
-  "version": "1.0",
-  "description": "Provides a consolidated summary and overview of releases by integrating Jira and GitLab data.",
-  "icons": {
-    "16": "icons/16.icon.png",
-    "48": "icons/48.icon.png",
-    "128": "icons/128.icon.png"
-  },
   "action": {
     "default_icon": {
-      "16": "icons/16.icon.png",
-      "48": "icons/48.icon.png",
-      "128": "icons/128.icon.png"
+      "16": "shared/actionIcon16x16.png",
+      "48": "shared/actionIcon48x48.png",
+      "128": "shared/actionIcon128x128.png"
     }
   },
-  "side_panel": {
-    "default_path": "ui/sidepanel.html"
-  },
   "background": {
-    "service_worker": "services/background.js"
+    "service_worker": "services/backgroundServiceWorker.js",
+    "type": "module"
   },
-  "permissions": [
-    "storage",
-    "sidePanel"
-  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "default_locale": "en_US",
+  "description": "__MSG_appDescription__",
   "host_permissions": [
     "https://*.atlassian.net/*",
     "https://jira.dell.com/*",
     "https://gitlab.com/*",
     "https://gitlab.dell.com/*"
   ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+  "icons": {
+    "16": "shared/actionIcon16x16.png",
+    "48": "shared/actionIcon48x48.png",
+    "128": "shared/actionIcon128x128.png"
   },
-  "options_page": "user/options.html"
+  "manifest_version": 3,
+  "minimum_chrome_version": "114",
+  "name": "__MSG_appName__",
+  "options_page": "views/userConfigurations.html",
+  "permissions": [
+    "storage",
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "views/extensionSidePanel.html"
+  },
+  "version": "1.0",
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "shared/styles.css",
+        "helpers/internationalizationHelper.js"
+      ]
+    }
+  ]
 }
