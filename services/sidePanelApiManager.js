@@ -1,5 +1,5 @@
 import { displayStatusMessage } from './statusDisplayManager.js';
-import { saveFormDataToStorage, loadFormDataFromStorage } from './chromeStorageManager.js';
+import { saveFormDataToStorage, loadFormDataFromStorage, loadThemePreference } from './chromeStorageManager.js';
 import { sendMessageToBackgroundScript } from './chromeMessageHandler.js';
 import { clearElementContent, populateDatalistWithOptions, createDiscrepancyItemDiv } from '../helpers/domManipulationHelpers.js';
 import { validateRequiredFields, extractFormFieldValues } from '../helpers/formValidationHelpers.js';
