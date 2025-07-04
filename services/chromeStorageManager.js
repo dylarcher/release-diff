@@ -96,7 +96,7 @@ export async function saveThemePreference(theme) {
   return new Promise((resolve, reject) => {
     chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme }, () => {
       if (chrome.runtime.lastError) {
-        console.error(CONSOLE_MESSAGES.THEME_SAVE_ERROR, chrome.runtime.lastError);
+        console.error(CONSOLE_MESSAGES.SAVE_ERROR, chrome.runtime.lastError);
         reject(chrome.runtime.lastError);
       } else {
         console.log(CONSOLE_MESSAGES.THEME_SAVED, theme);
