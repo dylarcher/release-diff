@@ -92,24 +92,7 @@ body[data-theme="dark"] {
 }
 
 /* Default to light theme if no preference is set or JS is disabled */
-body:not([data-theme="dark"]) {
-    --bg-color: var(--bg-color-light);
-    --surface-color: var(--surface-color-light);
-    --text-primary: var(--text-primary-light);
-    --text-secondary: var(--text-secondary-light);
-    --border-color: var(--border-color-light);
-    --accent-color: var(--accent-color-light);
-    --accent-color-hover: var(--accent-color-hover-light);
-    --accent-text-color: var(--accent-text-color-light);
-    --success-bg: var(--success-bg-light);
-    --success-text: var(--success-text-light);
-    --error-bg: var(--error-bg-light);
-    --error-text: var(--error-text-light);
-    --info-bg: var(--info-bg-light);
-    --info-text: var(--info-text-light);
-    --warn-bg: var(--warn-bg-light);
-    --warn-text: var(--warn-text-light);
-}
+/* Removed redundant block for body:not([data-theme="dark"]) */
 
 /* Base Styles */
 * {
