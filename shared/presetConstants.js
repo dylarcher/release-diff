@@ -68,7 +68,6 @@ export const USER_MESSAGES = {
   GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound',
 
   // Error messages shown to users
-  ALL_FIELDS_REQUIRED: 'allFieldsRequired',
   FAILED_TO_SAVE_SETTINGS: 'failedToSaveSettings',
   FILL_ALL_INPUT_FIELDS: 'fillAllInputFields',
   UNEXPECTED_ERROR_OCCURRED: 'unexpectedErrorOccurred',
