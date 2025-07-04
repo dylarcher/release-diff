@@ -315,5 +315,10 @@
   },
   "enableConsoleTestsHint": {
     "message": "Enable or disable the execution of console tests for debugging."
+  "themeToggle": {
+    "message": "Theme:"
+  },
+  "themeToggleDark": {
+    "message": "Dark Mode"
   }
 }

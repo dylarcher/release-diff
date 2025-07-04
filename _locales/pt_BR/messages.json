@@ -304,5 +304,10 @@
   },
   "enableConsoleTestsHint": {
     "message": "Habilite ou desabilite a execução de testes de console para depuração."
+  "themeToggle": {
+    "message": "Tema:"
+  },
+  "themeToggleDark": {
+    "message": "Modo Escuro"
   }
 }
