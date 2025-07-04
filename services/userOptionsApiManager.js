@@ -115,7 +115,7 @@ class SettingsManager {
         try {
             await chrome.storage.local.set({ [STORAGE_KEYS.ENABLE_CONSOLE_TESTS]: enabled });
             // Optionally, display a specific message for this change, or rely on the general "Save Settings" button
-            // displayStatusWithAutoHide(statusDiv, `Console tests ${enabled ? 'enabled' : 'disabled'}.`, STATUS_TYPES.INFO);
+            displayStatusWithAutoHide(statusDiv, `Console tests ${enabled ? 'enabled' : 'disabled'}.`, STATUS_TYPES.INFO);
         } catch (error) {
             displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.FAILED_TO_SAVE_SETTINGS), STATUS_TYPES.ERROR);
             console.error(CONSOLE_MESSAGES.SAVE_ERROR, `Error saving console test setting: ${error}`);
