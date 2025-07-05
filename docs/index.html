@@ -3,284 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographic: Building a Jira & GitLab Release Extension</title>
+    <title>Release Overview Extension - Documentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #001219;
-            color: #e0f2f1;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #212529; /* Dark text */
+            line-height: 1.6;
         }
-        .card {
-            background-color: #003049;
-            border: 1px solid #0a9396;
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff; /* White content background */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+        h1, h2, h3 {
+            color: #003049; /* Dark blue for headings */
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
+        h2 { font-size: 1.75rem; border-bottom: 1px solid #dee2e6; padding-bottom: 0.3em;}
+        h3 { font-size: 1.25rem; }
+        p, li { margin-bottom: 0.5rem; }
+        code {
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
         }
-        .flow-arrow-down::after {
-            content: '↓';
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            color: #94d2bd;
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffeeba;
+            padding: 1rem;
+            margin: 1rem 0;
         }
+        .note {
+            background-color: #e0f2f1;
+            border-left: 4px solid #0a9396;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul { padding-left: 20px; }
+        strong { font-weight: 600; }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="antialiased">
-    <div class="container mx-auto px-4 py-8 md:px-8 md:py-12">
+<body>
+    <div class="container">
+        <h1>Release Overview Extension Documentation</h1>
 
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-2">The Release Black Box</h1>
-            <h2 class="text-2xl md:text-3xl font-bold text-[#94d2bd]">Building a Browser Extension to Unify Jira & GitLab</h2>
-            <p class="max-w-3xl mx-auto mt-4 text-lg text-[#e9d8a6]">This infographic visualizes the strategy for creating a browser extension to solve release data fragmentation, based on the provided technical report.</p>
-        </header>
-
-        <section id="challenge" class="mb-20">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Problem: A Disconnected Release Picture</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">Release information is scattered across platforms, forcing manual data compilation and leading to a lack of real-time visibility.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center items-center">
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-6xl mb-4">📝</div>
-                    <h4 class="text-xl font-bold text-white">Jira: The Plan</h4>
-                    <p class="text-[#94d2bd]">Contains the planned scope via 'Fix Versions' and issue tracking.</p>
-                </div>
-                <div>
-                    <p class="text-7xl font-black text-[#ae2012] opacity-75">≠</p>
-                    <p class="text-xl font-semibold text-[#ee9b00]">Data Silos</p>
-                </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-6xl mb-4">↔️</div>
-                    <h4 class="text-xl font-bold text-white">GitLab: The Code</h4>
-                    <p class="text-[#94d2bd]">Holds the actual codebase, commits, and release tags.</p>
-                </div>
-            </div>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>The Release Overview Extension is a browser tool designed to help you compare planned work in Jira with actual code changes in GitLab. By specifying a Jira "fix version" and a range of GitLab tags, the extension provides a consolidated view, making it easier to track release progress and identify potential discrepancies between what was planned and what was implemented.</p>
         </section>
 
-        <section id="solution" class="mb-20">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Solution: An Integrated Extension</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">A browser extension acts as a bridge, querying both platforms to present a single, cohesive release summary directly in the user's workflow.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center items-center">
-                <div class="card rounded-xl shadow-lg p-4">
-                    <p class="font-bold text-white">Jira API</p>
-                    <p class="text-sm text-[#94d2bd]">Fetches Issues</p>
-                </div>
-                <div class="text-4xl text-[#94d2bd]">→</div>
-                <div class="card rounded-xl shadow-lg p-6 bg-[#0a9396]">
-                     <div class="text-4xl mb-2">🧩</div>
-                    <h4 class="text-xl font-bold text-white">Browser Extension</h4>
-                    <p class="text-[#001219] font-semibold">Correlates Data</p>
-                </div>
-                <div class="text-4xl text-[#94d2bd]">→</div>
-                <div class="card rounded-xl shadow-lg p-4">
-                    <p class="font-bold text-white">GitLab API</p>
-                    <p class="text-sm text-[#94d2bd]">Fetches Commits</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="architecture" class="mb-20">
-             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">Manifest V3 Extension Architecture</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension is built on a modern, event-driven architecture to ensure security and performance, with components communicating via message passing.</p>
-            </div>
-            <div class="card rounded-xl shadow-lg p-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
-                    <h4 class="font-bold text-white text-lg">Popup UI</h4>
-                    <p class="text-sm text-[#94d2bd]">User-facing interface for inputs and displaying the final summary.</p>
-                </div>
-                <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
-                    <h4 class="font-bold text-white text-lg">Background Service Worker</h4>
-                    <p class="text-sm text-[#94d2bd]">Handles all API calls, authentication, and data processing logic.</p>
-                </div>
-                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
-                    <h4 class="font-bold text-white text-lg">Content Scripts</h4>
-                    <p class="text-sm text-[#94d2bd]">Injects into Jira/GitLab pages to read DOM or add UI elements if needed.</p>
-                </div>
-            </div>
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Compares Jira issues from a specific "Fix Version" against GitLab commits between two release tags.</li>
+                <li>Lists all Jira issues planned for the selected Fix Version.</li>
+                <li>Lists all GitLab commits within the specified tag range.</li>
+                <li>Highlights Jira issue keys found in GitLab commit messages, providing a link between tasks and code.</li>
+                <li>Requires user-configurable API settings for Jira and GitLab (Base URLs and Personal Access Tokens).</li>
+                <li>Supports theme selection (Dark/Light mode) for user preference.</li>
+                <li>Internationalized interface supporting multiple languages.</li>
+            </ul>
         </section>
 
-        <section id="apis" class="mb-20">
-             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">API Integration & Data Correlation</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension's core logic involves fetching data from specific API endpoints and then correlating it by parsing Jira issue keys from GitLab artifacts.</p>
-            </div>
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="card rounded-xl shadow-lg p-8">
-                    <h4 class="text-2xl font-bold text-white mb-4">Key API Endpoints</h4>
-                     <ul class="space-y-4">
-                        <li class="bg-[#005f73] p-3 rounded-md">
-                            <p class="font-bold text-white">Jira: <span class="font-mono text-sm text-[#94d2bd]">/rest/api/3/search</span></p>
-                            <p class="text-sm text-white">Retrieves issues via JQL (e.g., `fixVersion = "1.2.0"`).</p>
-                        </li>
-                        <li class="bg-[#005f73] p-3 rounded-md">
-                            <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/tags</span></p>
-                            <p class="text-sm text-white">Identifies release tags to define scope.</p>
-                        </li>
-                         <li class="bg-[#005f73] p-3 rounded-md">
-                            <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/commits</span></p>
-                            <p class="text-sm text-white">Fetches all code changes between two release tags.</p>
-                        </li>
+        <section id="setup">
+            <h2>Prerequisites & Setup</h2>
+            <p>This is a standard Chrome Extension. Once installed from the Chrome Web Store (or loaded as an unpacked extension), it requires configuration to communicate with your Jira and GitLab instances.</p>
+
+            <h3>Configuration</h3>
+            <p>API credentials and instance URLs must be configured via the extension's Options Page. You can access this page by:</p>
+            <ul>
+                <li>Clicking the ⚙️ (gear) icon in the extension's Side Panel.</li>
+                <li>Right-clicking the extension icon in the Chrome toolbar and selecting "Options".</li>
+            </ul>
+            <p>On the Options Page, you will need to provide the following:</p>
+            <ul>
+                <li><strong>Jira Base URL:</strong> The root URL of your Jira instance (e.g., <code>https://your-company.atlassian.net</code> or <code>https://jira.yourdomain.com</code>).</li>
+                <li><strong>Jira Personal Access Token (PAT):</strong> Your Jira PAT for API authentication.
+                    <ul>
+                        <li>Required permissions: Read access to projects and issues.</li>
+                        <li>For more information on generating a Jira PAT, see the <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/" target="_blank" rel="noopener noreferrer">Atlassian documentation</a>.</li>
                     </ul>
-                </div>
-                <div class="card rounded-xl shadow-lg p-8">
-                    <h4 class="text-2xl font-bold text-white mb-4">Security & Authentication</h4>
-                    <p class="text-center mb-4 text-[#94d2bd]">Authentication is challenging. GitLab supports a client-side friendly OAuth (PKCE) flow, while Jira's requires a backend for full security, making PATs a simpler, though less secure, alternative for a pure extension.</p>
-                    <div class="chart-container h-64 md:h-72">
-                        <canvas id="authMethodsChart"></canvas>
-                    </div>
-                </div>
+                </li>
+                <li><strong>GitLab Base URL:</strong> The root URL of your GitLab instance (e.g., <code>https://gitlab.com</code> or <code>https://gitlab.yourdomain.com</code>).</li>
+                <li><strong>GitLab Personal Access Token (PAT):</strong> Your GitLab PAT for API authentication.
+                    <ul>
+                        <li>Required scopes: At minimum, <code>read_api</code> and <code>read_repository</code>.</li>
+                        <li>For more information on generating a GitLab PAT, see the <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank" rel="noopener noreferrer">GitLab documentation</a>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>After entering your details, click the <strong>"Save Settings"</strong> button.</p>
+            <p>You can use the <strong>"Test Jira API"</strong> and <strong>"Test GitLab API"</strong> buttons to verify your configuration.</p>
+
+            <div class="warning">
+                <strong>Important Security Notice:</strong> For enterprise production environments, storing API Personal Access Tokens (PATs) directly in the browser's client storage is generally NOT recommended due to security risks. A backend proxy service is the more secure approach for handling credentials. This extension currently uses <code>localStorage</code> for PAT storage.
             </div>
         </section>
 
-        <section id="benefits" class="mb-12">
-             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white">The Payoff: Actionable Insights & Efficiency</h3>
-                <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">A unified view leads to enhanced transparency, streamlined audits, and empowered teams.</p>
-            </div>
-             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-5xl text-[#94d2bd] mb-3">🔎</div>
-                    <h4 class="text-xl font-bold text-white">Full Transparency</h4>
-                    <p class="text-[#e9d8a6]">A single source of truth for release content.</p>
-                </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-5xl text-[#94d2bd] mb-3">⏱️</div>
-                    <h4 class="text-xl font-bold text-white">Reduced Overhead</h4>
-                    <p class="text-[#e9d8a6]">Eliminates manual report generation.</p>
-                </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-5xl text-[#94d2bd] mb-3">🛡️</div>
-                    <h4 class="text-xl font-bold text-white">Improved Audits</h4>
-                    <p class="text-[#e9d8a6]">Creates a clear, verifiable audit trail.</p>
-                </div>
-                <div class="card rounded-xl shadow-lg p-6">
-                    <div class="text-5xl text-[#94d2bd] mb-3">🤝</div>
-                    <h4 class="text-xl font-bold text-white">Informed Decisions</h4>
-                    <p class="text-[#e9d8a6]">Empowers stakeholders with accurate data.</p>
-                </div>
-            </div>
+        <section id="how-to-use">
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Open the Side Panel:</strong> Click the Release Overview Extension icon in your Chrome toolbar. This will open the side panel interface.</li>
+                <li>
+                    <strong>Fill in the Input Fields:</strong>
+                    <ul>
+                        <li><strong>Jira Project Key:</strong> The unique key for your Jira project (e.g., <code>PROJ</code>, <code>MYAPP</code>).</li>
+                        <li><strong>Jira Release Version ID:</strong> The name of the "Fix Version" in Jira you want to analyze (e.g., <code>Version 2.5.0</code>, <code>Sprint X Release</code>).
+                            <ul>
+                                <li>You can type the name directly or click the <strong>"Get Releases"</strong> button (after entering a Project Key) to fetch and select from a list of available, unarchived fix versions for that project.</li>
+                            </ul>
+                        </li>
+                        <li><strong>GitLab Project ID:</strong> The numerical ID of your GitLab project. You can find this in GitLab under your project's <code>Settings > General > Project ID</code>.</li>
+                        <li><strong>GitLab Current Release Tag:</strong> The GitLab tag representing the newer point in time for your comparison (e.g., <code>v1.1.0</code>).</li>
+                        <li><strong>GitLab Previous Release Tag:</strong> The GitLab tag representing the older point in time for your comparison (e.g., <code>v1.0.0</code>). The extension will fetch commits made *between* the previous tag and the current tag.</li>
+                    </ul>
+                </li>
+                <li><strong>Generate Summary:</strong> Click the <strong>"Generate Summary"</strong> button. The extension will fetch data from Jira and GitLab, then display the results.</li>
+            </ol>
+
+            <h3>Understanding the Results</h3>
+            <p>The results are displayed in two main sections within the side panel:</p>
+            <ul>
+                <li><strong>Jira Tickets:</strong> This section lists all Jira issues found within the specified "Fix Version" for your project. Each issue will show its key (linked to the issue in Jira), summary, and current status.</li>
+                <li><strong>GitLab History:</strong> This section lists all GitLab commits found between the "Previous Release Tag" and the "Current Release Tag" for your project. Each commit will show its short ID (linked to the commit in GitLab), title, and any Jira issue keys automatically detected within the commit title or message.</li>
+            </ul>
+            <p>By comparing these two lists, you can see which planned Jira issues have associated code changes and identify any commits that might not be linked to a planned issue.</p>
         </section>
-        
-        <footer class="text-center mt-20 pt-8 border-t border-gray-700">
-            <p class="text-gray-500">This infographic summarizes a strategic approach to browser extension development for release management. All data is representative.</p>
+
+        <section id="architecture">
+            <h2>Extension Architecture (Brief)</h2>
+            <p>This is a Manifest V3 Chrome Extension built with the following key components:</p>
+            <ul>
+                <li><strong>Side Panel:</strong> The primary user interface where you input release parameters and view the generated summary.</li>
+                <li><strong>Options Page:</strong> A separate page for configuring API settings (Jira/GitLab URLs, PATs) and selecting a display theme (Dark/Light).</li>
+                <li><strong>Background Service Worker:</strong> The core of the extension. It runs in the background, handling all API communications with Jira and GitLab, processing the data, and performing the comparison logic.</li>
+            </ul>
+        </section>
+
+        <section id="permissions">
+            <h2>Permissions Justification</h2>
+            <p>The Release Overview Extension requires the following permissions:</p>
+            <ul>
+                <li><strong><code>storage</code>:</strong> Used to save your API configurations (Jira and GitLab URLs, PATs), your last used form inputs for convenience, and your theme preference (Dark/Light mode) locally on your computer.</li>
+                <li><strong><code>sidePanel</code>:</strong> Necessary to display the extension's main user interface within the browser's side panel.</li>
+                <li><strong>Host Permissions (e.g., <code>https://*.atlassian.net/*</code>, <code>https://gitlab.com/*</code>):</strong> Required to allow the extension to send API requests to the Jira and GitLab instances you specify in the configuration. These are essential for fetching issue and commit data. The specific hosts are declared in the manifest but operate on the URLs you provide in the settings.</li>
+            </ul>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">Release Overview Extension</p>
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const wrapLabel = (label, maxLength = 16) => {
-                if (label.length <= maxLength) {
-                    return label;
-                }
-                const words = label.split(' ');
-                let lines = [];
-                let currentLine = '';
-                words.forEach(word => {
-                    if ((currentLine + ' ' + word).trim().length > maxLength) {
-                        lines.push(currentLine.trim());
-                        currentLine = word;
-                    } else {
-                        currentLine = (currentLine + ' ' + word).trim();
-                    }
-                });
-                if (currentLine) {
-                    lines.push(currentLine.trim());
-                }
-                return lines;
-            };
-            
-            const tooltipTitleCallback = (tooltipItems) => {
-                const item = tooltipItems[0];
-                let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                  return label.join(' ');
-                } else {
-                  return label;
-                }
-            };
-            
-            const chartDonutOptions = {
-                 responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#e0f2f1',
-                            font: {
-                                size: 12
-                            },
-                            boxWidth: 15,
-                            padding: 15
-                        }
-                    },
-                     tooltip: {
-                        callbacks: {
-                           title: tooltipTitleCallback
-                        }
-                    }
-                }
-            };
-
-            const brilliantBlues = {
-                primary: '#005f73',
-                secondary: '#0a9396',
-                accent: '#94d2bd',
-                highlight: '#e9d8a6',
-                danger: '#ae2012',
-                warning: '#ee9b00',
-                textDark: '#001219'
-            };
-
-            const authMethodsCtx = document.getElementById('authMethodsChart');
-            if(authMethodsCtx) {
-                new Chart(authMethodsCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [
-                            wrapLabel('GitLab OAuth (PKCE)'), 
-                            wrapLabel('Jira OAuth (Hybrid Backend)'), 
-                            wrapLabel('Personal Access Tokens (PATs)')
-                        ],
-                        datasets: [{
-                            label: 'Authentication Methods',
-                            data: [40, 35, 25],
-                            backgroundColor: [
-                                brilliantBlues.secondary,
-                                brilliantBlues.accent,
-                                brilliantBlues.warning
-                            ],
-                            borderColor: brilliantBlues.textDark,
-                            borderWidth: 2
-                        }]
-                    },
-                    options: { ...chartDonutOptions, plugins: { ...chartDonutOptions.plugins, legend: { ...chartDonutOptions.plugins.legend, display: true} } }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
