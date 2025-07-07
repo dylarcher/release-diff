@@ -423,5 +423,40 @@
   },
   "resetForm": {
     "message": "Form has been reset."
+  },
+  "noAssociatedItemsPlaceHolder": {
+    "message": "Drop GitLab commits here to associate."
+  },
+  "removeAssociationTooltip": {
+    "message": "Remove this association"
+  },
+  "associationCreated": {
+    "message": "Associated commit $commitId$ with Jira story $jiraKey$.",
+    "placeholders": {
+      "commitId": {
+        "content": "$1",
+        "example": "abc1234"
+      },
+      "jiraKey": {
+        "content": "$2",
+        "example": "JIRA-123"
+      }
+    }
+  },
+  "associationRemoved": {
+    "message": "Removed association between commit $commitId$ and Jira story $jiraKey$.",
+    "placeholders": {
+      "commitId": {
+        "content": "$1",
+        "example": "abc1234"
+      },
+      "jiraKey": {
+        "content": "$2",
+        "example": "JIRA-123"
+      }
+    }
+  },
+  "associationError": {
+    "message": "An error occurred while trying to modify the association."
   }
 }

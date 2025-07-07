@@ -105,7 +105,9 @@ export const USER_MESSAGES = {
   UNKNOWN_SYSTEM_ERROR: 'unknownSystemError',
   TEST_FAILED_NOTICE: 'testFailedNotice',
   TEST_FAILED_CHECK_CONSOLE_NOTICE: 'testFailedCheckConsoleNotice',
-  RESET_FORM: 'resetForm'
+  RESET_FORM: 'resetForm',
+  NO_ASSOCIATED_ITEMS_PLACEHOLDER: 'noAssociatedItemsPlaceHolder', // Added
+  REMOVE_ASSOCIATION_TOOLTIP: 'removeAssociationTooltip' // Added
 };
 
 // ===== ERROR MESSAGES (Technical/System) =====
@@ -133,14 +135,17 @@ export const ERROR_MESSAGES = {
   UNKNOWN_ERROR: 'Unknown error',
   NO_BACKGROUND_SCRIPT_RESPONSE: 'No response from background script. Please check extension setup.',
   UNKNOWN_ERROR_OCCURRED: 'Unknown error occurred',
-  API_CALL_FAILED: 'API call failed:'
+  API_CALL_FAILED: 'API call failed:',
+  ASSOCIATION_ERROR: 'associationError' // Added for drag and drop
 };
 
 // ===== SUCCESS MESSAGES (Technical/System) =====
 export const SUCCESS_MESSAGES = {
   BACKGROUND_SCRIPT_WORKING: 'Background script is working!',
   JIRA_CONNECTION_SUCCESSFUL: '✓ Jira connection successful! Using endpoint:',
-  FOUND_FIX_VERSIONS: 'Found {count} fix versions for project {project}'
+  FOUND_FIX_VERSIONS: 'Found {count} fix versions for project {project}',
+  ASSOCIATION_CREATED: 'associationCreated', // Added for drag and drop
+  ASSOCIATION_REMOVED: 'associationRemoved'  // Added for drag and drop
 };
 
 // ===== STATUS MESSAGES (Technical/System) =====

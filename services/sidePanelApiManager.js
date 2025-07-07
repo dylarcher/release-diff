@@ -477,6 +477,129 @@ class ExtensionUIManager {
         this.apiBaseUrls.gitlab = summary.gitlabBaseUrl;
 
         this._setupItemActionListeners();
+        this._initializeDragAndDrop(); // Initialize drag and drop functionality
+    }
+
+    _initializeDragAndDrop() {
+        if (!this.currentSummaryData) return;
+
+        const mainGitlabContainers = [
+            this.elements.gitlabItemsContainer,
+            this.elements.unpairedGitlabItemsContainer
+        ].filter(el => el);
+
+        mainGitlabContainers.forEach(container => {
+            if (container.children.length > 0) {
+                new Sortable(container, {
+                    group: {
+                        name: 'gitlab-commits',
+                        pull: 'clone',
+                        put: false
+                    },
+                    animation: 150,
+                    sort: false,
+                    fallbackOnBody: true,
+                    store: null,
+                });
+            }
+        });
+
+        const jiraCards = document.querySelectorAll('.jira-dropzone-card');
+        jiraCards.forEach(jiraCard => {
+            const associatedCommitsContainer = jiraCard.querySelector('.associated-commits-container');
+            const jiraItemId = jiraCard.dataset.itemId;
+
+            if (associatedCommitsContainer) {
+                new Sortable(associatedCommitsContainer, {
+                    group: {
+                        name: 'gitlab-commits',
+                        pull: true,
+                        put: true
+                    },
+                    animation: 150,
+                    fallbackOnBody: true,
+                    store: null,
+                    onAdd: async (evt) => {
+                        const droppedItem = evt.item;
+                        const gitlabCommitId = droppedItem.dataset.itemId;
+                        const sourceListSortable = evt.from;
+                        const originalSourceContainer = sourceListSortable.el;
+
+                        console.log(`GitLab commit ${gitlabCommitId} dropped onto Jira ${jiraItemId}. Source: ${originalSourceContainer.id}`);
+
+                        const jiraItem = this._findItem(jiraItemId, 'jira');
+                        const gitlabCommit = this._findItem(gitlabCommitId, 'gitlab');
+
+                        if (jiraItem && gitlabCommit) {
+                            let alreadyAssociated = jiraItem.associations.some(assoc => assoc.id === gitlabCommitId);
+
+                            if (!alreadyAssociated) {
+                                jiraItem.associations.push({ id: gitlabCommitId, type: 'manual-dnd' });
+                                if (!gitlabCommit.associations) gitlabCommit.associations = [];
+                                gitlabCommit.associations.push({ id: jiraItemId, type: 'manual-dnd' });
+                            }
+
+                            // If the item was moved from another Jira card's associated list
+                            if (originalSourceContainer.classList.contains('associated-commits-container') && originalSourceContainer !== associatedCommitsContainer) {
+                                const sourceJiraCard = originalSourceContainer.closest('.jira-dropzone-card');
+                                if (sourceJiraCard) {
+                                    const sourceJiraId = sourceJiraCard.dataset.itemId;
+                                    const sourceJiraItem = this._findItem(sourceJiraId, 'jira');
+                                    if (sourceJiraItem && sourceJiraId !== jiraItemId) { // Ensure it's not the same card
+                                        sourceJiraItem.associations = sourceJiraItem.associations.filter(assoc => assoc.id !== gitlabCommitId);
+                                        // Also update the commit's association to the old Jira item
+                                        if (gitlabCommit.associations) {
+                                            gitlabCommit.associations = gitlabCommit.associations.filter(assoc => assoc.id !== sourceJiraId);
+                                        }
+                                        console.log(`Removed commit ${gitlabCommitId} from source Jira ${sourceJiraId}`);
+                                    }
+                                }
+                            }
+
+                            // If a cloned item is dropped, the original DOM element (evt.item) is the clone.
+                            // We should remove it if it was a clone, because displaySummaryResults will recreate it.
+                            if (evt.pullMode === 'clone') {
+                                evt.item.remove(); // Remove the clone, data will drive the re-render.
+                            }
+
+                            await this._saveCurrentUserModifications();
+                            this.displaySummaryResults(this.currentSummaryData);
+                            displayStatusMessage(this.elements.statusMessageDiv, getMessage(SUCCESS_MESSAGES.ASSOCIATION_CREATED, { commitId: gitlabCommit.short_id, jiraKey: jiraItem.key }), STATUS_TYPES.SUCCESS);
+                        } else {
+                            console.error('Could not find Jira item or GitLab commit for association.');
+                            evt.item.remove();
+                            displayStatusMessage(this.elements.statusMessageDiv, getMessage(ERROR_MESSAGES.ASSOCIATION_ERROR), STATUS_TYPES.ERROR);
+                        }
+                    },
+                    onRemove: async (evt) => {
+                        const removedItem = evt.item;
+                        const gitlabCommitId = removedItem.dataset.itemId;
+                        // const targetListSortable = evt.to;
+
+                        console.log(`GitLab commit ${gitlabCommitId} removed from Jira ${jiraItemId}`);
+
+                        const jiraItem = this._findItem(jiraItemId, 'jira');
+                        const gitlabCommit = this._findItem(gitlabCommitId, 'gitlab');
+
+                        if (jiraItem && gitlabCommit) {
+                            jiraItem.associations = jiraItem.associations.filter(assoc => assoc.id !== gitlabCommitId);
+                            if (gitlabCommit.associations) {
+                                gitlabCommit.associations = gitlabCommit.associations.filter(assoc => assoc.id !== jiraItemId);
+                            }
+
+                            await this._saveCurrentUserModifications();
+                            // If item is dropped outside any valid sortable, it might be removed by Sortable.
+                            // Re-rendering will place it in unpaired if it has no other associations.
+                            this.displaySummaryResults(this.currentSummaryData);
+                            displayStatusMessage(this.elements.statusMessageDiv, getMessage(SUCCESS_MESSAGES.ASSOCIATION_REMOVED, { commitId: gitlabCommit.short_id, jiraKey: jiraItem.key }), STATUS_TYPES.INFO);
+                        } else {
+                            console.error('Could not find Jira item or GitLab commit for de-association.');
+                            displayStatusMessage(this.elements.statusMessageDiv, getMessage(ERROR_MESSAGES.ASSOCIATION_ERROR), STATUS_TYPES.ERROR);
+                        }
+                    }
+                });
+            }
+        });
     }
 
     _buildCleanApiUrl(baseUrl, endpoint) { // Helper similar to one in apiRequestManager
@@ -487,48 +610,92 @@ class ExtensionUIManager {
 
     _createItemCard(item, itemType, gitlabProjectPath = '') {
         const card = document.createElement('div');
+        // Common classes and data attributes
         card.className = `item-card ${itemType}-card ${item.needsAction ? 'needs-action' : ''}`;
         card.dataset.itemId = item.id;
         card.dataset.itemType = itemType;
 
         let titleHtml = '';
+        let associatedCommitsContainerHtml = '';
+
         if (itemType === 'jira') {
-            const jiraBase = this.apiBaseUrls.jira || URL_TEMPLATES.JIRA_ISSUE.split('/browse/')[0]; // Fallback if base URL not passed
+            card.classList.add('jira-dropzone-card'); // Add class for dropzone
+            const jiraBase = this.apiBaseUrls.jira || URL_TEMPLATES.JIRA_ISSUE.split('/browse/')[0];
             const issuePath = `/browse/${item.key}`;
             const jiraUrl = this._buildCleanApiUrl(jiraBase, issuePath);
             titleHtml = `<strong><a href="${jiraUrl}" target="_blank">${item.key}</a></strong>: ${item.summary}<br><small>${getMessage('statusLabel')}${item.status}</small>`;
+
+            // Container for associated GitLab commits
+            associatedCommitsContainerHtml = '<div class="associated-commits-container">';
+            if (item.associations && item.associations.length > 0) {
+                // Find the actual commit objects from this.currentSummaryData.allGitLabCommits
+                // This part will be enhanced when rendering the actual associated items
+                const associatedCommitDetails = item.associations.map(assoc => {
+                    const commit = this.currentSummaryData && this.currentSummaryData.allGitLabCommits
+                        ? this.currentSummaryData.allGitLabCommits.find(c => c.id === assoc.id)
+                        : null;
+                    if (commit) {
+                        // Render associated commits as draggable items themselves.
+                        // These are actual items when inside a Jira card, not clones.
+                        return `<div class="item-card gitlab-card gitlab-draggable-card associated-commit-item" data-item-id="${commit.id}" data-item-type="gitlab" draggable="true">
+                                  <div class="item-title"><small><strong>${commit.short_id}</strong>: ${commit.title}</small></div>
+                                  <button class="remove-association-btn icon-btn" data-commit-id="${commit.id}" data-jira-id="${item.id}" title="${getMessage('removeAssociationTooltip')}">&times;</button>
+                                </div>`;
+                    }
+                    return ''; // Return empty string if commit not found to avoid rendering placeholders
+                }).join('');
+                associatedCommitsContainerHtml += associatedCommitDetails;
+            } else {
+                associatedCommitsContainerHtml += `<small>${getMessage('noAssociatedItemsPlaceHolder')}</small>`; // Placeholder text
+            }
+            associatedCommitsContainerHtml += '</div>';
+
         } else { // gitlab
-            const gitlabBase = this.apiBaseUrls.gitlab || URL_TEMPLATES.GITLAB_COMMIT.split('/-/commit/')[0].replace('{projectPath}', gitlabProjectPath); // Fallback
+            card.classList.add('gitlab-draggable-card'); // Add class for draggable
+            card.setAttribute('draggable', 'true'); // Make it draggable
+            const gitlabBase = this.apiBaseUrls.gitlab || URL_TEMPLATES.GITLAB_COMMIT.split('/-/commit/')[0].replace('{projectPath}', gitlabProjectPath);
             const commitPath = `/${gitlabProjectPath}/-/commit/${item.id}`;
             const commitUrl = this._buildCleanApiUrl(gitlabBase, commitPath);
             titleHtml = `<strong><a href="${commitUrl}" target="_blank">${item.short_id}</a></strong>: ${item.title}`;
+            // GitLab cards don't show "associations" in the same way, they are either in a Jira card or in the GitLab list.
         }
 
-        let associationsHtml = `<small>${getMessage('associatedItemsLabel')}`;
-        if (item.associations && item.associations.length > 0) {
-            associationsHtml += item.associations.map(assoc => `${assoc.id} (${getMessage('matchTypeLabel')}${assoc.type})`).join(', ');
-        } else {
-            associationsHtml += getMessage('noAssociatedItems');
-        }
-        associationsHtml += '</small>';
+        // Original associations display for Jira (can be removed or kept for debug)
+        // let associationsDisplayHtml = '';
+        // if (itemType === 'jira') {
+        //     associationsDisplayHtml = `<small>${getMessage('associatedItemsLabel')}`;
+        //     if (item.associations && item.associations.length > 0) {
+        //         associationsDisplayHtml += item.associations.map(assoc => `${assoc.id} (${getMessage('matchTypeLabel')}${assoc.type})`).join(', ');
+        //     } else {
+        //         associationsDisplayHtml += getMessage('noAssociatedItems');
+        //     }
+        //     associationsDisplayHtml += '</small>';
+        // }
+
 
         const actionsHtml = `
             <div class="item-actions">
                 <button class="btn btn-sm btn-secondary flag-btn" data-item-id="${item.id}" data-item-type="${itemType}">
                     ${item.needsAction ? getMessage('unflagItemAction') : getMessage('flagItemAction')}
                 </button>
-                ${item.associations && item.associations.length > 0 ?
+                ${itemType === 'jira' && item.associations && item.associations.length > 0 ? // Unmatch button mainly for Jira if it has any associations listed
                 `<button class="btn btn-sm btn-warning unmatch-btn" data-item-id="${item.id}" data-item-type="${itemType}">${getMessage('unmatchItemAction')}</button>` :
-                `<button class="btn btn-sm btn-success match-btn" data-item-id="${item.id}" data-item-type="${itemType}">${getMessage('matchItemAction')}</button>`
+                (itemType === 'gitlab' && (!item.associations || item.associations.length === 0) ? // Match button for GitLab if it's not associated
+                    `<button class="btn btn-sm btn-success match-btn" data-item-id="${item.id}" data-item-type="${itemType}">${getMessage('matchItemAction')}</button>` : '')
+            // Match button for Jira could also be added if it has no associations
             }
+                 ${itemType === 'jira' && (!item.associations || item.associations.length === 0) ?
+                `<button class="btn btn-sm btn-success match-btn" data-item-id="${item.id}" data-item-type="${itemType}">${getMessage('matchItemAction')}</button>` : ''
+                }
             </div>
         `;
 
         card.innerHTML = `
             <div class="item-title">${titleHtml}</div>
-            <div class="item-associations">${associationsHtml}</div>
+            ${itemType === 'jira' ? associatedCommitsContainerHtml : ''}
             ${actionsHtml}
         `;
+        // Removed the old general "item-associations" div as it's now handled by associatedCommitsContainerHtml for Jira cards
         return card;
     }
 
@@ -561,9 +728,37 @@ class ExtensionUIManager {
                     this._handleUnmatchItemClick(itemId, itemType);
                 } else if (button.classList.contains('match-btn')) {
                     this._handleMatchItemClick(itemId, itemType);
+                } else if (button.classList.contains('remove-association-btn')) {
+                    const commitId = button.dataset.commitId;
+                    const jiraId = button.dataset.jiraId;
+                    this._handleRemoveAssociationClick(commitId, jiraId);
                 }
             });
         });
+    }
+
+    _handleRemoveAssociationClick(commitId, jiraId) {
+        const jiraItem = this._findItem(jiraId, 'jira');
+        const gitlabCommit = this._findItem(commitId, 'gitlab');
+
+        if (jiraItem && gitlabCommit) {
+            // Remove association from Jira item
+            if (jiraItem.associations) {
+                jiraItem.associations = jiraItem.associations.filter(assoc => assoc.id !== commitId);
+            }
+            // Remove association from GitLab commit
+            if (gitlabCommit.associations) {
+                gitlabCommit.associations = gitlabCommit.associations.filter(assoc => assoc.id !== jiraId);
+            }
+
+            console.log(`Removed association between Jira ${jiraId} and Commit ${commitId} by click.`);
+            this._saveCurrentUserModifications();
+            this.displaySummaryResults(this.currentSummaryData); // Re-render
+            displayStatusMessage(this.elements.statusMessageDiv, getMessage(SUCCESS_MESSAGES.ASSOCIATION_REMOVED, { commitId: gitlabCommit.short_id, jiraKey: jiraItem.key }), STATUS_TYPES.INFO);
+        } else {
+            console.error(`Could not find Jira item (${jiraId}) or GitLab commit (${commitId}) for unlinking.`);
+            displayStatusMessage(this.elements.statusMessageDiv, getMessage(ERROR_MESSAGES.ASSOCIATION_ERROR), STATUS_TYPES.ERROR);
+        }
     }
 
     _findItem(itemId, itemType) {
@@ -676,7 +871,9 @@ class ExtensionUIManager {
         // Iterate through issues to find manual matches (to avoid duplication)
         this.currentSummaryData.allJiraIssues.forEach(issue => {
             issue.associations.forEach(assoc => {
-                if (assoc.type === 'manual') {
+                // Include both 'manual' (from button clicks) and 'manual-dnd' (from drag and drop)
+                if (assoc.type === 'manual' || assoc.type === 'manual-dnd') {
+                // Save them with a consistent type, e.g., 'manual', so background processing is simpler
                     manualMatches.push({ jiraId: issue.id, commitId: assoc.id, type: 'manual' });
                 }
             });

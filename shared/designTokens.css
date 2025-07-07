@@ -697,3 +697,114 @@ details[open] > summary {
     /* Slightly smaller than h2 used previously */
     margin-bottom: 0.75rem;
 }
+
+/* Drag and Drop Styles */
+.gitlab-draggable-card {
+    /* Applied to the whole card if it's from the main list */
+    cursor: grab;
+    /* background-color: var(--surface-accent-color-light); Light theme accent for draggable */
+    /* border: 1px solid var(--border-color-light); */
+}
+
+/* body[data-theme="dark"] .gitlab-draggable-card {
+  background-color: var(--surface-accent-color-dark); Dark theme accent
+  border: 1px solid var(--border-color-dark);
+} */
+
+.gitlab-draggable-card:active {
+    cursor: grabbing;
+}
+
+.jira-dropzone-card .associated-commits-container {
+    min-height: 2.5rem;
+    /* Minimum height to make it an easy drop target */
+    background-color: var(--bg-color);
+    /* Slightly different background for the drop area */
+    border: 1px dashed var(--text-secondary);
+    /* Dashed border to indicate drop zone */
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    /* Space between associated items */
+}
+
+/* SortableJS helper classes */
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: var(--accent-color) !important;
+    /* Make ghost more visible */
+    border-radius: var(--border-radius);
+}
+
+.sortable-drag {
+    opacity: 0.9 !important;
+    /* Make the dragged item slightly transparent */
+}
+
+.jira-dropzone-card .associated-commits-container.sortable-drag-over-target {
+    /* Style for when a draggable is over this container */
+    background-color: var(--info-bg);
+    /* Use info color to indicate droppable area */
+    border-color: var(--accent-color);
+}
+
+
+.associated-commit-item {
+    /* This is a .item-card.gitlab-card inside the container */
+    padding: 0.3rem 0.5rem;
+    /* Reduced padding for items within the container */
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Inherits .item-card styles like border, background-color */
+}
+
+.associated-commit-item .item-title {
+    margin-bottom: 0;
+    /* Remove bottom margin from title inside associated item */
+    margin-right: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+    /* Allow title to take available space */
+}
+
+.associated-commit-item .item-title small {
+    font-size: 1em;
+    /* Ensure text isn't too small */
+}
+
+
+.remove-association-btn.icon-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    /* Make the 'x' a bit larger */
+    padding: 0 0.2rem;
+    line-height: 1;
+    margin-left: auto;
+    /* Pushes button to the right if title doesn't fill space */
+}
+
+.remove-association-btn.icon-btn:hover {
+    color: var(--error-text);
+    /* Use error color for hover */
+}
+
+/* Ensure item-cards within associated-commits-container are not too big */
+.associated-commits-container .item-card {
+    margin-bottom: 0.25rem;
+    /* Reduce margin for items in the list */
+}
+
+.associated-commits-container .item-card .item-actions {
+    display: none;
+    /* Hide actions like flag/match for items inside the dropzone */
+}
