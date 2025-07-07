@@ -500,12 +500,6 @@ class ExtensionUIManager {
             jiraTicketsDiv: document.getElementById(ELEMENT_IDS.JIRA_TICKETS),
             gitlabHistoryDiv: document.getElementById(ELEMENT_IDS.GITLAB_HISTORY),
             optionsLink: document.getElementById(ELEMENT_IDS.OPTIONS_LINK),
-            // generateDemoReportBtn: document.getElementById(ELEMENT_IDS.GENERATE_DEMO_REPORT_BTN), // To be removed
-            // demoReportResultsDiv: document.getElementById(ELEMENT_IDS.DEMO_REPORT_RESULTS), // To be removed
-            // jiraTicketsDemoDiv: document.getElementById(ELEMENT_IDS.JIRA_TICKETS_DEMO), // To be removed
-            // gitlabCommitsDemoDiv: document.getElementById(ELEMENT_IDS.GITLAB_COMMITS_DEMO), // To be removed
-            // gitlabTagsDemoDiv: document.getElementById(ELEMENT_IDS.GITLAB_TAGS_DEMO), // To be removed
-            // viewDemoReportBtn: document.getElementById(ELEMENT_IDS.VIEW_DEMO_REPORT_BTN) // Replaced by details element
             viewDemoReportDetails: document.getElementById(ELEMENT_IDS.VIEW_DEMO_REPORT_DETAILS),
             exampleResultsDiv: document.getElementById(ELEMENT_IDS.EXAMPLE_RESULTS),
             jiraTicketsExampleDiv: document.getElementById(ELEMENT_IDS.JIRA_TICKETS_EXAMPLE),
