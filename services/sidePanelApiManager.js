@@ -400,16 +400,16 @@ class ExtensionUIManager {
     displaySummaryResults(summary) {
         const {
             summaryResultsDiv,
-            jiraTicketsDiv, // Now jira-items-container
-            gitlabHistoryDiv, // Now gitlab-items-container
+            jiraItemsContainer, // Updated from jiraTicketsDiv
+            gitlabItemsContainer, // Updated from gitlabHistoryDiv
             unpairedItemsSection,
             unpairedJiraItemsContainer,
             unpairedGitlabItemsContainer
         } = this.elements;
 
         summaryResultsDiv.classList.remove(CSS_CLASSES.HIDDEN);
-        clearElementContent(jiraTicketsDiv);
-        clearElementContent(gitlabHistoryDiv);
+        clearElementContent(jiraItemsContainer);
+        clearElementContent(gitlabItemsContainer);
         clearElementContent(unpairedJiraItemsContainer);
         clearElementContent(unpairedGitlabItemsContainer);
         unpairedItemsSection.classList.add(CSS_CLASSES.HIDDEN); // Hide by default
