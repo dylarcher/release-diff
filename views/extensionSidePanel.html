@@ -142,14 +142,18 @@
           </div>
         </div>
         <br />
-        <button
-          id="generateSummaryBtn"
-          class="btn btn-primary"
-          data-i18n="generateSummary"
-          style="width: 100%; margin-bottom: 1rem;"
-        >
-          Generate Summary
-        </button>
+        <div class="grid grid-2-col" style="margin-bottom: 1rem;">
+          <button id="resetBtn" class="btn btn-secondary" data-i18n="reset">
+            Reset
+          </button>
+          <button
+            id="generateSummaryBtn"
+            class="btn btn-primary"
+            data-i18n="generateSummary"
+          >
+            Generate Release Report
+          </button>
+        </div>
         <details id="viewDemoReportDetails" style="margin-bottom: 1rem;">
           <summary data-i18n="viewDemoReport" style="cursor: pointer; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: var(--surface-color);">View Demo v2.26.0 Release Data</summary>
           <div id="exampleResults" class="results-section" style="margin-top: 0.5rem;padding-top: 1rem;">

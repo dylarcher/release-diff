@@ -104,7 +104,8 @@ export const USER_MESSAGES = {
   RELATED_JIRA_LABEL: 'relatedJiraLabel',
   UNKNOWN_SYSTEM_ERROR: 'unknownSystemError',
   TEST_FAILED_NOTICE: 'testFailedNotice',
-  TEST_FAILED_CHECK_CONSOLE_NOTICE: 'testFailedCheckConsoleNotice'
+  TEST_FAILED_CHECK_CONSOLE_NOTICE: 'testFailedCheckConsoleNotice',
+  RESET_FORM: 'resetForm'
 };
 
 // ===== ERROR MESSAGES (Technical/System) =====
@@ -254,7 +255,8 @@ export const ELEMENT_IDS = {
   EXAMPLE_RESULTS: 'exampleResults',
   JIRA_TICKETS_EXAMPLE: 'jira-tickets-example',
   GITLAB_COMMITS_EXAMPLE: 'gitlab-commits-example',
-  GITLAB_TAGS_EXAMPLE: 'gitlab-tags-example'
+  GITLAB_TAGS_EXAMPLE: 'gitlab-tags-example',
+  RESET_BTN: 'resetBtn'
   // JIRA_TICKETS_DEMO, GITLAB_COMMITS_DEMO, GITLAB_TAGS_DEMO are removed as specific IDs for demoReport.html page are no longer needed.
   // The new _EXAMPLE IDs are for the inline version.
 };

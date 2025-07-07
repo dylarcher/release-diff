@@ -1,7 +1,7 @@
 import { displayStatusMessage } from './statusDisplayManager.js';
 import { saveFormDataToStorage, loadFormDataFromStorage, loadThemePreference } from './chromeStorageManager.js';
 import { sendMessageToBackgroundScript } from './chromeMessageHandler.js';
-import { clearElementContent, populateDatalistWithOptions, createDiscrepancyItemDiv } from '../helpers/domManipulationHelpers.js';
+import { clearElementContent, populateDatalistWithOptions, createDiscrepancyItemDiv, resetForm } from '../helpers/domManipulationHelpers.js';
 import { validateRequiredFields, extractFormFieldValues } from '../helpers/formValidationHelpers.js';
 import { initializeI18n, getMessage } from '../helpers/internationalizationHelper.js';
 import {
@@ -40,7 +40,8 @@ class ExtensionUIManager {
                 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 document.body.dataset.theme = prefersDark ? 'dark' : 'light';
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.error(CONSOLE_MESSAGES.THEME_LOAD_ERROR, error);
             document.body.dataset.theme = 'light'; // Fallback to light theme
         }
@@ -70,7 +71,8 @@ class ExtensionUIManager {
             exampleResultsDiv: document.getElementById(ELEMENT_IDS.EXAMPLE_RESULTS),
             jiraTicketsExampleDiv: document.getElementById(ELEMENT_IDS.JIRA_TICKETS_EXAMPLE),
             gitlabCommitsExampleDiv: document.getElementById(ELEMENT_IDS.GITLAB_COMMITS_EXAMPLE),
-            gitlabTagsExampleDiv: document.getElementById(ELEMENT_IDS.GITLAB_TAGS_EXAMPLE)
+            gitlabTagsExampleDiv: document.getElementById(ELEMENT_IDS.GITLAB_TAGS_EXAMPLE),
+            resetBtn: document.getElementById(ELEMENT_IDS.RESET_BTN)
         };
 
         this.fetchController = null;
@@ -85,7 +87,8 @@ class ExtensionUIManager {
             ['generateSummary', this.handleGenerateSummary.bind(this)],
             ['versionInput', this.handleVersionInput.bind(this)],
             ['getVersions', this.handleGetVersions.bind(this)],
-            ['viewDemoReportToggle', this.handleDemoReportToggle.bind(this)]
+            ['viewDemoReportToggle', this.handleDemoReportToggle.bind(this)],
+            ['reset', this.handleReset.bind(this)]
         ]);
 
         optionsLink.addEventListener('click', this.eventHandlers.get('optionsClick'));
@@ -93,6 +96,7 @@ class ExtensionUIManager {
         jiraFixVersionInput.addEventListener('input', this.eventHandlers.get('versionInput'));
         getVersionsBtn.addEventListener('click', this.eventHandlers.get('getVersions'));
         this.elements.viewDemoReportDetails.addEventListener('toggle', this.eventHandlers.get('viewDemoReportToggle'));
+        this.elements.resetBtn.addEventListener('click', this.eventHandlers.get('reset'));
     }
 
     handleOptionsClick(e) {
@@ -406,6 +410,10 @@ class ExtensionUIManager {
 
     setupNewFetchController() {
         this.fetchController = new AbortController();
+    }
+
+    handleReset() {
+        resetForm(this.elements);
     }
 }
 
