@@ -27,17 +27,6 @@ export function createDiscrepancyItemDiv(className, innerHTML) {
     return div;
 }
 
-export function createButton(id, text, classes = [], clickHandler) {
-    const button = document.createElement('button');
-    button.id = id;
-    button.textContent = text;
-    button.className = classes.join(' ');
-    if (clickHandler) {
-        button.addEventListener('click', clickHandler);
-    }
-    return button;
-}
-
 export function createDiv(id, classes = [], children = []) {
     const div = document.createElement('div');
     div.id = id;
