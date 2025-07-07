@@ -1,6 +1,5 @@
 import { handleAsyncBackgroundMessage } from './chromeMessageHandler.js';
 import {
-    loadApiConfigurationFromStorage,
     generateContextKey,
     loadUserModifications
 } from './chromeStorageManager.js';
