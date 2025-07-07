@@ -1,0 +1,1235 @@
+[
+  {
+    "name": "v2.25.5",
+    "message": "",
+    "target": "5dbb261c4466474d4882610897f726b7234f910d",
+    "commit": {
+      "id": "5dbb261c4466474d4882610897f726b7234f910d",
+      "short_id": "5dbb261c",
+      "created_at": "2025-06-26T16:34:40.000-03:00",
+      "parent_ids": [
+        "e32e325812587b3b3c6fd802884a1a437fd2c0b8"
+      ],
+      "title": "chore: update changelog",
+      "message": "chore: update changelog\n",
+      "author_name": "Vitor_hugo_Maldaner",
+      "author_email": "vitorhugo.maldanerco@dell.com",
+      "authored_date": "2025-06-26T16:34:40.000-03:00",
+      "committer_name": "Vitor_hugo_Maldaner",
+      "committer_email": "vitorhugo.maldanerco@dell.com",
+      "committed_date": "2025-06-26T16:34:40.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/5dbb261c4466474d4882610897f726b7234f910d"
+    },
+    "release": {
+      "tag_name": "v2.25.5",
+      "description": "### [2.25.5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.25.4...v2.25.5) (2025-06-26)\n\n### Bug Fixes\n\n* **badge** update ngOnChanges to correctly update sizes and icons ([b90c2661](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/604a5b88b4fefc6bd277ecf78792685aaaea6826))\n* **breadcrumb** allow the localization object to be a partial ([9af67738](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/715f9caf601fc814a639a3a3a9ab925853f9eed6))\n* **card** handle the header icon, icon type and icon position on ngOnChanges ([e5d6bcf6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/b83aaeb375b63bf94e6ddbeea4792514108dc646))\n* **carousel:** add check to reset active slide index when the number of items changes ([6e354e8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6e354e865f6d5ced2c4f8bbab339eef4b2d66358))\n* **date-picker:** datepicker placeholder overflowing in sm ([17a02a4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/17a02a43b2f874926631c556215a5e4a49b69376))\n* **drawer:** adding correct title heading styles ([5d62263](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5d622631edce185e5dd9b382a5e01afb9501b473))\n* **drawer:** handle localization in ngOnChanges ([67ee7354](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/67ee73540dc4d218f18d13eabb0da79f08114724))\n* **dropdown:** ensure the selected options tag inherits the inactive state from the dropdown ([ec5acef](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ec5acefddb29f71f36ec6e2f44d6a19720fcfbc8))\n* **dropdown:** error when searching with no values returned ([19ff868](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/19ff8684f7d7e6ffbf14759f54d94b55bb3d4d0e))\n* **file-input:** storybook accepted files prop ([6085d30](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6085d304d7a7ca480845797513be7fabd34e8522))\n* **icon:** icon being duplicated ([6ba0e383](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/6ba0e38368acbabc4007b10dc201016a793833f1))\n* **message-bar:** update default value of localization srCloseButton text ([230b9e2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/230b9e2f2a01a2b46f30d935fdbe3c65723e147b))\n* **modal:** update the modal to use the OnPush strategy ([c76725a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c76725ac9ab22de96aaab4bd59899b41909c0e86))\n* **notification:** notification icon changes ([bfb43d89](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/bfb43d898460d016bf7e784b4a26d76ab72afca1))\n* **side-nav:** dynamic rendering ([76ec583](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/76ec583e8c36b2119127c9a0224ef628c0e6ff58))\n* **side-nav:** should expand group when child item starts selected ([1c185c2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1c185c2513159c43e529dc1078359d6586aab2ed))\n* **table:** adjusting loading height when using sticky-header and data-source ([878930f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/878930f27f919c9a8ef975845d331015213cabc6))\n* **table:** refreshing after dynamic pin update ([7082720](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/708272086f58a7cf207619caab91aa3ee8c537b8))\n* **table:** removing no rows template from ribbon ([6f5beeb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6f5beeb37b8c085bf8917069a44af671fda0f67b))\n* **table:** table data updates reflect correctly in pagination when reducing the number of pages ([d6c7fe1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d6c7fe1899135fca00644bc46744e1f3af175095))\n* **text-area:** adjust text overlapping error icon ([918dda3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/918dda3cfa3dbee6392c06ea481d88256b1ad971))\n\n### Documentation\n\n* **foundations:** update documentation and grammar fixes ([5a560b8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5a560b839cbfbeff3951db2e2009dabbff7252cd))\n* **getting-started:** remove strict-ssl guidance and add troubleshooting paragraph to npm installation section ([9503009](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/950300925113cc53a61257fd6762ff81a15451ae))\n* **notification:** fix \"add notification\" button in the docs page ([33b98cd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/33b98cda6bcc2258c0abfb4a5a8ae84b7f6223cf))\n* **table:** add a note to provide guidance on the data-source function declaration ([47bf07d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/47bf07d3cf077214772d4fce78e23da64e9c2eab))\n* **text-input:** correct missing code snippet ([c4c3058](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c4c3058beab4ba79e678205cca0490f6ad59db60))"
+    },
+    "protected": true,
+    "created_at": null
+  },
+  {
+    "name": "v2.25.4",
+    "message": "",
+    "target": "827bb2ee7872e3bc06914cf42ab4b7996a966e0f",
+    "commit": {
+      "id": "827bb2ee7872e3bc06914cf42ab4b7996a966e0f",
+      "short_id": "827bb2ee",
+      "created_at": "2025-05-07T14:22:04.000-03:00",
+      "parent_ids": [
+        "d68a580a15d531d582969a6f9f9e036f3104d9be"
+      ],
+      "title": "chore: add missing items to the changelog",
+      "message": "chore: add missing items to the changelog\n",
+      "author_name": "Vitor_hugo_Maldaner",
+      "author_email": "vitorhugo.maldanerco@dell.com",
+      "authored_date": "2025-05-07T14:22:04.000-03:00",
+      "committer_name": "Vitor_hugo_Maldaner",
+      "committer_email": "vitorhugo.maldanerco@dell.com",
+      "committed_date": "2025-05-07T14:22:04.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/827bb2ee7872e3bc06914cf42ab4b7996a966e0f"
+    },
+    "release": {
+      "tag_name": "v2.25.4",
+      "description": "### [2.25.4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.25.3...v2.25.4) (2025-05-07)\n\n\n### Bug Fixes\n\n* **accordion:** adjusting chevron icon when item starts expanded ([a40db5d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a40db5de037ff78cd5cc2875daed6293d0ce8325))\n* **dropdown:** ensure the option-select event has the correct value on tag dismiss ([2790e85](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2790e85d3431272786aad1a824db0ef811ba417b))\n* **scss**: fix scss deprecation warning ([11256637](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/112566375767c2e2fb449fc865f7ad2ad7c6d1cc))\n* **search:** search clear button not refocusing in the search input ([eac7251](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/eac7251f8e8aa187d14641bc5b27a18fa7445daa))\n* **side-nav:** emit expanded event when a nav item is clicked ([0840726](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0840726f5c6308a647ff138d50d544bfcdced046))\n\n\n### Documentation\n\n* **tag:** add brackets to dismissible prop in code snippet ([7de403b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7de403b39872398f8075debf03381776f6550374))"
+    },
+    "protected": true,
+    "created_at": null
+  },
+  {
+    "name": "v2.0.1-beta1",
+    "message": "",
+    "target": "5795568ee63fdd6dbafe3311b156bb8257dda6f8",
+    "commit": {
+      "id": "5795568ee63fdd6dbafe3311b156bb8257dda6f8",
+      "short_id": "5795568e",
+      "created_at": "2025-04-24T14:31:00.000-03:00",
+      "parent_ids": [
+        "bae318e9a246e66c2eea7bc511b9701f57747074"
+      ],
+      "title": "chore: changing package version to debug the pipeline",
+      "message": "chore: changing package version to debug the pipeline\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2025-04-24T14:31:00.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2025-04-24T14:31:00.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/5795568ee63fdd6dbafe3311b156bb8257dda6f8"
+    },
+    "release": {
+      "tag_name": "v2.0.1-beta1",
+      "description": "THIS VERSION IS JUST TO TEST PRODUCTION PIPELINES!"
+    },
+    "protected": true,
+    "created_at": null
+  },
+  {
+    "name": "v2.25.3",
+    "message": "release v2.25.3",
+    "target": "d9087b73221aa04355f4660d03fb96ef8bcbfba2",
+    "commit": {
+      "id": "0a4a9791b707d0b770d97d73eae74e9fdba2f916",
+      "short_id": "0a4a9791",
+      "created_at": "2025-04-10T10:59:34.000-03:00",
+      "parent_ids": [
+        "47c2d556dd13b7517b63180f198c01f3cb12d413"
+      ],
+      "title": "refactor: rollback CICD to use v3.0.0",
+      "message": "refactor: rollback CICD to use v3.0.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2025-04-10T10:59:34.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2025-04-10T10:59:34.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/0a4a9791b707d0b770d97d73eae74e9fdba2f916"
+    },
+    "release": {
+      "tag_name": "v2.25.3",
+      "description": "### [2.25.3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.25.2...v2.25.3) (2025-04-09)\n\n\n### Features\n\n* **table:** add getCurrentPageData and getAllPagesData API methods ([4754e8c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4754e8c569e0ad125c39224b50f1ad6fa6e794bd))\n\n\n### Bug Fixes\n\n* **dropdown:** event emitter issue ([0360fcd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0360fcd05a72cac34bfa70bb16be972db68eb050))\n* **side-nav:** expand the group when an item within starts selected. ([6a508ee](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6a508eea06cbfc8f9f60d6270d6b6408205b5b60))\n* **events:** simplify the implementation of custom events to not require TypeScript Generics. Check the Docs page on Storybook for a Deprecated section to get more information about the migration ([e158b4e3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/merge_requests/841))\n\n### Documentation\n\n* **datepicker and timepicker:** add form validation examples ([eb74a686](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/merge_requests/836))\n"
+    },
+    "protected": true,
+    "created_at": "2025-04-10T16:09:13.000Z"
+  },
+  {
+    "name": "v2.25.2",
+    "message": "release v2.25.2",
+    "target": "e98b8b57cf00c3245200ba28995192ef835ceeb9",
+    "commit": {
+      "id": "e961b01e443674ef91b01b9c8e1805c10ed661fd",
+      "short_id": "e961b01e",
+      "created_at": "2025-03-25T16:35:43.000-03:00",
+      "parent_ids": [
+        "526294bdca81834e940cc99cdfb1effee6043edd"
+      ],
+      "title": "chore: fix changelog spacing",
+      "message": "chore: fix changelog spacing\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2025-03-25T16:35:43.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2025-03-25T16:35:43.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/e961b01e443674ef91b01b9c8e1805c10ed661fd"
+    },
+    "release": {
+      "tag_name": "v2.25.2",
+      "description": "### [2.25.2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.25.1...v2.25.2) (2025-03-25)\n\n\n### Bug Fixes\n\n* **checkbox:** using error icon in the error text ([a4621a3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a4621a3801dad3f26706806a9e7b32b87602d0f0))\n* **drawer:** accessibility and design enhancements ([acdd874](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/acdd8743555e1cc5e336f6516c2fde6b8c4c9eba))\n* **dropdown:** the object unsubscribed error no longer fires when disposing the dropdown ([5f10ab2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5f10ab252100dc74423b46d4366bd0e27228ff00))\n* **loading-indicator:** using aria-description to announce srCompletedText and improving storybook ([7cfb5a5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7cfb5a5cc1d6a26c00d239c783d6f6f49807d395))\n* **messagebar:** add localization input and deprecate sr-close-button ([c30faec](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c30faec9d199c7d4670f1eed8b61dd11dabb776a))\n* **search:** clear button hidden when search-text is manually removed ([ae84f36](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ae84f36ab1e3dd506a2b9de21c3b49236e49d058))\n* **side-nav:** review a11y attributes and fix inconsistencies with the icons ([79cccaa](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/79cccaa73463854465d43dd4602e71ee92291f0e))\n* **table:** remove unnecessary separator from the pin action menu ([6a0a011](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6a0a011941bf111cf041c6d9ed9abe8a8b8c69ab))\n* **table:** set column width on filter enabled ([7490ed4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7490ed48ca9b4094343020449740e6ac12d0c4e3))\n* **tooltip:** changing title to use h6 ([618ce5b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/618ce5bb5a32027891057bd963bf88ce34841ae7))\n\n\n### Documentation\n\n* **datepicker:** validation story ([c5282f7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c5282f78f30926ffa0023fc074eb9745d738c298))\n* **file-input:** adjusting accepted-file-types code snippet ([d7a6fb6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d7a6fb6283fce31d162d54a4bc1e1d80dab15739))\n* **message-bar:** adding color story and changing global story name to timer ([0361498](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/03614986f024cddeddf48f4ac8b0f265f88468f3))\n* **notification:** improving code snippet on storybook ([1cdb18f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1cdb18f5127dd9677a3f8a5f3af170813e88ac61))\n* **radio-button:** addressing content review ([49c6eb9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/49c6eb99b67dd35656494c6b9019ea6b6616504e))\n* **table:** adjusting without rows code snippet ([96013b3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/96013b3934c0b65b90603a80230acce288244141))\n* **table:** update data-source example to use arrow function and keep the context of the component class ([603b933](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/603b9335d3bde645283ddfa2af121ba287718ae6))\n* **table:** update standards for localization object ([36f164](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/merge_requests/824))\n"
+    },
+    "protected": true,
+    "created_at": "2025-03-25T20:17:34.000Z"
+  },
+  {
+    "name": "v2.25.1",
+    "message": "release v2.25.1",
+    "target": "d7cb3a637d9beabdbdd310f5ff8081a97c54a00d",
+    "commit": {
+      "id": "6602295a5a7d4977d0db4d2daf1eee246c86c252",
+      "short_id": "6602295a",
+      "created_at": "2025-02-25T14:35:57.000-03:00",
+      "parent_ids": [
+        "ab3a4cfbe7f1f1a02d94b9336a19a87cba8e9436"
+      ],
+      "title": "chore: updating changelog",
+      "message": "chore: updating changelog\n",
+      "author_name": "stukervitor",
+      "author_email": "vitor.stuker@dell.com",
+      "authored_date": "2025-02-25T14:35:57.000-03:00",
+      "committer_name": "stukervitor",
+      "committer_email": "vitor.stuker@dell.com",
+      "committed_date": "2025-02-25T14:35:57.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/6602295a5a7d4977d0db4d2daf1eee246c86c252"
+    },
+    "release": {
+      "tag_name": "v2.25.1",
+      "description": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n\n### [2.25.1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.25.0...v2.25.1) (2025-02-25)\n\n\n### Features\n\n* **icon:** resolution icon added ([aba0be3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/aba0be3a9a2cab7d63bd005df40c2b86108e50fe))\n* **link:** handle routerLink directive ([1fd3883](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1fd3883918bce452c82226a95e6b61ca12375bd6))\n* **table:** defer dds-row-selected to prevent issues when manipulating selected rows from the public API simultaneously ([f757287](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f7572877e4cc49f451c43259abacf46c925f2cfa))\n\n\n### Bug Fixes\n\n* **checkbox:** update controls to allow setting the error message on stories with validation ([d712cf8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d712cf869d0a943a74e0c8ed558057b910e7d7f5))\n* **date-picker/time-picker:** prevent invalid state upon form reset ([41d9619](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/41d96197705d9a48ee79edc5fdf2317388a5c612))\n* **date-picker:** prevent the calendar from focusing the wrong date when switching months ([6b86d43](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6b86d439060ceaccecbd0fe715fa0069f0061de2))\n* **date-picker:** the default focused date is now correctly chosen based on today's date ([2ef6f1d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2ef6f1d02a3a393e260fa911bd1ef814bc38c733))\n* **drawer:** a11y corrections ([4984ac6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4984ac626850e874771bda5c894cdc41b2847577))\n* **dropdown:** fix several issues ([2acb35f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/commit/2acb35f603fc09f84bf9159f772f53c27205a4ba))\n* **file-input:** handling form reset and error icon ([57a3709](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/57a37090a1da65e5939c626d61441afbcdfaf4d2))\n* **pagination:** stop emitting events from inative buttons ([b679495](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b67949593f4fc265b160d0a517a5a9fa8f24d77a))\n* **radio-button:** handle initial value from NgModel ([e268274](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e268274ed7a79d4577dd02ff772230191d56bed8))\n* **search:** removing unnecessary screen reader class (a11y requirement) ([00f079c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/00f079c9fb05bca93d61a852f61ad2cda8902d9d))\n* **side-nav:** defining itemSelected only when routerLink is defined ([ee9adde](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ee9addec4463148d3b6579c115a57b475723c5c9))\n* **side-nav:** remove aria-expanded attribute from nav element ([9d10bf4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9d10bf4d403ce93219efe43f925aa52dd6316c8a))\n* **storybook:** properly handle HTML in story controls descriptions ([cc192c0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cc192c0cbd27fefd3b7881efcac69d5a60fa0059))\n* **table:** a11y updates ([3b44d66](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/3b44d6616ffb062b1f00f09a5121618264d72017))\n* **table:** enhance the aria-label text used in the dds-tag to dismiss selected rows ([e484eb1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e484eb1c4e2ad4719cb8548b07c8db058c5c8ad7))\n* **table:** external filters working with filter, search and alone; pinned columns render issues ([aa0c954](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/aa0c95410ee09e6442e6ed2578f27a77a2adf4e1))\n* **view-more-less:** a11y enhancements ([979301f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/979301f5b2241c9c4c1701b304aca34c6ed597fd))\n\n\n### Documentation\n\n* **card:** adjusting title capitalization ([52bd241](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/52bd24165ba18c33089ba50f8d103fc935a7518f))\n* **carousel:** addressing content review ([8f2f98b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8f2f98ba03e19258aa8c6e3cb992067c412d609a))\n* **helpers:** fix dds__sr-only classname ([96ed989](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/96ed989aa10029b2028be4791597d2f1a2c7c40c))\n* **storybook:** improve Getting Started with Angular 18 TypeScript configuration and event coalescing ([233d431](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/233d43174ca5358280894d4aa19c2f34fbc0f93e))\n* **message-bar:** content review ([4625bbc](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4625bbcd62c3be03328ae4139e50805e19a17f13))\n* **table:** update external-filter description in Inputs table and DSFilter page ([1663ee9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1663ee9f26e8b910ceaefbbc2855de6b21c7e625))\n* **text-input:** adding a pattern property example ([f971d7d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f971d7df1b9a5ce79898dc55dcb95d7c0af18bd9))"
+    },
+    "protected": true,
+    "created_at": "2025-02-25T18:17:48.000Z"
+  },
+  {
+    "name": "v2.25.0",
+    "message": "release v2.25.0",
+    "target": "2fe636737a15923b34124d259f818d9abebbe853",
+    "commit": {
+      "id": "ad0b012995d353668dda54e192b69063eafd5774",
+      "short_id": "ad0b0129",
+      "created_at": "2025-01-14T14:22:57.000-03:00",
+      "parent_ids": [
+        "b61f1627d12a662496fd13851525e1ac5ea23d8d"
+      ],
+      "title": "chore: add missing item to the changelog",
+      "message": "chore: add missing item to the changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2025-01-14T14:22:57.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2025-01-14T14:22:57.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/ad0b012995d353668dda54e192b69063eafd5774"
+    },
+    "release": {
+      "tag_name": "v2.25.0",
+      "description": "## [2.25.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.24.0...v2.25.0) (2025-01-14)\n\n### Features\n\n* **file-input:**  introduce the **list** method in the public API and enhance the event data ([9a999fe](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9a999fe55b4cf4661a1d361cd9dfe2576426a869))\n* **table:** optimizing table performance ([201b887](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/201b88762fc4cb637650472ab23993d3f3e801ff))\n* **timepicker:** add leading-zero feature and allow localization of am/pm ([ccf1bb9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ccf1bb9174a1884d4ce4c3c2a065cb90ff38168a))\n\n\n### Bug Fixes\n\n* **breadcrumb:** adding aria-label to the component ([5ef50fa](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5ef50fa66ec1a26144306b03edef1b7f1f7e3184))\n* **drawer:** fix overlay style ([125051b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/125051b43a7e65ebc3f8d06583628ff5d3588e67))\n* **datepicker:** properly handle Subject subscription on ngOnDestroy ([1480b2e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1480b2e9cfd42bd4c821a88a864f3b416db088a2))\n* **sidenav:** storybook example not loading ([a1c9f6e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a1c9f6ecbe55aa201c7d640fa663ac18ecd7aac7))\n* **table**: columns not honoring custom width when there is no data ([ab48ee08](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/761/commits))\n* **tabs:** adding aria label to the panel ([58f4849](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/58f4849333f5c62f314be92a128c84f087a91a42))\n* **tabs:** design corrections ([4dffab5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4dffab59306661c1a152961ddf5f42a12219cef8))\n* **tooltip:** conditional rendering ([44f8ef6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/44f8ef69ac6a657f7ab638f2bc7b45c3f708b60a))\n\n\n### Documentation\n\n* **file-input:** updating max-file-size description to bytes ([66196ac](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/66196ac77cb2589d5fbc4730d9b00022d76d3d4b))\n\n"
+    },
+    "protected": true,
+    "created_at": "2025-01-14T18:21:55.000Z"
+  },
+  {
+    "name": "v2.24.1",
+    "message": "release v.24.1",
+    "target": "6404dcb7dbff679016cd3647fa7f77f4468c9e66",
+    "commit": {
+      "id": "cad478f057f071e60e87e6f7df096f1686395785",
+      "short_id": "cad478f0",
+      "created_at": "2024-12-05T16:16:57.000-03:00",
+      "parent_ids": [
+        "7c458d9ce781f82666ee1c8529387bcd7a8a1f65"
+      ],
+      "title": "chore: tweak the changelog",
+      "message": "chore: tweak the changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-12-05T16:16:57.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-12-05T16:16:57.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/cad478f057f071e60e87e6f7df096f1686395785"
+    },
+    "release": {
+      "tag_name": "v2.24.1",
+      "description": "### [2.24.1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.24.0...v2.24.1) (2024-12-05)\n\n\n### Features\n\n* **table:**  add icon to sort menu and auto-close when an option is clicked ([0404f62](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0404f62ba4243efb2bcc3d24299b62a35ef34579))\n* **table:** add search and filters to data-source payload ([4852d83](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4852d83e4c98b7821616f821e03df05a21e12c7b))\n\n\n### Bug Fixes\n\n* **action-menu:** design enhancements ([cf1855b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cf1855b341f64e71cfbc54fabf74b528ebde344d))\n* **action-menu:** export action menu item native element ([06106b9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/06106b996d5ae5e5168da1adb196f3344e7f6319))\n* **breadcrumbs:** expanded second item ([e450d10](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e450d109aedcbd30290e17b14e35b5679678d70f))\n* **datepicker:** correctly updating component when using string values ([0eb3019](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0eb30198a073deee508eb0596aebe996dd3f4387))\n* **datepicker**: refresh the calendar when start-date or end-date changes ([5600bae2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/766/diffs?commit_id=5600bae2d68506a45bfae0e8832f8d949e3694a1))\n* **dropdown:** multiselect options not reset when options is changed ([f8c18ac](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f8c18ac367658e6facbbe78c56c09bb8f437c205))\n* **file-input:** visual-indicator and accepted-file-types now working on storybook ([9e85437](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9e85437c4149278e540d43254c820f6f364eee07))\n* **overlay:** a11y enhancements ([a07f0be](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a07f0be1254a2c31212787cded08e1463d4274e2))\n* **popover:** prevent scroll on focus ([b3dcccc](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b3dccccb002ccf6a44ecca0e7756fdb52adc787d))\n* **progressbar:** a11y enhancements ([410516c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/410516ca107e79974f52360bc939bd049ee1df5d))\n* **side-nav:** a11y enhancements ([655e1ac](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/655e1ac1fe5840b3a8da4e9fac8ccb7f90a755ca))\n* **table:** columns not honoring custom width when there is no data ([ab48ee0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ab48ee08688d9671fbebc362248989477684c258))\n* **tabs:** fix container style line ([6c3f712](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6c3f712acdfe35f158aa6126bf2423aa824c348a))\n\n\n### Documentation\n\n* **messagebar:** fix code snippet ([fe869f9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/fe869f94dd2a11dc8e9ba8402e0530e689903418))\n* **storybook:** migration from vanilla ([435d6d7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/435d6d72b0e81cc00207e5a1309c73220c7f2dd4))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-12-05T20:02:26.000Z"
+  },
+  {
+    "name": "v2.24.0",
+    "message": "release v2.24.0",
+    "target": "96f7fcb0ba9f45ee074521b668c0b304aa1d0230",
+    "commit": {
+      "id": "1dbbbc1484bd77ade46c1723e9a7d3db65b5057a",
+      "short_id": "1dbbbc14",
+      "created_at": "2024-11-04T12:29:39.000-03:00",
+      "parent_ids": [
+        "371a05c4a7faf55c96b8c69c4bd9bf7836816072"
+      ],
+      "title": "feat: tweak changelog with missing items",
+      "message": "feat: tweak changelog with missing items\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-11-04T12:29:39.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-11-04T12:29:39.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/1dbbbc1484bd77ade46c1723e9a7d3db65b5057a"
+    },
+    "release": {
+      "tag_name": "v2.24.0",
+      "description": "## [2.24.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.23.4...v2.24.0) (2024-11-04)\n\n\n### Features\n\n* **dropdown:** introducing placeholder ([082fa70](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/082fa7023d4661da3efe3146ab72ca2b160b5584))\n* **input:** phone number ([4c534b2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4c534b239befbc27fe853cf446e2a31c96c7a4de))\n* **pagination:** handling the \"ResizeObserver loop completed with undelivered notifications\" error message ([06c7b22](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/06c7b22f145cf3c077d0bd9fa714c9f331c8415b))\n* **table:** introducing collapseRow, collapseAllRows, expandRow and expandAllRows API methods ([e4a7935](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e4a7935ab66a74a42ecead92a188c9aedac8cffa))\n\n\n### Bug Fixes\n\n* **accordion:** a11y aria-hidden ([e9b2736](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e9b2736e959c7e18a636bcb65eb7ef6c0c57b76a))\n* **action-menu/dropdown:** change detection for onPush apps ([5a1417b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5a1417b59bb088fd14c89681299cd3838b399839))\n* **breadcrumb:** a11y enhancements and layout issues ([f4b6a19](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f4b6a19c056b67dbb3a21190a66fab769e9441e0))\n* **button:** focused styles ([01ca9cd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/01ca9cdf55b02d994a64529758cad679f785a51b))\n* **card:** body misalignment ([78d2bc7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/78d2bc73b46a3f1f8d7c83d24b501619c452b205))\n* **dropdown:** dynamic options ([965677f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/965677fa18aa3d1ad1ae74067359a479b8383a1c))\n* **dropdown:** multi select enter keypress ([d0ae1bf](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d0ae1bfe4b00cf910f734bbbf79de0537638b0cc))\n* **dropdown**: a11y and design fixes ([18c16d1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/732/commits))\n* **date-picker**: form group validation issue ([68675f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/714/commits))\n* **date-picker**: custom validator ([62007f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/718/commits))\n* **file-input:** properly resetting errors when needed ([07162c9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/07162c90de59b9c45d9a58cfa1052048fd2f3282))\n* **form-field:** removing check of field/form from inside defer() call ([fed612f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/fed612f820ebdae01c3069fb8eeca261150fef7f))\n* **label:** visual indicator change ([bf86530](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/bf86530fbe956b9631a110b6dcc2cf64b3865c35))\n* **messagebar:** updated code snippet ([9d6d5e0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9d6d5e0a362eb69351b405a3f414342c4e705bf2))\n* **modal:** remove the overlay animation ([a78f661](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a78f661bd031b7fbd2414d7b20e5ea4e18ce4966))\n* **notification:** a11y enhancements ([85a1b97](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/85a1b97beda355067630d775f2f79f79dd8d248e))\n* **overlay:** removing body style when ngOnDestroy is called ([35599fe](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/35599fe987c5fa0c22b7496c76bb94491ef2941f))\n* **progress-tracker:** a11y enhancements ([c47ae6a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c47ae6aec0bd832b97fa97bbaf149ee18f315f8e))\n* **search:** removing unnecessary aria-label ([984ec61](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/984ec6178366327bcffbb2b89efd53815cc305dc))\n\n\n### Documentation\n\n* **accordion:** adding public api methods to storybook ([cd26e0a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cd26e0af718fd9f67d137dd22b4d4dd37cf99955))\n* **footnote:** adding an a11y suggestion to use aria-label with footnote links ([c712095](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c712095733354abdb517597991b57bf00cededfc))\n* **storybook:** add Productivity Template example ([dcb71d7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/dcb71d73d93b0a48da5b5d7ab9dc4c1dacb8f43e))\n* **table:** refresh method ([58bc190](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/58bc190e53125dc85ecd0c515db606b9ac8af4d7))\n* **text-input:** with button validation ([39f907e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/39f907e9bd287a6a6a3800ac8556434eee05d28c))\n"
+    },
+    "protected": true,
+    "created_at": "2024-11-05T18:50:59.000Z"
+  },
+  {
+    "name": "v2.23.4",
+    "message": "release v2.23.4",
+    "target": "f92a701d6aa0656695816023da7d65c75e5feac2",
+    "commit": {
+      "id": "d6f1aaf7cf2c9a801fcfecfb34969e40eb836c30",
+      "short_id": "d6f1aaf7",
+      "created_at": "2024-10-01T16:08:11.000-03:00",
+      "parent_ids": [
+        "b37fe5ce9a0de92b71f1b9aab1b741e905de0982"
+      ],
+      "title": "chore: update changelog",
+      "message": "chore: update changelog\n",
+      "author_name": "Felipe Deitos",
+      "author_email": "felipe_deitos@dell.com",
+      "authored_date": "2024-10-01T16:08:11.000-03:00",
+      "committer_name": "Felipe Deitos",
+      "committer_email": "felipe_deitos@dell.com",
+      "committed_date": "2024-10-01T16:08:11.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/d6f1aaf7cf2c9a801fcfecfb34969e40eb836c30"
+    },
+    "release": {
+      "tag_name": "v2.23.4",
+      "description": "### Features\n\n* **storybook:** add postMessage ([82dd5eb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/82dd5eb6d26abe6ce933e355945c7291fc39e7d0))\n\n\n### Bug Fixes\n\n* **badge:** not updating color after first render ([11d99e0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/11d99e06dfda82c71d5deaae443d899b49fc8ddb))\n* **breadcrumb:** adjusts on item css alignment ([73cb603](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/73cb60370180462fd2dc974fce1cea3518137049))\n* **date-picker:** start the calendar with date from FormControl, NgModel or value attribute ([b68f819](\nhttps://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/commit/b68f8193df2a3d1d8a9532f93ab0a5ece6c33b6b))\n* **dropdown:** multi-select dropdown tooltip added on tag hover ([b0c538d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b0c538d28420a6b4d09528583e6c24be2fbf1614))\n* **form:** using rxjs to handle form subscriptions ([be9e7a8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/be9e7a80330e14ebba035eb9d5d748f518e6ce04))\n* **popover:** a11y enhancements ([1929d60](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/commit/1929d60b7984ce849fe14feeaff19c20479993b8))\n* **table:** clear filters and show all data when column-filter feature is disabled ([342d848](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/342d848450c553a97a965001aa557d0b1380c056))\n* **table:** (sort) prevent sort menu from going off the wrapper ([86f3936](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/86f3936820b1ea66127fec160bbb57b1fc4cfbfc))\n* **table:** (selectable-rows) header checkbox now selects/deselects all rows as expected ([86f3936](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/86f3936820b1ea66127fec160bbb57b1fc4cfbfc))\n* **table:** (selectable-rows) selected rows are now preserved properly when navigating between paginated pages ([86f3936](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/86f3936820b1ea66127fec160bbb57b1fc4cfbfc))"
+    },
+    "protected": true,
+    "created_at": "2024-10-01T19:56:01.000Z"
+  },
+  {
+    "name": "v2.23.3",
+    "message": "release v.2.23.3",
+    "target": "bb7e75da95764a58f0affdd2874b7d115d58f566",
+    "commit": {
+      "id": "ea0f0df466eb7b58b1da6bf83a00b2a8c544b721",
+      "short_id": "ea0f0df4",
+      "created_at": "2024-09-04T16:22:24.000-03:00",
+      "parent_ids": [
+        "d00d69e012d505fe738740565e53ba235803ffbc"
+      ],
+      "title": "feat: update changelog",
+      "message": "feat: update changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-09-04T16:22:24.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-09-04T16:22:24.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/ea0f0df466eb7b58b1da6bf83a00b2a8c544b721"
+    },
+    "release": {
+      "tag_name": "v2.23.3",
+      "description": "\n### Bug Fixes\n\n* **button:** using correct line height for small button ([b827749](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b8277492512faf510480f6368274d60ca609ce0b))\n* **checkbox:** handle form errors on ngOnDestroy lifecycle ([954a02b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/954a02be5a32655081cd61c6b84e8186c22c9f35))\n* **dropdown:** FormControl and NgModel retain value when deleted in input text ([8bf0fcd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/684/commits))\n* **loading-indicator:** a11y aria-describedby ([800d2c0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/800d2c0a3610eebd2ed62582402476bdbe3d2a2d))\n* **popover:** outside click ([bb8a413](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/bb8a4135a21c5318e7962e30e0d50c0396014aef))\n* **search:** text overflowing when component is small and clear button reseting form ([d67a4ff](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d67a4ff3b3db474af9bbda367365a7c2a579d1b9))\n* **table:** enhancing a11y ([6634ec7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6634ec73df91001a9fcd9e5fccf87a317b88e2c0))\n* **table:** expandable row with sticky header and nested table ([f51128b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f51128b78aa9f0d46c1502721274d9eb9f698647))\n* **table:** handle selected rows after calling refresh method ([9990822](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9990822a7836ddd58cfaf25e13d0d000625cfbad))\n* **table:** issue with pagination; storybook sample ([12e1dc3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/12e1dc3acb94d51de8b5358834355e5677da79e0))\n* **table:** render problems when using columns with width and fit ([e8db9ee](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e8db9ee146521221b2dbe3dbfacbb987294f1e1d))\n* **table:** row selection issue; automatic row id generation ([c7e2d2b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c7e2d2bb1eb0992f7694a05e0c2dc0f64aade8be))\n"
+    },
+    "protected": true,
+    "created_at": "2024-09-04T20:14:49.000Z"
+  },
+  {
+    "name": "v2.23.2",
+    "message": "release v2.23.2",
+    "target": "69cb6e5b2316d1bac3d24492484f21bccbd64d0a",
+    "commit": {
+      "id": "9dfc0841cee270ddcfe9428fbee843f06a5eecd8",
+      "short_id": "9dfc0841",
+      "created_at": "2024-08-27T21:09:29.000+00:00",
+      "parent_ids": [
+        "750e0e9e7d376f3216cc86d2a09def7336c694a3",
+        "48e288c2b77f3c326e89cb96e7ae18a563afd44e"
+      ],
+      "title": "Merge branch 'dev' into 'main'",
+      "message": "Merge branch 'dev' into 'main'\n\nRelease v2.23.2\n\nSee merge request dao/dell-digital-design/design-language-system/systems/dds-2.0-angular!678",
+      "author_name": "Almeida, Igor",
+      "author_email": "igor_almeida@dell.com",
+      "authored_date": "2024-08-27T21:09:29.000+00:00",
+      "committer_name": "Almeida, Igor",
+      "committer_email": "igor_almeida@dell.com",
+      "committed_date": "2024-08-27T21:09:29.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/9dfc0841cee270ddcfe9428fbee843f06a5eecd8"
+    },
+    "release": {
+      "tag_name": "v2.23.2",
+      "description": "### [2.23.2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.23.1...v2.23.2) (2024-08-27)\n\n\n### Bug Fixes\n\n* **accordion:** using renderer to expand item ([e34ac3f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e34ac3f50e69291febd2902927770725edfc6a3f))\n* **datepicker** : handling invalid dates on angular 17 and later ([9d11147](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/667/commits))\n* **sidenav:** handling error messages when reloading a page that uses the Angular Router ([a3e8c56](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a3e8c561eb0665173d62a8f6a8a66591b5b32374))\n* **switch** : a11y improvements ([d06866](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/671/commits))\n* **table:** pin start and pin end issue ([f0ab5f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/664/commits))\n\n\n### Documentation\n\n* **form:** disable components using FormControl in Angular 16+ ([9923fe1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9923fe1497639a6dedde89a1d3cdd6186bf879be))\n"
+    },
+    "protected": true,
+    "created_at": "2024-08-27T21:26:21.000Z"
+  },
+  {
+    "name": "v2.23.1",
+    "message": "release v2.23.1",
+    "target": "e02ec10b4f143eecfd8996ce5d1bfb55a8504136",
+    "commit": {
+      "id": "750e0e9e7d376f3216cc86d2a09def7336c694a3",
+      "short_id": "750e0e9e",
+      "created_at": "2024-08-21T18:33:47.000+00:00",
+      "parent_ids": [
+        "7931a15172c8684c0243cf349bfa5f6bf3ad0121",
+        "ce95925bcb7c2763193c01b384e564774c193408"
+      ],
+      "title": "Merge branch 'dev' into 'main'",
+      "message": "Merge branch 'dev' into 'main'\n\nRelease 2.23.1\n\nSee merge request dao/dell-digital-design/design-language-system/systems/dds-2.0-angular!670",
+      "author_name": "Almeida, Igor",
+      "author_email": "igor_almeida@dell.com",
+      "authored_date": "2024-08-21T18:33:47.000+00:00",
+      "committer_name": "Almeida, Igor",
+      "committer_email": "igor_almeida@dell.com",
+      "committed_date": "2024-08-21T18:33:47.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/750e0e9e7d376f3216cc86d2a09def7336c694a3"
+    },
+    "release": {
+      "tag_name": "v2.23.1",
+      "description": "### [2.23.1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.23.0...v2.23.1) (2024-08-21)\n\n\n### Bug Fixes\n\n* **button:** storybook icon name list items ([6007236](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/600723607563f88c3fe6204346edb19fd195cc90))\n* **datepicker and timepicker:** handling form controls ([e4f0a80](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e4f0a80fe1c0f754d92cbe986775080a33f9e10f))\n* **dropdown:** updating form control and ng model when clearing dropdown values using dds-tag clear button ([0dd1ef1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0dd1ef11a8a312902e4eff23228dd4cd7696ce17))\n* **file-input:** svg icons not depending on svg sprite ([ae359a8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ae359a88cd723b1ed5dbbe3d58c1eb62629657b2))\n* **notification:** close button localization and documentation ([cccb0ea](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cccb0ea3cb0b38804ca44ba71b4f6f03bb4f6e12))\n* **overlay:** removing style tag from body ([1fbb34f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1fbb34fe9d2a59a389b7bafb3dde6dee28d5d266))\n* **table:** adding missing function to dataSource storybook ([69a7f16](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/69a7f16a332818f18224d610c90da2b89ef3d708))\n* **table:** close on click in bulk-actions ([064b3e5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/064b3e557aee9b4cdee3618a1d75debe65c68f90))\n* **table:** localization schema to only use wanted properties ([437e9c8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/437e9c8315798d5f189c596d0b50cc86ebd038c2))\n* **table:** pagination and selection issue ([e86e8ba](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e86e8ba24df9b23d05b988890404affc408782eb))\n* **table:** selected rows tag appearing when selectable-rows is not enabled ([8b245c0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8b245c0bdce00fdc916c1f098685a8ae4a3426b5))\n* **tabs:** label not appearing in the more button ([8edc720](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/649/diffs?commit_id=8edc72048280560ff05fce17ac22112b82d07e06))\n* **tabs:** overflow button ([c1525b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/659/commits#240ad3b1d12ddb3daa0ca05ff7df39e0bfcc0761))\n\n\n### Documentation\n\n* **storybook:** update foundations helpers documentation ([f13d3fc](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f13d3fc29d8819557af7ff52995722fb080021bf))\n* **tabs:** active tab control name ([83bad49](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/83bad493e6a274febc6138a5aa6b0eb6e41244af))\n* **breadcrumbs:** content review ([6fe5ac7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/666/commits))\n"
+    },
+    "protected": true,
+    "created_at": "2024-08-21T19:11:02.000Z"
+  },
+  {
+    "name": "v2.23.0",
+    "message": "",
+    "target": "7931a15172c8684c0243cf349bfa5f6bf3ad0121",
+    "commit": {
+      "id": "7931a15172c8684c0243cf349bfa5f6bf3ad0121",
+      "short_id": "7931a151",
+      "created_at": "2024-07-31T17:16:14.000-03:00",
+      "parent_ids": [
+        "7b955347a8f18c40e894124246c65f8f3d6e06e1"
+      ],
+      "title": "chore(release): 2.23.0",
+      "message": "chore(release): 2.23.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-07-31T17:16:14.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-07-31T17:16:14.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/7931a15172c8684c0243cf349bfa5f6bf3ad0121"
+    },
+    "release": {
+      "tag_name": "v2.23.0",
+      "description": "## [2.23.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.22.0...v2.23.0) (2024-07-31)\n\n\n### Features\n\n* **carousel:** introducing new component ([6e33b2b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6e33b2be237a8ad1206e5170cabd43bce7b60e37))\n* **drawer:** introducing drawer component ([715c271](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/715c2719b073f7631055011e08e960f600399bb7))\n* **dropdown:** handles option.selected to start the dropdown with selected values ([7a85783](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7a857838db88017449fd30e139ebf857f212155c))\n* **icons:** introduce new DDV `alert-error-filled`, `alert-info-cir-filled`, `alert-info-sqr-filled`, `alert-notice-filled`, `line-dash`, `task-check-filled`, `trending-down` and `trending-up` icons. ([38e6c63](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/38e6c6358303ab2d8bd4e58f649ff1bb0edd897c))\n\n\n### Bug Fixes\n\n* **table:** update css to solve an issue with odd gray rows not having a hover state when using the table with alternating rows ([8aa30a1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8aa30a102744a6cda0e0c8c3812fba69c5696178))\n\n\n### Documentation\n\n* **icons:** hide brand icons that should not be contained in DDS's documentation ([08b1c1b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/08b1c1b26fa6076ba7bb75cf3ea2d1f975966c5d))\n* **spacing-and-sizing:** fix sides documentation ([b0601dc](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b0601dc1a4737600665bc7dde4fa7f246ac52a5d))\n"
+    },
+    "protected": true,
+    "created_at": null
+  },
+  {
+    "name": "v2.22.0",
+    "message": "release v2.22.0",
+    "target": "d6afb993e72093c72ad18f4bb307c58d281ac737",
+    "commit": {
+      "id": "cb9b7954024ebfd194086908b124496cb966b45f",
+      "short_id": "cb9b7954",
+      "created_at": "2024-07-23T13:02:56.000-03:00",
+      "parent_ids": [
+        "2643503dbe931b5dbec185ef474622f6d754629d"
+      ],
+      "title": "chore: tweak changelog",
+      "message": "chore: tweak changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-07-23T13:02:56.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-07-23T13:02:56.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/cb9b7954024ebfd194086908b124496cb966b45f"
+    },
+    "release": {
+      "tag_name": "v2.22.0",
+      "description": "## [2.22.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.21.1...v2.22.0) (2024-07-23)\n\n\n### Features\n\n* **package:** optimize bundle size and add sass sources to the package to allow importing individual components ([ef7824a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ef7824a5a4c7601e99d2ef3b25ba3fe8d5a19d4e))\n* **sidenav:** integration with Angular Route ([280f888](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/280f888ac52bd561d94d5f1ccab9fee3c6d8a56a))\n* **table:** introducing bulk actions ([128b5ea](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/128b5eaa7afa74807842ba074e843a1be484318a))\n* **table:** update Deprecated section on Storybook Docs showcasing changes related to the selected rows event ([75b2aee](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/75b2aee6aa1020ae7a1463e0fbb9d20854b75c62))\n\n\n### Bug Fixes\n\n* **accordion:** handle properly the case when multiple dds-accordion-item have the expanded attribute ([29db8f5c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/635))\n* **action-menu:** adding destructive style to storybook ([b30e962](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b30e962b78e3416955b42c71dc4af0410f55a9c2))\n* **button:** focus not being applied to different kinds ([76290f3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/76290f3f30c23066edfc6c566d9525e2c6ca464f))\n* **datepicker:** adjusting playground value ([0f690df](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0f690df487a58ebd8074dde7e0afa42ffedd2c57))\n* **datepicker:** alt-pgup/down keys support; handling null values in start-date and end-date inputs ([656dff1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/656dff1b9e71bc0aad4622af394f90d3b5348b81))\n* **loading-indicator:** using start/end for placement property ([57094df](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/57094df3858be009852a779fe92ef9df0f855549))\n* **patterns:** storybook story names using sentence case ([753f94a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/753f94aee442b4cec1384ca110a1844c69ecbcc1))\n* **pagination:** current page value fixed when table has no data ([748b51b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/748b51b0da61e75534663257f1b0dd12be265531))\n* **progress-tracker:** allow changing the dds-progress-tracker-step status dynamically ([483c98e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/483c98e257f61d6a4157460fda74d8e96d9d6a55))\n* **storybook:** modal example is preventing scroll when switching from canvas to docs with the modal opened ([4c65f66](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4c65f667af13b8b105f7a2a8ed3763db81c4ae3b))\n* **table:** pagination current page updated from table events ([50cf239](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/50cf239179c7820c3110eca7222582b1fed580e7))\n* **table:** sorting first column with sortBy equals to ascending or descending ([08d9b04](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/08d9b045cbd1978ee2d7b92da93229d9cca009fc))\n* **table:** update the dds-row-selected event payload and include the property *id* on DataRow type ([991e261](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/991e26161055193d04718f6a959556220b22351e))\n* **tabs:** icon placement property adjusted ([ea1a884](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ea1a884cfc4d2c890f6c8126e1c002858cdc4ccd))\n* **tabs:** mobile justified layout adjusted ([0ae74e0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0ae74e004800d1594b0ee105bd9b453f97bbc012))\n* **timepicker:** error opening the list when it's close to the bottom of a page ([2dedbb0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2dedbb0d4fc5c407409cc3b4dc566cf8daf0f3d4))\n\n\n### Documentation\n\n* **action-menu:** separators improvement ([ffc579b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ffc579bdcaee77ccbd7371132b9cc95645377ffc))\n* **code snippets:** update the code snippets of accordion, blockquote, divider, file-input, loading-indicator, popover, progressbar, search, table, tabs, timepicker and view-more-less ([e01ac29](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e01ac29a41bce629c1663744a52083d8d0272ab9))\n* **date-picker:** using visual-indicator control property on storybook ([628f55a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/628f55a8ba4a869614ff366707d16581c27b751b))\n* **forms:** new way of inactivating reactive forms components ([fc1e1b1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/fc1e1b1ac52139e877b134bd32cc731c6ffaf252))\n* **icon:** storybook improvements ([e8142c4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e8142c41df65828f85fe9ac523e888f29b25f7cb))\n* **storybook:** angular 18 support ([f983ffb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f983ffb5deafedc98fa4558f16256d36925f24ba))\n* **table:** update Docs page with Public API session ([128b5ea](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/128b5eaa7afa74807842ba074e843a1be484318a))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-07-23T16:20:58.000Z"
+  },
+  {
+    "name": "v2.21.1",
+    "message": "release v.2.21.1",
+    "target": "2922865b47e1d7bb916a71298f0a3a6a32db23f1",
+    "commit": {
+      "id": "6339279f0fd8ce0f0e0179e7d02e838dcdfa1059",
+      "short_id": "6339279f",
+      "created_at": "2024-06-25T00:58:04.000-03:00",
+      "parent_ids": [
+        "c4e8180d1d894fd1e20ab3caf3e8a06dfc88549c"
+      ],
+      "title": "chore: merging gitlab-ci from origin/dev",
+      "message": "chore: merging gitlab-ci from origin/dev\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-06-25T00:58:04.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-06-25T00:58:04.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/6339279f0fd8ce0f0e0179e7d02e838dcdfa1059"
+    },
+    "release": {
+      "tag_name": "v2.21.1",
+      "description": "# 2.21.1 (2024-06-25)\n\n## Bug Fixes\n\n- dropdown: adding multi-select api, fixed required false and console error (3250d50)\n- table: expandable row performance enhancement (a8f8892)"
+    },
+    "protected": true,
+    "created_at": "2024-06-25T19:18:54.000Z"
+  },
+  {
+    "name": "v2.21.0",
+    "message": "release v2.21.0",
+    "target": "0ca0ada10ba0c37e3b4d652239f2baeed39bf8ec",
+    "commit": {
+      "id": "c486ed3b28f71975f25cdcaaabe8a7bbc3772ab6",
+      "short_id": "c486ed3b",
+      "created_at": "2024-05-31T11:49:37.000-03:00",
+      "parent_ids": [
+        "1ecd595fb900048906f11acc6de4157fdb3d4b02"
+      ],
+      "title": "fix(changelog): adjusting changelog",
+      "message": "fix(changelog): adjusting changelog\n",
+      "author_name": "stukervitor",
+      "author_email": "vitor.stuker@dell.com",
+      "authored_date": "2024-05-31T11:49:37.000-03:00",
+      "committer_name": "stukervitor",
+      "committer_email": "vitor.stuker@dell.com",
+      "committed_date": "2024-05-31T11:49:37.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/c486ed3b28f71975f25cdcaaabe8a7bbc3772ab6"
+    },
+    "release": {
+      "tag_name": "v2.21.0",
+      "description": "## [2.21.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.20.0...v2.21.0) (2024-05-31)\n\n\n### Features\n\n* **accordion:** introducing accordion component ([b9dffb1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b9dffb1d806dd2862b335579dc750ba576b9c7ff))\n* **empty-state:** introducing new pattern ([eb906f1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/eb906f1a1403dbc7848c541bc6fd7b6f22536512))\n* **file-input:** introducing new component ([0011bcd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0011bcd0fe1070ab9ae728bd0b5253a8f05385b2))\n* **signin:** introducing new pattern ([f138244](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f138244ff4aef867665cb6118d1939bf931a39ab))\n* **table:** introduce pin end feature ([f6f1617](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f6f1617bf2f52bf3081f0c2a7b329e3f8e106f43))\n\n\n### Bug Fixes\n\n* **datepicker:**  emitting ddsChange event when a date is defined and the field gets empty, and two-way binding works properly with the attribute value ([2c0e2f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2c0e2f8bf1fc233be72b521db5d69798a7c9a38d))\n* **table:** allowing keyboard navigation through expanded rows when table role is grid ([42be06d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/42be06d3239d0b40b8da83e1a884d59a79cbe7c7))\n* **table:** persisting DataRow.id when defined ([9536666](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/95366668dabded4324a28d1fee877cd0a837f978))\n* **table:** new height property to sticky header ([408dcc7e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/408dcc7e64c955338786b7d048e481a4d71fa548))\n* **datepicker:** formfield input value accepting string and date ([e6728b6b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e6728b6b05c2330ee9c39357964e3eef07e9e9ab))\n* **notification:** close button removing item at storybook ([06901e20](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/06901e20be9b9cb0d9a6ca5324d3a3bbc37c2109))\n* **helper-text:** adjusting font-size and dropdown color ([bc238718](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/bc238718c681dac00f9b6c0a3b1f27b467ef20dc))\n* remove allow_failure from xray stage ([0fabc30](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0fabc30792fbf3261809091b50bed990d4eb9d4a))\n\n\n### Documentation\n\n* **dropdown:** storybook enhancements ([5e5cf73](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5e5cf73f329422c5b892de135a288c9590fb6d62))\n* storybook helper classes update ([ae9bd55](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ae9bd557cff6c7aeae367aa2627e0b5b1af49dc4))\n* **tabs:** small writing adjustments to storybook canvas and docs ([58eaff83](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/58eaff835d8d22ee973399ff58ae5a22bd5e3360))\n* **table:** adjusting storybook selectable control ([bd5eb5f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/bd5eb5f8d9fc07302b82307a3554583e7cbfa59e))\n* **dropdown:** improving storybook properties description ([f0d347b9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f0d347b97b645abbac5207f1996e3fb8b8ba9012))\n* **table:** storybook improvements in sort story ([c8ba9f48](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c8ba9f4862eff8b12b1e67ceb3eed9e7a9bb5552))\n* **switch:** improving storybook writing ([ce49c5d6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ce49c5d6bc6ce5108a42ef56c6de24dc46332aa0))\n* **date-picker:** starting screen reader variables with sr ([b00ad91c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b00ad91cfea9493c6d668033b033a89f5c7b68d2))\n* **badge:** using dds button for badge on element ([e9ff46da](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e9ff46da255fc5772b3f9bef77d2889dad1e4846))\n* **dropdown:** adjust select property ([f7b44dd0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f7b44dd0a02f901375bc2833b4ec2666b144bd9b))"
+    },
+    "protected": true,
+    "created_at": "2024-05-31T15:12:55.000Z"
+  },
+  {
+    "name": "v2.20.0",
+    "message": "v2.20.0",
+    "target": "af2ce0c1f6104826da293734f85352d52caaefa8",
+    "commit": {
+      "id": "5b17f607c6406d744d30ca7538fc30accd3bb037",
+      "short_id": "5b17f607",
+      "created_at": "2024-05-14T10:20:36.000-03:00",
+      "parent_ids": [
+        "416734bdf05f163b2e61181687f7c760b1aa3920"
+      ],
+      "title": "chore: tweak changelog",
+      "message": "chore: tweak changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-05-14T10:20:36.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-05-14T10:20:36.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/5b17f607c6406d744d30ca7538fc30accd3bb037"
+    },
+    "release": {
+      "tag_name": "v2.20.0",
+      "description": "## [2.20.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.19.0...v2.20.0) (2024-05-14)\n\n\n### Features\n\n* **dropdown:** introducing multi-select ([d13fc37](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d13fc377760bb90540a2b91250aad93c1cd3e3d1))\n* **input-with-button:** introducing new button feature to dds-input ([40cd731](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/40cd731f0469f665b7ea7102c677ae1c9e3b07f8))\n* **table:** asynchronous datasource support ([b4d2597](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b4d2597e577ab708dd0e13ee792fc45dcba56d26))\n* **tabs:** introducing vertical tabs and tabs with badges ([f2b5d49](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f2b5d499da8f7e26a84ff8f5a6f4c1aca9638dcc))\n\n\n### Bug Fixes\n\n* **date picker:**  allow input to be empty without errors when the component is not required ([751d413](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/751d413daa14e4a70410eade464d1806ef083d8b))\n* **table:** added focus state to checkboxes in selectable rows, accessible only through keyboard navigation ([30566a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/550))\n* **textarea:** adding visual error validation when counter exceeds ([8302d3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/549))\n* **table:** use correct padding on search and column filter to prevent queries from overlapping the clear button ([2b4aba](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/535/diffs?commit_id=2b4aba04cbd7a2f761bb619246971820828dfdac))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-05-14T13:45:11.000Z"
+  },
+  {
+    "name": "v2.19.0",
+    "message": "release v2.19.0",
+    "target": "a1c898f24a5a405a2550f6d016e36f8504e58298",
+    "commit": {
+      "id": "5e14254e6a2387be189ad5b5c524de9585a5c7ca",
+      "short_id": "5e14254e",
+      "created_at": "2024-04-18T15:01:56.000-03:00",
+      "parent_ids": [
+        "abc1fd9fe214b06134ccff5a34c90e7bc6a2d106"
+      ],
+      "title": "chore: tweak changelog",
+      "message": "chore: tweak changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-04-18T15:01:56.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-04-18T15:01:56.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/5e14254e6a2387be189ad5b5c524de9585a5c7ca"
+    },
+    "release": {
+      "tag_name": "v2.19.0",
+      "description": "## [2.19.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.18.0...v2.19.0) (2024-04-18)\n\n\n### Features\n\n* **angular 17 support** ([7c6dafa](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7c6dafaa744bb22bfc1dad0f352ed96158b749ef))\n* **search:** introducing search component ([0b14f09](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0b14f09840c642fa0eaf11495974e5bfbc69d951))\n* **view more less:** introducing new component ([f9cb48e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f9cb48ee75498575be59742afe2a4d740293dfe5))\n\n\n### Bug Fixes\n\n* **pagination:** fix the button height ([1e13f24](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1e13f24e63447900830c587a0da048a75f85d2a8))\n* **popover:** addressing content review ([9f817e9](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9f817e9d1e4355f41c970df862442a04b70393f5))\n* **sidenav:** expanded attribute working as expected ([1d57b84](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1d57b84ca69e614dbfbfa73d03f3f72d061b7211))\n* **table:** use correct padding on search and column filter to prevent queries from overlapping the clear button ([cf4cc7c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cf4cc7c0d3edb914bfcd0f2dd03e1ab187182a8f))\n* **notification:** enhancing Storybook controls and Input table on Docs page ([91a941f2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/545))\n* **action menu:** enhancing Storybook controls and Input table on Docs page ([7e180503](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/538))\n* **date picker:** enhancing Storybook controls and Input table on Docs page ([6501d971](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/536))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-04-18T18:22:32.000Z"
+  },
+  {
+    "name": "v2.18.0",
+    "message": "release v2.18.0",
+    "target": "5d40ead185067d38b7c05a96700271de79cf4805",
+    "commit": {
+      "id": "d50f5c7c02ccd6d784dcce26f72ae55ece83bf0e",
+      "short_id": "d50f5c7c",
+      "created_at": "2024-04-10T11:30:09.000+00:00",
+      "parent_ids": [
+        "96bf4fd6bfd74073a444890880425ad5c9df27ab",
+        "7c63e8526897dc382005643ab4b3adc972327631"
+      ],
+      "title": "Merge branch 'dev' into 'main'",
+      "message": "Merge branch 'dev' into 'main'\n\nchore(internal): latest fixes before releasing 2.18.0\n\nSee merge request dao/dell-digital-design/design-language-system/systems/dds-2.0-angular!533",
+      "author_name": "Almeida, Igor",
+      "author_email": "igor_almeida@dell.com",
+      "authored_date": "2024-04-10T11:30:09.000+00:00",
+      "committer_name": "Almeida, Igor",
+      "committer_email": "igor_almeida@dell.com",
+      "committed_date": "2024-04-10T11:30:09.000+00:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/d50f5c7c02ccd6d784dcce26f72ae55ece83bf0e"
+    },
+    "release": {
+      "tag_name": "v2.18.0",
+      "description": "## [2.18.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.17.0...v2.18.0) (2024-04-05)\n\n\n### Features\n\n* **dropdown:** introduce filtering feature ([45d7540](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/45d7540cc0516baaaefcfb3b76b2dda87738bd75))\n* **progress bar:** introducing new component ([70118e7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/70118e7dee2c19fef67c96f9441e8ddb637763ab))\n* **sidenav:** introducing new component ([f5ab27e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f5ab27ea98ee1c53ffb3dc71e45fae045e377ed4))\n* **table:** add 'total-items' emitter to update pagination when data is filtered ([d460a46](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d460a46f7fd3c93dff2b80ba13f88711f635d02b))\n* **table:** introduce pinnable column feature ([d9cc2b2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d9cc2b2bc539970904fe27204d54d5baf960d8e7))\n* **badge:** update icon usage recommendation on storybook ([2faedb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/517/diffs?commit_id=2faedb0dd758b601d5fea4d12c268872471dfe9a))\n\n\n### Bug Fixes\n\n* **datepicker:** clear selected date to reflect the correct settings in calendar ([a96d1e0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/a96d1e097826119eb375dd032b92793aecb8b04e))\n* **pagination:** replace the hardcoded value \"item\" by localization.items ([8375360](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/514/diffs?commit_id=83753609c05200d4c875624c9e73524d7c2d67d2))\n* **form pattern:** fix layout issues ([a5d426](/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/516))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-04-10T17:50:23.000Z"
+  },
+  {
+    "name": "v2.17.0",
+    "message": "release v2.17.0",
+    "target": "927a048a4c599ad974e7c8ca537937092894c6b5",
+    "commit": {
+      "id": "30587d49e128e7084318cce8829bde8d142603c8",
+      "short_id": "30587d49",
+      "created_at": "2024-03-21T13:05:14.000-03:00",
+      "parent_ids": [
+        "1a20ca67515e2f599f3f8d6bed89881044fed520"
+      ],
+      "title": "chore: bump version",
+      "message": "chore: bump version\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-03-21T13:05:14.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-03-21T13:05:14.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/30587d49e128e7084318cce8829bde8d142603c8"
+    },
+    "release": {
+      "tag_name": "v2.17.0",
+      "description": "## [2.17.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.16.1...v2.17.0) (2024-03-21)\n\n\n### Features\n\n* **blockquote:** introducing new component ([5ec44ca](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5ec44caea07a0450acc5b291942f12a9d85f3429))\n* **footnote:** introducing new component ([8200974](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/82009744290c4060fe49e6bf2569718794cdb333))\n* **notification:** introducing new component ([132f754](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/132f75408d09d5e5457887daf7c4c2f216960e7a))\n* **progress tracker:** introducing new component ([26a81ef](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/26a81eff16c281cd4a34680f77d9398f1b8dadf8))\n* **table:** introduce search feature ([05a3108](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/05a31081818d23dbf4c580a78eb0100b2c07433e))\n* **textarea:** add readonly state ([8ea2ff6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8ea2ff60f27f0aefc027682c6903fc0f17c60377))\n\n\n### Bug Fixes\n\n* **action-menu:** fixing toggle state for open/close action menu and disabling close for option item ([0e79763](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0e79763829ad8ae5acf3d4a66aaf6bf0ec0016f2))\n* **badge:** removing vertical align ([cfcab99](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cfcab9947cf4316e063bc85e6044b1b851aa624f))\n* **datepicker:** value is not being propagated in dds-change and documentation fix ([17359cf](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/17359cf0220a51742add8859c9f5922c71fd1baf))\n* **link:** icon position added ([eb8fed7](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/eb8fed70d6f987629956635c995b5047683bc450))\n* **modal:** adding localization to storybook docs ([d7eaa6c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/d7eaa6c7e5b9a06a984a4761596f41ac8edafdfa))\n* **select:** background color on Firefox ([7d4d534](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7d4d5346e7ada8d71a2ffae535d85438a2320fe5))\n* **table:** fix table styles for horizontal-alternating, grid-alternating, and freeform-alternating kinds when used with expandable rows ([17f3095](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/17f309521772d2354ecb64504256cbada439194d))\n* **table:** storybook issue using the iframe version and role grid ([092ad40](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/092ad401e783d50b93a9021725b8567737a4e47e))\n* **text-area:** using localization attributes and deprecates old format ([bc528d4](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/bc528d410d9ede428bb2af60b4e5eab399cbcc4e))\n* **timepicker:** adding aria-controls and fixing tab navigation ([14a14ac](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/14a14ac852876a8d6e76aa9bbe9f9349a52a4bf8))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-03-21T17:15:48.000Z"
+  },
+  {
+    "name": "v2.16.1",
+    "message": "release v2.16.1",
+    "target": "f796c163481e59fc4c501cefa0179f7e554b97ab",
+    "commit": {
+      "id": "0948bfc1b42502719c6d3aed14a9d68a97a52bc2",
+      "short_id": "0948bfc1",
+      "created_at": "2024-03-08T15:03:02.000-03:00",
+      "parent_ids": [
+        "1d43b53fd1006dbcefa2956bc0fa2aee5caf4056"
+      ],
+      "title": "chore: update changelog",
+      "message": "chore: update changelog\n",
+      "author_name": "cinthia_becher",
+      "author_email": "cinthia_becher@dell.com",
+      "authored_date": "2024-03-08T15:03:02.000-03:00",
+      "committer_name": "cinthia_becher",
+      "committer_email": "cinthia_becher@dell.com",
+      "committed_date": "2024-03-08T15:03:02.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/0948bfc1b42502719c6d3aed14a9d68a97a52bc2"
+    },
+    "release": {
+      "tag_name": "v2.16.1",
+      "description": "### [2.16.1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.16.0...v2.16.1) (2024-03-08)\n\n\n### Bug Fixes\n\n* **icon:** add aria-hidden for svg icons ([2d11a7c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2d11a7c8d7499fb21911fd244ffabcc09bac0594))\n* **loading-indicator:** adding aria-live and aria-describedby ([fe3a861](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/fe3a86147a370dfa0f48f72731514b01e5eb5f5d))\n* **tabs:** active tab not updating issue ([9715dc82](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/commit/9715dc82566fcaad38130586e20140ced152d411))\n"
+    },
+    "protected": true,
+    "created_at": "2024-03-08T18:30:44.000Z"
+  },
+  {
+    "name": "v2.16.0",
+    "message": "release v2.16.0",
+    "target": "b995310736f589336418ac0bf06ebb607d1cf5ac",
+    "commit": {
+      "id": "e34eb7fefc22bc69ff0863fa31edf03fbd3d5349",
+      "short_id": "e34eb7fe",
+      "created_at": "2024-02-29T15:41:41.000-03:00",
+      "parent_ids": [
+        "5faa3f210e4b9c568a2ef0a44d001685144b3dd7"
+      ],
+      "title": "fix: changelog",
+      "message": "fix: changelog\n",
+      "author_name": "Costa, Mauricio",
+      "author_email": "mauricio_costa@dell.com",
+      "authored_date": "2024-02-29T15:41:41.000-03:00",
+      "committer_name": "Costa, Mauricio",
+      "committer_email": "mauricio_costa@dell.com",
+      "committed_date": "2024-02-29T15:41:41.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/e34eb7fefc22bc69ff0863fa31edf03fbd3d5349"
+    },
+    "release": {
+      "tag_name": "v2.16.0",
+      "description": "### Features\n\n* **divider:** introducing new component ([664bf43](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/664bf43ec3c6b48fd74771ad37d6637fe0f93b98))\n* **dropdown:** introducing new component ([ffa51e1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ffa51e1d1774d356af4bc46ab381805a25109df8))\n* **switch:**  introducing new component ([c1ce803](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c1ce80371cf33b5e04996ffe098a181457860e43))\n* **table:** introducing sort feature ([c01f25a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/c01f25af1931d2a562c7cd43f8047fa378f86abd))\n* **table:** introducing selectable rows feature ([2240468](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/22404683c6b726c5dcf3d347c63812540ff030fa))\n\n\n### Bug Fixes\n\n* **datepicker:** initial value not working ([5b41800](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5b41800374ebf3de13d19f966394fb8306c672b4))\n* **table:** fix issue with table update when different columns are set after the component is ready ([20f0c40d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/20f0c40d20926c17fd1b82f9a69b2294268af189))\n* **radio-button:** reactive forms not working when initial value is set in the FormControl ([69247282](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/69247282676754f1c9923e46239cc4d95757f254))\n\n"
+    },
+    "protected": true,
+    "created_at": "2024-02-29T19:09:44.000Z"
+  },
+  {
+    "name": "v2.15.0",
+    "message": "release v2.15.0",
+    "target": "0b286903d7064713eff0b898fdd7aafb341846d7",
+    "commit": {
+      "id": "4fd8f1858150f2a92c24521ebbbc07da4a9cf23a",
+      "short_id": "4fd8f185",
+      "created_at": "2024-02-16T14:33:19.000-03:00",
+      "parent_ids": [
+        "7beb88e575afe9537d70434ba4429ce85b62c2a5"
+      ],
+      "title": "chore(release): 2.15.0",
+      "message": "chore(release): 2.15.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-02-16T14:33:19.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-02-16T14:33:19.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/4fd8f1858150f2a92c24521ebbbc07da4a9cf23a"
+    },
+    "release": {
+      "tag_name": "v2.15.0",
+      "description": "## [2.15.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.14.1...v2.15.0) (2024-02-16)\n\n\n### Features\n\n* introducing Angular 16 support by updating the build version from 11 to 13; Angular 10 and 11 are no longer supported ([3f6cdbc](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/3f6cdbc72e67186b77d0c59c73e0f8932f581290))\n"
+    },
+    "protected": true,
+    "created_at": "2024-02-16T18:25:22.000Z"
+  },
+  {
+    "name": "v2.14.1",
+    "message": "release v2.14.1",
+    "target": "df04112e77ddd5aa5f2b523f42e91c08ff718782",
+    "commit": {
+      "id": "30e6c74dae057146732fb334838e6ae353836dd7",
+      "short_id": "30e6c74d",
+      "created_at": "2024-02-08T13:19:42.000-03:00",
+      "parent_ids": [
+        "30a67bcb1863e1833049d7f68a40ce1a1c4a0b8f"
+      ],
+      "title": "feat: bump version 2.14.1 and update changelog",
+      "message": "feat: bump version 2.14.1 and update changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-02-08T13:19:42.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-02-08T13:19:42.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/30e6c74dae057146732fb334838e6ae353836dd7"
+    },
+    "release": {
+      "tag_name": "v2.14.1",
+      "description": "### Bug fixes\n\n* **tag:** fix component export ([efbba258](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6d2d8acec4445745482abeb8e696f7efefbba258))\n"
+    },
+    "protected": true,
+    "created_at": "2024-02-08T19:02:40.000Z"
+  },
+  {
+    "name": "v2.14.0",
+    "message": "release v2.14.0",
+    "target": "d7e9d1334a3987c1f1b8729ee3e2db95e7269a8e",
+    "commit": {
+      "id": "0e28430785a8cbf33e2c24ac9fb9ba9d21ddee91",
+      "short_id": "0e284307",
+      "created_at": "2024-02-06T10:48:13.000-03:00",
+      "parent_ids": [
+        "1f2be9f037b020aa94a6ffc8ff1af3682ed664de"
+      ],
+      "title": "chore: udpate core",
+      "message": "chore: udpate core\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-02-06T10:48:13.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-02-06T10:48:13.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/0e28430785a8cbf33e2c24ac9fb9ba9d21ddee91"
+    },
+    "release": {
+      "tag_name": "v2.14.0",
+      "description": "## [2.14.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.13.0...v2.14.0) (2024-02-06)\n\n### Features\n\n* **popover:** introducing new component ([ab6849e](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ab6849e934975aa79307c70834df3e7c15201f19))\n* **table:** introduce filter feature ([51b8045](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/51b80459fed5f28a58eb72405e7289ec401c59eb))\n* **datepicker:** enhancements and form support ([7f38604](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8dac6d9673973ea6290c8807e5681dad07f38604))"
+    },
+    "protected": true,
+    "created_at": "2024-02-06T18:03:02.000Z"
+  },
+  {
+    "name": "v2.13.0",
+    "message": "release v2.13.0",
+    "target": "3ef381c7a114eaa85000fb886fd1328d20377781",
+    "commit": {
+      "id": "1ce850e54fa42e43f754490b12894d47b68cfef7",
+      "short_id": "1ce850e5",
+      "created_at": "2024-01-23T14:59:15.000-03:00",
+      "parent_ids": [
+        "97a693c37561289e93e8e797dbdede82199ffcdc"
+      ],
+      "title": "feat: update changelog",
+      "message": "feat: update changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2024-01-23T14:59:15.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2024-01-23T14:59:15.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/1ce850e54fa42e43f754490b12894d47b68cfef7"
+    },
+    "release": {
+      "tag_name": "v2.13.0",
+      "description": "## [2.13.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.12.0...v2.13.0) (2024-01-23)\n\n\n### Features\n\n* **table:** introducing expandable rows ([8d22a85](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8d22a85432a41eb24af4b5368d6419fbf64a9f5f))\n* **tabs:** introducing new component ([e38947b](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e38947b59c542c3e6c0cba4cee98d968c3928263))\n\n\n### Bug Fixes\n\n* **action menu:** font-size of the legend on grouped items ([0b2f59f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0b2f59f53fde9503300e400a8a648048d86d6d23))\n* action-menu and button integration ([087d990](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/087d990482493af30e675d6fd183e5e5a79f5989))\n* **textarea:** form validation fixed when dds-textarea has dds-textarea-counter ([28678b0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/28678b024ee73d2c1d581a3abb2a80c80342fbf8))\n* **timepicker:** style fix and change event response ([68e44c8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/68e44c8daeec1878eb768c116c9a6999c80b10c3))\n"
+    },
+    "protected": true,
+    "created_at": "2024-01-23T18:23:49.000Z"
+  },
+  {
+    "name": "v2.12.0",
+    "message": "release v2.12.0",
+    "target": "8f1082042e9ff0969a95ea19156473e0f2db34c4",
+    "commit": {
+      "id": "21aa79c657fc87938c63b5a7cb74bd7f9ecc700b",
+      "short_id": "21aa79c6",
+      "created_at": "2023-12-21T08:47:23.000-03:00",
+      "parent_ids": [
+        "78de57666edbb6898b452bde69af5ff18111d990"
+      ],
+      "title": "refactor: adjust changlog",
+      "message": "refactor: adjust changlog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-12-21T08:47:23.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-12-21T08:47:23.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/21aa79c657fc87938c63b5a7cb74bd7f9ecc700b"
+    },
+    "release": {
+      "tag_name": "v2.12.0",
+      "description": "## [2.12.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.11.0...v2.12.0) (2023-12-21)\n\n\n### Features\n\n* **breadcrumbs:** introducing new component ([726d080](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/726d080dfeb58cbe195c943f560dd328a2f33532))\n* **table:**  introducing cell rendering feature ([1bda8a6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1bda8a60dcfcfff537f8b70ae40b5a93edf7e247))\n"
+    },
+    "protected": true,
+    "created_at": "2023-12-21T12:47:58.000Z"
+  },
+  {
+    "name": "v2.11.0",
+    "message": "release v2.11.0",
+    "target": "045e7e72314aacd8f7b07cbe0230b068cad7df64",
+    "commit": {
+      "id": "e9fc3c9e1fb00813fe7a5554910cbfa4d646e43f",
+      "short_id": "e9fc3c9e",
+      "created_at": "2023-12-13T09:18:50.000-03:00",
+      "parent_ids": [
+        "024abee673c2629219ccae6aa31791ac14a41f49"
+      ],
+      "title": "refactor: update changelog properly",
+      "message": "refactor: update changelog properly\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-12-13T09:18:50.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-12-13T09:18:50.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/e9fc3c9e1fb00813fe7a5554910cbfa4d646e43f"
+    },
+    "release": {
+      "tag_name": "v2.11.0",
+      "description": "## [2.11.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.10.0...v2.11.0) (2023-12-13)\n\n\n### Features\n\n* **action menu:** introducing new component ([2f64323](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/2f6432363ac668731e27910c712c32dad340d06d))\n* **form pattern:** enhancements in the value control accessor to allow data manipulation via NgModel and FormControl, and reacting when the FormControl is reset. Affects dds-input, dds-textarea, dds-checkbox, dds-radio-button, dds-timepicker and dds-select ([5cdf510](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5cdf5105effe9de4a4eed2825f77f1572908129c))\n* **table:** introducing grid feature ([417f4db](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/417f4db2923045dbf429bac81c160d19ab237edc))\n\n### Bug Fixes\n\n* **select:** template driven initialization ([b70c1dd](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b70c1dda052e8d84108151a6a9e70abb961abf20))\n"
+    },
+    "protected": true,
+    "created_at": "2023-12-13T17:10:10.000Z"
+  },
+  {
+    "name": "v2.10.0",
+    "message": "release v2.10.0",
+    "target": "ca04c87b5d63fe68b2c403d7f6bee04520c3f720",
+    "commit": {
+      "id": "6bef48449ca15e1f0d6f834e6be5f083a6ec6b50",
+      "short_id": "6bef4844",
+      "created_at": "2023-11-16T13:11:27.000-06:00",
+      "parent_ids": [
+        "d8710496810b30fd8ab7d8257e3def6473d93c1e"
+      ],
+      "title": "feat(changelog): updated changelog",
+      "message": "feat(changelog): updated changelog\n",
+      "author_name": "jahaan_rafear",
+      "author_email": "jahaan_rafear@dell.com",
+      "authored_date": "2023-11-16T13:11:27.000-06:00",
+      "committer_name": "jahaan_rafear",
+      "committer_email": "jahaan_rafear@dell.com",
+      "committed_date": "2023-11-16T13:11:27.000-06:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/6bef48449ca15e1f0d6f834e6be5f083a6ec6b50"
+    },
+    "release": {
+      "tag_name": "v2.10.0",
+      "description": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n\n## [2.10.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.9.0...v2.10.0) (2023-11-16)\n\n\n### Features\n\n* **icon:** introducing new component ([7780541](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7780541b836180253f13e86ad6ae7b22dd9369d8))\n* **loading-indicator:** introducing new component ([6339a13](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6339a137c0da25e4477340257b9071c60a08561b))\n* **time-picker:** introducing new component ([46762a3](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/46762a34452e36c4344133f45a3aac43c4bb1565))\n\n### Documentation\n\n* **storybook:**  getting started global styles enhancement ([60cf36d](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/60cf36de66792d1a39a7c9e9cb6a3ea2678161fe))\n* **storybook:** getting started comma ([0cc05e8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0cc05e8cc31c7ebe653413f9861692dd51abe89e))"
+    },
+    "protected": true,
+    "created_at": "2023-11-16T19:34:03.000Z"
+  },
+  {
+    "name": "v2.9.0",
+    "message": "release v2.9.0",
+    "target": "2a2c0c86e1512b6f914e25c4b8e6f3539eafd885",
+    "commit": {
+      "id": "42c3657cfc6d22cd00bdcc92f7b7a69e5dab2110",
+      "short_id": "42c3657c",
+      "created_at": "2023-11-01T15:46:21.000-03:00",
+      "parent_ids": [
+        "fdf42b77c7927e205314eb3951e2311e3477f390"
+      ],
+      "title": "feat: update CHANGELOG",
+      "message": "feat: update CHANGELOG\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-11-01T15:46:21.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-11-01T15:46:21.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/42c3657cfc6d22cd00bdcc92f7b7a69e5dab2110"
+    },
+    "release": {
+      "tag_name": "v2.9.0",
+      "description": "## [2\\.9.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.8.0...v2.9.0) (2023-11-01)\n\n### Features\n\n* **form pattern:** introducing the form pattern ([e537423](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e537423cc366aa012e035ea1a2c02d270ab0be68))\n* **input-password:** introducing new component ([f9ff851](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f9ff8518b885e5148d31b0b05c54f0ff29f2488d))\n* **table:** introducing sticky header feature ([cee1565](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/cee1565c32db620a3bc019b4864ebb3dc68edb14))\n\n### Bug Fixes\n\n* **pagination:** localization argTypes ([1f59f84](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1f59f84917aa8045aebde37154f0f5484a3d7924))\n* **table:** localization argTypes ([321d7f6](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/355))"
+    },
+    "protected": true,
+    "created_at": "2023-11-03T17:38:32.000Z"
+  },
+  {
+    "name": "v2.8.0",
+    "message": "release v2.8.0",
+    "target": "188664bbf07e798c6cfbe30917d793b9f75831d0",
+    "commit": {
+      "id": "e388140e9d9dc95d12882cefa389e80adb78492f",
+      "short_id": "e388140e",
+      "created_at": "2023-09-27T10:30:33.000-03:00",
+      "parent_ids": [
+        "35ada06d99ff9d447fef194dd53f7a539d74051f"
+      ],
+      "title": "refactor: tweak changelog. main merged with squash",
+      "message": "refactor: tweak changelog. main merged with squash\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-09-27T10:30:33.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-09-27T10:30:33.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/e388140e9d9dc95d12882cefa389e80adb78492f"
+    },
+    "release": {
+      "tag_name": "v2.8.0",
+      "description": "## [2.8.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.7.1...v2.8.0) (2023-09-27)\n\n### Features\n\n* **table:** table with pagination ([881d359](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/881d359e336114e1490098e1ef246dcdf6d6b5b4))\n* **tag:** introducing new component ([0da9c71](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0da9c711421bb18b725e05c0d4c6030c8d9a84d5))\n"
+    },
+    "protected": true,
+    "created_at": "2023-09-27T17:51:15.000Z"
+  },
+  {
+    "name": "v2.7.1",
+    "message": "release 2.7.1",
+    "target": "f0976a41aa445bc72f9541a6710e3cd406ee0b2f",
+    "commit": {
+      "id": "f4c0f50c33b92c755147fcf5ba68363ef5e931c4",
+      "short_id": "f4c0f50c",
+      "created_at": "2023-09-04T13:58:19.000-03:00",
+      "parent_ids": [
+        "805716036290669abc2561f344a3dac0573af9d6"
+      ],
+      "title": "chore: adding 2.7.1 changelog",
+      "message": "chore: adding 2.7.1 changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-09-04T13:58:19.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-09-04T13:58:19.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/f4c0f50c33b92c755147fcf5ba68363ef5e931c4"
+    },
+    "release": {
+      "tag_name": "v2.7.1",
+      "description": "### [2.7.1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.7.0...v2.7.1) (2023-09-04)\n\n### Bug Fixes\n\n* **modal:** update imports from core ([1fd8976](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/1fd89761448cc861be99eb709632c77ed203708c))\n* path alias to core as module ([786f89f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/786f89f72611fb91d880f13981bc7fdeeecc57ca))\n"
+    },
+    "protected": true,
+    "created_at": "2023-09-04T19:04:51.000Z"
+  },
+  {
+    "name": "v2.7.0",
+    "message": "release 2.7.0",
+    "target": "80c87357a9f0d2581fb74bca120ac92f910811b6",
+    "commit": {
+      "id": "0f53b0b04288518c1b393ad7a9d1a3d2e17da520",
+      "short_id": "0f53b0b0",
+      "created_at": "2023-08-31T13:20:02.000-03:00",
+      "parent_ids": [
+        "817fa8526b51fb61f397e1259354462a7de18d38"
+      ],
+      "title": "chore: tweak changelog",
+      "message": "chore: tweak changelog\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-08-31T13:20:02.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-08-31T13:20:02.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/0f53b0b04288518c1b393ad7a9d1a3d2e17da520"
+    },
+    "release": {
+      "tag_name": "v2.7.0",
+      "description": "## [2.7.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.6.0...v2.7.0) (2023-08-31)\n\n\n### Features\n\n* **modal:**  introducing new component ([4fd1ed5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/4fd1ed5480a2d803def657076723b97b437d49ef))\n* **overlay:** introducing new component ([f4d1396](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/f4d1396b891b2b8bbfac569d4a9ebdb4e3440266))\n* **pagination:**  introducing new component ([93dc283](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/93dc283442bf8c8b7f4c186138cff247dda9626a))\n\n\n### Bug Fixes\n\n* **button:** display block bug ([16c58ad](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/16c58ad09f7ca2a2233620a96e103dfa6a14d380))\n* **messagebar-global:** resolving concurrent animation conflicts ([38803ce](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/38803ce51b9730a242a5938eaa787792b77f958c))\n\n\n"
+    },
+    "protected": true,
+    "created_at": "2023-08-31T16:42:40.000Z"
+  },
+  {
+    "name": "v2.6.0",
+    "message": "",
+    "target": "51c11c530ff0c968ea7ff826b5bde1a8bf312cc8",
+    "commit": {
+      "id": "51c11c530ff0c968ea7ff826b5bde1a8bf312cc8",
+      "short_id": "51c11c53",
+      "created_at": "2023-07-07T12:12:50.000-03:00",
+      "parent_ids": [
+        "4c93538e3f983cce2161fa1ad8ecdc97b1ea89f4"
+      ],
+      "title": "chore: debug sonar",
+      "message": "chore: debug sonar\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-07-07T12:12:50.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-07-07T12:12:50.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/51c11c530ff0c968ea7ff826b5bde1a8bf312cc8"
+    },
+    "release": {
+      "tag_name": "v2.6.0",
+      "description": "## [2.6.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.5.0...v2.6.0) (2023-07-06)\n\n\n### Features\n\n* **checkbox:** extending ControlValueAccessor allowing ngModel and formControlName to be added ([243e8b2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/243e8b2eb9500683354d488aebcdc367151e7dea))\n* **select:** introducing new component ([b675230](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b6752303dda7d2f3d1e4be6fd1ccd49b30ff6570))\n* **storybook:** update Inputs and Events table ([6d60eec](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6d60eecf056ecd942381bffab7e0c8326639d84a))\n\n### Bug Fixes\n\n* **tooltip:** fix issue preventing dds-button to be used as trigger ([634ef28](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/267))\n\n### Documentation\n\n* **storybook** fix css file name in the Getting started page ([69dde38](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/69dde385468017795d7c249d3a05c4d70624dae7))\n* **table:** update the list of exported types and add the deprecation list to the docs page. ([0bd2e6c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/0bd2e6c550ca597b5b9495cd39ed8b6568c4a0a5))\n"
+    },
+    "protected": true,
+    "created_at": null
+  },
+  {
+    "name": "v2.5.0",
+    "message": "chore(release): 2.5.0",
+    "target": "6f320dbec0b9c28c70bc3d97bfed16ebe4f28725",
+    "commit": {
+      "id": "e5764b3f7eab3a0a1f5ae1f929cb15602566bdba",
+      "short_id": "e5764b3f",
+      "created_at": "2023-06-14T18:20:09.000-03:00",
+      "parent_ids": [
+        "7f260a60e79ad12a2ba751c27e8d441075f3abfd"
+      ],
+      "title": "chore(release): 2.5.0",
+      "message": "chore(release): 2.5.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-06-14T18:20:09.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-06-14T18:20:09.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/e5764b3f7eab3a0a1f5ae1f929cb15602566bdba"
+    },
+    "release": {
+      "tag_name": "v2.5.0",
+      "description": "## [2.5.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.4.0...v2.5.0) (2023-06-14)\n\n\n### Features\n\n* **datepicker:** introducing new component ([8d5e99a](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8d5e99a2a21d09ed350a9e92e6e992872d245196))\n* **radio-button:** extending ControlValueAccessor allowing ngModel and formControlName to be added ([9e1500f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/9e1500fc3e748be5f5c1edfc5ebc2add39d8e14a))\n* **storybook** typography spacing ([94b4b86](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/94b4b86d6eef2d37b6889586c6fec9d2abc85a85))\n* **storybook:** add Angular 15 in the range of accepted versions ([de89078](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/de89078752c0d708a00ec81fba7c8c22052c1238))\n\n\n### Bug Fixes\n\n* inclusive language term adjustments ([5ec2757](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/5ec275797ba79f87f03ba7eb2835121afb9aead7))\n* **textarea:** add the placeholder attribute ([3059424](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/305942427be7051082a5df6cc9a2ddbaecc341fe))\n\n"
+    },
+    "protected": true,
+    "created_at": "2023-06-14T21:20:10.000Z"
+  },
+  {
+    "name": "v2.4.0",
+    "message": "chore(release): 2.4.0",
+    "target": "d0db4da05521af7fd5f88e5b1a31770a9e985363",
+    "commit": {
+      "id": "6203ab4225790655c430c4ac7823271be59ba7a8",
+      "short_id": "6203ab42",
+      "created_at": "2023-05-18T08:38:29.000-03:00",
+      "parent_ids": [
+        "97be2ce38491e0909ef5649ad7dbb0a460b3bdf8"
+      ],
+      "title": "chore(release): 2.4.0",
+      "message": "chore(release): 2.4.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-05-18T08:38:29.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-05-18T08:38:29.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/6203ab4225790655c430c4ac7823271be59ba7a8"
+    },
+    "release": {
+      "tag_name": "v2.4.0",
+      "description": "## [2.4.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.3.0...v2.4.0) (2023-05-18)\n\n\n### Features\n\n* **badge:** introducing new component ([44e4528](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/44e4528ff61f837de8a17fced9854212f94ae147))\n* **logger:** introducing the logger service ([ba25d0c](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ba25d0c305939a01aa50c8ee33f4232ea05de2a7))\n* **table:** adjustable column width ([e89d8a5](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/e89d8a53d5da502adc1765a46570fee7fbf1ccfc))\n* **text-input:** extending ControlValueAccessor allowing ngModel and formControlName to be added ([008c930](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/008c9306012cfe43e931aedaefe6035ed4dabb0b))\n* **textarea:** extending ControlValueAccessor allowing ngModel and formControlName to be added ([25258e2](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/25258e20bd808b61516d349ab4bd956476811bda))\n\n\n### Bug Fixes\n\n* **message-bar-global:** fix bug when empty and timer option is enabled ([8e30e94](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8e30e94f719e89e01597c8bbc1893ad4a3feb8d5))\n* **message-bar:** code snippet not showing attributes properly on storybook ([ea3c0fb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/ea3c0fb9bb9ea7ca71f221def2179a52cb804219))\n\n"
+    },
+    "protected": true,
+    "created_at": "2023-05-18T11:38:30.000Z"
+  },
+  {
+    "name": "v2.3.0",
+    "message": "chore(release): 2.3.0",
+    "target": "5f85c60f7ca0933fb1f47d8fcc3bf90e1ebe8be3",
+    "commit": {
+      "id": "cb35915142037b06f3095c7412019b3dc4726838",
+      "short_id": "cb359151",
+      "created_at": "2023-03-30T16:05:20.000-03:00",
+      "parent_ids": [
+        "adfe6b69e9bb9ed2748ddbfe566e3629964938ae"
+      ],
+      "title": "chore(release): 2.3.0",
+      "message": "chore(release): 2.3.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@dell.com",
+      "authored_date": "2023-03-30T16:05:20.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@dell.com",
+      "committed_date": "2023-03-30T16:05:20.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/cb35915142037b06f3095c7412019b3dc4726838"
+    },
+    "release": {
+      "tag_name": "v2.3.0",
+      "description": "## [2.3.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.2.0...v2.3.0) (2023-03-30)\n\n\n### Features\n\n* **button:** replace console warning with logger ([b87d9be](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/b87d9be481d01bc0cd7e2ccff861f64a59b666ba))\n* **message-bar:** introducing new component ([fd5f2d1](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/fd5f2d13e4346f561ad49af5e1ae88a68555bcde))\n* **table:** introducing new component ([7d04c47](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/7d04c47a6e77eefe909454d82fde2afa06c7b991))\n\n"
+    },
+    "protected": true,
+    "created_at": "2023-03-30T19:05:21.000Z"
+  },
+  {
+    "name": "v2.2.0",
+    "message": "chore(release): 2.2.0",
+    "target": "17aa9ad9e57b185505efcc0fbaf8ca207d5dc17c",
+    "commit": {
+      "id": "262d47030d9863e7abf579852c607282f986e85b",
+      "short_id": "262d4703",
+      "created_at": "2023-03-01T17:02:03.000-03:00",
+      "parent_ids": [
+        "4a971f973f7c389ae78d8d8d867a5816ea438411"
+      ],
+      "title": "chore(release): 2.2.0",
+      "message": "chore(release): 2.2.0\n",
+      "author_name": "A. Caruso",
+      "author_email": "alexandre_caruso@dell.com",
+      "authored_date": "2023-03-01T17:02:03.000-03:00",
+      "committer_name": "A. Caruso",
+      "committer_email": "alexandre_caruso@dell.com",
+      "committed_date": "2023-03-01T17:02:03.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/262d47030d9863e7abf579852c607282f986e85b"
+    },
+    "release": {
+      "tag_name": "v2.2.0",
+      "description": "## [2.2.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/compare/v2.1.0...v2.2.0) (2023-03-01)\n\n\n### Features\n\n* **checkbox-group:** introducing new component ([6932adb](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/6932adb9c779b0fa5593f2c7e14bcfa0378e2305))\n* **radio-group:** introducing new component ([8ea0f6f](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/8ea0f6f55959f728cd2e96850386fcc3c06dbf1d))\n* update the implementation of the components that use font icon to use *span* instead of *i* ([38d36ea](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/commit/38d36ea847dd5a46e7e4b895491bdea0d26db8bb))"
+    },
+    "protected": true,
+    "created_at": "2023-03-01T20:02:04.000Z"
+  },
+  {
+    "name": "v2.1.0",
+    "message": "chore(release): 2.1.0",
+    "target": "20525a2ee0baf581f4ab6b28a640ce5f205afa7c",
+    "commit": {
+      "id": "442f9767f81764f54cad761ec326f0911b9e04e7",
+      "short_id": "442f9767",
+      "created_at": "2023-01-18T15:39:19.000-03:00",
+      "parent_ids": [
+        "1252708f42a8d01ca4282c337d38f18ba62f7a08"
+      ],
+      "title": "chore(release): 2.1.0",
+      "message": "chore(release): 2.1.0\n",
+      "author_name": "Igor Almeida",
+      "author_email": "Igor_Almeida@Dell.com",
+      "authored_date": "2023-01-18T15:39:19.000-03:00",
+      "committer_name": "Igor Almeida",
+      "committer_email": "Igor_Almeida@Dell.com",
+      "committed_date": "2023-01-18T15:39:19.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/442f9767f81764f54cad761ec326f0911b9e04e7"
+    },
+    "release": {
+      "tag_name": "v2.1.0",
+      "description": ""
+    },
+    "protected": true,
+    "created_at": "2023-01-18T18:39:20.000Z"
+  },
+  {
+    "name": "v2.0.0",
+    "message": "feat: release 2.0.0",
+    "target": "f5e817b5d272174bc49ea1ef544153bc7a64d001",
+    "commit": {
+      "id": "848194f068a097c8a96d18c1825a70d9b37114da",
+      "short_id": "848194f0",
+      "created_at": "2022-11-28T16:17:07.000-03:00",
+      "parent_ids": [
+        "1d424e3c616bf5f7b20932614593bc768e8536a9"
+      ],
+      "title": "chore: lint free",
+      "message": "chore: lint free\n",
+      "author_name": "Igor_Almeida",
+      "author_email": "Igor_Almeida@Dell.com",
+      "authored_date": "2022-11-28T16:17:07.000-03:00",
+      "committer_name": "Igor_Almeida",
+      "committer_email": "Igor_Almeida@Dell.com",
+      "committed_date": "2022-11-28T16:17:07.000-03:00",
+      "trailers": {},
+      "extended_trailers": {},
+      "web_url": "https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-angular/-/commit/848194f068a097c8a96d18c1825a70d9b37114da"
+    },
+    "release": {
+      "tag_name": "v2.0.0",
+      "description": "### [2.0.0](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123) (2022-11-28)\n\n### Features\n\n* **button:** introducing the button component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **card:** introducing the card component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **checkbox:** introducing the checkbox component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **link:** introducing the link component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **list:** introducing the list component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **radio button:** introducing the radio button component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **text area:** introducing the text area component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **text input:** introducing the text input component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))\n* **tooltip:** introducing the tooltip component ([37eb0f8](https://gitlab.dell.com/dao/dell-digital-design/design-language-system/systems/dds-2.0-angular/-/merge_requests/123))"
+    },
+    "protected": true,
+    "created_at": "2022-11-28T19:57:14.000Z"
+  }
+]
