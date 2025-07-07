@@ -483,6 +483,24 @@ hr {
 
 .results-column h2 {
     border-bottom: 1px solid var(--border-color);
+}
+
+/* Demo Report Specific Styles */
+.report-section {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    /* Assuming --border-radius is defined, using md as an example */
+    margin-bottom: 1rem;
+    background-color: var(--surface-color);
+    /* Using surface color for sections */
+}
+
+.report-section h2 {
+    margin-top: 0;
+    color: var(--text-primary);
+    /* Using primary text color for headings */
+    border-bottom: 1px solid var(--border-color);
+    /* Light border for heading separation */
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -552,4 +570,130 @@ body[data-theme="dark"] .item-card.needs-action {
     color: var(--text-secondary);
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+}
+
+.results-section ul.list-style-none {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.results-section ul.list-style-none li {
+    padding: 0.5rem 1rem;
+    /* Added 1rem left/right padding */
+    border-bottom: 1px solid var(--border-color);
+    /* Lighter border for list items */
+}
+
+.results-section a {
+    color: var(--accent-color);
+    /* Use accent color for links */
+    text-decoration: none;
+}
+
+.results-section a:hover {
+    text-decoration: underline;
+    color: var(--accent-color-hover);
+}
+
+.results-section small {
+    color: var(--text-secondary);
+    /* Muted color for small text */
+    font-size: 0.875rem;
+    /* Slightly smaller font size for details */
+}
+
+.release-notes {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    /* Slightly different background for release notes block */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.85em;
+    max-height: 200px;
+    /* Limit height for long release notes */
+    overflow-y: auto;
+    /* Add scroll for overflow */
+}
+
+.release-notes strong {
+    font-weight: 600;
+    /* Re-using existing bold weight */
+}
+
+.release-notes br {
+    margin-bottom: 0.25rem;
+}
+
+.release-notes ul,
+.release-notes li {
+    list-style: disc;
+    margin-left: 1.25rem;
+}
+
+.release-notes li {
+    margin-bottom: 0.25rem;
+}
+
+/* Ensure the container in demoReport.html also respects theme */
+body[data-theme="dark"] .container,
+body[data-theme="light"] .container {
+    background-color: var(--bg-color);
+    /* This should already be handled by body, but being explicit */
+    color: var(--text-primary);
+}
+
+/* Styling for <details> and <summary> for inline demo report */
+details {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    background-color: var(--surface-color);
+}
+
+summary {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style-position: inside;
+    /* Better alignment for the marker */
+}
+
+summary:hover {
+    background-color: var(--bg-color);
+    /* Subtle hover for summary */
+}
+
+details[open] > summary {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Ensure #exampleResults (which has .results-section) has appropriate padding if not already covered */
+#exampleResults.results-section {
+    padding: 1rem;
+    /* Add padding if it's not inheriting sufficiently */
+    margin-top: 0;
+    /* Reset margin-top if it was for a top border previously */
+    border-top: none;
+    /* Remove top border if details[open] > summary handles separation */
+}
+
+/* Adjustments for report sections within the details element */
+#exampleResults .report-section {
+    margin-bottom: 0.5rem;
+    /* Reduce bottom margin for sections inside details */
+    padding: 0.75rem;
+    /* Slightly reduce padding for nested sections */
+}
+
+#exampleResults .report-section:last-child {
+    margin-bottom: 0;
+}
+
+#exampleResults .report-section h3 {
+    font-size: 1.15rem;
+    /* Slightly smaller than h2 used previously */
+    margin-bottom: 0.75rem;
 }

@@ -1,65 +1,67 @@
-import { DOM_ELEMENTS, CSS_CLASSES, DEFAULT_VALUES } from '../shared/presetConstants.js';
+import { getMessage } from './internationalizationHelper.js';
+import { USER_MESSAGES, STATUS_TYPES, CSS_CLASSES } from '../shared/presetConstants.js';
+import { displayStatusMessage } from '../services/statusDisplayManager.js';
 
-class DomManipulationHelpers {
-  static clearElementContent(element) {
-    element.innerHTML = '';
-  }
-
-  static createLinkElement(href, text, targetBlank = true) {
-    const link = document.createElement(DOM_ELEMENTS.ANCHOR);
-    link.href = href;
-    link.textContent = text;
-    if (targetBlank) {
-      link.target = DEFAULT_VALUES.LINK_TARGET_BLANK;
+export function clearElementContent(element) {
+    if (element) {
+        element.innerHTML = '';
     }
-    return link;
-  }
-
-  static createListItemWithOptionalLink(text, link = null) {
-    const li = document.createElement(DOM_ELEMENTS.LIST_ITEM);
-
-    if (link) {
-      const a = this.createLinkElement(link, text); // createLinkElement uses textContent for the link text
-      a.classList.add(CSS_CLASSES.JIRA_LINK);
-      li.appendChild(a);
-    } else {
-      // If 'text' might contain HTML (e.g. from i18n messages that now include tags),
-      // then innerHTML is appropriate for the li content.
-      li.innerHTML = text;
-    }
-
-    return li;
-  }
-
-  static populateDatalistWithOptions(datalist, options, valueKey = DEFAULT_VALUES.DATALIST_VALUE_KEY, dataKey = DEFAULT_VALUES.DATALIST_DATA_KEY) {
-    this.clearElementContent(datalist);
-
-    if (options.length === 0) {
-      return;
-    }
-
-    for (const option of options) {
-      const optionElement = document.createElement(DOM_ELEMENTS.OPTION);
-      optionElement.value = option[valueKey];
-      if (dataKey && option[dataKey]) {
-        optionElement.dataset.id = option[dataKey];
-      }
-      datalist.appendChild(optionElement);
-    }
-  }
-
-  static createDiscrepancyItemDiv(className, htmlContent) {
-    const div = document.createElement(DOM_ELEMENTS.DIV);
-    div.className = className;
-    div.innerHTML = htmlContent;
-    return div;
-  }
 }
 
-// Export individual functions for backward compatibility
-export const clearElementContent = DomManipulationHelpers.clearElementContent;
-export const createLinkElement = DomManipulationHelpers.createLinkElement;
-export const createListItemWithOptionalLink = DomManipulationHelpers.createListItemWithOptionalLink;
-export const populateDatalistWithOptions = DomManipulationHelpers.populateDatalistWithOptions;
-export const createDiscrepancyItemDiv = DomManipulationHelpers.createDiscrepancyItemDiv;
-export default DomManipulationHelpers;
+export function populateDatalistWithOptions(datalist, options) {
+    clearElementContent(datalist);
+    if (datalist && options) {
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.name;
+            optionElement.dataset.id = option.id;
+            datalist.appendChild(optionElement);
+        });
+    }
+}
+
+export function createDiscrepancyItemDiv(className, innerHTML) {
+    const div = document.createElement('div');
+    div.className = className;
+    div.innerHTML = innerHTML;
+    return div;
+}
+
+export function resetForm(elements) {
+    const {
+        jiraProjectKeyInput,
+        jiraFixVersionInput,
+        gitlabProjectIdInput,
+        gitlabCurrentTagInput,
+        gitlabPreviousTagInput,
+        statusMessageDiv,
+        summaryResultsDiv,
+        jiraTicketsDiv,
+        gitlabHistoryDiv,
+        versionsDatalist,
+        viewDemoReportDetails
+    } = elements;
+
+    // Clear input fields
+    jiraProjectKeyInput.value = '';
+    jiraFixVersionInput.value = '';
+    gitlabProjectIdInput.value = '';
+    gitlabCurrentTagInput.value = '';
+    gitlabPreviousTagInput.value = '';
+
+    // Clear messages and results
+    clearElementContent(statusMessageDiv);
+    clearElementContent(summaryResultsDiv);
+    clearElementContent(jiraTicketsDiv);
+    clearElementContent(gitlabHistoryDiv);
+    clearElementContent(versionsDatalist);
+
+    // Hide summary results and close demo details
+    summaryResultsDiv.classList.add(CSS_CLASSES.HIDDEN);
+    viewDemoReportDetails.open = false;
+
+    // Optionally, clear storage
+    chrome.storage.local.remove(['formData']);
+
+    displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.RESET_FORM), STATUS_TYPES.INFO);
+}

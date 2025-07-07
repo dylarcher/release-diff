@@ -83,6 +83,9 @@
   "generateSummary": {
     "message": "Gerar Resumo"
   },
+  "reset": {
+    "message": "Limpar"
+  },
   "jiraTickets": {
     "message": "Tickets Jira"
   },
@@ -301,5 +304,79 @@
   },
   "themeToggleDark": {
     "message": "Modo Escuro"
+  },
+  "testFailedNotice": {
+    "message": "Teste falhou para $ACTION$: $MESSAGE$",
+    "placeholders": {
+      "action": {
+        "content": "$1"
+      },
+      "message": {
+        "content": "$2"
+      }
+    }
+  },
+  "demoReportTitle": {
+    "message": "Relatório de Demonstração"
+  },
+  "gitlabCommits": {
+    "message": "Commits do GitLab"
+  },
+  "gitlabTags": {
+    "message": "Tags do GitLab"
+  },
+  "noJiraTicketsFound": {
+    "message": "Nenhum ticket do Jira encontrado para esta demonstração."
+  },
+  "noGitLabCommitsFound": {
+    "message": "Nenhum commit do GitLab encontrado para esta demonstração."
+  },
+  "noGitLabTagsFound": {
+    "message": "Nenhuma tag do GitLab encontrada para esta demonstração."
+  },
+  "errorLoadingData": {
+    "message": "Erro ao carregar dados para o relatório de demonstração."
+  },
+  "viewDemoReport": {
+    "message": "Relatório de Revisão de Amostra <code>v2.26</code>"
+  },
+  "demoJiraProjectKey": {
+    "message": "DDSTM"
+  },
+  "demoJiraReleaseVersionId": {
+    "message": "57550"
+  },
+  "demoGitlabProjectId": {
+    "message": "82150"
+  },
+  "demoGitlabCurrentReleaseTag": {
+    "message": "v2.25.5"
+  },
+  "demoGitlabPreviousReleaseTag": {
+    "message": "v2.25.4"
+  },
+  "demoJiraUrl": {
+    "message": "https://jira.dell.com"
+  },
+  "demoGitlabUrl": {
+    "message": "https://gitlab.dell.com"
+  },
+  "demoJiraPat": {
+    "message": "demo_jira_pat"
+  },
+  "demoGitlabPat": {
+    "message": "demo_gitlab_pat"
+  },
+  "demoJiraReleaseVersion": {
+    "message": "v2.26.0"
+  },
+  "demoReleaseRepoAlias": {
+    "message": "dds-angular"
+  },
+  "demoReleaseFramework": {
+    "message": "Componentes DDS Angular"
+  },
+  "resetForm": {
+    "message": "O formulário foi limpo."
   }
 }

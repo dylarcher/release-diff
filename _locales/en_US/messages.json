@@ -83,6 +83,9 @@
   "generateSummary": {
     "message": "Generate Summary"
   },
+  "reset": {
+    "message": "Reset"
+  },
   "jiraTickets": {
     "message": "Jira Tickets"
   },
@@ -357,5 +360,68 @@
   },
   "testFailedCheckConsoleNotice": {
     "message": "Test failed - check console for details."
+  },
+  "demoReportTitle": {
+    "message": "Demo Report"
+  },
+  "gitlabCommits": {
+    "message": "GitLab Commits"
+  },
+  "gitlabTags": {
+    "message": "GitLab Tags"
+  },
+  "noJiraTicketsFound": {
+    "message": "No Jira tickets found for this demo."
+  },
+  "noGitLabCommitsFound": {
+    "message": "No GitLab commits found for this demo."
+  },
+  "noGitLabTagsFound": {
+    "message": "No GitLab tags found for this demo."
+  },
+  "errorLoadingData": {
+    "message": "Error loading data for the demo report."
+  },
+  "viewDemoReport": {
+    "message": "Sample Review <code>v2.26</code> Report"
+  },
+  "demoJiraProjectKey": {
+    "message": "DDSTM"
+  },
+  "demoJiraReleaseVersionId": {
+    "message": "57550"
+  },
+  "demoGitlabProjectId": {
+    "message": "82150"
+  },
+  "demoGitlabCurrentReleaseTag": {
+    "message": "v2.25.5"
+  },
+  "demoGitlabPreviousReleaseTag": {
+    "message": "v2.25.4"
+  },
+  "demoJiraUrl": {
+    "message": "https://jira.dell.com"
+  },
+  "demoGitlabUrl": {
+    "message": "https://gitlab.dell.com"
+  },
+  "demoJiraPat": {
+    "message": "demo_jira_pat"
+  },
+  "demoGitlabPat": {
+    "message": "demo_gitlab_pat"
+  },
+  "demoJiraReleaseVersion": {
+    "message": "v2.26.0"
+  },
+  "demoReleaseRepoAlias": {
+    "message": "dds-angular"
+  },
+  "demoReleaseFramework": {
+    "message": "DDS Angular Components"
+  },
+  "resetForm": {
+    "message": "Form has been reset."
   }
 }
