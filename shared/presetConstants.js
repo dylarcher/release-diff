@@ -248,7 +248,15 @@ export const ELEMENT_IDS = {
   GITLAB_PREVIOUS_TAG: 'gitlabPreviousTag',
   JIRA_TICKETS: 'jira-tickets',
   GITLAB_HISTORY: 'gitlab-history',
-  OPTIONS_LINK: 'optionsLink'
+  OPTIONS_LINK: 'optionsLink',
+  // VIEW_DEMO_REPORT_BTN: 'viewDemoReportBtn', // Replaced by VIEW_DEMO_REPORT_DETAILS
+  VIEW_DEMO_REPORT_DETAILS: 'viewDemoReportDetails',
+  EXAMPLE_RESULTS: 'exampleResults',
+  JIRA_TICKETS_EXAMPLE: 'jira-tickets-example',
+  GITLAB_COMMITS_EXAMPLE: 'gitlab-commits-example',
+  GITLAB_TAGS_EXAMPLE: 'gitlab-tags-example'
+  // JIRA_TICKETS_DEMO, GITLAB_COMMITS_DEMO, GITLAB_TAGS_DEMO are removed as specific IDs for demoReport.html page are no longer needed.
+  // The new _EXAMPLE IDs are for the inline version.
 };
 
 // ===== TIMEOUTS =====

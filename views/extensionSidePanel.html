@@ -146,9 +146,36 @@
           id="generateSummaryBtn"
           class="btn btn-primary"
           data-i18n="generateSummary"
+          style="width: 100%; margin-bottom: 1rem;"
         >
           Generate Summary
         </button>
+        <details id="viewDemoReportDetails" style="margin-bottom: 1rem;">
+          <summary data-i18n="viewDemoReport" style="cursor: pointer; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: var(--surface-color);">View Demo Report</summary>
+          <div id="exampleResults" class="results-section" style="margin-top: 0.5rem;padding-top: 1rem;">
+            <!--  Demo Report Sections will be populated here by JS  -->
+            <div class="side-by-side">
+              <div class="column report-section">
+                <h3 data-i18n="jiraTickets">Jira Tickets (Demo)</h3>
+                <div id="jira-tickets-example">
+                  <!--  Populated by JS  -->
+                </div>
+              </div>
+              <div class="column report-section">
+                <h3 data-i18n="gitlabCommits">GitLab Commits (Demo)</h3>
+                <div id="gitlab-commits-example">
+                  <!--  Populated by JS  -->
+                </div>
+              </div>
+            </div>
+            <div class="report-section" style="margin-top: 1rem;">
+              <h3 data-i18n="gitlabTags">GitLab Tags (Demo)</h3>
+              <div id="gitlab-tags-example">
+                <!--  Populated by JS  -->
+              </div>
+            </div>
+          </div>
+        </details>
         <div id="loading" class="loading-spinner hidden"></div>
         <div id="statusMessage" class="status-message"></div>
         <div id="summaryResults" class="results-section hidden">
@@ -166,7 +193,7 @@
       </main>
       <footer class="footer-section">
         <small data-i18n="poweredBy"
-          >Powered by the <strong>Chrome Extension API</strong></small
+          >Powered by the <a href="https://developer.chrome.com/docs/extensions/reference/api" title="View Documentation" aria-label="Visit Google's Chrome Extension API specification page">Chrome Extension API</a></small
         >
       </footer>
     </div>
