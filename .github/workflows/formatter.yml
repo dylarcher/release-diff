@@ -1,0 +1,52 @@
+name: formatter
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  formatter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: fetch repo latest
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: prepare nodejs env
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: setup editorconfig cli
+        run: npm install -g eclint
+
+      - name: locate non-compliant syntax
+        run: eclint check .
+
+      - name: repair non-compliant code
+        run: eclint fix .
+
+      - name: verify proposed change(s)
+        id: verify-changed-files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: apply proposed update(s)
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Auto-format files using EditorConfig"
+          git push
