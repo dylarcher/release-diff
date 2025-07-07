@@ -246,8 +246,11 @@ export const ELEMENT_IDS = {
   GITLAB_PROJECT_ID: 'gitlabProjectId',
   GITLAB_CURRENT_TAG: 'gitlabCurrentTag',
   GITLAB_PREVIOUS_TAG: 'gitlabPreviousTag',
-  JIRA_TICKETS: 'jira-tickets',
-  GITLAB_HISTORY: 'gitlab-history',
+  JIRA_ITEMS_CONTAINER: 'jira-items-container', // Renamed from JIRA_TICKETS
+  GITLAB_ITEMS_CONTAINER: 'gitlab-items-container', // Renamed from GITLAB_HISTORY
+  UNPAIRED_ITEMS_SECTION: 'unpaired-items-section',
+  UNPAIRED_JIRA_ITEMS_CONTAINER: 'unpaired-jira-items-container',
+  UNPAIRED_GITLAB_ITEMS_CONTAINER: 'unpaired-gitlab-items-container',
   OPTIONS_LINK: 'optionsLink'
 };
 
@@ -289,7 +292,8 @@ export const STORAGE_KEYS = {
   JIRA_PAT: 'jiraPat',
   GITLAB_BASE_URL: 'gitlabBaseUrl',
   GITLAB_PAT: 'gitlabPat',
-  THEME_PREFERENCE: 'themePreference'
+  THEME_PREFERENCE: 'themePreference',
+  USER_MODIFICATIONS: 'userModifications' // Key for storing user flags, matches, unmatches
 };
 
 // ===== DEFAULT VALUES =====

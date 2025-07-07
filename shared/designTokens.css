@@ -472,3 +472,84 @@ hr {
 .column {
     width: 48%;
 }
+
+/* New styles for item cards and interactions */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.results-column h2 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.item-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.item-card.selected-for-match {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color-dark-alpha, rgba(68, 157, 255, 0.4));
+}
+
+.item-card.needs-action {
+    background-color: var(--warn-bg-light);
+    /* Or a specific needs-action color */
+    border-left: 4px solid var(--warn-text-light);
+}
+
+body[data-theme="dark"] .item-card.needs-action {
+    background-color: var(--warn-bg-dark);
+    border-left-color: var(--warn-text-dark);
+}
+
+.item-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.item-title small {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+}
+
+.item-associations {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.item-actions .btn-sm {
+    padding: 0.2rem 0.5rem;
+    /* Smaller padding for more compact buttons */
+    font-size: 0.75rem;
+    /* Smaller font size */
+}
+
+#unpaired-items-section h2 {
+    margin-top: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#unpaired-items-section h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}

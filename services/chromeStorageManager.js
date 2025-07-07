@@ -119,4 +119,65 @@ export async function loadThemePreference() {
   });
 }
 
+// ===== User Modifications Storage =====
+
+// Helper to generate a consistent context key
+export function generateContextKey(jiraProjectKey, jiraFixVersion, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag) {
+  // Normalize inputs to prevent minor differences from creating different keys
+  const pKey = jiraProjectKey?.trim().toUpperCase() || 'unknownproject';
+  const fVersion = jiraFixVersion?.trim() || 'unknownfixversion';
+  const gProjectId = gitlabProjectId?.trim() || 'unknowngitlabproject';
+  const gCurrTag = gitlabCurrentTag?.trim() || 'unknowncurrenttag';
+  const gPrevTag = gitlabPreviousTag?.trim() || 'unknownprevtag';
+  return `${pKey}_${fVersion}_${gProjectId}_${gCurrTag}_${gPrevTag}`;
+}
+
+export async function saveUserModifications(contextKey, modifications) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const allModifications = await loadAllUserModifications();
+      allModifications[contextKey] = modifications;
+      chrome.storage.local.set({ [STORAGE_KEYS.USER_MODIFICATIONS]: allModifications }, () => {
+        if (chrome.runtime.lastError) {
+          console.error('Error saving user modifications:', chrome.runtime.lastError);
+          reject(chrome.runtime.lastError);
+        } else {
+          console.log('User modifications saved for context:', contextKey, modifications);
+          resolve();
+        }
+      });
+    } catch (error) {
+      console.error('Failed to save user modifications:', error);
+      reject(error);
+    }
+  });
+}
+
+export async function loadUserModifications(contextKey) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const allModifications = await loadAllUserModifications();
+      resolve(allModifications[contextKey] || { manualMatches: [], userUnmatches: [], flaggedItems: {} });
+    } catch (error) {
+      console.error('Failed to load user modifications for context:', contextKey, error);
+      // Resolve with empty defaults if there's an error, so the app doesn't break
+      resolve({ manualMatches: [], userUnmatches: [], flaggedItems: {} });
+    }
+  });
+}
+
+async function loadAllUserModifications() {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get([STORAGE_KEYS.USER_MODIFICATIONS], (result) => {
+      if (chrome.runtime.lastError) {
+        console.error('Error loading all user modifications:', chrome.runtime.lastError);
+        reject(chrome.runtime.lastError);
+      } else {
+        resolve(result[STORAGE_KEYS.USER_MODIFICATIONS] || {});
+      }
+    });
+  });
+}
+
+
 export default ChromeStorageManager;

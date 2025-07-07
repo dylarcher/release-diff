@@ -1,5 +1,9 @@
 import { handleAsyncBackgroundMessage } from './chromeMessageHandler.js';
-import { loadApiConfigurationFromStorage } from './chromeStorageManager.js';
+import {
+    loadApiConfigurationFromStorage,
+    generateContextKey,
+    loadUserModifications
+} from './chromeStorageManager.js';
 import { makeAuthenticatedApiRequest, buildCleanApiUrl } from './apiRequestManager.js';
 import { extractJiraIssueKeysFromText } from '../helpers/jiraIssueKeyParser.js';
 import {
@@ -94,26 +98,57 @@ class BackgroundService {
         const jiraIssues = await JiraService.fetchIssuesForProjectAndVersion(jiraBaseUrl, jiraPat, jiraProjectKey, jiraFixVersion);
         const plannedIssueKeys = new Set(jiraIssues.map(issue => issue.key));
 
-        const gitlabCommits = await GitLabService.fetchCommitsBetweenTags(gitlabBaseUrl, gitlabPat, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag);
+        const rawJiraIssues = await JiraService.fetchIssuesForProjectAndVersion(jiraBaseUrl, jiraPat, jiraProjectKey, jiraFixVersion);
+        const rawGitlabCommits = await GitLabService.fetchCommitsBetweenTags(gitlabBaseUrl, gitlabPat, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag);
         const gitlabProject = await GitLabService.fetchProjectDetails(gitlabBaseUrl, gitlabPat, gitlabProjectId);
 
-        const allGitLabCommits = gitlabCommits.map(commit => ({
-            ...commit,
-            jira_keys: extractJiraIssueKeysFromText(`${commit.title} ${commit.message || ''}`)
-        }));
-
-        const allJiraIssues = jiraIssues.map(issue => ({
+        // Initialize Jira issues with new properties
+        const allJiraIssues = rawJiraIssues.map(issue => ({
+            id: issue.key, // Unique ID for Jira issues
             key: issue.key,
             summary: issue.fields.summary,
-            status: issue.fields.status.name
+            status: issue.fields.status.name,
+            associations: [], // To store associated commit IDs and match types
+            needsAction: false, // Default needsAction state
+            // description: issue.fields.description, // Consider fetching description if needed for matching
         }));
 
-        const summary = AnalysisService.analyzeIssueAndCommitCorrelation(allJiraIssues, allGitLabCommits, plannedIssueKeys, gitlabProject.path_with_namespace);
-        summary.allJiraIssues = allJiraIssues;
-        summary.allGitLabCommits = allGitLabCommits;
-        summary.gitlabProjectPath = gitlabProject.path_with_namespace;
+        // Initialize GitLab commits with new properties
+        const allGitLabCommits = rawGitlabCommits.map(commit => ({
+            id: commit.id, // Unique ID for commits
+            short_id: commit.short_id,
+            title: commit.title,
+            message: commit.message || '',
+            web_url: commit.web_url,
+            author_name: commit.author_name,
+            created_at: commit.created_at,
+            explicitJiraKeys: extractJiraIssueKeysFromText(`${commit.title} ${commit.message || ''}`), // Store explicitly found keys
+            associations: [], // To store associated Jira issue IDs and match types
+            needsAction: false, // Default needsAction state
+        }));
 
-        return { success: true, summary };
+        const contextKey = generateContextKey(jiraProjectKey, jiraFixVersion, gitlabProjectId, gitlabCurrentTag, gitlabPreviousTag);
+        const userModifications = await loadUserModifications(contextKey);
+
+        const analysisResults = AnalysisService.analyzeIssueAndCommitCorrelation(
+            allJiraIssues,
+            allGitLabCommits,
+            userModifications,
+            gitlabProject.path_with_namespace
+        );
+
+        return {
+            success: true,
+            summary: {
+                allJiraIssues: analysisResults.jiraIssues,
+                allGitLabCommits: analysisResults.gitlabCommits,
+                gitlabProjectPath: gitlabProject.path_with_namespace,
+                contextKey: contextKey, // Send contextKey to side panel for saving modifications
+                loadedUserUnmatches: userModifications.userUnmatches, // Send loaded unmatches
+                jiraBaseUrl: jiraBaseUrl, // Pass base URL for link construction
+                gitlabBaseUrl: gitlabBaseUrl // Pass base URL for link construction
+            }
+        };
     }
 
     async getFixVersionsHandler(data) {
@@ -323,69 +358,134 @@ class GitLabService {
 }
 
 class AnalysisService {
-    static analyzeIssueAndCommitCorrelation(jiraIssues, gitlabCommits, plannedIssueKeys, gitlabProjectPath) {
-        const issuesInCodeMap = new Map();
-        const allIssueKeysInCode = new Set();
+    // Helper for tokenizing and cleaning text for loose matching
+    static _getTokensForMatching(text) {
+        if (!text || typeof text !== 'string') return [];
+        // Simple stop words list, can be expanded
+        const stopWords = new Set(['a', 'an', 'the', 'is', 'in', 'it', 'of', 'for', 'on', 'with', 'to', 'and', 'or', 'ddstm']);
+        return text.toLowerCase()
+            .replace(/[^\w\s-]/g, '') // Remove punctuation except hyphens
+            .split(/\s+/)
+            .filter(word => word.length > 2 && !stopWords.has(word));
+    }
 
+    // Helper for calculating keyword overlap score
+    static _calculateOverlapScore(tokens1, tokens2) {
+        const set1 = new Set(tokens1);
+        const set2 = new Set(tokens2);
+        let overlap = 0;
+        for (const token of set1) {
+            if (set2.has(token)) {
+                overlap++;
+            }
+        }
+        return overlap;
+    }
+
+    static analyzeIssueAndCommitCorrelation(jiraIssues, gitlabCommits, userModifications, gitlabProjectPath) {
+        const { manualMatches = [], userUnmatches = [], flaggedItems = {} } = userModifications;
+
+        // Phase 0: Apply user-defined flags
+        jiraIssues.forEach(issue => {
+            if (flaggedItems[issue.id]) {
+                issue.needsAction = true;
+            }
+        });
+        gitlabCommits.forEach(commit => {
+            if (flaggedItems[commit.id]) {
+                commit.needsAction = true;
+            }
+        });
+
+        // Phase 1: Apply Manual Matches (these take highest precedence)
+        for (const match of manualMatches) {
+            const jiraIssue = jiraIssues.find(issue => issue.id === match.jiraId);
+            const gitlabCommit = gitlabCommits.find(commit => commit.id === match.commitId);
+
+            if (jiraIssue && gitlabCommit) {
+                // Clear any existing associations first if we are forcing a manual one
+                jiraIssue.associations = [];
+                gitlabCommit.associations = [];
+
+                jiraIssue.associations.push({ id: gitlabCommit.id, type: 'manual' });
+                gitlabCommit.associations.push({ id: jiraIssue.id, type: 'manual' });
+            }
+        }
+
+        // Phase 2: Explicit Matching (based on Jira keys in commit messages)
+        // Only apply if not already part of a manual match
         for (const commit of gitlabCommits) {
-            const commitJiraKeys = commit.jira_keys || [];
+            // If commit is already manually matched, skip its explicit key processing for matches
+            if (commit.associations.some(a => a.type === 'manual')) continue;
 
-            for (const jiraKey of commitJiraKeys) {
-                allIssueKeysInCode.add(jiraKey);
-                if (!issuesInCodeMap.has(jiraKey)) {
-                    issuesInCodeMap.set(jiraKey, { commits: [], merge_requests: [] });
+            if (commit.explicitJiraKeys && commit.explicitJiraKeys.length > 0) {
+                for (const jiraKey of commit.explicitJiraKeys) {
+                    const jiraIssue = jiraIssues.find(issue => issue.id === jiraKey);
+                    if (jiraIssue) {
+                        // Add association to Jira issue
+                        if (!jiraIssue.associations.some(assoc => assoc.id === commit.id)) {
+                            jiraIssue.associations.push({ id: commit.id, type: 'explicit' });
+                        }
+                        // Add association to commit
+                        if (!commit.associations.some(assoc => assoc.id === jiraIssue.id)) {
+                            commit.associations.push({ id: jiraIssue.id, type: 'explicit' });
+                        }
+                    }
                 }
-                issuesInCodeMap.get(jiraKey).commits.push({
-                    id: commit.id,
-                    short_id: commit.short_id
-                });
             }
         }
 
-        const [plannedNotInCode, inCodeNotPlanned, statusMismatches, matchedIssues] = [[], [], [], []];
+        // Phase 2: Loose Matching (based on content similarity)
+        const LOOSE_MATCH_THRESHOLD = 2; // Min number of overlapping keywords to be considered a loose match
 
-        for (const jiraIssue of jiraIssues) {
-            const isInCode = allIssueKeysInCode.has(jiraIssue.key);
-            const isResolved = JIRA_RESOLVED_STATUSES.includes(jiraIssue.status);
+        for (const issue of jiraIssues) {
+            // Only attempt to loosely match issues that don't have an explicit or manual match yet
+            if (issue.associations.some(a => a.type === 'explicit' || a.type === 'manual')) continue;
 
-            if (isInCode) {
-                matchedIssues.push({
-                    key: jiraIssue.key,
-                    summary: jiraIssue.summary,
-                    status: jiraIssue.status,
-                    commits: issuesInCodeMap.get(jiraIssue.key)?.commits || [],
-                    merge_requests: issuesInCodeMap.get(jiraIssue.key)?.merge_requests || []
-                });
+            const issueTokens = this._getTokensForMatching(issue.summary);
+            if (issueTokens.length === 0) continue;
 
-                if (!isResolved) {
-                    statusMismatches.push({
-                        key: jiraIssue.key,
-                        summary: jiraIssue.summary,
-                        status: jiraIssue.status
-                    });
+            let bestLooseMatch = null;
+            let maxScore = 0;
+
+            for (const commit of gitlabCommits) {
+                // Only attempt to loosely match commits that don't have an explicit or manual match with this issue
+                // and are not already explicitly or manually matched with *any* issue.
+                if (commit.associations.some(a => a.id === issue.id || a.type === 'explicit' || a.type === 'manual')) continue;
+
+                // Check if this pair was explicitly unmatched by the user
+                const isUnmatchedByUser = userUnmatches.some(unmatch =>
+                    (unmatch.item1Id === issue.id && unmatch.item2Id === commit.id) ||
+                    (unmatch.item1Id === commit.id && unmatch.item2Id === issue.id)
+                );
+                if (isUnmatchedByUser) continue; // Skip if user explicitly unmatched this pair
+
+                const commitText = `${commit.title} ${commit.message}`;
+                const commitTokens = this._getTokensForMatching(commitText);
+                if (commitTokens.length === 0) continue;
+
+                const score = this._calculateOverlapScore(issueTokens, commitTokens);
+
+                if (score >= LOOSE_MATCH_THRESHOLD && score > maxScore) {
+                    maxScore = score;
+                    bestLooseMatch = commit;
                 }
-            } else {
-                plannedNotInCode.push({
-                    key: jiraIssue.key,
-                    summary: jiraIssue.summary,
-                    status: jiraIssue.status
-                });
+            }
+
+            if (bestLooseMatch) {
+                // Add loose association to Jira issue
+                if (!issue.associations.some(assoc => assoc.id === bestLooseMatch.id)) {
+                    issue.associations.push({ id: bestLooseMatch.id, type: 'loose' });
+                }
+                // Add loose association to commit
+                if (!bestLooseMatch.associations.some(assoc => assoc.id === issue.id)) {
+                    bestLooseMatch.associations.push({ id: issue.id, type: 'loose' });
+                }
             }
         }
-
-        for (const jiraKey of allIssueKeysInCode) {
-            if (!plannedIssueKeys.has(jiraKey)) {
-                inCodeNotPlanned.push(jiraKey);
-            }
-        }
-
         return {
-            totalPlannedIssues: jiraIssues.length,
-            totalIssuesInCode: allIssueKeysInCode.size,
-            plannedNotInCode,
-            inCodeNotPlanned,
-            statusMismatches,
-            matchedIssues
+            jiraIssues, // These lists are now modified directly
+            gitlabCommits
         };
     }
 }

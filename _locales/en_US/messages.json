@@ -312,5 +312,50 @@
   },
   "themeToggleDark": {
     "message": "Dark Mode"
+  },
+  "unpairedItems": {
+    "message": "Unpaired Items"
+  },
+  "unpairedJiraTickets": {
+    "message": "Unpaired Jira Tickets"
+  },
+  "unpairedGitlabCommits": {
+    "message": "Unpaired GitLab Commits"
+  },
+  "statusLabel": {
+    "message": "Status: "
+  },
+  "relatedJiraLabel": {
+    "message": "Related Jira: "
+  },
+  "associatedItemsLabel": {
+    "message": "Associated: "
+  },
+  "matchTypeLabel": {
+    "message": "Match: "
+  },
+  "flagItemAction": {
+    "message": "Flag"
+  },
+  "unflagItemAction": {
+    "message": "Unflag"
+  },
+  "unmatchItemAction": {
+    "message": "Unmatch"
+  },
+  "matchItemAction": {
+    "message": "Match Item"
+  },
+  "noAssociatedItems": {
+    "message": "None"
+  },
+  "errorPrefix": {
+    "message": "Error: "
+  },
+  "unknownSystemError": {
+    "message": "An unknown system error occurred."
+  },
+  "testFailedCheckConsoleNotice": {
+    "message": "Test failed - check console for details."
   }
 }
