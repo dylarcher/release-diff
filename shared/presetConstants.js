@@ -252,7 +252,7 @@ export const ELEMENT_IDS = {
   UNPAIRED_ITEMS_SECTION: 'unpaired-items-section',
   UNPAIRED_JIRA_ITEMS_CONTAINER: 'unpaired-jira-items-container',
   UNPAIRED_GITLAB_ITEMS_CONTAINER: 'unpaired-gitlab-items-container',
-  OPTIONS_LINK: 'optionsLink'
+  OPTIONS_LINK: 'optionsLink',
   JIRA_TICKETS: 'jira-tickets',
   GITLAB_HISTORY: 'gitlab-history',
   OPTIONS_LINK: 'optionsLink',

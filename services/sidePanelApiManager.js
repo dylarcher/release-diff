@@ -79,7 +79,7 @@ class ExtensionUIManager {
             unpairedItemsSection: document.getElementById(ELEMENT_IDS.UNPAIRED_ITEMS_SECTION),
             unpairedJiraItemsContainer: document.getElementById(ELEMENT_IDS.UNPAIRED_JIRA_ITEMS_CONTAINER),
             unpairedGitlabItemsContainer: document.getElementById(ELEMENT_IDS.UNPAIRED_GITLAB_ITEMS_CONTAINER),
-            optionsLink: document.getElementById(ELEMENT_IDS.OPTIONS_LINK)
+            optionsLink: document.getElementById(ELEMENT_IDS.OPTIONS_LINK),
             jiraTicketsDiv: document.getElementById(ELEMENT_IDS.JIRA_TICKETS),
             gitlabHistoryDiv: document.getElementById(ELEMENT_IDS.GITLAB_HISTORY),
             optionsLink: document.getElementById(ELEMENT_IDS.OPTIONS_LINK),
