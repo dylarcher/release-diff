@@ -1,0 +1,861 @@
+/*
+================================================================================
+GLOBAL STYLES
+- Defines CSS variables for light and dark themes.
+- Applies base styles for the body, typography, and layout.
+- Implements WCAG 2.2 AA compliant color contrasts.
+================================================================================
+*/
+
+:root {
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --border-radius: 2px;
+    --input-height: 2.5rem;
+    --transition-speed: 0.2s;
+
+    /* Light Theme Palette */
+    --bg-color-light: #F9F9F9;
+    --surface-color-light: #FFFFFF;
+    --text-primary-light: #1a1a1a;
+    --text-secondary-light: #5c5c5c;
+    --border-color-light: #E0E0E0;
+    --accent-color-light: #0052cc;
+    --accent-color-hover-light: #003d99;
+    --accent-text-color-light: #FFFFFF;
+    --success-bg-light: #e6f4ea;
+    --success-text-light: #1e4620;
+    --error-bg-light: #fdecea;
+    --error-text-light: #a51825;
+    --info-bg-light: #e8f4fd;
+    --info-text-light: #0c5460;
+    --warn-bg-light: #fff4e5;
+    --warn-text-light: #663c00;
+
+    /* Dark Theme Palette */
+    --bg-color-dark: #121212;
+    --surface-color-dark: #1E1E1E;
+    --text-primary-dark: #EAEAEA;
+    --text-secondary-dark: #A0A0A0;
+    --border-color-dark: #333333;
+    --accent-color-dark: #449DFF;
+    --accent-color-hover-dark: #66B0FF;
+    --accent-text-color-dark: #121212;
+    --success-bg-dark: #1c3d23;
+    --success-text-dark: #a6d7b3;
+    --error-bg-dark: #4d1f28;
+    --error-text-dark: #f7baba;
+    --info-bg-dark: #1e3a5f;
+    --info-text-dark: #a9d5f7;
+    --warn-bg-dark: #4d381a;
+    --warn-text-dark: #ffdfa8;
+}
+
+/* Apply theme based on a data-theme attribute on the body */
+body[data-theme="light"] {
+    --bg-color: var(--bg-color-light);
+    --surface-color: var(--surface-color-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-hover: var(--accent-color-hover-light);
+    --accent-text-color: var(--accent-text-color-light);
+    --success-bg: var(--success-bg-light);
+    --success-text: var(--success-text-light);
+    --error-bg: var(--error-bg-light);
+    --error-text: var(--error-text-light);
+    --info-bg: var(--info-bg-light);
+    --info-text: var(--info-text-light);
+    --warn-bg: var(--warn-bg-light);
+    --warn-text: var(--warn-text-light);
+}
+
+body[data-theme="dark"] {
+    --bg-color: var(--bg-color-dark);
+    --surface-color: var(--surface-color-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --border-color: var(--border-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --accent-color-hover: var(--accent-color-hover-dark);
+    --accent-text-color: var(--accent-text-color-dark);
+    --success-bg: var(--success-bg-dark);
+    --success-text: var(--success-text-dark);
+    --error-bg: var(--error-bg-dark);
+    --error-text: var(--error-text-dark);
+    --info-bg: var(--info-bg-dark);
+    --info-text: var(--info-text-dark);
+    --warn-bg: var(--warn-bg-dark);
+    --warn-text: var(--warn-text-dark);
+}
+
+/* Default to light theme if no preference is set or JS is disabled */
+body:not([data-theme="dark"]) {
+    --bg-color: var(--bg-color-light);
+    --surface-color: var(--surface-color-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-hover: var(--accent-color-hover-light);
+    --accent-text-color: var(--accent-text-color-light);
+    --success-bg: var(--success-bg-light);
+    --success-text: var(--success-text-light);
+    --error-bg: var(--error-bg-light);
+    --error-text: var(--error-text-light);
+    --info-bg: var(--info-bg-light);
+    --info-text: var(--info-text-light);
+    --warn-bg: var(--warn-bg-light);
+    --warn-text: var(--warn-text-light);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 1.5rem;
+    font-size: 16px;
+    line-height: 1.6;
+    min-width: 320px;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color-hover);
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-section,
+.footer-section {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.footer-section {
+    border-bottom: none;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="password"] {
+    width: 100%;
+    height: var(--input-height);
+    padding: 0 0.75rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--accent-color-dark-alpha, rgba(68, 157, 255, 0.3));
+}
+
+.form-group-no-margin {
+    margin-bottom: 0;
+}
+
+.input-hint {
+    font-size: 0.625rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.input-hint samp {
+    font-family: var(--font-family-monospace);
+    background-color: var(--surface-color);
+    padding: 0.1rem 0.3rem;
+    border-radius: var(border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    width: 100%;
+    height: var(--input-height);
+    padding: 0 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-sm {
+    height: auto;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* Alerts & Status Messages */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+}
+
+.alert-warning {
+    background-color: var(--warn-bg);
+    color: var(--warn-text);
+    border-color: var(--warn-text);
+}
+
+/* Alerts & Status Messages */
+.info {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+}
+
+.info-notice {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+    border-color: var(--info-text);
+}
+
+.status-message {
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+}
+
+.status-message.visible {
+    opacity: 1;
+}
+
+.status-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.status-error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+}
+
+.status-info {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    border: 4px solid var(--surface-color);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+    margin: 1.5rem auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Results & Discrepancy Styles */
+.results-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.metric-card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.discrepancy-card {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.discrepancy-card .metric-value {
+    font-size: 2rem;
+}
+
+.discrepancy-card.planned-not-in-code {
+    border-left: 4px solid var(--error-text);
+}
+
+.discrepancy-card.in-code-not-planned {
+    border-left: 4px solid var(--warn-text);
+}
+
+.discrepancy-card.status-mismatch {
+    border-left: 4px solid var(--info-text);
+}
+
+
+.discrepancy-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.discrepancy-label {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.discrepancy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.discrepancy-list li {
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Side-by-side layout */
+.side-by-side {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.column {
+    width: 48%;
+}
+
+/* New styles for item cards and interactions */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.results-column h2 {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Demo Report Specific Styles */
+.report-section {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    /* Assuming --border-radius is defined, using md as an example */
+    margin-bottom: 1rem;
+    background-color: var(--surface-color);
+    /* Using surface color for sections */
+}
+
+.report-section h2 {
+    margin-top: 0;
+    color: var(--text-primary);
+    /* Using primary text color for headings */
+    border-bottom: 1px solid var(--border-color);
+    /* Light border for heading separation */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.item-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.item-card.selected-for-match {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color-dark-alpha, rgba(68, 157, 255, 0.4));
+}
+
+.item-card.needs-action {
+    background-color: var(--warn-bg-light);
+    /* Or a specific needs-action color */
+    border-left: 4px solid var(--warn-text-light);
+}
+
+body[data-theme="dark"] .item-card.needs-action {
+    background-color: var(--warn-bg-dark);
+    border-left-color: var(--warn-text-dark);
+}
+
+.item-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.item-title small {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+}
+
+.item-associations {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.item-actions .btn-sm {
+    padding: 0.2rem 0.5rem;
+    /* Smaller padding for more compact buttons */
+    font-size: 0.75rem;
+    /* Smaller font size */
+}
+
+#unpaired-items-section h2 {
+    margin-top: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#unpaired-items-section h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.results-section ul.list-style-none {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.results-section ul.list-style-none li {
+    padding: 0.5rem 1rem;
+    /* Added 1rem left/right padding */
+    border-bottom: 1px solid var(--border-color);
+    /* Lighter border for list items */
+}
+
+.results-section a {
+    color: var(--accent-color);
+    /* Use accent color for links */
+    text-decoration: none;
+}
+
+.results-section a:hover {
+    text-decoration: underline;
+    color: var(--accent-color-hover);
+}
+
+.results-section small {
+    color: var(--text-secondary);
+    /* Muted color for small text */
+    font-size: 0.875rem;
+    /* Slightly smaller font size for details */
+}
+
+.release-notes {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    /* Slightly different background for release notes block */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.85em;
+    max-height: 200px;
+    /* Limit height for long release notes */
+    overflow-y: auto;
+    /* Add scroll for overflow */
+}
+
+.release-notes strong {
+    font-weight: 600;
+    /* Re-using existing bold weight */
+}
+
+.release-notes br {
+    margin-bottom: 0.25rem;
+}
+
+.release-notes ul,
+.release-notes li {
+    list-style: disc;
+    margin-left: 1.25rem;
+}
+
+.release-notes li {
+    margin-bottom: 0.25rem;
+}
+
+/* Ensure the container in demoReport.html also respects theme */
+body[data-theme="dark"] .container,
+body[data-theme="light"] .container {
+    background-color: var(--bg-color);
+    /* This should already be handled by body, but being explicit */
+    color: var(--text-primary);
+}
+
+/* Styling for <details> and <summary> for inline demo report */
+details {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    background-color: var(--surface-color);
+}
+
+summary {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style-position: inside;
+    /* Better alignment for the marker */
+}
+
+summary:hover {
+    background-color: var(--bg-color);
+    /* Subtle hover for summary */
+}
+
+details[open] > summary {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Ensure #exampleResults (which has .results-section) has appropriate padding if not already covered */
+#exampleResults.results-section {
+    padding: 1rem;
+    /* Add padding if it's not inheriting sufficiently */
+    margin-top: 0;
+    /* Reset margin-top if it was for a top border previously */
+    border-top: none;
+    /* Remove top border if details[open] > summary handles separation */
+}
+
+/* Adjustments for report sections within the details element */
+#exampleResults .report-section {
+    margin-bottom: 0.5rem;
+    /* Reduce bottom margin for sections inside details */
+    padding: 0.75rem;
+    /* Slightly reduce padding for nested sections */
+}
+
+#exampleResults .report-section:last-child {
+    margin-bottom: 0;
+}
+
+#exampleResults .report-section h3 {
+    font-size: 1.15rem;
+    /* Slightly smaller than h2 used previously */
+    margin-bottom: 0.75rem;
+}
+
+/* Drag and Drop Styles */
+.gitlab-draggable-card {
+    /* Applied to the whole card if it's from the main list */
+    cursor: grab;
+    /* background-color: var(--surface-accent-color-light); Light theme accent for draggable */
+    /* border: 1px solid var(--border-color-light); */
+}
+
+/* body[data-theme="dark"] .gitlab-draggable-card {
+  background-color: var(--surface-accent-color-dark); Dark theme accent
+  border: 1px solid var(--border-color-dark);
+} */
+
+.gitlab-draggable-card:active {
+    cursor: grabbing;
+}
+
+.jira-dropzone-card .associated-commits-container {
+    min-height: 2.5rem;
+    /* Minimum height to make it an easy drop target */
+    background-color: var(--bg-color);
+    /* Slightly different background for the drop area */
+    border: 1px dashed var(--text-secondary);
+    /* Dashed border to indicate drop zone */
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    /* Space between associated items */
+}
+
+/* Enhanced SortableJS-compatible helper classes */
+.sortable {
+    position: relative;
+}
+
+.sortable-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.sortable-chosen {
+    opacity: 0.8;
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.sortable-fallback {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    opacity: 0.8;
+    transform: rotate(5deg);
+    pointer-events: none;
+}
+
+.sortable-drag-over-target {
+    background-color: var(--info-bg);
+    border-color: var(--accent-color);
+    border-style: dashed;
+}
+
+/* Animation support */
+.sortable-animation {
+    transition: all 0.15s ease;
+}
+
+/* Direction-specific styles */
+.sortable-vertical > * {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.sortable-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.sortable-horizontal > * {
+    flex-shrink: 0;
+}
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: var(--accent-color) !important;
+    /* Make ghost more visible */
+    border-radius: var(--border-radius);
+}
+
+.sortable-drag {
+    opacity: 0.9 !important;
+    /* Make the dragged item slightly transparent */
+}
+
+.jira-dropzone-card .associated-commits-container.sortable-drag-over-target {
+    /* Style for when a draggable is over this container */
+    background-color: var(--info-bg);
+    /* Use info color to indicate droppable area */
+    border-color: var(--accent-color);
+}
+
+
+.associated-commit-item {
+    /* This is a .item-card.gitlab-card inside the container */
+    padding: 0.3rem 0.5rem;
+    /* Reduced padding for items within the container */
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Inherits .item-card styles like border, background-color */
+}
+
+.associated-commit-item .item-title {
+    margin-bottom: 0;
+    /* Remove bottom margin from title inside associated item */
+    margin-right: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+    /* Allow title to take available space */
+}
+
+.associated-commit-item .item-title small {
+    font-size: 1em;
+    /* Ensure text isn't too small */
+}
+
+
+.remove-association-btn.icon-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    /* Make the 'x' a bit larger */
+    padding: 0 0.2rem;
+    line-height: 1;
+    margin-left: auto;
+    /* Pushes button to the right if title doesn't fill space */
+}
+
+.remove-association-btn.icon-btn:hover {
+    color: var(--error-text);
+    /* Use error color for hover */
+}
+
+/* Ensure item-cards within associated-commits-container are not too big */
+.associated-commits-container .item-card {
+    margin-bottom: 0.25rem;
+    /* Reduce margin for items in the list */
+}
+
+.associated-commits-container .item-card .item-actions {
+    display: none;
+    /* Hide actions like flag/match for items inside the dropzone */
+}
