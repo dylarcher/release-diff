@@ -27,6 +27,44 @@ export function createDiscrepancyItemDiv(className, innerHTML) {
     return div;
 }
 
+export function createButton(id, text, classes = [], clickHandler) {
+    const button = document.createElement('button');
+    button.id = id;
+    button.textContent = text;
+    button.className = classes.join(' ');
+    if (clickHandler) {
+        button.addEventListener('click', clickHandler);
+    }
+    return button;
+}
+
+export function createDiv(id, classes = [], children = []) {
+    const div = document.createElement('div');
+    div.id = id;
+    div.className = classes.join(' ');
+    children.forEach(child => div.appendChild(child));
+    return div;
+}
+
+export function createLink(href, text, classes = [], target = '_blank') {
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = text;
+    link.className = classes.join(' ');
+    link.target = target;
+    link.rel = 'noopener noreferrer';
+    return link;
+}
+
+export function createElement(tag, { id, classes = [], text, children = [] }) {
+    const el = document.createElement(tag);
+    if (id) el.id = id;
+    if (classes.length) el.className = classes.join(' ');
+    if (text) el.textContent = text;
+    children.forEach(child => el.appendChild(child));
+    return el;
+}
+
 export function resetForm(elements) {
     const {
         jiraProjectKeyInput,
