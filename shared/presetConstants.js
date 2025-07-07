@@ -249,7 +249,7 @@ export const ELEMENT_IDS = {
   JIRA_TICKETS: 'jira-tickets',
   GITLAB_HISTORY: 'gitlab-history',
   OPTIONS_LINK: 'optionsLink',
-  // VIEW_DEMO_REPORT_BTN: 'viewDemoReportBtn', // Replaced by VIEW_DEMO_REPORT_DETAILS
+  
   VIEW_DEMO_REPORT_DETAILS: 'viewDemoReportDetails',
   EXAMPLE_RESULTS: 'exampleResults',
   JIRA_TICKETS_EXAMPLE: 'jira-tickets-example',
