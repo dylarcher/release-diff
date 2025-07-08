@@ -268,8 +268,8 @@ export const TIMEOUTS = {
 
 // ===== URL TEMPLATES =====
 export const URL_TEMPLATES = {
-  JIRA_ISSUE: 'https://jira.{ORG_NAME}.com/browse/{key}',
-  GITLAB_COMMIT: 'https://gitlab.{ORG_NAME}.com/{projectPath}/-/commit/{commitId}'
+  JIRA_ISSUE: 'https://jira.dell.com/browse/{key}',
+  GITLAB_COMMIT: 'https://gitlab.dell.com/{projectPath}/-/commit/{commitId}'
 };
 
 // ===== JQL TEMPLATES =====

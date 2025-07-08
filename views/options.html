@@ -12,7 +12,21 @@
 
 <body>
   <div class="container">
-    <div role="alert" class="alert alert-warning" style="margin-top: .85rem;">
+    <header class="page-header">
+      <h1 data-i18n="extensionSettings">Extension Settings</h1>
+      <div class="theme-toggle">
+        <span for="themeToggle themeToggleLabel" data-i18n="themeToggle" class="sr-only">Change theme color mode?</span>
+        <label id="themeToggleLabel">
+          <input type="checkbox" id="themeToggle" name="themeToggle" class="checkbox-switch" role="switch"
+            aria-checked="false" aria-labelledby="themeToggleLabel" aria-describedby="themeToggleDescription">
+          <span data-i18n="themeToggleDark"></span>
+        </label>
+        <span id="themeToggleDescription" class="sr-only" data-i18n="themeToggleDescription">Toggle between light and dark
+          theme</span>
+      </div>
+    </header>
+
+    <div role="alert" class="alert alert-warning">
       <small>
         <strong data-i18n="securityNoticeTitle">Important Security Notice:</strong> <span
           data-i18n="securityNoticeText">For
@@ -30,28 +44,8 @@
             extension uses <code>localStorage</code> currently.</em></span>
       </small>
     </div>
-    <header class="header-section" style="margin-block: 2rem 0;">
-      <h1 data-i18n="extensionSettings">Extension Settings</h1>
-    </header>
-    <section class="ui-controls-section"
-      style="border: none; padding: 0; margin-bottom: 2rem; display: flex; place-content: space-between;">
-      <h2 data-i18n="userInterfaceControls" style="font-size: 1.2rem; margin-bottom: 1rem;">User Interface Controls</h2>
-      <div class="form-group form-group-no-margin"
-        style="display: flex; place-items: start; place-content: end; gap: 0.5ch;">
-        <span for="themeToggle themeToggleLabel" data-i18n="themeToggle" class="sr-only">Change theme color mode?</span>
-        <label id="themeToggleLabel" style="display: flex; cursor: pointer; place-items: center;">
-          <input type="checkbox" id="themeToggle" name="themeToggle" class="checkbox-switch" role="switch"
-            aria-checked="false" aria-labelledby="themeToggleLabel" aria-describedby="themeToggleDescription">
-          <span data-i18n="themeToggleDark" style="user-select: none"></span>
-        </label>
-        <span id="themeToggleDescription" class="sr-only" data-i18n="themeToggleDescription">Toggle between light and dark
-          theme</span>
-      </div>
-    </section>
-    <hr role="separator" />
 
-    <main role="main">
-      <div class="grid grid-2-col">
+    <main role="main" class="grid grid-2-col">
         <div class="form-section">
           <div class="form-group">
             <label for="jiraBaseUrl" data-i18n="jiraUrl">Jira <abbr title="Uniform Resource Locator"
@@ -60,20 +54,6 @@
               data-i18n-placeholder="jiraUrlPlaceholder" value="https://jira.dell.com/">
             <p class="input-hint" data-i18n="jiraUrlHint">e.g. <samp>https://jira.dell.net</samp></p>
           </div>
-        </div>
-        <div class="form-section">
-          <div class="form-group">
-            <label for="gitlabBaseUrl" data-i18n="gitlabUrl">GitLab <abbr title="Uniform Resource Locator"
-                data-i18n-title="urlAbbr">URL</abbr></label>
-            <input type="url" id="gitlabBaseUrl" placeholder="e.g. https://gitlab.enterprise.com"
-              data-i18n-placeholder="gitlabUrlPlaceholder" value="https://gitlab.dell.com/">
-            <p class="input-hint" data-i18n="gitlabUrlHint">e.g. <samp>https://gitlab.dell.net</samp></p>
-          </div>
-        </div>
-      </div>
-      <br />
-      <div class="grid grid-2-col">
-        <div class="form-section">
           <div class="form-group">
             <label for="jiraPat" data-i18n="jiraPat">Jira <abbr title="Personal Access Token"
                 data-i18n-title="patAbbr">PAT</abbr></label>
@@ -93,6 +73,13 @@
         </div>
         <div class="form-section">
           <div class="form-group">
+            <label for="gitlabBaseUrl" data-i18n="gitlabUrl">GitLab <abbr title="Uniform Resource Locator"
+                data-i18n-title="urlAbbr">URL</abbr></label>
+            <input type="url" id="gitlabBaseUrl" placeholder="e.g. https://gitlab.enterprise.com"
+              data-i18n-placeholder="gitlabUrlPlaceholder" value="https://gitlab.dell.com/">
+            <p class="input-hint" data-i18n="gitlabUrlHint">e.g. <samp>https://gitlab.dell.net</samp></p>
+            </div>
+            <div class="form-group">
             <label for="gitlabPat" data-i18n="gitlabPat">GitLab <abbr title="Personal Access Token"
                 data-i18n-title="patAbbr">PAT</abbr></label>
             <input type="password" id="gitlabPat" placeholder="insert private key&hellip;"
@@ -109,21 +96,19 @@
             </p>
           </div>
         </div>
-      </div>
     </main>
-    <footer style="margin-top: 3rem">
-      <button id="saveButton" class="btn btn-primary" data-i18n="saveSettings">Save Settings</button>
-      <p id="status" aria-live="polite" aria-atomic="true" aria-relevant="all" class="status-message"></p>
-    </footer>
-    <aside class="footer-section">
-      <div class="btn-group">
+<div class="btn-group">
+  <button id="saveButton" class="btn btn-primary" data-i18n="saveSettings">Save Settings</button>
         <button id="testBtn" class="btn btn-secondary" data-i18n="testConnection">Test Connection</button>
         <button id="testJiraBtn" class="btn btn-secondary" data-i18n="testJiraApi">Test Jira <abbr
             title="Application Programming Interface" data-i18n-title="apiAbbr">API</abbr></button>
         <button id="testGitLabBtn" class="btn btn-secondary" data-i18n="testGitlabApi">Test GitLab <abbr
             title="Application Programming Interface" data-i18n-title="apiAbbr">API</abbr></button>
-      </div>
-    </aside>
+    </div>
+<footer class="page-footer">
+  <p id="status" aria-live="polite" aria-atomic="true" aria-relevant="all" class="status-message"></p>
+</footer>
+</div>
 </body>
 
 </html>

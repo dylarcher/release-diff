@@ -116,9 +116,9 @@ The extension is organized into several key files. Understanding their roles is 
   - Go to your user settings -> Access Tokens.
   - Generate a new personal access token with at least `read_api` and `read_repository` scopes.
 4. **Enter Configuration Details:** (&hellip;in the extension options page)
-    - Enter your *Jira Base URL* (e.g. `https://jira.{ORG_NAME}.net` or `https://jira.{ORG_NAME}.com`).
+    - Enter your *Jira Base URL* (e.g. `https://jira.dell.net` or `https://jira.dell.com`).
     - Enter your *Jira Personal Access Token (PAT)*.
-    - Enter your *GitLab Base URL* (e.g. `https://gitlab.com` or `https://gitlab.{ORG_NAME}.com`).
+    - Enter your *GitLab Base URL* (e.g. `https://gitlab.com` or `https://gitlab.dell.com`).
     - Enter your *GitLab Personal Access Token (PAT)*.
 5. **Save Settings:**
   - Click the "Save Settings" button. You should see a "Settings saved!" message.

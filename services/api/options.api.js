@@ -34,26 +34,19 @@ export class SettingsManager {
             gitlabPatInput: document.getElementById(ELEMENT_IDS.GITLAB_PAT),
             saveButton: document.getElementById(ELEMENT_IDS.SAVE_BUTTON),
             statusDiv: document.getElementById(ELEMENT_IDS.STATUS),
-            testBtn: document.getElementById(ELEMENT_IDS.TEST_BTN),
-            testJiraBtn: document.getElementById(ELEMENT_IDS.TEST_JIRA_BTN),
-            testGitLabBtn: document.getElementById(ELEMENT_IDS.TEST_GITLAB_BTN),
             themeToggle: document.getElementById(ELEMENT_IDS.THEME_TOGGLE)
         };
-    } setupEventListeners() {
-        const { saveButton, testBtn, testJiraBtn, testGitLabBtn, themeToggle } = this.elements;
+    }
+
+    setupEventListeners() {
+        const { saveButton, themeToggle } = this.elements;
 
         this.eventHandlers = new Map([
             ['save', this.handleSave.bind(this)],
-            ['testGeneral', this.handleTestGeneral.bind(this)],
-            ['testJira', this.handleTestJira.bind(this)],
-            ['testGitLab', this.handleTestGitLab.bind(this)],
             ['themeChange', this.handleThemeChange.bind(this)]
         ]);
 
         saveButton.addEventListener('click', this.eventHandlers.get('save'));
-        testBtn.addEventListener('click', this.eventHandlers.get('testGeneral'));
-        testJiraBtn.addEventListener('click', this.eventHandlers.get('testJira'));
-        testGitLabBtn.addEventListener('click', this.eventHandlers.get('testGitLab'));
 
         if (themeToggle) {
             themeToggle.addEventListener('change', this.eventHandlers.get('themeChange'));
@@ -65,6 +58,36 @@ export class SettingsManager {
         const isDark = theme === 'dark';
         this.elements.themeToggle.checked = isDark;
         this.elements.themeToggle.setAttribute('aria-checked', isDark.toString());
+    }
+
+    async handleSave() {
+        const { jiraBaseUrlInput, jiraPatInput, gitlabBaseUrlInput, gitlabPatInput, statusDiv } = this.elements;
+
+        const requiredFields = [
+            { element: jiraBaseUrlInput, name: getMessage('jiraUrl') },
+            { element: jiraPatInput, name: getMessage('jiraPat') },
+            { element: gitlabBaseUrlInput, name: getMessage('gitlabUrl') },
+            { element: gitlabPatInput, name: getMessage('gitlabPat') }
+        ];
+
+        if (!validateRequiredFields(requiredFields, statusDiv)) {
+            return;
+        }
+
+        const config = {
+            jiraBaseUrl: jiraBaseUrlInput.value,
+            jiraPat: jiraPatInput.value,
+            gitlabBaseUrl: gitlabBaseUrlInput.value,
+            gitlabPat: gitlabPatInput.value
+        };
+
+        try {
+            await saveApiConfigurationToStorage(config);
+            displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.SETTINGS_SAVED_SUCCESSFULLY), STATUS_TYPES.SUCCESS);
+        } catch (error) {
+            displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.ERROR_SAVING_SETTINGS), STATUS_TYPES.ERROR);
+            console.error(CONSOLE_MESSAGES.ERROR_SAVING_SETTINGS, error);
+        }
     }
 
     async handleThemeChange(event) {
