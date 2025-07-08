@@ -30,24 +30,19 @@
   "minimum_chrome_version": "114",
   "name": "__MSG_appName__",
   "options_page": "views/options.html",
-  "permissions": [
-    "storage",
-    "sidePanel"
-  ],
+  "permissions": ["storage", "sidePanel"],
   "side_panel": {
     "default_path": "views/sidepanel.html"
   },
   "version": "1.0",
   "web_accessible_resources": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
+      "matches": ["<all_urls>"],
       "resources": [
         "shared/modern.css",
         "utils/i18n.util.js",
         "shared/data/*.json",
-        "shared/design/_segments/*.json"
+        "shared/tokens/_parts/*.json"
       ]
     }
   ]

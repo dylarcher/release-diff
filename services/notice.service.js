@@ -1,4 +1,4 @@
-import { CSS_CLASSES, STATUS_TYPES } from '../shared/constants.js';
+import { CSS_CLASSES, STATUS_TYPES } from "../shared/constants.js";
 
 export class StatusDisplayManager {
   static displayStatusMessage(messageElement, message, type) {
@@ -7,18 +7,23 @@ export class StatusDisplayManager {
     const typeClasses = {
       [STATUS_TYPES.ERROR]: CSS_CLASSES.STATUS_ERROR,
       [STATUS_TYPES.SUCCESS]: CSS_CLASSES.STATUS_SUCCESS,
-      [STATUS_TYPES.INFO]: CSS_CLASSES.STATUS_INFO
+      [STATUS_TYPES.INFO]: CSS_CLASSES.STATUS_INFO,
     };
 
     messageElement.className = `${CSS_CLASSES.STATUS_MESSAGE} ${CSS_CLASSES.VISIBLE} ${typeClasses[type] || CSS_CLASSES.STATUS_INFO}`;
   }
 
-  static displayStatusWithAutoHide(messageElement, message, type, hideAfterMs = 3000) {
+  static displayStatusWithAutoHide(
+    messageElement,
+    message,
+    type,
+    hideAfterMs = 3000
+  ) {
     messageElement.textContent = message;
 
     const typeClasses = {
       [STATUS_TYPES.SUCCESS]: CSS_CLASSES.STATUS_SUCCESS,
-      [STATUS_TYPES.ERROR]: CSS_CLASSES.STATUS_ERROR
+      [STATUS_TYPES.ERROR]: CSS_CLASSES.STATUS_ERROR,
     };
 
     messageElement.className = `${CSS_CLASSES.STATUS_MESSAGE} ${typeClasses[type] || CSS_CLASSES.STATUS_ERROR}`;
@@ -31,5 +36,6 @@ export class StatusDisplayManager {
     }
   }
 }
-export const { displayStatusMessage, displayStatusWithAutoHide } = StatusDisplayManager;
+export const { displayStatusMessage, displayStatusWithAutoHide } =
+  StatusDisplayManager;
 export default new StatusDisplayManager();
