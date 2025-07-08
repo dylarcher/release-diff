@@ -31,7 +31,7 @@ export const design = {
       }
     }
 
-    delete design.tokens;
+    // Removed redundant line: `delete design.tokens;`
     const obj = { ...design };
     const arr = Object.entries(obj);
     const map = new Map(arr);
