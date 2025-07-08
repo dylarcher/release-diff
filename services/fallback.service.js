@@ -7,11 +7,11 @@ export class FallbackDataService {
   }
 
   /**
-   * Show fallback prompt when APIs are unreachable
-   * @param {string} apiType - 'jira', 'gitlab', or 'both'
-   * @param {Function} onUseMockData - Callback for when user chooses to use mock data
-   * @param {HTMLElement} container - Container to show the prompt in
-   */
+  * Show fallback prompt when APIs are unreachable
+  * @param {string} apiType - 'jira', 'gitlab', or 'both'
+  * @param {Function} onUseMockData - Callback for when user chooses to use mock data
+  * @param {HTMLElement} container - Container to show the prompt in
+  */
   showFallbackPrompt(apiType, onUseMockData, container) {
     const promptId = `fallback-prompt-${Date.now()}`;
     const prompt = this.createFallbackPromptElement(
@@ -103,10 +103,10 @@ export class FallbackDataService {
   }
 
   /**
-   * Load mock data from the shared/data directory
-   * @param {string} dataType - 'releases', 'commits', or 'versions'
-   * @returns {Promise<Object>} Mock data
-   */
+  * Load mock data from the shared/data directory
+  * @param {string} dataType - 'releases', 'commits', or 'versions'
+  * @returns {Promise<Object>} Mock data
+  */
   async loadMockData(dataType) {
     try {
       const dataFiles = {
@@ -136,9 +136,9 @@ export class FallbackDataService {
   }
 
   /**
-   * Populate UI with mock data
-   * @param {Object} elements - UI elements to populate
-   */
+  * Populate UI with mock data
+  * @param {Object} elements - UI elements to populate
+  */
   async populateMockData(elements) {
     try {
       const [releasesData, commitsData, versionsData] = await Promise.all([
@@ -230,13 +230,13 @@ export class FallbackDataService {
   }
 
   /**
-   * Check if APIs are reachable
-   * @param {string} jiraUrl - Jira base URL
-   * @param {string} gitlabUrl - GitLab base URL
-   * @param {string} jiraPat - Jira PAT
-   * @param {string} gitlabPat - GitLab PAT
-   * @returns {Promise<Object>} Status of API availability
-   */
+  * Check if APIs are reachable
+  * @param {string} jiraUrl - Jira base URL
+  * @param {string} gitlabUrl - GitLab base URL
+  * @param {string} jiraPat - Jira PAT
+  * @param {string} gitlabPat - GitLab PAT
+  * @returns {Promise<Object>} Status of API availability
+  */
   async checkApiAvailability(jiraUrl, gitlabUrl, jiraPat, gitlabPat) {
     const results = {
       jiraAvailable: false,
