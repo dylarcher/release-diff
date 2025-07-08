@@ -1,0 +1,46 @@
+{
+  "author": "Dylan Archer <dylarcher@gmail.com> (@dylarcher)",
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ],
+  "bugs": "https://github.com/dylarcher/release-diff/issues",
+  "description": "A browser extension to compare release tickets from Jira against commits from GitLab.",
+  "devDependencies": {
+    "@types/node": "24.0.10",
+    "c8": "10.1.3",
+    "eclint": "2.8.1",
+    "monocart-coverage-reports": "2.12.6",
+    "typescript": "5.8.3"
+  },
+  "displayName": "Release Stories vs Commits",
+  "engines": {
+    "node": ">=18.20.8",
+    "npm": ">=10.8.2"
+  },
+  "homepage": "https://dylarcher.github.io/release-diff/",
+  "keywords": [
+    "atlassian",
+    "chrome",
+    "compare",
+    "diff",
+    "extension",
+    "gitlab",
+    "github",
+    "interactive",
+    "jira",
+    "release",
+    "report",
+    "review",
+    "side-by-side"
+  ],
+  "license": "MIT",
+  "name": "release-diff",
+  "repository": "https://github.com/dylarcher/release-diff.git",
+  "scripts": {
+    "lint": "npx eclint check . && npx eclint fix .",
+    "test": "npx c8 --experimental-monocart --per-file --check-coverage --100 --all -r=v8 -r=console-details -e=.js -x=node_modules/** -o=.tmp/lcov --temp-directory=.tmp -- node --test=**/*.test.js"
+  },
+  "type": "module",
+  "version": "1.2.0"
+}

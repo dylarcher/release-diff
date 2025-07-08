@@ -1,13 +1,13 @@
 {
   "action": {
     "default_icon": {
-      "16": "shared/actionIcon16x16.png",
-      "48": "shared/actionIcon48x48.png",
-      "128": "shared/actionIcon128x128.png"
+      "16": "shared/icon/16.png",
+      "48": "shared/icon/48.png",
+      "128": "shared/icon/128.png"
     }
   },
   "background": {
-    "service_worker": "services/backgroundServiceWorker.js",
+    "service_worker": "services/bg.service.js",
     "type": "module"
   },
   "content_security_policy": {
@@ -22,20 +22,20 @@
     "https://gitlab.dell.com/*"
   ],
   "icons": {
-    "16": "shared/actionIcon16x16.png",
-    "48": "shared/actionIcon48x48.png",
-    "128": "shared/actionIcon128x128.png"
+    "16": "shared/icon/16.png",
+    "48": "shared/icon/48.png",
+    "128": "shared/icon/128.png"
   },
   "manifest_version": 3,
   "minimum_chrome_version": "114",
   "name": "__MSG_appName__",
-  "options_page": "views/userConfigurations.html",
+  "options_page": "views/options.html",
   "permissions": [
     "storage",
     "sidePanel"
   ],
   "side_panel": {
-    "default_path": "views/extensionSidePanel.html"
+    "default_path": "views/sidepanel.html"
   },
   "version": "1.0",
   "web_accessible_resources": [
@@ -45,7 +45,7 @@
       ],
       "resources": [
         "shared/styles.css",
-        "helpers/internationalizationHelper.js"
+        "utils/i18n.util.js"
       ]
     }
   ]

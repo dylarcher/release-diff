@@ -1,4 +1,4 @@
-import { CSS_CLASSES, STATUS_TYPES } from '../shared/presetConstants.js';
+import { CSS_CLASSES, STATUS_TYPES } from '../shared/constants.js';
 
 class StatusDisplayManager {
   static displayStatusMessage(messageElement, message, type) {

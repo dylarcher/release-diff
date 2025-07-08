@@ -1,20 +1,20 @@
-# Node.js
+# nodejs
 node_modules/
 npm-debug.log
 yarn-error.log
 
-# Mac
+# macos
 .DS_Store
 
-# Windows
+# winos
 Thumbs.db
 
-# JetBrains IDEs
+# jetbrains
 .idea/
 
-# VS Code
+# vscode
 .vscode/
 
-# Browser extension specific
+# browser
 *.crx
 *.zip

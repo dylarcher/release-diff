@@ -1,6 +1,6 @@
 
 
-import { CONSOLE_MESSAGES } from '../shared/presetConstants.js';
+import { CONSOLE_MESSAGES } from '../shared/constants.js';
 
 class InternationalizationHelper {
   static getMessage(messageName, substitutions = null) {

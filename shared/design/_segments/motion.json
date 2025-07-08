@@ -1,0 +1,58 @@
+{
+  "motion": {
+    "duration": {
+      "fast": {
+        "$description": "Fast transition",
+        "$type": "duration",
+        "$value": "100ms"
+      },
+      "medium": {
+        "$description": "Normal transition",
+        "$type": "duration",
+        "$value": "300ms"
+      },
+      "none": {
+        "$description": "No transition",
+        "$type": "duration",
+        "$value": "0.001ms"
+      },
+      "normal": {
+        "$description": "Default transition",
+        "$type": "duration",
+        "$value": "200ms"
+      },
+      "slow": {
+        "$description": "Slow transition",
+        "$type": "duration",
+        "$value": "400ms"
+      }
+    },
+    "easing": {
+      "ease": {
+        "$description": "Default ease",
+        "$type": "cubic-bezier",
+        "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "ease-in": {
+        "$description": "Ease-in",
+        "$type": "cubic-bezier",
+        "$value": "cubic-bezier(0.42, 0, 1, 1)"
+      },
+      "ease-in-out": {
+        "$description": "Ease-in-out",
+        "$type": "cubic-bezier",
+        "$value": "cubic-bezier(0.42, 0, 0.58, 1)"
+      },
+      "ease-out": {
+        "$description": "Ease-out",
+        "$type": "cubic-bezier",
+        "$value": "cubic-bezier(0, 0, 0.58, 1)"
+      },
+      "linear": {
+        "$description": "Linear easing",
+        "$type": "cubic-bezier",
+        "$value": "cubic-bezier(0, 0, 1, 1)"
+      }
+    }
+  }
+}

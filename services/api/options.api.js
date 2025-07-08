@@ -1,8 +1,8 @@
-import { displayStatusWithAutoHide } from './statusDisplayManager.js';
-import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage, saveThemePreference, loadThemePreference } from './chromeStorageManager.js';
-import { sendMessageToBackgroundScript } from './chromeMessageHandler.js';
-import { validateRequiredFields } from '../helpers/formValidationHelpers.js';
-import { initializeI18n, getMessage } from '../helpers/internationalizationHelper.js';
+import { displayStatusWithAutoHide } from '../notice.service.js';
+import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage, saveThemePreference, loadThemePreference } from '../storage.service.js';
+import { sendMessageToBackgroundScript } from '../comms.service.js';
+import { validateRequiredFields } from '../../utils/validation.util.js';
+import { initializeI18n, getMessage } from '../../utils/i18n.util.js';
 import {
     ELEMENT_IDS,
     ERROR_MESSAGES,
@@ -13,7 +13,7 @@ import {
     ACTIONS,
     STATUS_TYPES,
     CONSOLE_MESSAGES
-} from '../shared/presetConstants.js';
+} from '../../shared/constants.js';
 
 class SettingsManager {
     constructor() {
@@ -21,6 +21,7 @@ class SettingsManager {
         this.setupElementReferences();
         this.setupEventListeners();
         this.loadSavedSettingsIntoForm();
+        DS(['colors', 'depth', 'element', 'fonts', 'layers', 'motion', 'sizing']);
     }
 
     initializeI18n() {

@@ -1,0 +1,685 @@
+{
+  "sizing": {
+    "decimal": {
+      "size-000": {
+        "$description": "0% spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-005": {
+        "$description": "5% spacing",
+        "$type": "dimension",
+        "$value": "0.05"
+      },
+      "size-010": {
+        "$description": "10% spacing",
+        "$type": "dimension",
+        "$value": "0.10"
+      },
+      "size-015": {
+        "$description": "15% spacing",
+        "$type": "dimension",
+        "$value": "0.15"
+      },
+      "size-020": {
+        "$description": "20% spacing",
+        "$type": "dimension",
+        "$value": "0.20"
+      },
+      "size-025": {
+        "$description": "25% spacing",
+        "$type": "dimension",
+        "$value": "0.25"
+      },
+      "size-030": {
+        "$description": "30% spacing",
+        "$type": "dimension",
+        "$value": "0.30"
+      },
+      "size-035": {
+        "$description": "35% spacing",
+        "$type": "dimension",
+        "$value": "0.35"
+      },
+      "size-040": {
+        "$description": "40% spacing",
+        "$type": "dimension",
+        "$value": "0.40"
+      },
+      "size-045": {
+        "$description": "45% spacing",
+        "$type": "dimension",
+        "$value": "0.45"
+      },
+      "size-050": {
+        "$description": "50% spacing",
+        "$type": "dimension",
+        "$value": "0.50"
+      },
+      "size-055": {
+        "$description": "55% spacing",
+        "$type": "dimension",
+        "$value": "0.55"
+      },
+      "size-060": {
+        "$description": "60% spacing",
+        "$type": "dimension",
+        "$value": "0.60"
+      },
+      "size-065": {
+        "$description": "65% spacing",
+        "$type": "dimension",
+        "$value": "0.65"
+      },
+      "size-070": {
+        "$description": "70% spacing",
+        "$type": "dimension",
+        "$value": "0.70"
+      },
+      "size-075": {
+        "$description": "75% spacing",
+        "$type": "dimension",
+        "$value": "0.75"
+      },
+      "size-080": {
+        "$description": "80% spacing",
+        "$type": "dimension",
+        "$value": "0.80"
+      },
+      "size-085": {
+        "$description": "85% spacing",
+        "$type": "0.dimension",
+        "$value": "85"
+      },
+      "size-090": {
+        "$description": "90% spacing",
+        "$type": "dimension",
+        "$value": "0.90"
+      },
+      "size-095": {
+        "$description": "95% spacing",
+        "$type": "dimension",
+        "$value": "0.95"
+      },
+      "size-100": {
+        "$description": "100% spacing",
+        "$type": "dimension",
+        "$value": "100"
+      }
+    },
+    "dynamic": {
+      "size-00": {
+        "$description": "No spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-01": {
+        "$description": "Micro spacing",
+        "$type": "dimension",
+        "$value": "0.03125ch"
+      },
+      "size-02": {
+        "$description": "Tiny spacing",
+        "$type": "dimension",
+        "$value": "0.0625ch"
+      },
+      "size-04": {
+        "$description": "Mini spacing",
+        "$type": "dimension",
+        "$value": "0.125ch"
+      },
+      "size-08": {
+        "$description": "Small spacing",
+        "$type": "dimension",
+        "$value": "0.25ch"
+      },
+      "size-16": {
+        "$description": "Medium spacing",
+        "$type": "dimension",
+        "$value": "0.5ch"
+      },
+      "size-24": {
+        "$description": "Large spacing",
+        "$type": "dimension",
+        "$value": "0.75ch"
+      },
+      "size-32": {
+        "$description": "Big spacing",
+        "$type": "dimension",
+        "$value": "1ch"
+      },
+      "size-48": {
+        "$description": "Huge spacing",
+        "$type": "dimension",
+        "$value": "1.25ch"
+      },
+      "size-64": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "1.5ch"
+      },
+      "size-80": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "2.5ch"
+      },
+      "size-96": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "3ch"
+      }
+    },
+    "keyword": {
+      "auto": {
+        "$description": "Automatic size",
+        "$type": "dimension",
+        "$value": "auto"
+      },
+      "available": {
+        "$description": "Available space",
+        "$type": "dimension",
+        "$value": "available"
+      },
+      "fill-available": {
+        "$description": "Fill available space",
+        "$type": "dimension",
+        "$value": "fill-available"
+      },
+      "fill-remaining": {
+        "$description": "No size",
+        "$type": "dimension",
+        "$value": "1fr"
+      },
+      "fit-content": {
+        "$description": "Fit content size",
+        "$type": "dimension",
+        "$value": "fit-content"
+      },
+      "inherit": {
+        "$description": "Inherit size from parent",
+        "$type": "dimension",
+        "$value": "inherit"
+      },
+      "initial": {
+        "$description": "Initial size",
+        "$type": "dimension",
+        "$value": "initial"
+      },
+      "max-content": {
+        "$description": "Maximum content size",
+        "$type": "dimension",
+        "$value": "max-content"
+      },
+      "min-content": {
+        "$description": "Minimum content size",
+        "$type": "dimension",
+        "$value": "min-content"
+      },
+      "none": {
+        "$description": "No size",
+        "$type": "dimension",
+        "$value": "none"
+      },
+      "revert": {
+        "$description": "Revert to previous size",
+        "$type": "dimension",
+        "$value": "revert"
+      },
+      "stretch": {
+        "$description": "Stretch to fill space",
+        "$type": "dimension",
+        "$value": "stretch"
+      },
+      "unset": {
+        "$description": "Unset size",
+        "$type": "dimension",
+        "$value": "unset"
+      }
+    },
+    "percent": {
+      "size-000": {
+        "$description": "0% spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-005": {
+        "$description": "5% spacing",
+        "$type": "dimension",
+        "$value": "5%"
+      },
+      "size-010": {
+        "$description": "10% spacing",
+        "$type": "dimension",
+        "$value": "10%"
+      },
+      "size-015": {
+        "$description": "15% spacing",
+        "$type": "dimension",
+        "$value": "15%"
+      },
+      "size-020": {
+        "$description": "20% spacing",
+        "$type": "dimension",
+        "$value": "20%"
+      },
+      "size-025": {
+        "$description": "25% spacing",
+        "$type": "dimension",
+        "$value": "25%"
+      },
+      "size-030": {
+        "$description": "30% spacing",
+        "$type": "dimension",
+        "$value": "30%"
+      },
+      "size-035": {
+        "$description": "35% spacing",
+        "$type": "dimension",
+        "$value": "35%"
+      },
+      "size-040": {
+        "$description": "40% spacing",
+        "$type": "dimension",
+        "$value": "40%"
+      },
+      "size-045": {
+        "$description": "45% spacing",
+        "$type": "dimension",
+        "$value": "45%"
+      },
+      "size-050": {
+        "$description": "50% spacing",
+        "$type": "dimension",
+        "$value": "50%"
+      },
+      "size-055": {
+        "$description": "55% spacing",
+        "$type": "dimension",
+        "$value": "55%"
+      },
+      "size-060": {
+        "$description": "60% spacing",
+        "$type": "dimension",
+        "$value": "60%"
+      },
+      "size-065": {
+        "$description": "65% spacing",
+        "$type": "dimension",
+        "$value": "65%"
+      },
+      "size-070": {
+        "$description": "70% spacing",
+        "$type": "dimension",
+        "$value": "70%"
+      },
+      "size-075": {
+        "$description": "75% spacing",
+        "$type": "dimension",
+        "$value": "75%"
+      },
+      "size-080": {
+        "$description": "80% spacing",
+        "$type": "dimension",
+        "$value": "80%"
+      },
+      "size-085": {
+        "$description": "85% spacing",
+        "$type": "0.dimension",
+        "$value": "85%"
+      },
+      "size-090": {
+        "$description": "90% spacing",
+        "$type": "dimension",
+        "$value": "90%"
+      },
+      "size-095": {
+        "$description": "95% spacing",
+        "$type": "dimension",
+        "$value": "95%"
+      },
+      "size-100": {
+        "$description": "100% spacing",
+        "$type": "dimension",
+        "$value": "100%"
+      }
+    },
+    "relative": {
+      "size-00": {
+        "$description": "No spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-01": {
+        "$description": "Micro spacing",
+        "$type": "dimension",
+        "$value": "0.0625rem"
+      },
+      "size-02": {
+        "$description": "Tiny spacing",
+        "$type": "dimension",
+        "$value": "0.125rem"
+      },
+      "size-04": {
+        "$description": "Mini spacing",
+        "$type": "dimension",
+        "$value": "0.25rem"
+      },
+      "size-08": {
+        "$description": "Small spacing",
+        "$type": "dimension",
+        "$value": "0.5rem"
+      },
+      "size-16": {
+        "$description": "Medium spacing",
+        "$type": "dimension",
+        "$value": "1rem"
+      },
+      "size-24": {
+        "$description": "Large spacing",
+        "$type": "dimension",
+        "$value": "1.5rem"
+      },
+      "size-32": {
+        "$description": "Big spacing",
+        "$type": "dimension",
+        "$value": "2rem"
+      },
+      "size-48": {
+        "$description": "Huge spacing",
+        "$type": "dimension",
+        "$value": "3rem"
+      },
+      "size-64": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "4rem"
+      },
+      "size-80": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "5rem"
+      },
+      "size-96": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "6rem"
+      }
+    },
+    "static": {
+      "size-00": {
+        "$description": "No spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-01": {
+        "$description": "Micro spacing",
+        "$type": "dimension",
+        "$value": "1px"
+      },
+      "size-02": {
+        "$description": "Tiny spacing",
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "size-04": {
+        "$description": "Mini spacing",
+        "$type": "dimension",
+        "$value": "4px"
+      },
+      "size-08": {
+        "$description": "Small spacing",
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "size-16": {
+        "$description": "Medium spacing",
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "size-24": {
+        "$description": "Large spacing",
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "size-32": {
+        "$description": "Big spacing",
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "size-48": {
+        "$description": "Huge spacing",
+        "$type": "dimension",
+        "$value": "48px"
+      },
+      "size-64": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "64px"
+      },
+      "size-80": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "80px"
+      },
+      "size-96": {
+        "$description": "Massive spacing",
+        "$type": "dimension",
+        "$value": "96px"
+      }
+    },
+    "xaxis": {
+      "size-000": {
+        "$description": "0% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-005": {
+        "$description": "5% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.05dvw"
+      },
+      "size-010": {
+        "$description": "10% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.10dvw"
+      },
+      "size-015": {
+        "$description": "15% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.15dvw"
+      },
+      "size-020": {
+        "$description": "20% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.20dvw"
+      },
+      "size-025": {
+        "$description": "25% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.25dvw"
+      },
+      "size-030": {
+        "$description": "30% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.30dvw"
+      },
+      "size-035": {
+        "$description": "35% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.35dvw"
+      },
+      "size-040": {
+        "$description": "40% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.40dvw"
+      },
+      "size-045": {
+        "$description": "45% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.45dvw"
+      },
+      "size-050": {
+        "$description": "50% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.50dvw"
+      },
+      "size-055": {
+        "$description": "55% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.55dvw"
+      },
+      "size-060": {
+        "$description": "60% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.60dvw"
+      },
+      "size-065": {
+        "$description": "65% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.65dvw"
+      },
+      "size-070": {
+        "$description": "70% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.70dvw"
+      },
+      "size-075": {
+        "$description": "75% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.75dvw"
+      },
+      "size-080": {
+        "$description": "80% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.80dvw"
+      },
+      "size-085": {
+        "$description": "85% dynamic viewport width spacing",
+        "$type": "0.dimension",
+        "$value": "85dvw"
+      },
+      "size-090": {
+        "$description": "90% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.90dvw"
+      },
+      "size-095": {
+        "$description": "95% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "0.95dvw"
+      },
+      "size-100": {
+        "$description": "100% dynamic viewport width spacing",
+        "$type": "dimension",
+        "$value": "100dvw"
+      }
+    },
+    "yaxis": {
+      "size-000": {
+        "$description": "0% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0"
+      },
+      "size-005": {
+        "$description": "5% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.05dvh"
+      },
+      "size-010": {
+        "$description": "10% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.10dvh"
+      },
+      "size-015": {
+        "$description": "15% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.15dvh"
+      },
+      "size-020": {
+        "$description": "20% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.20dvh"
+      },
+      "size-025": {
+        "$description": "25% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.25dvh"
+      },
+      "size-030": {
+        "$description": "30% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.30dvh"
+      },
+      "size-035": {
+        "$description": "35% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.35dvh"
+      },
+      "size-040": {
+        "$description": "40% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.40dvh"
+      },
+      "size-045": {
+        "$description": "45% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.45dvh"
+      },
+      "size-050": {
+        "$description": "50% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.50dvh"
+      },
+      "size-055": {
+        "$description": "55% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.55dvh"
+      },
+      "size-060": {
+        "$description": "60% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.60dvh"
+      },
+      "size-065": {
+        "$description": "65% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.65dvh"
+      },
+      "size-070": {
+        "$description": "70% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.70dvh"
+      },
+      "size-075": {
+        "$description": "75% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.75dvh"
+      },
+      "size-080": {
+        "$description": "80% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.80dvh"
+      },
+      "size-085": {
+        "$description": "85% dynamic viewport height spacing",
+        "$type": "0.dimension",
+        "$value": "85dvh"
+      },
+      "size-090": {
+        "$description": "90% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.90dvh"
+      },
+      "size-095": {
+        "$description": "95% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "0.95dvh"
+      },
+      "size-100": {
+        "$description": "100% dynamic viewport height spacing",
+        "$type": "dimension",
+        "$value": "100dvh"
+      }
+    }
+  }
+}

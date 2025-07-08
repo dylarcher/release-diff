@@ -1,4 +1,4 @@
-import { STORAGE_KEYS, CONSOLE_MESSAGES } from '../shared/presetConstants.js';
+import { STORAGE_KEYS, CONSOLE_MESSAGES } from '../shared/constants.js';
 
 class ChromeStorageManager {
   static async saveFormDataToStorage(formData) {

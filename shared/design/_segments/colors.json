@@ -1,0 +1,637 @@
+{
+  "colors": {
+    "opacity": {
+      "disabled": {
+        "$description": "Opacity for disabled elements",
+        "$type": "number",
+        "$value": 0.5
+      },
+      "faint": {
+        "$description": "Faint opacity",
+        "$type": "number",
+        "$value": 0.2
+      },
+      "opaque": {
+        "$description": "Opaque opacity",
+        "$type": "number",
+        "$value": 1
+      },
+      "seethrough": {
+        "$description": "Semi-transparent opacity",
+        "$type": "number",
+        "$value": 0.6
+      },
+      "subtle": {
+        "$description": "Subtle opacity",
+        "$type": "number",
+        "$value": 0.4
+      },
+      "translucent": {
+        "$description": "Translucent opacity",
+        "$type": "number",
+        "$value": 0.8
+      },
+      "transparent": {
+        "$description": "Fully transparent opacity",
+        "$type": "number",
+        "$value": 0
+      }
+    },
+    "palette": {
+      "legacy-black": {
+        "$description": "Pure black",
+        "$type": "color",
+        "$value": "#000"
+      },
+      "legacy-blue": {
+        "dark": {
+          "$description": "Dark blue",
+          "$type": "color",
+          "$value": "#2842a5"
+        },
+        "darker": {
+          "$description": "Very dark blue",
+          "$type": "color",
+          "$value": "#1a2a7a"
+        },
+        "darkest": {
+          "$description": "Deepest blue",
+          "$type": "color",
+          "$value": "#0f1851"
+        },
+        "dim": {
+          "$description": "Darker blue",
+          "$type": "color",
+          "$value": "#3650c4"
+        },
+        "light": {
+          "$description": "Light blue",
+          "$type": "color",
+          "$value": "#d3d9f3"
+        },
+        "lighter": {
+          "$description": "Very light blue",
+          "$type": "color",
+          "$value": "#e7ebf8"
+        },
+        "lightest": {
+          "$description": "Lightest blue",
+          "$type": "color",
+          "$value": "#f3f5fc"
+        },
+        "medium": {
+          "$description": "Primary blue",
+          "$type": "color",
+          "$value": "#3d5dd1"
+        },
+        "mild": {
+          "$description": "Medium light blue",
+          "$type": "color",
+          "$value": "#b3c0ea"
+        }
+      },
+      "legacy-gray": {
+        "dark": {
+          "$description": "Dark gray",
+          "$type": "color",
+          "$value": "#666"
+        },
+        "darker": {
+          "$description": "Very dark gray",
+          "$type": "color",
+          "$value": "#404040"
+        },
+        "darkest": {
+          "$description": "Deepest gray",
+          "$type": "color",
+          "$value": "#262626"
+        },
+        "dim": {
+          "$description": "Darker gray",
+          "$type": "color",
+          "$value": "#808080"
+        },
+        "light": {
+          "$description": "Light gray",
+          "$type": "color",
+          "$value": "#e6e6e6"
+        },
+        "lighter": {
+          "$description": "Very light gray",
+          "$type": "color",
+          "$value": "#f2f2f2"
+        },
+        "lightest": {
+          "$description": "Lightest gray",
+          "$type": "color",
+          "$value": "#fafafa"
+        },
+        "medium": {
+          "$description": "Standard gray",
+          "$type": "color",
+          "$value": "#999"
+        },
+        "mild": {
+          "$description": "Medium light gray",
+          "$type": "color",
+          "$value": "#ccc"
+        },
+        "normal": {
+          "$description": "Medium gray",
+          "$type": "color",
+          "$value": "#b3b3b3"
+        }
+      },
+      "legacy-green": {
+        "dark": {
+          "$description": "Dark green",
+          "$type": "color",
+          "$value": "#458a45"
+        },
+        "darker": {
+          "$description": "Very dark green",
+          "$type": "color",
+          "$value": "#2d6a2d"
+        },
+        "darkest": {
+          "$description": "Deepest green",
+          "$type": "color",
+          "$value": "#1a4a1a"
+        },
+        "dim": {
+          "$description": "Darker green",
+          "$type": "color",
+          "$value": "#5a9d5a"
+        },
+        "light": {
+          "$description": "Light green",
+          "$type": "color",
+          "$value": "#c5e5c5"
+        },
+        "lighter": {
+          "$description": "Very light green",
+          "$type": "color",
+          "$value": "#ddf0dd"
+        },
+        "lightest": {
+          "$description": "Lightest green",
+          "$type": "color",
+          "$value": "#eef8ee"
+        },
+        "medium": {
+          "$description": "Standard green",
+          "$type": "color",
+          "$value": "#70b070"
+        },
+        "mild": {
+          "$description": "Medium light green",
+          "$type": "color",
+          "$value": "#9cc99c"
+        }
+      },
+      "legacy-purple": {
+        "dark": {
+          "$description": "Dark purple",
+          "$type": "color",
+          "$value": "#6d3d87"
+        },
+        "darker": {
+          "$description": "Very dark purple",
+          "$type": "color",
+          "$value": "#4f296a"
+        },
+        "darkest": {
+          "$description": "Deepest purple",
+          "$type": "color",
+          "$value": "#321a4f"
+        },
+        "dim": {
+          "$description": "Darker purple",
+          "$type": "color",
+          "$value": "#7e4d9c"
+        },
+        "light": {
+          "$description": "Medium light purple",
+          "$type": "color",
+          "$value": "#a87db5"
+        },
+        "lighter": {
+          "$description": "Light purple",
+          "$type": "color",
+          "$value": "#bf9dc9"
+        },
+        "lightest": {
+          "$description": "Lightest purple",
+          "$type": "color",
+          "$value": "#dfcde4"
+        },
+        "medium": {
+          "$description": "Primary purple",
+          "$type": "color",
+          "$value": "#8e62a3"
+        },
+        "mild": {
+          "$description": "Medium purple",
+          "$type": "color",
+          "$value": "#9c70ab"
+        }
+      },
+      "legacy-red": {
+        "dark": {
+          "$description": "Dark red",
+          "$type": "color",
+          "$value": "#a83730"
+        },
+        "darker": {
+          "$description": "Very dark red",
+          "$type": "color",
+          "$value": "#7a2418"
+        },
+        "darkest": {
+          "$description": "Deepest red",
+          "$type": "color",
+          "$value": "#4f1409"
+        },
+        "dim": {
+          "$description": "Darker red",
+          "$type": "color",
+          "$value": "#be4a41"
+        },
+        "light": {
+          "$description": "Light red",
+          "$type": "color",
+          "$value": "#f0aeab"
+        },
+        "lighter": {
+          "$description": "Very light red",
+          "$type": "color",
+          "$value": "#f4c6c4"
+        },
+        "lightest": {
+          "$description": "Lightest red",
+          "$type": "color",
+          "$value": "#f9dedc"
+        },
+        "medium": {
+          "$description": "Standard red",
+          "$type": "color",
+          "$value": "#cc625b"
+        },
+        "mild": {
+          "$description": "Medium light red",
+          "$type": "color",
+          "$value": "#dd857f"
+        }
+      },
+      "legacy-white": {
+        "$description": "Pure white",
+        "$type": "color",
+        "$value": "#fff"
+      },
+      "legacy-yellow": {
+        "dark": {
+          "$description": "Dark yellow",
+          "$type": "color",
+          "$value": "#d4a017"
+        },
+        "darker": {
+          "$description": "Very dark yellow",
+          "$type": "color",
+          "$value": "#a67c00"
+        },
+        "darkest": {
+          "$description": "Deepest yellow",
+          "$type": "color",
+          "$value": "#785900"
+        },
+        "dim": {
+          "$description": "Darker yellow",
+          "$type": "color",
+          "$value": "#e6b82e"
+        },
+        "light": {
+          "$description": "Light yellow",
+          "$type": "color",
+          "$value": "#f4e87f"
+        },
+        "lighter": {
+          "$description": "Very light yellow",
+          "$type": "color",
+          "$value": "#f7ee9c"
+        },
+        "lightest": {
+          "$description": "Lightest yellow",
+          "$type": "color",
+          "$value": "#fbf5c7"
+        },
+        "medium": {
+          "$description": "Standard yellow",
+          "$type": "color",
+          "$value": "#f0d54e"
+        },
+        "mild": {
+          "$description": "Medium light yellow",
+          "$type": "color",
+          "$value": "#f2df6b"
+        }
+      },
+      "modern-black": {
+        "$description": "Pure black",
+        "$type": "color",
+        "$value": "oklch(0% 0 0)"
+      },
+      "modern-blue": {
+        "dark": {
+          "$description": "Dark blue",
+          "$type": "color",
+          "$value": "oklch(40% 0.15 260)"
+        },
+        "darker": {
+          "$description": "Very dark blue",
+          "$type": "color",
+          "$value": "oklch(30% 0.15 260)"
+        },
+        "darkest": {
+          "$description": "Deepest blue",
+          "$type": "color",
+          "$value": "oklch(20% 0.15 260)"
+        },
+        "dim": {
+          "$description": "Darker blue",
+          "$type": "color",
+          "$value": "oklch(45% 0.15 260)"
+        },
+        "light": {
+          "$description": "Light blue",
+          "$type": "color",
+          "$value": "oklch(85% 0.06 240)"
+        },
+        "lighter": {
+          "$description": "Very light blue",
+          "$type": "color",
+          "$value": "oklch(90% 0.04 240)"
+        },
+        "lightest": {
+          "$description": "Lightest blue",
+          "$type": "color",
+          "$value": "oklch(95% 0.02 240)"
+        },
+        "medium": {
+          "$description": "Primary blue",
+          "$type": "color",
+          "$value": "oklch(50% 0.15 260)"
+        },
+        "mild": {
+          "$description": "Medium light blue",
+          "$type": "color",
+          "$value": "oklch(75% 0.09 240)"
+        }
+      },
+      "modern-gray": {
+        "dark": {
+          "$description": "Dark gray",
+          "$type": "color",
+          "$value": "oklch(40% 0 0)"
+        },
+        "darker": {
+          "$description": "Very dark gray",
+          "$type": "color",
+          "$value": "oklch(25% 0 0)"
+        },
+        "darkest": {
+          "$description": "Deepest gray",
+          "$type": "color",
+          "$value": "oklch(15% 0 0)"
+        },
+        "dim": {
+          "$description": "Darker gray",
+          "$type": "color",
+          "$value": "oklch(50% 0 0)"
+        },
+        "light": {
+          "$description": "Light gray",
+          "$type": "color",
+          "$value": "oklch(90% 0 0)"
+        },
+        "lighter": {
+          "$description": "Very light gray",
+          "$type": "color",
+          "$value": "oklch(95% 0 0)"
+        },
+        "lightest": {
+          "$description": "Lightest gray",
+          "$type": "color",
+          "$value": "oklch(98% 0 0)"
+        },
+        "medium": {
+          "$description": "Standard gray",
+          "$type": "color",
+          "$value": "oklch(60% 0 0)"
+        },
+        "mild": {
+          "$description": "Medium light gray",
+          "$type": "color",
+          "$value": "oklch(80% 0 0)"
+        },
+        "normal": {
+          "$description": "Medium gray",
+          "$type": "color",
+          "$value": "oklch(70% 0 0)"
+        }
+      },
+      "modern-green": {
+        "dark": {
+          "$description": "Dark green",
+          "$type": "color",
+          "$value": "oklch(55% 0.13 150)"
+        },
+        "darker": {
+          "$description": "Very dark green",
+          "$type": "color",
+          "$value": "oklch(45% 0.13 150)"
+        },
+        "darkest": {
+          "$description": "Deepest green",
+          "$type": "color",
+          "$value": "oklch(35% 0.13 150)"
+        },
+        "dim": {
+          "$description": "Darker green",
+          "$type": "color",
+          "$value": "oklch(60% 0.13 150)"
+        },
+        "light": {
+          "$description": "Light green",
+          "$type": "color",
+          "$value": "oklch(85% 0.07 150)"
+        },
+        "lighter": {
+          "$description": "Very light green",
+          "$type": "color",
+          "$value": "oklch(90% 0.05 150)"
+        },
+        "lightest": {
+          "$description": "Lightest green",
+          "$type": "color",
+          "$value": "oklch(95% 0.03 150)"
+        },
+        "medium": {
+          "$description": "Standard green",
+          "$type": "color",
+          "$value": "oklch(65% 0.13 150)"
+        },
+        "mild": {
+          "$description": "Medium light green",
+          "$type": "color",
+          "$value": "oklch(75% 0.1 150)"
+        }
+      },
+      "modern-purple": {
+        "dark": {
+          "$description": "Dark purple",
+          "$type": "color",
+          "$value": "oklch(50% 0.2 300)"
+        },
+        "darker": {
+          "$description": "Very dark purple",
+          "$type": "color",
+          "$value": "oklch(40% 0.22 300)"
+        },
+        "darkest": {
+          "$description": "Deepest purple",
+          "$type": "color",
+          "$value": "oklch(30% 0.25 300)"
+        },
+        "dim": {
+          "$description": "Darker purple",
+          "$type": "color",
+          "$value": "oklch(55% 0.18 300)"
+        },
+        "light": {
+          "$description": "Medium light purple",
+          "$type": "color",
+          "$value": "oklch(70% 0.1 300)"
+        },
+        "lighter": {
+          "$description": "Light purple",
+          "$type": "color",
+          "$value": "oklch(80% 0.08 300)"
+        },
+        "lightest": {
+          "$description": "Lightest purple",
+          "$type": "color",
+          "$value": "oklch(90% 0.05 300)"
+        },
+        "medium": {
+          "$description": "Primary purple",
+          "$type": "color",
+          "$value": "oklch(60% 0.15 300)"
+        },
+        "mild": {
+          "$description": "Medium purple",
+          "$type": "color",
+          "$value": "oklch(65% 0.12 300)"
+        }
+      },
+      "modern-red": {
+        "dark": {
+          "$description": "Dark red",
+          "$type": "color",
+          "$value": "oklch(50% 0.2 20)"
+        },
+        "darker": {
+          "$description": "Very dark red",
+          "$type": "color",
+          "$value": "oklch(40% 0.2 20)"
+        },
+        "darkest": {
+          "$description": "Deepest red",
+          "$type": "color",
+          "$value": "oklch(30% 0.2 20)"
+        },
+        "dim": {
+          "$description": "Darker red",
+          "$type": "color",
+          "$value": "oklch(55% 0.2 20)"
+        },
+        "light": {
+          "$description": "Light red",
+          "$type": "color",
+          "$value": "oklch(80% 0.1 20)"
+        },
+        "lighter": {
+          "$description": "Very light red",
+          "$type": "color",
+          "$value": "oklch(85% 0.08 20)"
+        },
+        "lightest": {
+          "$description": "Lightest red",
+          "$type": "color",
+          "$value": "oklch(90% 0.05 20)"
+        },
+        "medium": {
+          "$description": "Standard red",
+          "$type": "color",
+          "$value": "oklch(60% 0.2 20)"
+        },
+        "mild": {
+          "$description": "Medium light red",
+          "$type": "color",
+          "$value": "oklch(70% 0.15 20)"
+        }
+      },
+      "modern-white": {
+        "$description": "Pure white",
+        "$type": "color",
+        "$value": "oklch(100% 0 0)"
+      },
+      "modern-yellow": {
+        "dark": {
+          "$description": "Dark yellow",
+          "$type": "color",
+          "$value": "oklch(60% 0.15 90)"
+        },
+        "darker": {
+          "$description": "Very dark yellow",
+          "$type": "color",
+          "$value": "oklch(50% 0.15 90)"
+        },
+        "darkest": {
+          "$description": "Deepest yellow",
+          "$type": "color",
+          "$value": "oklch(40% 0.15 90)"
+        },
+        "dim": {
+          "$description": "Darker yellow",
+          "$type": "color",
+          "$value": "oklch(70% 0.15 90)"
+        },
+        "light": {
+          "$description": "Light yellow",
+          "$type": "color",
+          "$value": "oklch(85% 0.1 90)"
+        },
+        "lighter": {
+          "$description": "Very light yellow",
+          "$type": "color",
+          "$value": "oklch(90% 0.08 90)"
+        },
+        "lightest": {
+          "$description": "Lightest yellow",
+          "$type": "color",
+          "$value": "oklch(95% 0.05 90)"
+        },
+        "medium": {
+          "$description": "Standard yellow",
+          "$type": "color",
+          "$value": "oklch(75% 0.15 90)"
+        },
+        "mild": {
+          "$description": "Medium light yellow",
+          "$type": "color",
+          "$value": "oklch(80% 0.12 90)"
+        }
+      }
+    }
+  }
+}

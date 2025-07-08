@@ -1,4 +1,4 @@
-import { DEFAULT_VALUES } from '../shared/presetConstants.js';
+import { DEFAULT_VALUES } from '../shared/constants.js';
 
 class FormValidationHelpers {
   static validateRequiredFields(fields) {

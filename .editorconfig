@@ -1,72 +1,13 @@
 root = true
 
-# Unix-style newlines with a newline ending every file
-[*]
+[*.{js,css,html,d.ts,json,jsonc,yml,md}]
 charset = utf-8
 end_of_line = lf
+indent_style = space
+indent_size = 2
+tab_width = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# HTML files
-[*.html]
-indent_style = space
-indent_size = 2
-
-# JavaScript files
-[*.js]
-indent_style = space
-indent_size = 2
-
-# CSS files
-[*.css]
-indent_style = space
-indent_size = 2
-
-# JSON files
-[*.json]
-indent_style = space
-indent_size = 2
-
-# Markdown files
 [*.md]
-indent_style = space
-indent_size = 2
 trim_trailing_whitespace = false
-
-# YAML files
-[*.{yml,yaml}]
-indent_style = space
-indent_size = 2
-
-# SVG files
-[*.svg]
-indent_style = space
-indent_size = 2
-
-# Image files (binary files - no formatting needed)
-[*.{webp,avif,png,jpg,jpeg,gif,ico}]
-insert_final_newline = false
-trim_trailing_whitespace = false
-
-# Package.json and other specific JSON files
-[package.json]
-indent_style = space
-indent_size = 2
-
-# Manifest files
-[manifest.json]
-indent_style = space
-indent_size = 2
-
-# Lock files (generated files)
-[*.lock]
-insert_final_newline = false
-trim_trailing_whitespace = false
-
-# Batch files (Windows)
-[*.bat]
-end_of_line = crlf
-
-# Shell scripts
-[*.sh]
-end_of_line = lf

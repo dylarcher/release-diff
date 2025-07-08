@@ -1,4 +1,4 @@
-import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/presetConstants.js';
+import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/constants.js';
 
 class ApiRequestManager {
   static async makeAuthenticatedApiRequest(url, token, tokenType = AUTH_TYPES.BEARER) {

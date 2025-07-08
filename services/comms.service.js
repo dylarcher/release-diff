@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES, CONSOLE_MESSAGES } from '../shared/presetConstants.js';
+import { ERROR_MESSAGES, CONSOLE_MESSAGES } from '../shared/constants.js';
 
 class ChromeMessageHandler {
   static async sendMessageToBackgroundScript(action, data = {}) {

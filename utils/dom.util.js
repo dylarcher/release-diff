@@ -1,6 +1,6 @@
-import { getMessage } from './internationalizationHelper.js';
-import { USER_MESSAGES, STATUS_TYPES, CSS_CLASSES } from '../shared/presetConstants.js';
-import { displayStatusMessage } from '../services/statusDisplayManager.js';
+import { getMessage } from './i18n.util.js';
+import { USER_MESSAGES, STATUS_TYPES, CSS_CLASSES } from '../shared/constants.js';
+import { displayStatusMessage } from '../services/notice.service.js';
 
 export function clearElementContent(element) {
     if (element) {
