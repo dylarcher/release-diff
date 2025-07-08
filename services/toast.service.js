@@ -17,12 +17,12 @@ export class ToastNotificationService {
   }
 
   /**
-  * Show a toast notification
-  * @param {string} message - The message to display
-  * @param {string} type - The type of toast (error, success, info, warning)
-  * @param {number} duration - Duration in milliseconds (0 for permanent)
-  * @param {boolean} showCloseButton - Whether to show close button
-  */
+   * Show a toast notification
+   * @param {string} message - The message to display
+   * @param {string} type - The type of toast (error, success, info, warning)
+   * @param {number} duration - Duration in milliseconds (0 for permanent)
+   * @param {boolean} showCloseButton - Whether to show close button
+   */
   showToast(
     message,
     type = STATUS_TYPES.INFO,
