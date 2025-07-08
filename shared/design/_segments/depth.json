@@ -1,0 +1,49 @@
+{
+  "depth": {
+    "depth-lg": {
+      "$description": "Deep box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 1px 0 #0004"
+    },
+    "depth-md": {
+      "$description": "Medium depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 2px 0 #0003"
+    },
+    "depth-sm": {
+      "$description": "Low depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 4px 0 #0002"
+    },
+    "drop-shadow-lg": {
+      "$description": "Deep box-shadow depth for elements",
+      "$type": "number",
+      "$value": "6px 12px 24px #0006"
+    },
+    "drop-shadow-md": {
+      "$description": "Medium depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "3px 6px 12px #0005"
+    },
+    "drop-shadow-sm": {
+      "$description": "Low depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "2px 4px 8px #0004"
+    },
+    "elevation-lg": {
+      "$description": "Deep box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 4px 8px #0006"
+    },
+    "elevation-md": {
+      "$description": "Medium depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 2px 4px #0004"
+    },
+    "elevation-sm": {
+      "$description": "Low depth box-shadow depth for elements",
+      "$type": "number",
+      "$value": "0 1px 2px #0002"
+    }
+  }
+}

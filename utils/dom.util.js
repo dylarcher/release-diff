@@ -1,6 +1,6 @@
-import { getMessage } from './internationalizationHelper.js';
-import { USER_MESSAGES, STATUS_TYPES, CSS_CLASSES } from '../shared/presetConstants.js';
-import { displayStatusMessage } from '../services/statusDisplayManager.js';
+import { getMessage } from './i18n.util.js';
+import { USER_MESSAGES, STATUS_TYPES, CSS_CLASSES } from '../shared/constants.js';
+import { displayStatusMessage } from '../services/notice.service.js';
 
 export function clearElementContent(element) {
     if (element) {
@@ -41,27 +41,26 @@ export function resetForm(elements) {
         versionsDatalist,
         viewDemoReportDetails
     } = elements;
-
-    // Clear input fields
     jiraProjectKeyInput.value = '';
     jiraFixVersionInput.value = '';
     gitlabProjectIdInput.value = '';
     gitlabCurrentTagInput.value = '';
     gitlabPreviousTagInput.value = '';
-
-    // Clear messages and results
     clearElementContent(statusMessageDiv);
     clearElementContent(summaryResultsDiv);
     clearElementContent(jiraTicketsDiv);
     clearElementContent(gitlabHistoryDiv);
     clearElementContent(versionsDatalist);
-
-    // Hide summary results and close demo details
     summaryResultsDiv.classList.add(CSS_CLASSES.HIDDEN);
     viewDemoReportDetails.open = false;
-
-    // Optionally, clear storage
     chrome.storage.local.remove(['formData']);
 
     displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.RESET_FORM), STATUS_TYPES.INFO);
+}
+
+export default {
+  clearElementContent,
+  populateDatalistWithOptions,
+  createDiscrepancyItemDiv,
+  resetForm
 }

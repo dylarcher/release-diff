@@ -1,12 +1,12 @@
-import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/presetConstants.js';
+import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/constants.js';
 
-class ApiRequestManager {
+export class ApiRequestManager {
   static async makeAuthenticatedApiRequest(url, token, tokenType = AUTH_TYPES.BEARER) {
     const headers = { [HTTP_HEADERS.CONTENT_TYPE]: HTTP_HEADERS.APPLICATION_JSON };
 
     const authHeaders = {
       [AUTH_TYPES.BASIC]: () => {
-        console.log(CONSOLE_MESSAGES.USING_BASIC_AUTH_FOR_JIRA);
+        console.info(CONSOLE_MESSAGES.USING_BASIC_AUTH_FOR_JIRA);
         const encodedToken = token.includes(DEFAULT_VALUES.COLON_SEPARATOR)
           ? btoa(token)
           : btoa(`${token}${DEFAULT_VALUES.COLON_SEPARATOR}`);
@@ -17,12 +17,12 @@ class ApiRequestManager {
 
     headers[HTTP_HEADERS.AUTHORIZATION] = authHeaders[tokenType]();
 
-    console.log(CONSOLE_MESSAGES.MAKING_API_REQUEST_TO, url);
-    console.log(CONSOLE_MESSAGES.AUTH_TYPE, tokenType);
+    console.info(CONSOLE_MESSAGES.MAKING_API_REQUEST_TO, url);
+    console.info(CONSOLE_MESSAGES.AUTH_TYPE, tokenType);
 
     try {
       const response = await fetch(url, { headers });
-      console.log(CONSOLE_MESSAGES.API_RESPONSE_STATUS, response.status, response.statusText);
+      console.info(CONSOLE_MESSAGES.API_RESPONSE_STATUS, response.status, response.statusText);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -43,8 +43,5 @@ class ApiRequestManager {
     return `${cleanBase}${cleanEndpoint}`;
   }
 }
-
-// Export individual functions for backward compatibility
-export const makeAuthenticatedApiRequest = ApiRequestManager.makeAuthenticatedApiRequest;
-export const buildCleanApiUrl = ApiRequestManager.buildCleanApiUrl;
-export default ApiRequestManager;
+export const { makeAuthenticatedApiRequest, buildCleanApiUrl } = ApiRequestManager;
+export default new ApiRequestManager();

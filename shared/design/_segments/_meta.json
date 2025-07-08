@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "$description": "Optimized design token structure to reduce duplication and file size",
+    "scheme": [
+      "light",
+      "dark",
+      "high-contrast",
+      "grayscale",
+      "noir",
+      "bordered"
+    ],
+    "states": [
+      "default",
+      "hover",
+      "focus",
+      "focus-visible",
+      "focus-hover",
+      "focus-within",
+      "active",
+      "visited",
+      "disabled",
+      "inert"
+    ]
+  }
+}

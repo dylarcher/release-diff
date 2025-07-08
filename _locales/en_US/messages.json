@@ -1,72 +1,107 @@
 {
-  "appName": {
-    "message": "Compare Release: Jira vs GitLab"
+  "allFieldsRequired": {
+    "message": "All fields are required!"
+  },
+  "apiAbbr": {
+    "message": "Application Programming Interface"
   },
   "appDescription": {
     "message": "Provides a consolidated summary and overview of releases by integrating Jira and GitLab data."
   },
-  "toolInterface": {
-    "message": "Tool Interface"
+  "appName": {
+    "message": "Compare Release: Jira vs GitLab"
   },
-  "toolSettings": {
-    "message": "Tool Settings"
+  "backgroundScriptConnectionSuccessful": {
+    "message": "✓ Background script connection successful!"
   },
   "compareNotice": {
     "message": "Compare the user stories and git commit history associated with a release to see the differences between <em>$JIRA_TICKETS$</em> & <em>$GITLAB_CHANGES$</em>.",
     "placeholders": {
-      "jira_tickets": {
-        "content": "Jira tickets"
-      },
       "gitlab_changes": {
         "content": "GitLab changes"
+      },
+      "jira_tickets": {
+        "content": "Jira tickets"
       }
     }
   },
-  "versesAbbr": {
-    "message": "Verses"
+  "demoGitlabCurrentReleaseTag": {
+    "message": "v2.25.5"
   },
-  "releaseOverview": {
-    "message": "Release Overview"
+  "demoGitlabPat": {
+    "message": "demo_gitlab_pat"
   },
-  "settings": {
-    "message": "Settings"
+  "demoGitlabPreviousReleaseTag": {
+    "message": "v2.25.4"
   },
-  "jiraProjectKey": {
-    "message": "Jira Project Key"
+  "demoGitlabProjectId": {
+    "message": "82150"
   },
-  "jiraProjectKeyPlaceholder": {
-    "message": "e.g. DDSTM"
+  "demoGitlabUrl": {
+    "message": "https://gitlab.dell.com/"
   },
-  "gitlabProjectId": {
-    "message": "GitLab Project ID"
+  "demoJiraPat": {
+    "message": "demo_jira_pat"
   },
-  "gitlabProjectIdPlaceholder": {
-    "message": "e.g. #####"
+  "demoJiraProjectKey": {
+    "message": "DDSTM"
   },
-  "gitlabProjectIdHint": {
-    "message": "Find in: $SETTINGS_PATH$",
-    "placeholders": {
-      "settings_path": {
-        "content": "Settings > General > Project ID"
-      }
-    }
+  "demoJiraReleaseVersion": {
+    "message": "v2.26.0"
   },
-  "jiraReleaseVersionId": {
-    "message": "Jira Release Version ID"
+  "demoJiraReleaseVersionId": {
+    "message": "57550"
   },
-  "jiraReleaseVersionIdPlaceholder": {
-    "message": "e.g. #####"
+  "demoJiraUrl": {
+    "message": "https://jira.dell.com/"
   },
-  "jiraReleaseVersionIdHint": {
-    "message": "Find in the release URL: $URL_PATTERN$",
-    "placeholders": {
-      "url_pattern": {
-        "content": ".../browse/DDSTM/1.1.0/#####"
-      }
-    }
+  "demoReleaseFramework": {
+    "message": "DDS Angular Components"
+  },
+  "demoReleaseRepoAlias": {
+    "message": "dds-angular"
+  },
+  "demoReportTitle": {
+    "message": "Demo Report"
+  },
+  "enterJiraProjectKeyFirst": {
+    "message": "Please enter a Jira project key first."
+  },
+  "errorGettingFixVersions": {
+    "message": "Error getting fix versions - check console"
+  },
+  "errorLoadingData": {
+    "message": "Error loading data for the demo report."
+  },
+  "extensionSettings": {
+    "message": "Extension Settings"
+  },
+  "failedToSaveSettings": {
+    "message": "Failed to save settings!"
+  },
+  "fetchingAndComparingData": {
+    "message": "Fetching and comparing data..."
+  },
+  "fetchingAvailableFixVersions": {
+    "message": "Fetching available fix versions..."
+  },
+  "fillAllInputFields": {
+    "message": "Please fill in all input fields."
+  },
+  "fixVersionsRetrievedSuccessfully": {
+    "message": "✓ Fix versions retrieved successfully!"
+  },
+  "generateSummary": {
+    "message": "Generate Summary"
   },
   "getReleases": {
     "message": "Get Releases"
+  },
+  "gitlabApiConnectionSuccessful": {
+    "message": "✓ GitLab API connection successful!"
+  },
+  "gitlabCommits": {
+    "message": "GitLab Commits"
   },
   "gitlabCurrentReleaseTag": {
     "message": "GitLab Current Release Tag"
@@ -74,117 +109,8 @@
   "gitlabCurrentReleaseTagPlaceholder": {
     "message": "e.g. v1.0.1"
   },
-  "gitlabPreviousReleaseTag": {
-    "message": "GitLab Previous Release Tag"
-  },
-  "gitlabPreviousReleaseTagPlaceholder": {
-    "message": "e.g. v1.0.0"
-  },
-  "generateSummary": {
-    "message": "Generate Summary"
-  },
-  "reset": {
-    "message": "Reset"
-  },
-  "jiraTickets": {
-    "message": "Jira Tickets"
-  },
   "gitlabHistory": {
     "message": "GitLab History"
-  },
-  "poweredBy": {
-    "message": "Powered by the $CHROME_EXTENSION_API$",
-    "placeholders": {
-      "chrome_extension_api": {
-        "content": "Chrome Extension API"
-      }
-    }
-  },
-  "securityNoticeTitle": {
-    "message": "Important Security Notice:"
-  },
-  "securityNoticeText": {
-    "message": "For enterprise production environments, storing $API$ Personal Access Tokens ($PAT$s) directly in the browser's client storage is generally $NOT$ recommended due to security risks. A backend proxy service is the more secure approach for handling credentials. $THIS_EXTENSION$ uses $LOCAL_STORAGE$ currently.",
-    "placeholders": {
-      "api": {
-        "content": "API"
-      },
-      "pat": {
-        "content": "PAT"
-      },
-      "not": {
-        "content": "NOT"
-      },
-      "this_extension": {
-        "content": "This extension"
-      },
-      "local_storage": {
-        "content": "localStorage"
-      }
-    }
-  },
-  "extensionSettings": {
-    "message": "Extension Settings"
-  },
-  "jiraUrl": {
-    "message": "Jira $URL$",
-    "placeholders": {
-      "url": {
-        "content": "URL"
-      }
-    }
-  },
-  "jiraUrlPlaceholder": {
-    "message": "e.g. https://{ORG_NAME}.atlassian.com"
-  },
-  "jiraUrlHint": {
-    "message": "e.g. $EXAMPLE_URL$",
-    "placeholders": {
-      "example_url": {
-        "content": "https://jira.{ORG_NAME}.net"
-      }
-    }
-  },
-  "gitlabUrl": {
-    "message": "GitLab $URL$",
-    "placeholders": {
-      "url": {
-        "content": "URL"
-      }
-    }
-  },
-  "gitlabUrlPlaceholder": {
-    "message": "e.g. https://gitlab.{ORG_NAME}.net"
-  },
-  "gitlabUrlHint": {
-    "message": "e.g. $EXAMPLE_URL$",
-    "placeholders": {
-      "example_url": {
-        "content": "https://gitlab.{ORG_NAME}.net"
-      }
-    }
-  },
-  "jiraPat": {
-    "message": "Jira $PAT$",
-    "placeholders": {
-      "pat": {
-        "content": "PAT"
-      }
-    }
-  },
-  "jiraPatPlaceholder": {
-    "message": "provide secret token…"
-  },
-  "jiraPatHint": {
-    "message": "Create a $PAT$ in your Atlassian account settings. The token needs read access to projects and issues. $LEARN_LINK$",
-    "placeholders": {
-      "pat": {
-        "content": "PAT"
-      },
-      "learn_link": {
-        "content": "Learn how to generate a Jira API token"
-      }
-    }
   },
   "gitlabPat": {
     "message": "GitLab $PAT$",
@@ -194,110 +120,204 @@
       }
     }
   },
-  "gitlabPatPlaceholder": {
-    "message": "insert private key…"
-  },
   "gitlabPatHint": {
     "message": "Create a $PAT$ in your GitLab profile preferences. The token needs at minimum 'read_api' and 'read_repository' scopes. $LEARN_LINK$",
     "placeholders": {
-      "pat": {
-        "content": "PAT"
-      },
       "learn_link": {
         "content": "Learn how to create a GitLab PAT"
+      },
+      "pat": {
+        "content": "PAT"
       }
     }
   },
-  "saveSettings": {
-    "message": "Save Settings"
+  "gitlabPatPlaceholder": {
+    "message": "insert private key…"
   },
-  "testConnection": {
-    "message": "Test Connection"
+  "gitlabPreviousReleaseTag": {
+    "message": "GitLab Previous Release Tag"
   },
-  "testJiraApi": {
-    "message": "Test Jira $API$",
+  "gitlabPreviousReleaseTagPlaceholder": {
+    "message": "e.g. v1.0.0"
+  },
+  "gitlabProjectId": {
+    "message": "GitLab Project ID"
+  },
+  "gitlabProjectIdHint": {
+    "message": "Find in: $SETTINGS_PATH$",
     "placeholders": {
-      "api": {
-        "content": "API"
+      "settings_path": {
+        "content": "Settings > General > Project ID"
       }
     }
   },
-  "testGitlabApi": {
-    "message": "Test GitLab $API$",
+  "gitlabProjectIdPlaceholder": {
+    "message": "e.g. #####"
+  },
+  "gitlabTags": {
+    "message": "GitLab Tags"
+  },
+  "gitlabUrl": {
+    "message": "GitLab $URL$",
     "placeholders": {
-      "api": {
-        "content": "API"
+      "url": {
+        "content": "URL"
       }
     }
   },
-  "apiAbbr": {
-    "message": "Application Programming Interface"
+  "gitlabUrlHint": {
+    "message": "e.g. $EXAMPLE_URL$",
+    "placeholders": {
+      "example_url": {
+        "content": "https://gitlab.dell.com/"
+      }
+    }
   },
-  "patAbbr": {
-    "message": "Personal Access Token"
-  },
-  "urlAbbr": {
-    "message": "Uniform Resource Locator"
-  },
-  "allFieldsRequired": {
-    "message": "All fields are required!"
-  },
-  "failedToSaveSettings": {
-    "message": "Failed to save settings!"
-  },
-  "fillAllInputFields": {
-    "message": "Please fill in all input fields."
-  },
-  "unexpectedErrorOccurred": {
-    "message": "An unexpected error occurred. Check console for details."
-  },
-  "enterJiraProjectKeyFirst": {
-    "message": "Please enter a Jira project key first."
-  },
-  "errorGettingFixVersions": {
-    "message": "Error getting fix versions - check console"
-  },
-  "settingsSaved": {
-    "message": "Settings saved!"
-  },
-  "backgroundScriptConnectionSuccessful": {
-    "message": "✓ Background script connection successful!"
+  "gitlabUrlPlaceholder": {
+    "message": "e.g. https://gitlab.dell.com/"
   },
   "jiraApiConnectionSuccessful": {
     "message": "✓ Jira API connection successful!"
   },
-  "gitlabApiConnectionSuccessful": {
-    "message": "✓ GitLab API connection successful!"
+  "jiraPat": {
+    "message": "Jira $PAT$",
+    "placeholders": {
+      "pat": {
+        "content": "PAT"
+      }
+    }
   },
-  "summaryGeneratedSuccessfully": {
-    "message": "Summary generated successfully!"
+  "jiraPatHint": {
+    "message": "Create a $PAT$ in your Atlassian account settings. The token needs read access to projects and issues. $LEARN_LINK$",
+    "placeholders": {
+      "learn_link": {
+        "content": "Learn how to generate a Jira API token"
+      },
+      "pat": {
+        "content": "PAT"
+      }
+    }
   },
-  "fixVersionsRetrievedSuccessfully": {
-    "message": "✓ Fix versions retrieved successfully!"
+  "jiraPatPlaceholder": {
+    "message": "provide secret token…"
   },
-  "testingConnection": {
-    "message": "Testing connection..."
+  "jiraProjectKey": {
+    "message": "Jira Project Key"
   },
-  "testingJiraApiConnection": {
-    "message": "Testing Jira API connection..."
+  "jiraProjectKeyPlaceholder": {
+    "message": "e.g. DDSTM"
   },
-  "testingGitlabApiConnection": {
-    "message": "Testing GitLab API connection..."
+  "jiraReleaseVersionId": {
+    "message": "Jira Release Version ID"
   },
-  "fetchingAndComparingData": {
-    "message": "Fetching and comparing data..."
+  "jiraReleaseVersionIdHint": {
+    "message": "Find in the release URL: $URL_PATTERN$",
+    "placeholders": {
+      "url_pattern": {
+        "content": ".../browse/DDSTM/1.1.0/#####"
+      }
+    }
   },
-  "fetchingAvailableFixVersions": {
-    "message": "Fetching available fix versions..."
+  "jiraReleaseVersionIdPlaceholder": {
+    "message": "e.g. #####"
+  },
+  "jiraTickets": {
+    "message": "Jira Tickets"
+  },
+  "jiraUrl": {
+    "message": "Jira $URL$",
+    "placeholders": {
+      "url": {
+        "content": "URL"
+      }
+    }
+  },
+  "jiraUrlHint": {
+    "message": "e.g. $EXAMPLE_URL$",
+    "placeholders": {
+      "example_url": {
+        "content": "https://jira.dell.com/"
+      }
+    }
+  },
+  "jiraUrlPlaceholder": {
+    "message": "e.g. https://jira.dell.com/"
+  },
+  "noGitLabCommitsFound": {
+    "message": "No GitLab commits found for this demo."
+  },
+  "noGitLabTagsFound": {
+    "message": "No GitLab tags found for this demo."
+  },
+  "noJiraTicketsFound": {
+    "message": "No Jira tickets found for this demo."
+  },
+  "patAbbr": {
+    "message": "Personal Access Token"
+  },
+  "poweredBy": {
+    "message": "Powered by the $CHROME_EXTENSION_API$",
+    "placeholders": {
+      "chrome_extension_api": {
+        "content": "Chrome Extension API"
+      }
+    }
+  },
+  "releaseOverview": {
+    "message": "Release Overview"
+  },
+  "reset": {
+    "message": "Reset"
+  },
+  "resetForm": {
+    "message": "Form has been reset."
   },
   "retestConnection": {
     "message": "Re-test Connection"
   },
+  "retestGitlabApi": {
+    "message": "Re-test GitLab API"
+  },
   "retestJiraApi": {
     "message": "Re-test Jira API"
   },
-  "retestGitlabApi": {
-    "message": "Re-test GitLab API"
+  "saveSettings": {
+    "message": "Save Settings"
+  },
+  "securityNoticeText": {
+    "message": "For enterprise production environments, storing $API$ Personal Access Tokens ($PAT$s) directly in the browser's client storage is generally $NOT$ recommended due to security risks. A backend proxy service is the more secure approach for handling credentials. $THIS_EXTENSION$ uses $LOCAL_STORAGE$ currently.",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      },
+      "local_storage": {
+        "content": "localStorage"
+      },
+      "not": {
+        "content": "NOT"
+      },
+      "pat": {
+        "content": "PAT"
+      },
+      "this_extension": {
+        "content": "This extension"
+      }
+    }
+  },
+  "securityNoticeTitle": {
+    "message": "Important Security Notice:"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "settingsSaved": {
+    "message": "Settings saved!"
+  },
+  "summaryGeneratedSuccessfully": {
+    "message": "Summary generated successfully!"
+  },
+  "testConnection": {
+    "message": "Test Connection"
   },
   "testFailedNotice": {
     "message": "Test failed for $ACTION$: $MESSAGE$",
@@ -310,73 +330,80 @@
       }
     }
   },
+  "testGitlabApi": {
+    "message": "Test GitLab $API$",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      }
+    }
+  },
+  "testJiraApi": {
+    "message": "Test Jira $API$",
+    "placeholders": {
+      "api": {
+        "content": "API"
+      }
+    }
+  },
+  "testingConnection": {
+    "message": "Testing connection..."
+  },
+  "testingGitlabApiConnection": {
+    "message": "Testing GitLab API connection..."
+  },
+  "testingJiraApiConnection": {
+    "message": "Testing Jira API connection..."
+  },
   "themeToggle": {
     "message": "Theme:"
   },
   "themeToggleDark": {
     "message": "Dark Mode"
   },
-  "demoReportTitle": {
-    "message": "Demo Report"
+  "themeToggleDescription": {
+    "message": "Toggle between light and dark theme"
   },
-  "gitlabCommits": {
-    "message": "GitLab Commits"
+  "toolInterface": {
+    "message": "Tool Interface"
   },
-  "gitlabTags": {
-    "message": "GitLab Tags"
+  "toolSettings": {
+    "message": "Tool Settings"
   },
-  "noJiraTicketsFound": {
-    "message": "No Jira tickets found for this demo."
+  "unexpectedErrorOccurred": {
+    "message": "An unexpected error occurred. Check console for details."
   },
-  "noGitLabCommitsFound": {
-    "message": "No GitLab commits found for this demo."
+  "urlAbbr": {
+    "message": "Uniform Resource Locator"
   },
-  "noGitLabTagsFound": {
-    "message": "No GitLab tags found for this demo."
+  "userInterfaceControls": {
+    "message": "User Interface Controls"
   },
-  "errorLoadingData": {
-    "message": "Error loading data for the demo report."
+  "versesAbbr": {
+    "message": "Verses"
   },
   "viewDemoReport": {
     "message": "Sample Review <code>v2.26</code> Report"
   },
-  "demoJiraProjectKey": {
-    "message": "DDSTM"
+  "jiraApiUnreachable": {
+    "message": "Jira API is currently unreachable. Would you like to use mock data for demonstration?"
   },
-  "demoJiraReleaseVersionId": {
-    "message": "57550"
+  "gitlabApiUnreachable": {
+    "message": "GitLab API is currently unreachable. Would you like to use mock data for demonstration?"
   },
-  "demoGitlabProjectId": {
-    "message": "82150"
+  "bothApisUnreachable": {
+    "message": "Both Jira and GitLab APIs are currently unreachable. Would you like to use mock data for demonstration?"
   },
-  "demoGitlabCurrentReleaseTag": {
-    "message": "v2.25.5"
+  "useMockData": {
+    "message": "Use Mock Data"
   },
-  "demoGitlabPreviousReleaseTag": {
-    "message": "v2.25.4"
+  "dismiss": {
+    "message": "Dismiss"
   },
-  "demoJiraUrl": {
-    "message": "https://jira.dell.com"
+  "mockDataLoaded": {
+    "message": "Mock data loaded successfully for demonstration"
   },
-  "demoGitlabUrl": {
-    "message": "https://gitlab.dell.com"
-  },
-  "demoJiraPat": {
-    "message": "demo_jira_pat"
-  },
-  "demoGitlabPat": {
-    "message": "demo_gitlab_pat"
-  },
-  "demoJiraReleaseVersion": {
-    "message": "v2.26.0"
-  },
-  "demoReleaseRepoAlias": {
-    "message": "dds-angular"
-  },
-  "demoReleaseFramework": {
-    "message": "DDS Angular Components"
-  },
-  "resetForm": {
-    "message": "Form has been reset."
+  "populateMockData": {
+    "message": "Populate Mock Data"
   }
 }

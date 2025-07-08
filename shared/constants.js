@@ -98,6 +98,15 @@ export const USER_MESSAGES = {
   GITLAB_FORBIDDEN: 'gitlabForbidden',
   GITLAB_ENDPOINT_NOT_FOUND: 'gitlabEndpointNotFound',
 
+  // Fallback and mock data messages
+  JIRA_API_UNREACHABLE: 'jiraApiUnreachable',
+  GITLAB_API_UNREACHABLE: 'gitlabApiUnreachable',
+  BOTH_APIS_UNREACHABLE: 'bothApisUnreachable',
+  USE_MOCK_DATA: 'useMockData',
+  DISMISS: 'dismiss',
+  MOCK_DATA_LOADED: 'mockDataLoaded',
+  POPULATE_MOCK_DATA: 'populateMockData',
+
   // Generic UI messages
   ERROR_PREFIX: 'errorPrefix',
   STATUS_LABEL: 'statusLabel',
@@ -214,7 +223,18 @@ export const CSS_CLASSES = {
   STATUS_SUCCESS: 'status-success',
   STATUS_INFO: 'status-info',
   VISIBLE: 'visible',
-  JIRA_LINK: 'jira-link'
+  JIRA_LINK: 'jira-link',
+  TOAST_CONTAINER: 'toast-container',
+  TOAST: 'toast',
+  TOAST_ERROR: 'toast-error',
+  TOAST_SUCCESS: 'toast-success',
+  TOAST_INFO: 'toast-info',
+  TOAST_WARNING: 'toast-warning',
+  TOAST_SHOW: 'show',
+  TOAST_CLOSE: 'toast-close',
+  FALLBACK_PROMPT: 'fallback-prompt',
+  FALLBACK_PROMPT_MESSAGE: 'fallback-prompt-message',
+  FALLBACK_PROMPT_ACTIONS: 'fallback-prompt-actions'
 };
 
 // ===== STATUS TYPES =====
@@ -250,7 +270,7 @@ export const ELEMENT_IDS = {
   JIRA_TICKETS: 'jira-tickets',
   GITLAB_HISTORY: 'gitlab-history',
   OPTIONS_LINK: 'optionsLink',
-  
+
   VIEW_DEMO_REPORT_DETAILS: 'viewDemoReportDetails',
   EXAMPLE_RESULTS: 'exampleResults',
   JIRA_TICKETS_EXAMPLE: 'jira-tickets-example',
@@ -268,8 +288,8 @@ export const TIMEOUTS = {
 
 // ===== URL TEMPLATES =====
 export const URL_TEMPLATES = {
-  JIRA_ISSUE: 'https://jira.{ORG_NAME}.com/browse/{key}',
-  GITLAB_COMMIT: 'https://gitlab.{ORG_NAME}.com/{projectPath}/-/commit/{commitId}'
+  JIRA_ISSUE: 'https://jira.dell.com/browse/{key}',
+  GITLAB_COMMIT: 'https://gitlab.dell.com/{projectPath}/-/commit/{commitId}'
 };
 
 // ===== JQL TEMPLATES =====

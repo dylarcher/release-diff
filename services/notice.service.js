@@ -1,6 +1,6 @@
-import { CSS_CLASSES, STATUS_TYPES } from '../shared/presetConstants.js';
+import { CSS_CLASSES, STATUS_TYPES } from '../shared/constants.js';
 
-class StatusDisplayManager {
+export class StatusDisplayManager {
   static displayStatusMessage(messageElement, message, type) {
     messageElement.textContent = message;
 
@@ -31,8 +31,5 @@ class StatusDisplayManager {
     }
   }
 }
-
-// Export individual functions for backward compatibility
-export const displayStatusMessage = StatusDisplayManager.displayStatusMessage;
-export const displayStatusWithAutoHide = StatusDisplayManager.displayStatusWithAutoHide;
-export default StatusDisplayManager;
+export const { displayStatusMessage, displayStatusWithAutoHide } = StatusDisplayManager;
+export default new StatusDisplayManager();

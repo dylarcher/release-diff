@@ -64,21 +64,21 @@ The extension is organized into several key files. Understanding their roles is 
 
 1. **Clone the repository:**
 
-   ```shell
-   git clone https://github.com/your-username/jira-gitlab-release-extension.git
-   cd jira-gitlab-release-extension
-   ```
+  ```shell
+  git clone https://github.com/your-username/jira-gitlab-release-extension.git
+  cd jira-gitlab-release-extension
+  ```
 
 2. **Open Extension Management:**
-   - Open your Chrome or Edge browser.
-   - Navigate to `chrome://extensions` (for Chrome) or `edge://extensions` (for Edge).
+  - Open your Chrome or Edge browser.
+  - Navigate to `chrome://extensions` (for Chrome) or `edge://extensions` (for Edge).
 
 3. **Enable Developer Mode:**
-   - Toggle the "Developer mode" switch in the top right corner.
+  - Toggle the "Developer mode" switch in the top right corner.
 
 4. **Load the extension:**
-   - Click "Load unpacked".
-   - Select the `jira-gitlab-release-extension` directory you cloned.
+  - Click "Load unpacked".
+  - Select the `jira-gitlab-release-extension` directory you cloned.
 
 ### 3. Using the Side Panel
 
@@ -105,23 +105,23 @@ The extension is organized into several key files. Understanding their roles is 
 > Before using the extension, you need to configure your Jira and GitLab instance URLs and API Personal Access Tokens.
 
 1. **Open Options Page:**
-   - *Click* on the "Jira-GitLab Release Overview" extension icon in your browser toolbar.
-   - At the bottom of the popup, click the "Configure API Keys and URLs" link. This will open the options page in a new tab.
+  - *Click* on the "Jira-GitLab Release Overview" extension icon in your browser toolbar.
+  - At the bottom of the popup, click the "Configure API Keys and URLs" link. This will open the options page in a new tab.
 2. Get Jira Personal Access Token (PAT):
-   - *Go to* your Atlassian account settings (for Jira Cloud) or your Jira profile (for Jira Server/Data Center).
-   - Generate an API token.
-   - **Important for Jira Cloud:** For Jira Cloud PATs, the `background.js` script uses Basic Authentication in the format `email:token` or `username:token`. When entering your PAT in the options,  **only provide the token itself**. The `background.js` will append the `:` internally. If your Jira instance requires `email:token`, you may need to adjust the authentication in `background.js` to `btoa("{EMAIL_ADDRESS}@{PROVIDER_DOMAIN}.com:" + token)`. For simplicity in this example, it assumes a token-only input for the PAT field, acting as a password in Basic Auth.
+  - *Go to* your Atlassian account settings (for Jira Cloud) or your Jira profile (for Jira Server/Data Center).
+  - Generate an API token.
+  - **Important for Jira Cloud:** For Jira Cloud PATs, the `background.js` script uses Basic Authentication in the format `email:token` or `username:token`. When entering your PAT in the options,  **only provide the token itself**. The `background.js` will append the `:` internally. If your Jira instance requires `email:token`, you may need to adjust the authentication in `background.js` to `btoa("{EMAIL_ADDRESS}@{PROVIDER_DOMAIN}.com:" + token)`. For simplicity in this example, it assumes a token-only input for the PAT field, acting as a password in Basic Auth.
 3. **Get GitLab Personal Access Token (PAT):**
-   - Log in to your GitLab instance.
-   - Go to your user settings -> Access Tokens.
-   - Generate a new personal access token with at least `read_api` and `read_repository` scopes.
+  - Log in to your GitLab instance.
+  - Go to your user settings -> Access Tokens.
+  - Generate a new personal access token with at least `read_api` and `read_repository` scopes.
 4. **Enter Configuration Details:** (&hellip;in the extension options page)
-     - Enter your *Jira Base URL* (e.g. `https://jira.{ORG_NAME}.net` or `https://jira.{ORG_NAME}.com`).
-     - Enter your *Jira Personal Access Token (PAT)*.
-     - Enter your *GitLab Base URL* (e.g. `https://gitlab.com` or `https://gitlab.{ORG_NAME}.com`).
-     - Enter your *GitLab Personal Access Token (PAT)*.
+    - Enter your *Jira Base URL* (e.g. `https://jira.dell.net` or `https://jira.dell.com`).
+    - Enter your *Jira Personal Access Token (PAT)*.
+    - Enter your *GitLab Base URL* (e.g. `https://gitlab.com` or `https://gitlab.dell.com`).
+    - Enter your *GitLab Personal Access Token (PAT)*.
 5. **Save Settings:**
-   - Click the "Save Settings" button. You should see a "Settings saved!" message.
+  - Click the "Save Settings" button. You should see a "Settings saved!" message.
 
 ### 4. Update `manifest.json` Host Permissions
 
@@ -131,12 +131,12 @@ The extension is organized into several key files. Understanding their roles is 
 
 ```jsonc
 {
-   "host_permissions": [
-      "https://{ORG_NAME}.atlassian.net/*",  // Replace with your Jira Cloud domain
-      "https://jira.{ORG_NAME}.com/*",       // Or your Jira Server/Data Center domain
-      "https://gitlab.com/*",                // If using GitLab.com
-      "https://gitlab.{ORG_NAME}.com/*"      // Or your self-hosted GitLab domain
-   ],
+  "host_permissions": [
+      "https://dell.atlassian.net/*",
+      "https://jira.dell.com/*",
+      "https://gitlab.com/*",
+      "https://gitlab.dell.com/*"å
+  ],
 }
 ```
 
@@ -146,11 +146,11 @@ The extension is organized into several key files. Understanding their roles is 
 
 1. **Click the extension icon in your browser toolbar.**
 2. **Enter the required details:**
-   - **Jira Project Key** - The key for your Jira project (e.g. `DDSTM`).
-   - **Jira Fix Version** - The exact name of the Jira**`Fix Version` (e.g. `Release v1.0.0`).
-   - **GitLab Project ID** - The numerical ID of your GitLab project. You can find this on your GitLab project's overview page.
-   - **GitLab Current Release Tag** - The exact name of the Git tag for the current release (e.g. `v1.0.0`).
-   - **GitLab Previous Release Tag** - The exact name of the Git tag for the previous release (e.g. `v0.9.0`).
+  - **Jira Project Key** - The key for your Jira project (e.g. `DDSTM`).
+  - **Jira Fix Version** - The exact name of the Jira**`Fix Version` (e.g. `Release v1.0.0`).
+  - **GitLab Project ID** - The numerical ID of your GitLab project. You can find this on your GitLab project's overview page.
+  - **GitLab Current Release Tag** - The exact name of the Git tag for the current release (e.g. `v1.0.0`).
+  - **GitLab Previous Release Tag** - The exact name of the Git tag for the previous release (e.g. `v0.9.0`).
 3. *Click* "Generate Summary".
 4. The extension will fetch data, perform the comparison, and display the summary, including total issues, and identified discrepancies.
 

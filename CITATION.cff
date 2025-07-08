@@ -1,43 +1,11 @@
-# This is a CITATION.cff file.
-# You can use it to provide citation information for your software.
-# See https://citation-file-format.github.io/ for more information.
-
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  - family-names: "Your Family Name"
-    given-names: "Your Given Name"
-    orcid: "https://orcid.org/YOUR-ORCID-ID" # Optional
-  # Add more authors if needed
-title: "Your Project Title"
-version: 0.1.0 # Replace with your project's version
-date-released: YYYY-MM-DD # Replace with the release date
-# Below are optional fields. Uncomment and fill them if applicable.
-# abstract: "A short description of your software."
-# keywords:
-#   - keyword1
-#   - keyword2
-# license: MIT # Replace with your project's license
-# repository-code: "https://github.com/your-username/your-repository"
-# url: "https://your-project-website.com" # If you have a project website
-# doi: "10.5281/zenodo.XXXXXXX" # If you have a DOI for your software
-# identifiers:
-#   - type: doi
-#     value: 10.5281/zenodo.XXXXXXX
-#     description: The DOI for the software version.
-#   - type: url
-#     value: "https://github.com/your-username/your-repository/tree/v0.1.0"
-#     description: The URL of the specific software version.
-# preferred-citation:
-#   type: article # or book, conference-paper, software, report, thesis, etc.
-#   authors:
-#     - family-names: "Your Family Name"
-#       given-names: "Your Given Name"
-#   title: "Title of the publication that describes this software"
-#   journal: "Journal Name" # if type is article
-#   volume: 1
-#   issue: 1
-#   year: YYYY
-#   pages: "1-10"
-#   doi: "DOI of the publication" # if available
-#   url: "URL of the publication" # if available
+  - family-names: "Archer"
+    given-names: "Dylan"
+    github-username: "dylarcher"
+    email: "dylarcher@gmail.com"
+    orcid: "https://orcid.org/0009-0004-9903-2084"
+title: "release-diff"
+version: 1.2.0
+date-released: 2025-07-25

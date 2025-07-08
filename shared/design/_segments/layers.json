@@ -1,0 +1,24 @@
+{
+  "zindex": {
+    "default": {
+      "$description": "Default z-index for elements",
+      "$type": "number",
+      "$value": 0
+    },
+    "dropdown": {
+      "$description": "Z-index for dropdown menus",
+      "$type": "number",
+      "$value": 3000
+    },
+    "modal": {
+      "$description": "Z-index for modal dialogs",
+      "$type": "number",
+      "$value": 1000
+    },
+    "tooltip": {
+      "$description": "Z-index for tooltips",
+      "$type": "number",
+      "$value": 2000
+    }
+  }
+}

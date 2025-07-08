@@ -88,7 +88,7 @@
                 </div>
                 <div class="text-4xl text-[#94d2bd]">→</div>
                 <div class="card rounded-xl shadow-lg p-6 bg-[#0a9396]">
-                     <div class="text-4xl mb-2">🧩</div>
+                  <div class="text-4xl mb-2">🧩</div>
                     <h4 class="text-xl font-bold text-white">Browser Extension</h4>
                     <p class="text-[#001219] font-semibold">Correlates Data</p>
                 </div>
@@ -99,14 +99,14 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="architecture" class="mb-20">
-             <div class="text-center mb-12">
+          <div class="text-center mb-12">
                 <h3 class="text-3xl font-bold text-white">Manifest V3 Extension Architecture</h3>
                 <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension is built on a modern, event-driven architecture to ensure security and performance, with components communicating via message passing.</p>
             </div>
             <div class="card rounded-xl shadow-lg p-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
+              <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
                     <h4 class="font-bold text-white text-lg">Popup UI</h4>
                     <p class="text-sm text-[#94d2bd]">User-facing interface for inputs and displaying the final summary.</p>
                 </div>
@@ -114,7 +114,7 @@
                     <h4 class="font-bold text-white text-lg">Background Service Worker</h4>
                     <p class="text-sm text-[#94d2bd]">Handles all API calls, authentication, and data processing logic.</p>
                 </div>
-                 <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
+                <div class="relative flex flex-col items-center p-4 bg-[#005f73] rounded-lg flow-arrow-down">
                     <h4 class="font-bold text-white text-lg">Content Scripts</h4>
                     <p class="text-sm text-[#94d2bd]">Injects into Jira/GitLab pages to read DOM or add UI elements if needed.</p>
                 </div>
@@ -122,14 +122,14 @@
         </section>
 
         <section id="apis" class="mb-20">
-             <div class="text-center mb-12">
+          <div class="text-center mb-12">
                 <h3 class="text-3xl font-bold text-white">API Integration & Data Correlation</h3>
                 <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">The extension's core logic involves fetching data from specific API endpoints and then correlating it by parsing Jira issue keys from GitLab artifacts.</p>
             </div>
-             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="card rounded-xl shadow-lg p-8">
                     <h4 class="text-2xl font-bold text-white mb-4">Key API Endpoints</h4>
-                     <ul class="space-y-4">
+                    <ul class="space-y-4">
                         <li class="bg-[#005f73] p-3 rounded-md">
                             <p class="font-bold text-white">Jira: <span class="font-mono text-sm text-[#94d2bd]">/rest/api/3/search</span></p>
                             <p class="text-sm text-white">Retrieves issues via JQL (e.g., `fixVersion = "1.2.0"`).</p>
@@ -138,7 +138,7 @@
                             <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/tags</span></p>
                             <p class="text-sm text-white">Identifies release tags to define scope.</p>
                         </li>
-                         <li class="bg-[#005f73] p-3 rounded-md">
+                        <li class="bg-[#005f73] p-3 rounded-md">
                             <p class="font-bold text-white">GitLab: <span class="font-mono text-sm text-[#94d2bd]">/projects/:id/repository/commits</span></p>
                             <p class="text-sm text-white">Fetches all code changes between two release tags.</p>
                         </li>
@@ -155,11 +155,11 @@
         </section>
 
         <section id="benefits" class="mb-12">
-             <div class="text-center mb-12">
+            <div class="text-center mb-12">
                 <h3 class="text-3xl font-bold text-white">The Payoff: Actionable Insights & Efficiency</h3>
                 <p class="text-lg text-[#e9d8a6] max-w-3xl mx-auto mt-2">A unified view leads to enhanced transparency, streamlined audits, and empowered teams.</p>
             </div>
-             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="card rounded-xl shadow-lg p-6">
                     <div class="text-5xl text-[#94d2bd] mb-3">🔎</div>
                     <h4 class="text-xl font-bold text-white">Full Transparency</h4>
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </section>
-        
+
         <footer class="text-center mt-20 pt-8 border-t border-gray-700">
             <p class="text-gray-500">This infographic summarizes a strategic approach to browser extension development for release management. All data is representative.</p>
         </footer>
@@ -211,7 +211,7 @@
                 }
                 return lines;
             };
-            
+
             const tooltipTitleCallback = (tooltipItems) => {
                 const item = tooltipItems[0];
                 let label = item.chart.data.labels[item.dataIndex];
@@ -221,9 +221,9 @@
                   return label;
                 }
             };
-            
+
             const chartDonutOptions = {
-                 responsive: true,
+                responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
@@ -237,9 +237,9 @@
                             padding: 15
                         }
                     },
-                     tooltip: {
+                    tooltip: {
                         callbacks: {
-                           title: tooltipTitleCallback
+                          title: tooltipTitleCallback
                         }
                     }
                 }
@@ -261,8 +261,8 @@
                     type: 'doughnut',
                     data: {
                         labels: [
-                            wrapLabel('GitLab OAuth (PKCE)'), 
-                            wrapLabel('Jira OAuth (Hybrid Backend)'), 
+                        wrapLabel('GitLab OAuth (PKCE)'),
+                        wrapLabel('Jira OAuth (Hybrid Backend)'),
                             wrapLabel('Personal Access Tokens (PATs)')
                         ],
                         datasets: [{

@@ -1,0 +1,347 @@
+{
+  "element": {
+    "custom": {
+      "button": {
+        "filled": {
+          "$description": "Filled button variant",
+          "$type": "object",
+          "$value": {
+            "background": {
+              "active": "{theme.color.palette.blue.800}",
+              "default": "{theme.color.palette.blue.500}",
+              "disabled": "{elements.color.background.interactive.disabled}",
+              "focus": "{theme.color.palette.blue.600}",
+              "hover": "{theme.color.palette.blue.700}"
+            },
+            "border": {
+              "active": "{theme.color.palette.blue.800}",
+              "default": "{theme.color.palette.blue.500}",
+              "disabled": "{elements.color.border.interactive.disabled}",
+              "focus": "{theme.color.palette.blue.600}",
+              "hover": "{theme.color.palette.blue.700}"
+            },
+            "text": {
+              "default": "{elements.color.text.on-interactive}",
+              "disabled": "{elements.color.text.state.disabled}"
+            }
+          }
+        },
+        "outlined": {
+          "$description": "Outlined button variant",
+          "$type": "object",
+          "$value": {
+            "background": {
+              "active": "{theme.color.palette.blue.200}",
+              "default": "transparent",
+              "disabled": "transparent",
+              "focus": "{theme.color.palette.blue.100}",
+              "hover": "{theme.color.palette.blue.100}"
+            },
+            "border": {
+              "active": "{theme.color.palette.blue.800}",
+              "default": "{theme.color.palette.blue.500}",
+              "disabled": "{elements.color.border.interactive.disabled}",
+              "focus": "{theme.color.palette.blue.700}",
+              "hover": "{theme.color.palette.blue.700}"
+            },
+            "text": {
+              "active": "{theme.color.palette.blue.800}",
+              "default": "{theme.color.palette.blue.500}",
+              "disabled": "{elements.color.text.state.disabled}",
+              "focus": "{theme.color.palette.blue.700}",
+              "hover": "{theme.color.palette.blue.700}"
+            }
+          }
+        }
+      },
+      "templates": {
+        "$description": "Reusable component state templates",
+        "button-base": {
+          "border-radius": {
+            "$description": "Standard button border radius",
+            "$type": "dimension",
+            "$value": "{elements.shape.border-radius.medium}"
+          },
+          "border-width": {
+            "$description": "Standard button border width",
+            "$type": "dimension",
+            "$value": "{elements.shape.border-width.thin}"
+          },
+          "padding": {
+            "$description": "Standard button padding",
+            "$type": "dimension",
+            "$value": "{elements.sizing.static.medium} {elements.sizing.static.large}"
+          }
+        }
+      }
+    },
+    "shape": {
+      "border-radius": {
+        "full": {
+          "$description": "Full border radius",
+          "$type": "dimension",
+          "$value": "9999px"
+        },
+        "large": {
+          "$description": "Large border radius",
+          "$type": "dimension",
+          "$value": "1rem"
+        },
+        "medium": {
+          "$description": "Medium border radius",
+          "$type": "dimension",
+          "$value": "0.5rem"
+        },
+        "none": {
+          "$description": "No border radius",
+          "$type": "dimension",
+          "$value": "0"
+        },
+        "small": {
+          "$description": "Small border radius",
+          "$type": "dimension",
+          "$value": "0.25rem"
+        }
+      },
+      "border-width": {
+        "medium": {
+          "$description": "Medium border",
+          "$type": "dimension",
+          "$value": "2px"
+        },
+        "none": {
+          "$description": "No border",
+          "$type": "dimension",
+          "$value": "0"
+        },
+        "thick": {
+          "$description": "Thick border",
+          "$type": "dimension",
+          "$value": "4px"
+        },
+        "thin": {
+          "$description": "Thin border",
+          "$type": "dimension",
+          "$value": "1px"
+        }
+      }
+    },
+    "theme": {
+      "background": {
+        "error": {
+          "$description": "Background for error messages.",
+          "$type": "color",
+          "$value": "{theme.color.palette.red.500}"
+        },
+        "highlight": {
+          "$description": "Background for highlighted content.",
+          "$type": "color",
+          "$value": "{theme.color.palette.yellow.300}"
+        },
+        "info": {
+          "$description": "Background for informational messages.",
+          "$type": "color",
+          "$value": "{theme.color.palette.blue.100}"
+        },
+        "interactive": {
+          "$description": "Consolidated interactive background colors",
+          "$type": "color",
+          "$value": {
+            "active": {
+              "dark": "{theme.color.palette.blue.800}",
+              "high-contrast": "{theme.color.palette.gray.300}",
+              "light": "{theme.color.palette.blue.800}"
+            },
+            "default": {
+              "dark": "{theme.color.palette.blue.700}",
+              "high-contrast": "{theme.color.palette.white}",
+              "light": "{theme.color.palette.blue.500}"
+            },
+            "disabled": {
+              "dark": "{theme.color.palette.gray.700}",
+              "high-contrast": "{theme.color.palette.gray.500}",
+              "light": "{theme.color.palette.gray.100}"
+            },
+            "focus": {
+              "dark": "{theme.color.palette.blue.600}",
+              "high-contrast": "{theme.color.palette.gray.200}",
+              "light": "{theme.color.palette.blue.600}"
+            },
+            "hover": {
+              "dark": "{theme.color.palette.blue.500}",
+              "high-contrast": "{theme.color.palette.gray.100}",
+              "light": "{theme.color.palette.blue.700}"
+            },
+            "visited": {
+              "dark": "{theme.color.palette.purple.600}",
+              "high-contrast": "{theme.color.palette.purple.200}",
+              "light": "{theme.color.palette.purple.600}"
+            }
+          }
+        },
+        "page": {
+          "$description": "Overall page background color",
+          "$type": "color",
+          "$value": {
+            "dark": "{theme.color.palette.gray.900}",
+            "grayscale": "{theme.color.palette.gray.50}",
+            "high-contrast": "{theme.color.palette.black}",
+            "light": "{theme.color.palette.gray.50}",
+            "noir": "{theme.color.palette.black}"
+          }
+        },
+        "success": {
+          "$description": "Background for success messages.",
+          "$type": "color",
+          "$value": "{theme.color.palette.green.500}"
+        },
+        "surface": {
+          "$description": "Background color for cards, modals, and other elevated surfaces",
+          "$type": "color",
+          "$value": {
+            "dark": "{theme.color.palette.gray.800}",
+            "grayscale": "{theme.color.palette.white}",
+            "high-contrast": "{theme.color.palette.black}",
+            "light": "{theme.color.palette.white}",
+            "noir": "{theme.color.palette.gray.900}"
+          }
+        },
+        "warning": {
+          "$description": "Background for warning messages.",
+          "$type": "color",
+          "$value": "{theme.color.palette.yellow.500}"
+        }
+      },
+      "border": {
+        "base": {
+          "$description": "Default border color for general elements.",
+          "$type": "color",
+          "$value": {
+            "bordered": "{theme.color.palette.black}",
+            "dark": "{theme.color.palette.gray.700}",
+            "high-contrast": "{theme.color.palette.white}",
+            "light": "{theme.color.palette.gray.300}"
+          }
+        },
+        "error": {
+          "$description": "Border color for error states.",
+          "$type": "color",
+          "$value": "{theme.color.palette.red.500}"
+        },
+        "interactive": {
+          "$description": "Consolidated interactive border colors",
+          "$type": "color",
+          "$value": {
+            "active": {
+              "dark": "{theme.color.palette.blue.800}",
+              "high-contrast": "{theme.color.palette.gray.300}",
+              "light": "{theme.color.palette.blue.800}"
+            },
+            "default": {
+              "dark": "{theme.color.palette.blue.700}",
+              "high-contrast": "{theme.color.palette.white}",
+              "light": "{theme.color.palette.blue.500}"
+            },
+            "disabled": {
+              "dark": "{theme.color.palette.gray.700}",
+              "high-contrast": "{theme.color.palette.gray.500}",
+              "light": "{theme.color.palette.gray.300}"
+            },
+            "focus": {
+              "dark": "{theme.color.palette.blue.500}",
+              "high-contrast": "{theme.color.palette.yellow.500}",
+              "light": "{theme.color.palette.blue.700}"
+            },
+            "hover": {
+              "dark": "{theme.color.palette.blue.500}",
+              "high-contrast": "{theme.color.palette.gray.100}",
+              "light": "{theme.color.palette.blue.700}"
+            },
+            "visited": {
+              "dark": "{theme.color.palette.purple.600}",
+              "high-contrast": "{theme.color.palette.purple.200}",
+              "light": "{theme.color.palette.purple.600}"
+            }
+          }
+        }
+      },
+      "text": {
+        "on-interactive": {
+          "$description": "Text color on interactive backgrounds",
+          "$type": "color",
+          "$value": {
+            "dark": "{theme.color.palette.white}",
+            "high-contrast": "{theme.color.palette.black}",
+            "light": "{theme.color.palette.white}"
+          }
+        },
+        "priority": {
+          "primary": {
+            "$description": "Primary text color",
+            "$type": "color",
+            "$value": {
+              "dark": "{theme.color.palette.white}",
+              "grayscale": "{theme.color.palette.gray.900}",
+              "high-contrast": "{theme.color.palette.white}",
+              "light": "{theme.color.palette.gray.900}",
+              "noir": "{theme.color.palette.gray.100}"
+            }
+          },
+          "secondary": {
+            "$description": "Secondary text color",
+            "$type": "color",
+            "$value": {
+              "dark": "{theme.color.palette.gray.300}",
+              "grayscale": "{theme.color.palette.gray.700}",
+              "high-contrast": "{theme.color.palette.gray.100}",
+              "light": "{theme.color.palette.gray.700}",
+              "noir": "{theme.color.palette.gray.300}"
+            }
+          },
+          "tertiary": {
+            "$description": "Tertiary text color",
+            "$type": "color",
+            "$value": {
+              "dark": "{theme.color.palette.gray.400}",
+              "grayscale": "{theme.color.palette.gray.500}",
+              "high-contrast": "{theme.color.palette.gray.300}",
+              "light": "{theme.color.palette.gray.500}",
+              "noir": "{theme.color.palette.gray.500}"
+            }
+          }
+        },
+        "state": {
+          "disabled": {
+            "$description": "Text color for disabled elements",
+            "$type": "color",
+            "$value": {
+              "dark": "{theme.color.palette.gray.600}",
+              "high-contrast": "{theme.color.palette.gray.500}",
+              "light": "{theme.color.palette.gray.500}"
+            }
+          },
+          "error": {
+            "$description": "Text color for errors",
+            "$type": "color",
+            "$value": "{theme.color.palette.red.700}"
+          },
+          "info": {
+            "$description": "Text color for info",
+            "$type": "color",
+            "$value": "{theme.color.palette.blue.700}"
+          },
+          "success": {
+            "$description": "Text color for success",
+            "$type": "color",
+            "$value": "{theme.color.palette.green.700}"
+          },
+          "warning": {
+            "$description": "Text color for warnings",
+            "$type": "color",
+            "$value": "{theme.color.palette.yellow.700}"
+          }
+        }
+      }
+    }
+  }
+}

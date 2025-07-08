@@ -1,6 +1,4 @@
-import { DEFAULT_VALUES } from '../shared/presetConstants.js';
-
-class FormValidationHelpers {
+export class FormValidationHelpers {
   static validateRequiredFields(fields) {
     const missingFields = [];
 
@@ -21,7 +19,5 @@ class FormValidationHelpers {
   }
 }
 
-// Export individual functions for backward compatibility
-export const validateRequiredFields = FormValidationHelpers.validateRequiredFields;
-export const extractFormFieldValues = FormValidationHelpers.extractFormFieldValues;
-export default FormValidationHelpers;
+export const { validateRequiredFields, extractFormFieldValues } = FormValidationHelpers;
+export default new FormValidationHelpers();
