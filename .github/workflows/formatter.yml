@@ -1,8 +1,5 @@
 name: Lint & Format
 
-permissions:
-  contents: write
-
 on:
   pull_request:
     branches:
@@ -15,6 +12,9 @@ on:
 jobs:
   eclint:
     name: EditorConfig (fix non-compliant code)
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     if: github.actor != 'github-actions[bot]'
     steps:
