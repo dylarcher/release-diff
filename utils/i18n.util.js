@@ -16,7 +16,7 @@ export class InternationalizationHelper {
       const localizedText = InternationalizationHelper.getMessage(messageKey);
 
       if (localizedText && localizedText !== messageKey) {
-        element.innerHTML = localizedText;
+        element.textContent = localizedText;
       } else if (localizedText === messageKey) {
         element.textContent = messageKey;
       }
