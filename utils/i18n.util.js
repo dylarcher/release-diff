@@ -62,4 +62,3 @@ export default new InternationalizationHelper();
     document.addEventListener('DOMContentLoaded', InternationalizationHelper.initializeI18n);
   }
 })();
-

@@ -138,15 +138,33 @@ export class ExtensionUIManager {
     }
   }
   async getDemoJiraData() {
-    return (await import('../shared/release-dds-angular-v2.26.0/jiraReleaseUserStories.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || {};
+    try {
+      const response = await fetch(chrome.runtime.getURL('shared/data/releases.json'));
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to load Jira release data:', error);
+      return {};
+    }
   }
 
   async getDemoGitlabTagData() {
-    return (await import('../shared/release-dds-angular-v2.26.0/gitlabTagsFor2.25.5.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || [];
+    try {
+      const response = await fetch(chrome.runtime.getURL('shared/data/versions.json'));
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to load GitLab tags data:', error);
+      return [];
+    }
   }
 
   async getDemoGitlabCommitData() {
-    return (await import('../shared/release-dds-angular-v2.26.0/gitlabCommitsSince2.25.4.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || [];
+    try {
+      const response = await fetch(chrome.runtime.getURL('shared/data/commits.json'));
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to load GitLab commits data:', error);
+      return [];
+    }
   }
 
   populateExampleJiraTickets(jiraData) {

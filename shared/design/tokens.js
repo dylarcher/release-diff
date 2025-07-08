@@ -21,9 +21,14 @@ export const design = {
     ];
 
     for (const [name, path] of presets) {
-      const options = { assert: { type: 'json' } };
-      const module = (await import(path, options))?.default || {};
-      design[name] = module;
+      try {
+        const response = await fetch(chrome.runtime.getURL(`shared/design/_segments/${name === 'zindex' ? 'layers' : name}.json`));
+        const module = await response.json();
+        design[name] = module;
+      } catch (error) {
+        console.error(`Failed to load design token ${name}:`, error);
+        design[name] = {};
+      }
     }
 
     delete design.tokens;
