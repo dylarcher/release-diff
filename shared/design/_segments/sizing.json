@@ -88,7 +88,7 @@
       },
       "size-085": {
         "$description": "85% spacing",
-        "$type": "0.dimension",
+        "$type": "dimension",
         "$value": "85"
       },
       "size-090": {
