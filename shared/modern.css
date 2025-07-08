@@ -74,14 +74,10 @@ select {
   font-size: 14px;
   background-color: var(--colors-palette-modern-white);
   box-shadow: none;
-  color: #234c;
+  color: var(--colors-palette-modern-gray-dark);
     transition: border-color var(--motion-duration-normal) var(--motion-easing-ease-in-out),
       box-shadow var(--motion-duration-normal) var(--motion-easing-ease-in-out),
       background-color var(--motion-duration-normal) var(--motion-easing-ease-in-out);
-
-    @media (prefers-color-scheme: dark) {
-      color: #dde1ffcc;
-    }
   }
 
   input:is([type="text"], [type="url"], [type="password"]):focus,
@@ -229,9 +225,9 @@ select {
 }
 
 .alert-warning {
-  background-color: #fffbe6;
-  border-color: #ffe58f;
-  color: #d46b08;
+  background-color: var(--colors-palette-modern-yellow-lightest);
+    border-color: var(--colors-palette-modern-yellow-light);
+    color: var(--colors-palette-modern-yellow-dark);
 }
 
 .alert-info {
@@ -307,21 +303,21 @@ main {
   }
 
   .status-message.status-error {
-    background-color: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #dc2626;
+    background-color: var(--colors-palette-modern-red-lightest);
+      border: 1px solid var(--colors-palette-modern-red-lighter);
+      color: var(--colors-palette-modern-red-dark);
   }
 
   .status-message.status-success {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    color: #16a34a;
+    background-color: var(--colors-palette-modern-green-lightest);
+      border: 1px solid var(--colors-palette-modern-green-lighter);
+      color: var(--colors-palette-modern-green-dark);
   }
 
   .status-message.status-info {
-    background-color: #eff6ff;
-    border: 1px solid #bfdbfe;
-    color: #2563eb;
+    background-color: var(--colors-palette-modern-blue-lightest);
+      border: 1px solid var(--colors-palette-modern-blue-lighter);
+      color: var(--colors-palette-modern-blue-dark);
   }
 
   /* Toast/Snackbar System */
@@ -361,27 +357,27 @@ main {
   }
 
   .toast.toast-error {
-    background-color: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #dc2626;
+    background-color: var(--colors-palette-modern-red-lightest);
+      border: 1px solid var(--colors-palette-modern-red-lighter);
+      color: var(--colors-palette-modern-red-dark);
   }
 
   .toast.toast-success {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    color: #16a34a;
+    background-color: var(--colors-palette-modern-green-lightest);
+      border: 1px solid var(--colors-palette-modern-green-lighter);
+      color: var(--colors-palette-modern-green-dark);
   }
 
   .toast.toast-info {
-    background-color: #eff6ff;
-    border: 1px solid #bfdbfe;
-    color: #2563eb;
+    background-color: var(--colors-palette-modern-blue-lightest);
+      border: 1px solid var(--colors-palette-modern-blue-lighter);
+      color: var(--colors-palette-modern-blue-dark);
   }
 
   .toast.toast-warning {
-    background-color: #fffbeb;
-    border: 1px solid #fed7aa;
-    color: #d97706;
+    background-color: var(--colors-palette-modern-yellow-lightest);
+      border: 1px solid var(--colors-palette-modern-yellow-light);
+      color: var(--colors-palette-modern-yellow-dark);
   }
 
   .toast-message {
@@ -419,9 +415,9 @@ main {
 
   /* Fallback prompt styling */
   .fallback-prompt {
-    background-color: #fffbeb;
-    border: 1px solid #fed7aa;
-    color: #d97706;
+    background-color: var(--colors-palette-modern-yellow-lightest);
+      border: 1px solid var(--colors-palette-modern-yellow-light);
+      color: var(--colors-palette-modern-yellow-dark);
     padding: 1rem;
     border-radius: var(--element-shape-border-radius-medium);
     margin: 1rem 0;
@@ -515,16 +511,16 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="dark"] .alert-warning {
-  background-color: #3c2415;
-  border-color: #d68910;
-  color: #f8c471;
+  background-color: var(--colors-palette-modern-yellow-darkest);
+    border-color: var(--colors-palette-modern-yellow-dark);
+    color: var(--colors-palette-modern-yellow-light);
 }
 
 body[data-theme="dark"] input[type="text"],
 body[data-theme="dark"] input[type="url"],
 body[data-theme="dark"] input[type="password"],
 body[data-theme="dark"] select {
-  background-color: #2a2a2a;
+  background-color: var(--colors-palette-modern-gray-lightest);
   border-color: var(--colors-palette-modern-gray-mild);
   color: var(--colors-palette-modern-gray-dark);
 }
@@ -534,7 +530,7 @@ body[data-theme="dark"] input[type="url"]:focus,
 body[data-theme="dark"] input[type="password"]:focus,
 body[data-theme="dark"] select:focus {
   border-color: var(--colors-palette-modern-blue-medium);
-  background-color: #2a2a2a;
+  background-color: var(--colors-palette-modern-gray-lightest);
   box-shadow: 0 0 0 2px var(--colors-palette-modern-blue-medium)20;
   }
 
@@ -543,65 +539,65 @@ body[data-theme="dark"] select:focus {
   body[data-theme="dark"] input[type="password"]:hover:not(:focus),
   body[data-theme="dark"] select:hover:not(:focus) {
     border-color: var(--colors-palette-modern-gray-medium);
-    background-color: #333333;
+    background-color: var(--colors-palette-modern-gray-mild);
   }
 
   body[data-theme="dark"] .status-message.status-error {
-    background-color: #450a0a;
-    border-color: #dc2626;
-    color: #fca5a5;
+    background-color: var(--colors-palette-modern-red-darkest);
+      border-color: var(--colors-palette-modern-red-dark);
+      color: var(--colors-palette-modern-red-light);
   }
 
   body[data-theme="dark"] .status-message.status-success {
-    background-color: #052e16;
-    border-color: #16a34a;
-    color: #86efac;
+    background-color: var(--colors-palette-modern-green-darkest);
+      border-color: var(--colors-palette-modern-green-dark);
+      color: var(--colors-palette-modern-green-light);
   }
 
   body[data-theme="dark"] .status-message.status-info {
-    background-color: #1e3a8a;
-    border-color: #2563eb;
-    color: #93c5fd;
+    background-color: var(--colors-palette-modern-blue-darkest);
+      border-color: var(--colors-palette-modern-blue-dark);
+      color: var(--colors-palette-modern-blue-light);
   }
 
   body[data-theme="dark"] .toast.toast-error {
-    background-color: #450a0a;
-    border-color: #dc2626;
-    color: #fca5a5;
+    background-color: var(--colors-palette-modern-red-darkest);
+      border-color: var(--colors-palette-modern-red-dark);
+      color: var(--colors-palette-modern-red-light);
   }
 
   body[data-theme="dark"] .toast.toast-success {
-    background-color: #052e16;
-    border-color: #16a34a;
-    color: #86efac;
+    background-color: var(--colors-palette-modern-green-darkest);
+      border-color: var(--colors-palette-modern-green-dark);
+      color: var(--colors-palette-modern-green-light);
   }
 
   body[data-theme="dark"] .toast.toast-info {
-    background-color: #1e3a8a;
-    border-color: #2563eb;
-    color: #93c5fd;
+    background-color: var(--colors-palette-modern-blue-darkest);
+      border-color: var(--colors-palette-modern-blue-dark);
+      color: var(--colors-palette-modern-blue-light);
   }
 
   body[data-theme="dark"] .toast.toast-warning {
-    background-color: #451a03;
-    border-color: #d97706;
-    color: #fbbf24;
+    background-color: var(--colors-palette-modern-yellow-darkest);
+      border-color: var(--colors-palette-modern-yellow-dark);
+      color: var(--colors-palette-modern-yellow-light);
   }
 
   body[data-theme="dark"] .fallback-prompt {
-    background-color: #451a03;
-    border-color: #d97706;
-    color: #fbbf24;
+    background-color: var(--colors-palette-modern-yellow-darkest);
+      border-color: var(--colors-palette-modern-yellow-dark);
+      color: var(--colors-palette-modern-yellow-light);
 }
 
 body[data-theme="dark"] .btn-secondary {
-  background-color: #3a3a3a;
+  background-color: var(--colors-palette-modern-gray-darkest);
   color: var(--colors-palette-modern-gray-dark);
   border-color: var(--colors-palette-modern-gray-mild);
 }
 
 body[data-theme="dark"] .btn-secondary:hover {
-  background-color: #4a4a4a;
+  background-color: var(--colors-palette-modern-gray-darker);
   border-color: var(--colors-palette-modern-blue-medium);
 }
 
