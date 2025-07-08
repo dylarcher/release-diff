@@ -19,7 +19,7 @@ export class SettingsManager {
         this.setupElementReferences();
         this.setupEventListeners();
         this.loadSavedSettingsIntoForm();
-        DS(['colors', 'depth', 'element', 'fonts', 'layers', 'motion', 'sizing']);
+        (async () => await DS(['colors', 'depth', 'element', 'fonts', 'layers', 'motion', 'sizing']))();
     }
 
     initializeI18n() {
@@ -39,9 +39,7 @@ export class SettingsManager {
             testGitLabBtn: document.getElementById(ELEMENT_IDS.TEST_GITLAB_BTN),
             themeToggle: document.getElementById(ELEMENT_IDS.THEME_TOGGLE)
         };
-    }
-
-    setupEventListeners() {
+    } setupEventListeners() {
         const { saveButton, testBtn, testJiraBtn, testGitLabBtn, themeToggle } = this.elements;
 
         this.eventHandlers = new Map([
@@ -56,12 +54,17 @@ export class SettingsManager {
         testBtn.addEventListener('click', this.eventHandlers.get('testGeneral'));
         testJiraBtn.addEventListener('click', this.eventHandlers.get('testJira'));
         testGitLabBtn.addEventListener('click', this.eventHandlers.get('testGitLab'));
-        themeToggle.addEventListener('change', this.eventHandlers.get('themeChange'));
+
+        if (themeToggle) {
+            themeToggle.addEventListener('change', this.eventHandlers.get('themeChange'));
+        }
     }
 
     applyTheme(theme) {
         document.body.dataset.theme = theme;
-        this.elements.themeToggle.checked = theme === 'dark';
+        const isDark = theme === 'dark';
+        this.elements.themeToggle.checked = isDark;
+        this.elements.themeToggle.setAttribute('aria-checked', isDark.toString());
     }
 
     async handleThemeChange(event) {
@@ -71,34 +74,6 @@ export class SettingsManager {
             await saveThemePreference(newTheme);
         } catch (error) {
             console.error(CONSOLE_MESSAGES.THEME_SAVE_ERROR, error);
-        }
-    }
-
-    async handleSave() {
-        const { jiraBaseUrlInput, jiraPatInput, gitlabBaseUrlInput, gitlabPatInput, statusDiv } = this.elements;
-
-        const [jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat] = [
-            jiraBaseUrlInput.value.trim(),
-            jiraPatInput.value.trim(),
-            gitlabBaseUrlInput.value.trim(),
-            gitlabPatInput.value.trim()
-        ];
-
-        const validation = validateRequiredFields({
-            jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat
-        });
-
-        if (!validation.isValid) {
-            displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.ALL_FIELDS_REQUIRED), STATUS_TYPES.ERROR);
-            return;
-        }
-
-        try {
-            await saveApiConfigurationToStorage(jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat);
-            displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.SETTINGS_SAVED), STATUS_TYPES.SUCCESS);
-        } catch (error) {
-            displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.FAILED_TO_SAVE_SETTINGS), STATUS_TYPES.ERROR);
-            console.error(CONSOLE_MESSAGES.SAVE_ERROR, error);
         }
     }
 
@@ -178,15 +153,24 @@ export class SettingsManager {
 
             for (const [configKey, inputElement] of configFields) {
                 inputElement.value = config[configKey] || '';
+            } let savedTheme;
+            try {
+                savedTheme = await loadThemePreference();
+            } catch (error) {
+                savedTheme = null;
             }
-            const savedTheme = await loadThemePreference();
+
             if (savedTheme) {
                 this.applyTheme(savedTheme);
             } else {
                 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 const defaultTheme = prefersDark ? 'dark' : 'light';
                 this.applyTheme(defaultTheme);
-                await saveThemePreference(defaultTheme);
+                try {
+                    await saveThemePreference(defaultTheme);
+                } catch (error) {
+                    // Silently fail if we can't save
+                }
             }
         } catch (error) {
             console.error(CONSOLE_MESSAGES.ERROR_LOADING_SETTINGS, error);

@@ -25,7 +25,7 @@ export class ExtensionUIManager {
     this.setupEventListeners();
     this.loadFormValuesFromStorage();
     this.loadAndApplyTheme();
-    DS(['colors', 'depth', 'element', 'fonts', 'layers', 'motion', 'sizing']);
+    (async () => await DS(['colors', 'depth', 'element', 'fonts', 'layers', 'motion', 'sizing']))();
   }
 
   async loadAndApplyTheme() {

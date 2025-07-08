@@ -1,26 +1,6 @@
 {
   "element": {
     "custom": {
-      "_templates": {
-        "$description": "Reusable component state templates",
-        "button-base": {
-          "border-radius": {
-            "$description": "Standard button border radius",
-            "$type": "dimension",
-            "$value": "{elements.shape.border-radius.medium}"
-          },
-          "border-width": {
-            "$description": "Standard button border width",
-            "$type": "dimension",
-            "$value": "{elements.shape.border-width.thin}"
-          },
-          "padding": {
-            "$description": "Standard button padding",
-            "$type": "dimension",
-            "$value": "{elements.sizing.static.medium} {elements.sizing.static.large}"
-          }
-        }
-      },
       "button": {
         "filled": {
           "$description": "Filled button variant",
@@ -71,6 +51,26 @@
               "focus": "{theme.color.palette.blue.700}",
               "hover": "{theme.color.palette.blue.700}"
             }
+          }
+        }
+      },
+      "templates": {
+        "$description": "Reusable component state templates",
+        "button-base": {
+          "border-radius": {
+            "$description": "Standard button border radius",
+            "$type": "dimension",
+            "$value": "{elements.shape.border-radius.medium}"
+          },
+          "border-width": {
+            "$description": "Standard button border width",
+            "$type": "dimension",
+            "$value": "{elements.shape.border-width.thin}"
+          },
+          "padding": {
+            "$description": "Standard button padding",
+            "$type": "dimension",
+            "$value": "{elements.sizing.static.medium} {elements.sizing.static.large}"
           }
         }
       }

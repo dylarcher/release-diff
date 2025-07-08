@@ -73,6 +73,7 @@ export const DS = async tokenSegments => {
   const stylesheet = generateStylesheet(designTokens);
   const styleElement = document.createElement('style');
   styleElement.textContent = stylesheet;
+  console.info(styleElement.textContent);
   document.head.appendChild(styleElement);
 }
 

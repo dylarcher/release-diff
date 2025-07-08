@@ -126,6 +126,9 @@
   "extensionSettings": {
     "message": "Configurações da Extensão"
   },
+  "userInterfaceControls": {
+    "message": "Controles da Interface do Usuário"
+  },
   "jiraUrl": {
     "message": "$URL$ do Jira",
     "placeholders": {
@@ -304,6 +307,9 @@
   },
   "themeToggleDark": {
     "message": "Modo Escuro"
+  },
+  "themeToggleDescription": {
+    "message": "Alternar entre tema claro e escuro"
   },
   "testFailedNotice": {
     "message": "Teste falhou para $ACTION$: $MESSAGE$",

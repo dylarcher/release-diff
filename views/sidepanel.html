@@ -5,20 +5,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title data-i18n="toolInterface">Release Diff Tool Extension Interface</title>
-  <link href="../shared/styles.css" rel="stylesheet" />
+  <link href="../shared/modern.css" rel="stylesheet" />
   <script defer src="../utils/i18n.util.js" type="module"></script>
   <script defer src="../services/api/sidepanel.api.js" type="module"></script>
 </head>
 
-<body style="overflow-x: auto; position: relative">
-  <div class="container" style="min-width: 42.375rem">
-    <header class="header-section">
-      <p role="note" class="info info-notice">
-        <small data-i18n="compareNotice">Compare the user stories and git commit history associated with a
-          release to see the differences between <em>Jira tickets</em>
-          <abbr title="Verses" data-i18n-title="versesAbbr">&</abbr>
-          <em>GitLab changes</em>.</small>
-      </p>
+<body>
+  <div class="container">
+    <header class="header-section" style="margin-bottom: 2rem;">
+      <div role="alert" class="alert alert-info" style="margin-top: .85rem; border: none; background-color: var(--colors-palette-modern-blue-lightest);">
+        <p role="note" class="info info-notice">
+          <small data-i18n="compareNotice">Compare the user stories and git commit history associated with a
+            release to see the differences between <em>Jira tickets</em>
+            <abbr title="Verses" data-i18n-title="versesAbbr">&</abbr>
+            <em>GitLab changes</em>.</small>
+        </p>
+      </div>
       <h1 style="
             display: flex;
             justify-content: space-between;
@@ -26,12 +28,12 @@
             margin-top: 1.5rem;
           ">
         <span data-i18n="releaseOverview">Release Overview</span>
-        <a href="./userConfigurations.html" id="optionsLink" title="Settings" data-i18n-title="settings" target="_blank"
+        <a href="./options.html" id="optionsLink" title="Settings" data-i18n-title="settings" target="_blank"
           rel="noopener noreferrer" style="font-size: 1.5rem; text-decoration: none">⚙️</a>
       </h1>
     </header>
     <main role="main">
-      <div class="grid grid-2-col">
+      <div class="grid grid-2-col" style="gap: 2rem;">
         <!-- Jira Fields -->
         <div class="form-section">
           <div class="form-group">
@@ -52,8 +54,7 @@
           </div>
         </div>
       </div>
-      <br />
-      <div class="grid grid-2-col flex align-end">
+      <div class="grid grid-2-col" style="gap: 2rem;">
         <div class="form-section">
           <div class="form-group">
             <label for="jiraFixVersion" data-i18n="jiraReleaseVersionId">Jira Release Version ID</label>
@@ -63,7 +64,7 @@
               Find in the release URL:
               <samp>.../browse/DDSTM/1.1.0/#####</samp>
             </p>
-            <button id="getVersionsBtn" class="btn btn-secondary btn-sm" data-i18n="getReleases">
+            <button id="getVersionsBtn" class="btn btn-secondary btn-sm" data-i18n="getReleases" style="margin-top: 1rem;">
               Get Releases
             </button>
             <datalist id="versionsDatalist"></datalist>
@@ -82,8 +83,7 @@
           </div>
         </div>
       </div>
-      <br />
-      <div class="grid grid-2-col" style="margin-bottom: 1rem;">
+      <div class="grid grid-2-col" style="margin-bottom: 1rem; gap: 1rem;">
         <button id="resetBtn" class="btn btn-secondary" data-i18n="reset">
           Reset
         </button>
@@ -93,9 +93,9 @@
       </div>
       <details id="viewDemoReportDetails" style="margin-bottom: 1rem;">
         <summary data-i18n="viewDemoReport"
-          style="cursor: pointer; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); background-color: var(--surface-color);">
+          style="cursor: pointer; padding: 0.5rem; border-radius: var(--element-shape-border-radius-medium); background-color: var(--colors-palette-modern-gray-lightest);">
           View Demo v2.26.0 Release Data</summary>
-        <div id="exampleResults" class="results-section" style="margin-top: 0.5rem;padding-top: 1rem;">
+        <div id="exampleResults" class="results-section" style="margin-top: 1rem;padding-top: 1rem; border-top: 1px solid var(--colors-palette-modern-gray-light);">
           <!--  Demo Report Sections will be populated here by JS  -->
           <div class="side-by-side">
             <div class="column report-section">

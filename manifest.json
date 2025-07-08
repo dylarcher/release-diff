@@ -44,19 +44,10 @@
         "<all_urls>"
       ],
       "resources": [
-        "shared/styles.css",
+        "shared/modern.css",
         "utils/i18n.util.js",
-        "shared/data/commits.json",
-        "shared/data/releases.json",
-        "shared/data/versions.json",
-        "shared/design/_segments/colors.json",
-        "shared/design/_segments/element.json",
-        "shared/design/_segments/motion.json",
-        "shared/design/_segments/fonts.json",
-        "shared/design/_segments/sizing.json",
-        "shared/design/_segments/depth.json",
-        "shared/design/_segments/_meta.json",
-        "shared/design/_segments/layers.json"
+        "shared/data/*.json",
+        "shared/design/_segments/*.json"
       ]
     }
   ]

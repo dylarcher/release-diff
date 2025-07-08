@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title data-i18n="toolSettings">Release Diff Tool Settings</title>
-  <link href="../shared/styles.css" rel="stylesheet">
+  <link href="../shared/modern.css" rel="stylesheet">
   <script defer src="../utils/i18n.util.js" type="module"></script>
   <script defer src="../services/api/options.api.js" type="module"></script>
 </head>
 
-<body style="overflow-x: auto; position: relative;">
-  <div class="container" style="min-width: 52.8125rem;">
+<body>
+  <div class="container">
     <div role="alert" class="alert alert-warning" style="margin-top: .85rem;">
       <small>
         <strong data-i18n="securityNoticeTitle">Important Security Notice:</strong> <span
@@ -30,14 +30,26 @@
             extension uses <code>localStorage</code> currently.</em></span>
       </small>
     </div>
-    <header class="header-section">
+    <header class="header-section" style="margin-block: 2rem 0;">
       <h1 data-i18n="extensionSettings">Extension Settings</h1>
-      <div class="form-group form-group-no-margin">
-        <label for="themeToggle" data-i18n="themeToggle">Theme:</label>
-        <input type="checkbox" id="themeToggle" name="themeToggle">
-        <span data-i18n="themeToggleDark">Dark Mode</span>
-      </div>
     </header>
+    <section class="ui-controls-section"
+      style="border: none; padding: 0; margin-bottom: 2rem; display: flex; place-content: space-between;">
+      <h2 data-i18n="userInterfaceControls" style="font-size: 1.2rem; margin-bottom: 1rem;">User Interface Controls</h2>
+      <div class="form-group form-group-no-margin"
+        style="display: flex; place-items: start; place-content: end; gap: 0.5ch;">
+        <span for="themeToggle themeToggleLabel" data-i18n="themeToggle" class="sr-only">Change theme color mode?</span>
+        <label id="themeToggleLabel" style="display: flex; cursor: pointer; place-items: center;">
+          <input type="checkbox" id="themeToggle" name="themeToggle" class="checkbox-switch" role="switch"
+            aria-checked="false" aria-labelledby="themeToggleLabel" aria-describedby="themeToggleDescription">
+          <span data-i18n="themeToggleDark" style="user-select: none"></span>
+        </label>
+        <span id="themeToggleDescription" class="sr-only" data-i18n="themeToggleDescription">Toggle between light and dark
+          theme</span>
+      </div>
+    </section>
+    <hr role="separator" />
+
     <main role="main">
       <div class="grid grid-2-col">
         <div class="form-section">
