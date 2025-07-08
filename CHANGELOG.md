@@ -3,10 +3,10 @@
 ## v0.3.8-alpha (2024-02-29)
 
 ### What's Changed
-* feat: moves UI to sidepanel and makes massive adjustments throughout by @dylarcher in https://github.com/dylarcher/release-diff/pull/1
+* feat: moves ui to sidepanel and makes massive adjustments throughout by @dylarcher in https://github.com/dylarcher/release-diff/pull/1
 * feat: add theme toggle switch by @dylarcher in https://github.com/dylarcher/release-diff/pull/5
 * feat: refactors architecture and file structure by @dylarcher in https://github.com/dylarcher/release-diff/pull/2
-* feat: Add standard GitHub repository files by @dylarcher in https://github.com/dylarcher/release-diff/pull/6
+* feat: add standard github repository files by @dylarcher in https://github.com/dylarcher/release-diff/pull/6
 * feat: adds sample report dropdown panel by @dylarcher in https://github.com/dylarcher/release-diff/pull/9
 * feat: rename files & add design tokens. by @dylarcher in https://github.com/dylarcher/release-diff/pull/14
 * feat: ai issues summary context by @dylarcher in https://github.com/dylarcher/release-diff/pull/16
