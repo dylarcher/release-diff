@@ -1,5 +1,5 @@
-import { toast } from './toast.service.js';
-import { getMessage } from '../utils/i18n.util.js';
+import { toast } from "./toast.service.js";
+import { getMessage } from "../utils/i18n.util.js";
 
 export class FallbackDataService {
   constructor() {
@@ -14,7 +14,11 @@ export class FallbackDataService {
   */
   showFallbackPrompt(apiType, onUseMockData, container) {
     const promptId = `fallback-prompt-${Date.now()}`;
-    const prompt = this.createFallbackPromptElement(promptId, apiType, onUseMockData);
+    const prompt = this.createFallbackPromptElement(
+      promptId,
+      apiType,
+      onUseMockData
+    );
 
     // Remove any existing prompts
     this.removeFallbackPrompts(container);
@@ -24,31 +28,31 @@ export class FallbackDataService {
   }
 
   createFallbackPromptElement(id, apiType, onUseMockData) {
-    const prompt = document.createElement('div');
+    const prompt = document.createElement("div");
     prompt.id = id;
-    prompt.className = 'fallback-prompt';
-    prompt.setAttribute('role', 'alert');
+    prompt.className = "fallback-prompt";
+    prompt.setAttribute("role", "alert");
 
     const messageText = this.getFallbackMessage(apiType);
-    const messageElement = document.createElement('p');
-    messageElement.className = 'fallback-prompt-message';
+    const messageElement = document.createElement("p");
+    messageElement.className = "fallback-prompt-message";
     messageElement.textContent = messageText;
 
-    const actionsContainer = document.createElement('div');
-    actionsContainer.className = 'fallback-prompt-actions';
+    const actionsContainer = document.createElement("div");
+    actionsContainer.className = "fallback-prompt-actions";
 
-    const useMockButton = document.createElement('button');
-    useMockButton.className = 'btn btn-secondary btn-sm';
-    useMockButton.textContent = getMessage('useMockData') || 'Use Mock Data';
-    useMockButton.addEventListener('click', () => {
+    const useMockButton = document.createElement("button");
+    useMockButton.className = "btn btn-secondary btn-sm";
+    useMockButton.textContent = getMessage("useMockData") || "Use Mock Data";
+    useMockButton.addEventListener("click", () => {
       onUseMockData();
       this.hideFallbackPrompt(id);
     });
 
-    const dismissButton = document.createElement('button');
-    dismissButton.className = 'btn btn-secondary btn-sm';
-    dismissButton.textContent = getMessage('dismiss') || 'Dismiss';
-    dismissButton.addEventListener('click', () => {
+    const dismissButton = document.createElement("button");
+    dismissButton.className = "btn btn-secondary btn-sm";
+    dismissButton.textContent = getMessage("dismiss") || "Dismiss";
+    dismissButton.addEventListener("click", () => {
       this.hideFallbackPrompt(id);
     });
 
@@ -63,19 +67,25 @@ export class FallbackDataService {
 
   getFallbackMessage(apiType) {
     const messages = {
-      'jira': getMessage('jiraApiUnreachable') || 'Jira API is currently unreachable. Would you like to use mock data for demonstration?',
-      'gitlab': getMessage('gitlabApiUnreachable') || 'GitLab API is currently unreachable. Would you like to use mock data for demonstration?',
-      'both': getMessage('bothApisUnreachable') || 'Both Jira and GitLab APIs are currently unreachable. Would you like to use mock data for demonstration?'
+      jira:
+        getMessage("jiraApiUnreachable") ||
+        "Jira API is currently unreachable. Would you like to use mock data for demonstration?",
+      gitlab:
+        getMessage("gitlabApiUnreachable") ||
+        "GitLab API is currently unreachable. Would you like to use mock data for demonstration?",
+      both:
+        getMessage("bothApisUnreachable") ||
+        "Both Jira and GitLab APIs are currently unreachable. Would you like to use mock data for demonstration?",
     };
 
-    return messages[apiType] || messages['both'];
+    return messages[apiType] || messages["both"];
   }
 
   hideFallbackPrompt(promptId) {
     const prompt = document.getElementById(promptId);
     if (prompt) {
-      prompt.style.opacity = '0';
-      prompt.style.transform = 'translateY(-10px)';
+      prompt.style.opacity = "0";
+      prompt.style.transform = "translateY(-10px)";
 
       setTimeout(() => {
         if (prompt.parentNode) {
@@ -86,8 +96,8 @@ export class FallbackDataService {
   }
 
   removeFallbackPrompts(container) {
-    const existingPrompts = container.querySelectorAll('.fallback-prompt');
-    existingPrompts.forEach(prompt => {
+    const existingPrompts = container.querySelectorAll(".fallback-prompt");
+    existingPrompts.forEach((prompt) => {
       this.hideFallbackPrompt(prompt.id);
     });
   }
@@ -100,9 +110,9 @@ export class FallbackDataService {
   async loadMockData(dataType) {
     try {
       const dataFiles = {
-        'releases': '/shared/data/releases.json',
-        'commits': '/shared/data/commits.json',
-        'versions': '/shared/data/versions.json'
+        releases: "/shared/data/releases.json",
+        commits: "/shared/data/commits.json",
+        versions: "/shared/data/versions.json",
       };
 
       const filePath = dataFiles[dataType];
@@ -132,9 +142,9 @@ export class FallbackDataService {
   async populateMockData(elements) {
     try {
       const [releasesData, commitsData, versionsData] = await Promise.all([
-        this.loadMockData('releases'),
-        this.loadMockData('commits'),
-        this.loadMockData('versions')
+        this.loadMockData("releases"),
+        this.loadMockData("commits"),
+        this.loadMockData("versions"),
       ]);
 
       this.populateJiraTickets(elements.jiraTicketsDiv, releasesData);
@@ -142,15 +152,18 @@ export class FallbackDataService {
       this.populateVersions(elements.versionsDatalist, versionsData);
 
       // Show success message
-      toast.showSuccess(getMessage('mockDataLoaded') || 'Mock data loaded successfully for demonstration');
+      toast.showSuccess(
+        getMessage("mockDataLoaded") ||
+          "Mock data loaded successfully for demonstration"
+      );
 
       return {
         jiraData: releasesData,
         gitlabCommits: commitsData,
-        gitlabTags: versionsData
+        gitlabTags: versionsData,
       };
     } catch (error) {
-      console.error('Error populating mock data:', error);
+      console.error("Error populating mock data:", error);
       toast.showError(`Failed to populate mock data: ${error.message}`);
       throw error;
     }
@@ -159,19 +172,19 @@ export class FallbackDataService {
   populateJiraTickets(container, jiraData) {
     if (!container || !jiraData?.issues) return;
 
-    container.innerHTML = '';
-    const title = document.createElement('h3');
+    container.innerHTML = "";
+    const title = document.createElement("h3");
     title.textContent = `Jira Tickets (${jiraData.issues.length} total)`;
     container.appendChild(title);
 
-    const list = document.createElement('ul');
-    jiraData.issues.forEach(issue => {
-      const listItem = document.createElement('li');
-      const link = document.createElement('a');
+    const list = document.createElement("ul");
+    jiraData.issues.forEach((issue) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
       link.href = issue.self;
-      link.textContent = `${issue.key}: ${issue.fields?.summary || 'No summary'}`;
-      link.target = '_blank';
-      link.className = 'jira-link';
+      link.textContent = `${issue.key}: ${issue.fields?.summary || "No summary"}`;
+      link.target = "_blank";
+      link.className = "jira-link";
       listItem.appendChild(link);
       list.appendChild(listItem);
     });
@@ -182,18 +195,18 @@ export class FallbackDataService {
   populateGitlabCommits(container, commitsData) {
     if (!container || !Array.isArray(commitsData)) return;
 
-    container.innerHTML = '';
-    const title = document.createElement('h3');
+    container.innerHTML = "";
+    const title = document.createElement("h3");
     title.textContent = `GitLab Commits (${commitsData.length} total)`;
     container.appendChild(title);
 
-    const list = document.createElement('ul');
-    commitsData.forEach(commit => {
-      const listItem = document.createElement('li');
-      const link = document.createElement('a');
+    const list = document.createElement("ul");
+    commitsData.forEach((commit) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
       link.href = commit.web_url;
-      link.textContent = commit.title || commit.message || 'Commit';
-      link.target = '_blank';
+      link.textContent = commit.title || commit.message || "Commit";
+      link.target = "_blank";
       listItem.appendChild(link);
       list.appendChild(listItem);
     });
@@ -204,10 +217,14 @@ export class FallbackDataService {
   populateVersions(datalist, versionsData) {
     if (!datalist || !Array.isArray(versionsData)) return;
 
-    datalist.innerHTML = '';
-    versionsData.forEach(version => {
-      const option = document.createElement('option');
-      option.value = version.name || version.tag_name || version.version || 'Unknown version';
+    datalist.innerHTML = "";
+    versionsData.forEach((version) => {
+      const option = document.createElement("option");
+      option.value =
+        version.name ||
+        version.tag_name ||
+        version.version ||
+        "Unknown version";
       datalist.appendChild(option);
     });
   }
@@ -224,16 +241,16 @@ export class FallbackDataService {
     const results = {
       jiraAvailable: false,
       gitlabAvailable: false,
-      errors: []
+      errors: [],
     };
 
     // Test Jira connection
     try {
       const jiraResponse = await fetch(`${jiraUrl}/rest/api/2/myself`, {
         headers: {
-          'Authorization': `Basic ${btoa(jiraPat + ':')}`,
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Basic ${btoa(jiraPat + ":")}`,
+          "Content-Type": "application/json",
+        },
       });
       results.jiraAvailable = jiraResponse.ok;
     } catch (error) {
@@ -244,9 +261,9 @@ export class FallbackDataService {
     try {
       const gitlabResponse = await fetch(`${gitlabUrl}/api/v4/user`, {
         headers: {
-          'Authorization': `Bearer ${gitlabPat}`,
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Bearer ${gitlabPat}`,
+          "Content-Type": "application/json",
+        },
       });
       results.gitlabAvailable = gitlabResponse.ok;
     } catch (error) {

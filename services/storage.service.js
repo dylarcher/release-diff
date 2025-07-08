@@ -1,21 +1,24 @@
-import { STORAGE_KEYS, CONSOLE_MESSAGES } from '../shared/constants.js';
+import { STORAGE_KEYS, CONSOLE_MESSAGES } from "../shared/constants.js";
 
 export class ChromeStorageManager {
   static async saveFormDataToStorage(formData) {
     return new Promise((resolve, reject) => {
-      chrome.storage.local.set({ [STORAGE_KEYS.FORM_DATA]: formData }, (result) => {
-        const { success, error } = {
-          true: { success: true, error: null },
-          false: { success: false, error: chrome.runtime.lastError }
-        }[!Boolean(chrome.runtime.lastError)];
+      chrome.storage.local.set(
+        { [STORAGE_KEYS.FORM_DATA]: formData },
+        (result) => {
+          const { success, error } = {
+            true: { success: true, error: null },
+            false: { success: false, error: chrome.runtime.lastError },
+          }[!Boolean(chrome.runtime.lastError)];
 
-        if (success) {
-          console.info(CONSOLE_MESSAGES.FORM_VALUES_SAVED_TO_STORAGE);
-          resolve(result);
-        } else {
-          reject(error);
+          if (success) {
+            console.info(CONSOLE_MESSAGES.FORM_VALUES_SAVED_TO_STORAGE);
+            resolve(result);
+          } else {
+            reject(error);
+          }
         }
-      });
+      );
     });
   }
 
@@ -24,7 +27,7 @@ export class ChromeStorageManager {
       chrome.storage.local.get([STORAGE_KEYS.FORM_DATA], (result) => {
         const { success, error } = {
           true: { success: true, error: null },
-          false: { success: false, error: chrome.runtime.lastError }
+          false: { success: false, error: chrome.runtime.lastError },
         }[!Boolean(chrome.runtime.lastError)];
 
         if (success) {
@@ -36,19 +39,24 @@ export class ChromeStorageManager {
     });
   }
 
-  static async saveApiConfigurationToStorage(jiraBaseUrl, jiraPat, gitlabBaseUrl, gitlabPat) {
+  static async saveApiConfigurationToStorage(
+    jiraBaseUrl,
+    jiraPat,
+    gitlabBaseUrl,
+    gitlabPat
+  ) {
     return new Promise((resolve, reject) => {
       const config = {
         [STORAGE_KEYS.JIRA_BASE_URL]: jiraBaseUrl,
         [STORAGE_KEYS.JIRA_PAT]: jiraPat,
         [STORAGE_KEYS.GITLAB_BASE_URL]: gitlabBaseUrl,
-        [STORAGE_KEYS.GITLAB_PAT]: gitlabPat
+        [STORAGE_KEYS.GITLAB_PAT]: gitlabPat,
       };
 
       chrome.storage.local.set(config, (result) => {
         const { success, error } = {
           true: { success: true, error: null },
-          false: { success: false, error: chrome.runtime.lastError }
+          false: { success: false, error: chrome.runtime.lastError },
         }[!Boolean(chrome.runtime.lastError)];
 
         if (success) {
@@ -65,14 +73,14 @@ export class ChromeStorageManager {
       STORAGE_KEYS.JIRA_BASE_URL,
       STORAGE_KEYS.JIRA_PAT,
       STORAGE_KEYS.GITLAB_BASE_URL,
-      STORAGE_KEYS.GITLAB_PAT
+      STORAGE_KEYS.GITLAB_PAT,
     ];
 
     return new Promise((resolve, reject) => {
       chrome.storage.local.get(keys, (result) => {
         const { success, error } = {
           true: { success: true, error: null },
-          false: { success: false, error: chrome.runtime.lastError }
+          false: { success: false, error: chrome.runtime.lastError },
         }[!Boolean(chrome.runtime.lastError)];
 
         if (success) {
@@ -89,10 +97,10 @@ export const {
   saveFormDataToStorage,
   loadFormDataFromStorage,
   saveApiConfigurationToStorage,
-  loadApiConfigurationFromStorage
+  loadApiConfigurationFromStorage,
 } = ChromeStorageManager;
 
-export const saveThemePreference = async theme => {
+export const saveThemePreference = async (theme) => {
   try {
     await chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme });
     console.info(CONSOLE_MESSAGES.THEME_SAVED, theme);
@@ -100,7 +108,7 @@ export const saveThemePreference = async theme => {
     console.error(CONSOLE_MESSAGES.SAVE_ERROR, error);
     throw error;
   }
-}
+};
 
 export const loadThemePreference = async () => {
   return new Promise((resolve, reject) => {
@@ -113,6 +121,6 @@ export const loadThemePreference = async () => {
       }
     });
   });
-}
+};
 
 export default new ChromeStorageManager();

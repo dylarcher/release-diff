@@ -7,9 +7,7 @@
       "id": "5dbb261c4466474d4882610897f726b7234f910d",
       "short_id": "5dbb261c",
       "created_at": "2025-06-26T16:34:40.000-03:00",
-      "parent_ids": [
-        "e32e325812587b3b3c6fd802884a1a437fd2c0b8"
-      ],
+      "parent_ids": ["e32e325812587b3b3c6fd802884a1a437fd2c0b8"],
       "title": "chore: update changelog",
       "message": "chore: update changelog\n",
       "author_name": "Vitor_hugo_Maldaner",
@@ -37,9 +35,7 @@
       "id": "827bb2ee7872e3bc06914cf42ab4b7996a966e0f",
       "short_id": "827bb2ee",
       "created_at": "2025-05-07T14:22:04.000-03:00",
-      "parent_ids": [
-        "d68a580a15d531d582969a6f9f9e036f3104d9be"
-      ],
+      "parent_ids": ["d68a580a15d531d582969a6f9f9e036f3104d9be"],
       "title": "chore: add missing items to the changelog",
       "message": "chore: add missing items to the changelog\n",
       "author_name": "Vitor_hugo_Maldaner",
@@ -67,9 +63,7 @@
       "id": "5795568ee63fdd6dbafe3311b156bb8257dda6f8",
       "short_id": "5795568e",
       "created_at": "2025-04-24T14:31:00.000-03:00",
-      "parent_ids": [
-        "bae318e9a246e66c2eea7bc511b9701f57747074"
-      ],
+      "parent_ids": ["bae318e9a246e66c2eea7bc511b9701f57747074"],
       "title": "chore: changing package version to debug the pipeline",
       "message": "chore: changing package version to debug the pipeline\n",
       "author_name": "Igor Almeida",
@@ -97,9 +91,7 @@
       "id": "0a4a9791b707d0b770d97d73eae74e9fdba2f916",
       "short_id": "0a4a9791",
       "created_at": "2025-04-10T10:59:34.000-03:00",
-      "parent_ids": [
-        "47c2d556dd13b7517b63180f198c01f3cb12d413"
-      ],
+      "parent_ids": ["47c2d556dd13b7517b63180f198c01f3cb12d413"],
       "title": "refactor: rollback CICD to use v3.0.0",
       "message": "refactor: rollback CICD to use v3.0.0\n",
       "author_name": "Igor Almeida",
@@ -127,9 +119,7 @@
       "id": "e961b01e443674ef91b01b9c8e1805c10ed661fd",
       "short_id": "e961b01e",
       "created_at": "2025-03-25T16:35:43.000-03:00",
-      "parent_ids": [
-        "526294bdca81834e940cc99cdfb1effee6043edd"
-      ],
+      "parent_ids": ["526294bdca81834e940cc99cdfb1effee6043edd"],
       "title": "chore: fix changelog spacing",
       "message": "chore: fix changelog spacing\n",
       "author_name": "Igor Almeida",
@@ -157,9 +147,7 @@
       "id": "6602295a5a7d4977d0db4d2daf1eee246c86c252",
       "short_id": "6602295a",
       "created_at": "2025-02-25T14:35:57.000-03:00",
-      "parent_ids": [
-        "ab3a4cfbe7f1f1a02d94b9336a19a87cba8e9436"
-      ],
+      "parent_ids": ["ab3a4cfbe7f1f1a02d94b9336a19a87cba8e9436"],
       "title": "chore: updating changelog",
       "message": "chore: updating changelog\n",
       "author_name": "stukervitor",
@@ -187,9 +175,7 @@
       "id": "ad0b012995d353668dda54e192b69063eafd5774",
       "short_id": "ad0b0129",
       "created_at": "2025-01-14T14:22:57.000-03:00",
-      "parent_ids": [
-        "b61f1627d12a662496fd13851525e1ac5ea23d8d"
-      ],
+      "parent_ids": ["b61f1627d12a662496fd13851525e1ac5ea23d8d"],
       "title": "chore: add missing item to the changelog",
       "message": "chore: add missing item to the changelog\n",
       "author_name": "Igor Almeida",
@@ -217,9 +203,7 @@
       "id": "cad478f057f071e60e87e6f7df096f1686395785",
       "short_id": "cad478f0",
       "created_at": "2024-12-05T16:16:57.000-03:00",
-      "parent_ids": [
-        "7c458d9ce781f82666ee1c8529387bcd7a8a1f65"
-      ],
+      "parent_ids": ["7c458d9ce781f82666ee1c8529387bcd7a8a1f65"],
       "title": "chore: tweak the changelog",
       "message": "chore: tweak the changelog\n",
       "author_name": "Igor Almeida",
@@ -247,9 +231,7 @@
       "id": "1dbbbc1484bd77ade46c1723e9a7d3db65b5057a",
       "short_id": "1dbbbc14",
       "created_at": "2024-11-04T12:29:39.000-03:00",
-      "parent_ids": [
-        "371a05c4a7faf55c96b8c69c4bd9bf7836816072"
-      ],
+      "parent_ids": ["371a05c4a7faf55c96b8c69c4bd9bf7836816072"],
       "title": "feat: tweak changelog with missing items",
       "message": "feat: tweak changelog with missing items\n",
       "author_name": "Igor Almeida",
@@ -277,9 +259,7 @@
       "id": "d6f1aaf7cf2c9a801fcfecfb34969e40eb836c30",
       "short_id": "d6f1aaf7",
       "created_at": "2024-10-01T16:08:11.000-03:00",
-      "parent_ids": [
-        "b37fe5ce9a0de92b71f1b9aab1b741e905de0982"
-      ],
+      "parent_ids": ["b37fe5ce9a0de92b71f1b9aab1b741e905de0982"],
       "title": "chore: update changelog",
       "message": "chore: update changelog\n",
       "author_name": "Felipe Deitos",
@@ -307,9 +287,7 @@
       "id": "ea0f0df466eb7b58b1da6bf83a00b2a8c544b721",
       "short_id": "ea0f0df4",
       "created_at": "2024-09-04T16:22:24.000-03:00",
-      "parent_ids": [
-        "d00d69e012d505fe738740565e53ba235803ffbc"
-      ],
+      "parent_ids": ["d00d69e012d505fe738740565e53ba235803ffbc"],
       "title": "feat: update changelog",
       "message": "feat: update changelog\n",
       "author_name": "Igor Almeida",
@@ -399,9 +377,7 @@
       "id": "7931a15172c8684c0243cf349bfa5f6bf3ad0121",
       "short_id": "7931a151",
       "created_at": "2024-07-31T17:16:14.000-03:00",
-      "parent_ids": [
-        "7b955347a8f18c40e894124246c65f8f3d6e06e1"
-      ],
+      "parent_ids": ["7b955347a8f18c40e894124246c65f8f3d6e06e1"],
       "title": "chore(release): 2.23.0",
       "message": "chore(release): 2.23.0\n",
       "author_name": "Igor Almeida",
@@ -429,9 +405,7 @@
       "id": "cb9b7954024ebfd194086908b124496cb966b45f",
       "short_id": "cb9b7954",
       "created_at": "2024-07-23T13:02:56.000-03:00",
-      "parent_ids": [
-        "2643503dbe931b5dbec185ef474622f6d754629d"
-      ],
+      "parent_ids": ["2643503dbe931b5dbec185ef474622f6d754629d"],
       "title": "chore: tweak changelog",
       "message": "chore: tweak changelog\n",
       "author_name": "Igor Almeida",
@@ -459,9 +433,7 @@
       "id": "6339279f0fd8ce0f0e0179e7d02e838dcdfa1059",
       "short_id": "6339279f",
       "created_at": "2024-06-25T00:58:04.000-03:00",
-      "parent_ids": [
-        "c4e8180d1d894fd1e20ab3caf3e8a06dfc88549c"
-      ],
+      "parent_ids": ["c4e8180d1d894fd1e20ab3caf3e8a06dfc88549c"],
       "title": "chore: merging gitlab-ci from origin/dev",
       "message": "chore: merging gitlab-ci from origin/dev\n",
       "author_name": "Igor Almeida",
@@ -489,9 +461,7 @@
       "id": "c486ed3b28f71975f25cdcaaabe8a7bbc3772ab6",
       "short_id": "c486ed3b",
       "created_at": "2024-05-31T11:49:37.000-03:00",
-      "parent_ids": [
-        "1ecd595fb900048906f11acc6de4157fdb3d4b02"
-      ],
+      "parent_ids": ["1ecd595fb900048906f11acc6de4157fdb3d4b02"],
       "title": "fix(changelog): adjusting changelog",
       "message": "fix(changelog): adjusting changelog\n",
       "author_name": "stukervitor",
@@ -519,9 +489,7 @@
       "id": "5b17f607c6406d744d30ca7538fc30accd3bb037",
       "short_id": "5b17f607",
       "created_at": "2024-05-14T10:20:36.000-03:00",
-      "parent_ids": [
-        "416734bdf05f163b2e61181687f7c760b1aa3920"
-      ],
+      "parent_ids": ["416734bdf05f163b2e61181687f7c760b1aa3920"],
       "title": "chore: tweak changelog",
       "message": "chore: tweak changelog\n",
       "author_name": "Igor Almeida",
@@ -549,9 +517,7 @@
       "id": "5e14254e6a2387be189ad5b5c524de9585a5c7ca",
       "short_id": "5e14254e",
       "created_at": "2024-04-18T15:01:56.000-03:00",
-      "parent_ids": [
-        "abc1fd9fe214b06134ccff5a34c90e7bc6a2d106"
-      ],
+      "parent_ids": ["abc1fd9fe214b06134ccff5a34c90e7bc6a2d106"],
       "title": "chore: tweak changelog",
       "message": "chore: tweak changelog\n",
       "author_name": "Igor Almeida",
@@ -610,9 +576,7 @@
       "id": "30587d49e128e7084318cce8829bde8d142603c8",
       "short_id": "30587d49",
       "created_at": "2024-03-21T13:05:14.000-03:00",
-      "parent_ids": [
-        "1a20ca67515e2f599f3f8d6bed89881044fed520"
-      ],
+      "parent_ids": ["1a20ca67515e2f599f3f8d6bed89881044fed520"],
       "title": "chore: bump version",
       "message": "chore: bump version\n",
       "author_name": "Igor Almeida",
@@ -640,9 +604,7 @@
       "id": "0948bfc1b42502719c6d3aed14a9d68a97a52bc2",
       "short_id": "0948bfc1",
       "created_at": "2024-03-08T15:03:02.000-03:00",
-      "parent_ids": [
-        "1d43b53fd1006dbcefa2956bc0fa2aee5caf4056"
-      ],
+      "parent_ids": ["1d43b53fd1006dbcefa2956bc0fa2aee5caf4056"],
       "title": "chore: update changelog",
       "message": "chore: update changelog\n",
       "author_name": "cinthia_becher",
@@ -670,9 +632,7 @@
       "id": "e34eb7fefc22bc69ff0863fa31edf03fbd3d5349",
       "short_id": "e34eb7fe",
       "created_at": "2024-02-29T15:41:41.000-03:00",
-      "parent_ids": [
-        "5faa3f210e4b9c568a2ef0a44d001685144b3dd7"
-      ],
+      "parent_ids": ["5faa3f210e4b9c568a2ef0a44d001685144b3dd7"],
       "title": "fix: changelog",
       "message": "fix: changelog\n",
       "author_name": "Costa, Mauricio",
@@ -700,9 +660,7 @@
       "id": "4fd8f1858150f2a92c24521ebbbc07da4a9cf23a",
       "short_id": "4fd8f185",
       "created_at": "2024-02-16T14:33:19.000-03:00",
-      "parent_ids": [
-        "7beb88e575afe9537d70434ba4429ce85b62c2a5"
-      ],
+      "parent_ids": ["7beb88e575afe9537d70434ba4429ce85b62c2a5"],
       "title": "chore(release): 2.15.0",
       "message": "chore(release): 2.15.0\n",
       "author_name": "Igor Almeida",
@@ -730,9 +688,7 @@
       "id": "30e6c74dae057146732fb334838e6ae353836dd7",
       "short_id": "30e6c74d",
       "created_at": "2024-02-08T13:19:42.000-03:00",
-      "parent_ids": [
-        "30a67bcb1863e1833049d7f68a40ce1a1c4a0b8f"
-      ],
+      "parent_ids": ["30a67bcb1863e1833049d7f68a40ce1a1c4a0b8f"],
       "title": "feat: bump version 2.14.1 and update changelog",
       "message": "feat: bump version 2.14.1 and update changelog\n",
       "author_name": "Igor Almeida",
@@ -760,9 +716,7 @@
       "id": "0e28430785a8cbf33e2c24ac9fb9ba9d21ddee91",
       "short_id": "0e284307",
       "created_at": "2024-02-06T10:48:13.000-03:00",
-      "parent_ids": [
-        "1f2be9f037b020aa94a6ffc8ff1af3682ed664de"
-      ],
+      "parent_ids": ["1f2be9f037b020aa94a6ffc8ff1af3682ed664de"],
       "title": "chore: udpate core",
       "message": "chore: udpate core\n",
       "author_name": "Igor Almeida",
@@ -790,9 +744,7 @@
       "id": "1ce850e54fa42e43f754490b12894d47b68cfef7",
       "short_id": "1ce850e5",
       "created_at": "2024-01-23T14:59:15.000-03:00",
-      "parent_ids": [
-        "97a693c37561289e93e8e797dbdede82199ffcdc"
-      ],
+      "parent_ids": ["97a693c37561289e93e8e797dbdede82199ffcdc"],
       "title": "feat: update changelog",
       "message": "feat: update changelog\n",
       "author_name": "Igor Almeida",
@@ -820,9 +772,7 @@
       "id": "21aa79c657fc87938c63b5a7cb74bd7f9ecc700b",
       "short_id": "21aa79c6",
       "created_at": "2023-12-21T08:47:23.000-03:00",
-      "parent_ids": [
-        "78de57666edbb6898b452bde69af5ff18111d990"
-      ],
+      "parent_ids": ["78de57666edbb6898b452bde69af5ff18111d990"],
       "title": "refactor: adjust changlog",
       "message": "refactor: adjust changlog\n",
       "author_name": "Igor Almeida",
@@ -850,9 +800,7 @@
       "id": "e9fc3c9e1fb00813fe7a5554910cbfa4d646e43f",
       "short_id": "e9fc3c9e",
       "created_at": "2023-12-13T09:18:50.000-03:00",
-      "parent_ids": [
-        "024abee673c2629219ccae6aa31791ac14a41f49"
-      ],
+      "parent_ids": ["024abee673c2629219ccae6aa31791ac14a41f49"],
       "title": "refactor: update changelog properly",
       "message": "refactor: update changelog properly\n",
       "author_name": "Igor Almeida",
@@ -880,9 +828,7 @@
       "id": "6bef48449ca15e1f0d6f834e6be5f083a6ec6b50",
       "short_id": "6bef4844",
       "created_at": "2023-11-16T13:11:27.000-06:00",
-      "parent_ids": [
-        "d8710496810b30fd8ab7d8257e3def6473d93c1e"
-      ],
+      "parent_ids": ["d8710496810b30fd8ab7d8257e3def6473d93c1e"],
       "title": "feat(changelog): updated changelog",
       "message": "feat(changelog): updated changelog\n",
       "author_name": "jahaan_rafear",
@@ -910,9 +856,7 @@
       "id": "42c3657cfc6d22cd00bdcc92f7b7a69e5dab2110",
       "short_id": "42c3657c",
       "created_at": "2023-11-01T15:46:21.000-03:00",
-      "parent_ids": [
-        "fdf42b77c7927e205314eb3951e2311e3477f390"
-      ],
+      "parent_ids": ["fdf42b77c7927e205314eb3951e2311e3477f390"],
       "title": "feat: update CHANGELOG",
       "message": "feat: update CHANGELOG\n",
       "author_name": "Igor Almeida",
@@ -940,9 +884,7 @@
       "id": "e388140e9d9dc95d12882cefa389e80adb78492f",
       "short_id": "e388140e",
       "created_at": "2023-09-27T10:30:33.000-03:00",
-      "parent_ids": [
-        "35ada06d99ff9d447fef194dd53f7a539d74051f"
-      ],
+      "parent_ids": ["35ada06d99ff9d447fef194dd53f7a539d74051f"],
       "title": "refactor: tweak changelog. main merged with squash",
       "message": "refactor: tweak changelog. main merged with squash\n",
       "author_name": "Igor Almeida",
@@ -970,9 +912,7 @@
       "id": "f4c0f50c33b92c755147fcf5ba68363ef5e931c4",
       "short_id": "f4c0f50c",
       "created_at": "2023-09-04T13:58:19.000-03:00",
-      "parent_ids": [
-        "805716036290669abc2561f344a3dac0573af9d6"
-      ],
+      "parent_ids": ["805716036290669abc2561f344a3dac0573af9d6"],
       "title": "chore: adding 2.7.1 changelog",
       "message": "chore: adding 2.7.1 changelog\n",
       "author_name": "Igor Almeida",
@@ -1000,9 +940,7 @@
       "id": "0f53b0b04288518c1b393ad7a9d1a3d2e17da520",
       "short_id": "0f53b0b0",
       "created_at": "2023-08-31T13:20:02.000-03:00",
-      "parent_ids": [
-        "817fa8526b51fb61f397e1259354462a7de18d38"
-      ],
+      "parent_ids": ["817fa8526b51fb61f397e1259354462a7de18d38"],
       "title": "chore: tweak changelog",
       "message": "chore: tweak changelog\n",
       "author_name": "Igor Almeida",
@@ -1030,9 +968,7 @@
       "id": "51c11c530ff0c968ea7ff826b5bde1a8bf312cc8",
       "short_id": "51c11c53",
       "created_at": "2023-07-07T12:12:50.000-03:00",
-      "parent_ids": [
-        "4c93538e3f983cce2161fa1ad8ecdc97b1ea89f4"
-      ],
+      "parent_ids": ["4c93538e3f983cce2161fa1ad8ecdc97b1ea89f4"],
       "title": "chore: debug sonar",
       "message": "chore: debug sonar\n",
       "author_name": "Igor Almeida",
@@ -1060,9 +996,7 @@
       "id": "e5764b3f7eab3a0a1f5ae1f929cb15602566bdba",
       "short_id": "e5764b3f",
       "created_at": "2023-06-14T18:20:09.000-03:00",
-      "parent_ids": [
-        "7f260a60e79ad12a2ba751c27e8d441075f3abfd"
-      ],
+      "parent_ids": ["7f260a60e79ad12a2ba751c27e8d441075f3abfd"],
       "title": "chore(release): 2.5.0",
       "message": "chore(release): 2.5.0\n",
       "author_name": "Igor Almeida",
@@ -1090,9 +1024,7 @@
       "id": "6203ab4225790655c430c4ac7823271be59ba7a8",
       "short_id": "6203ab42",
       "created_at": "2023-05-18T08:38:29.000-03:00",
-      "parent_ids": [
-        "97be2ce38491e0909ef5649ad7dbb0a460b3bdf8"
-      ],
+      "parent_ids": ["97be2ce38491e0909ef5649ad7dbb0a460b3bdf8"],
       "title": "chore(release): 2.4.0",
       "message": "chore(release): 2.4.0\n",
       "author_name": "Igor Almeida",
@@ -1120,9 +1052,7 @@
       "id": "cb35915142037b06f3095c7412019b3dc4726838",
       "short_id": "cb359151",
       "created_at": "2023-03-30T16:05:20.000-03:00",
-      "parent_ids": [
-        "adfe6b69e9bb9ed2748ddbfe566e3629964938ae"
-      ],
+      "parent_ids": ["adfe6b69e9bb9ed2748ddbfe566e3629964938ae"],
       "title": "chore(release): 2.3.0",
       "message": "chore(release): 2.3.0\n",
       "author_name": "Igor Almeida",
@@ -1150,9 +1080,7 @@
       "id": "262d47030d9863e7abf579852c607282f986e85b",
       "short_id": "262d4703",
       "created_at": "2023-03-01T17:02:03.000-03:00",
-      "parent_ids": [
-        "4a971f973f7c389ae78d8d8d867a5816ea438411"
-      ],
+      "parent_ids": ["4a971f973f7c389ae78d8d8d867a5816ea438411"],
       "title": "chore(release): 2.2.0",
       "message": "chore(release): 2.2.0\n",
       "author_name": "A. Caruso",
@@ -1180,9 +1108,7 @@
       "id": "442f9767f81764f54cad761ec326f0911b9e04e7",
       "short_id": "442f9767",
       "created_at": "2023-01-18T15:39:19.000-03:00",
-      "parent_ids": [
-        "1252708f42a8d01ca4282c337d38f18ba62f7a08"
-      ],
+      "parent_ids": ["1252708f42a8d01ca4282c337d38f18ba62f7a08"],
       "title": "chore(release): 2.1.0",
       "message": "chore(release): 2.1.0\n",
       "author_name": "Igor Almeida",
@@ -1210,9 +1136,7 @@
       "id": "848194f068a097c8a96d18c1825a70d9b37114da",
       "short_id": "848194f0",
       "created_at": "2022-11-28T16:17:07.000-03:00",
-      "parent_ids": [
-        "1d424e3c616bf5f7b20932614593bc768e8536a9"
-      ],
+      "parent_ids": ["1d424e3c616bf5f7b20932614593bc768e8536a9"],
       "title": "chore: lint free",
       "message": "chore: lint free\n",
       "author_name": "Igor_Almeida",
