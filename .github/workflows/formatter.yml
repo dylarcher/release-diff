@@ -1,18 +1,20 @@
-name: formatter
+name: lint/format non-compliant
 
 on:
-  push:
-    branches: [develop]
   pull_request:
-    branches: [main]
+    branches:
+      - main
+  push:
+    branches:
+      - develop
   workflow_dispatch:
 
 jobs:
-  formatter:
+  editorconfig:
+    name: fix w/editorconfig
     runs-on: ubuntu-latest
-
     steps:
-      - name: fetch repo latest
+      - name: collect branch state
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -21,32 +23,22 @@ jobs:
       - name: prepare nodejs env
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: "npm"
+          node-version: 18.20.8
+          cache: npm
 
-      - name: setup editorconfig cli
-        run: npm install -g eclint
+      - name: setup lint+format deps
+        run: npm install -g eclint@2.8.1
 
-      - name: locate non-compliant syntax
-        run: eclint check .
+      - name: fix syntax violations
+        run: eclint check . && eclint fix .
 
-      - name: repair non-compliant code
-        run: eclint fix .
-
-      - name: verify proposed change(s)
+      - name: verify code revisions
         id: verify-changed-files
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
+        run: echo "changed=$([ -n "$(git status --porcelain)" ] && echo true || echo false)" >> $GITHUB_OUTPUT
 
-      - name: apply proposed update(s)
+      - name: commit syntax fixes
         if: steps.verify-changed-files.outputs.changed == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Auto-format files using EditorConfig"
-          git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "fix: lints and formats non-compliant syntax" && git push
