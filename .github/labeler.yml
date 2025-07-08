@@ -1,0 +1,186 @@
+type:json/yaml:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.json", "**/*.yaml", "**/*.yml"]
+
+type:md:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.md"]
+
+type:css:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.css"]
+
+type:html:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.html"]
+
+type:js:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.js"]
+
+# Documentation
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**/*"
+          - "**/*.md"
+          - "**/README*"
+          - "**/CONTRIBUTING*"
+          - "**/CHANGELOG*"
+          - "**/HISTORY*"
+
+# Dependencies
+deps_update:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+          - "yarn.lock"
+          - "pnpm-lock.yaml"
+          - "requirements.txt"
+          - "Gemfile"
+          - "Gemfile.lock"
+          - "composer.json"
+          - "composer.lock"
+
+# GitHub Actions
+github_actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**/*"
+          - ".github/actions/**/*"
+
+automated_task:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**/*"
+          - "**/workflows/**/*"
+          - "**/*workflow*"
+          - "**/*action*"
+
+# Configuration files
+configurational:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.config.js"
+          - "**/*.config.json"
+          - "**/*.conf"
+          - "**/.*rc"
+          - "**/.*rc.js"
+          - "**/.*rc.json"
+          - ".env*"
+          - "manifest.json"
+          - "**/settings.json"
+          - "**/config/**/*"
+
+# Pipeline and build
+pipeline_oriented:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**/*"
+          - "**/build.js"
+          - "**/webpack.config.js"
+          - "**/rollup.config.js"
+          - "**/vite.config.js"
+          - "**/gulpfile.js"
+          - "**/Gruntfile.js"
+          - "scripts/**/*"
+
+# Data files
+data_adjustment:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "shared/data/**/*"
+          - "**/data/**/*"
+          - "**/fixtures/**/*"
+          - "**/mock/**/*"
+          - "**/mocks/**/*"
+          - "**/seeds/**/*"
+          - "**/samples/**/*"
+
+# Functional code
+functional:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "services/**/*"
+          - "utils/**/*"
+          - "**/src/**/*.js"
+          - "**/lib/**/*.js"
+          - "**/modules/**/*.js"
+
+# Visual design and assets
+visual_design_update:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.css"
+          - "shared/design/**/*"
+          - "**/styles/**/*"
+          - "**/stylesheets/**/*"
+          - "**/theme/**/*"
+          - "**/themes/**/*"
+
+managing_assets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "shared/icon/**/*"
+          - "**/assets/**/*"
+          - "**/images/**/*"
+          - "**/img/**/*"
+          - "**/icons/**/*"
+          - "**/media/**/*"
+          - "**/*.png"
+          - "**/*.jpg"
+          - "**/*.jpeg"
+          - "**/*.gif"
+          - "**/*.svg"
+          - "**/*.ico"
+          - "**/*.webp"
+          - "**/*.mp4"
+          - "**/*.mov"
+          - "**/*.avi"
+          - "**/*.mp3"
+          - "**/*.wav"
+          - "**/*.ogg"
+
+# Test files
+test_suite_change:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/test/**/*"
+          - "**/tests/**/*"
+          - "**/spec/**/*"
+          - "**/specs/**/*"
+          - "**/*.test.js"
+          - "**/*.spec.js"
+          - "**/__tests__/**/*"
+
+# Version updates
+version_bump:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "manifest.json"
+      - all-glob-to-all-files: "package.json"
+  - head-branch: ["release/*", "version/*", "bump/*"]
+
+# Performance related
+performance_oriented:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/performance/**/*"
+          - "**/perf/**/*"
+          - "**/benchmark/**/*"
+          - "**/benchmarks/**/*"
+  - body-contains:
+      ["performance", "optimization", "optimize", "faster", "speed"]
+
+# Localization
+type:i18n:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "_locales/**/*"
+          - "**/locales/**/*"
+          - "**/i18n/**/*"
+          - "**/translations/**/*"
+          - "**/lang/**/*"
+          - "**/languages/**/*"
