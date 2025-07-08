@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Anatomy of a Design Token</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f8fafc;
+      color: #073b4c;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 300px;
+      max-height: 400px;
+    }
+
+    @media (min-width: 768px) {
+      .chart-container {
+        height: 350px;
+      }
+    }
+
+    .kpi-card {
+      background: linear-gradient(135deg, #118ab2, #06d6a0);
+    }
+
+    .flow-arrow::after {
+      content: "▼";
+      font-size: 2rem;
+      color: #118ab2;
+      display: block;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!--
+    Palette Name: Energetic & Playful
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output.
+    Narrative Plan:
+    1. Hero/Introduction: Title, intro, and a big number KPI.
+    2. The Core Hierarchy: Explain the 3-tier system with a CSS flow chart.
+    3. Universe of Tokens: Grid of token types and a donut chart for distribution.
+    4. Theming & Accessibility: Bar charts comparing themes and contrast ratios.
+    5. Formats & Management: CSS flow chart for the tooling workflow.
+    6. Theming Strategies: A comparison table.
+    7. Conclusion: Summary of benefits.
+
+    Visualization Plan:
+    - Intro Big Number: Goal: Inform. Viz: Large Text. Justification: High impact. Method: HTML/Tailwind. NO SVG.
+    - Token Hierarchy: Goal: Organize. Viz: Flow Chart. Justification: Shows cascade. Method: HTML/CSS. NO SVG/Mermaid.
+    - Token Distribution: Goal: Compare. Viz: Donut Chart. Justification: Shows proportions. Method: Chart.js/Canvas. NO SVG.
+    - Theming Value Mapping: Goal: Compare. Viz: Bar Chart. Justification: Shows value switching. Method: Chart.js/Canvas. NO SVG.
+    - Accessibility Ratios: Goal: Compare. Viz: Bar Chart. Justification: Compares against WCAG standard. Method: Chart.js/Canvas. NO SVG.
+    - Tooling Workflow: Goal: Organize. Viz: Flow Chart. Justification: Illustrates pipeline. Method: HTML/CSS. NO SVG/Mermaid.
+    - Theming Strategies Table: Goal: Organize. Viz: Table. Justification: Clear pro/con list. Method: HTML/Tailwind. NO SVG.
+    -->
+
+  <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+    <header class="text-center my-12">
+      <h1 class="text-4xl md:text-6xl font-black text-[#073B4C] mb-4">
+        The Anatomy of a Design Token
+      </h1>
+      <p class="max-w-3xl mx-auto text-lg text-gray-600">
+        Dive into the world of design tokens, the fundamental,
+        platform-agnostic building blocks of a modern design system. Discover
+        how they bridge the gap between design and engineering to create
+        consistent, scalable, and accessible user interfaces.
+      </p>
+    </header>
+
+    <main class="space-y-16">
+      <section id="kpi" class="text-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+            <div class="text-6xl font-bold text-[#FF6B6B]">1</div>
+            <h3 class="text-xl font-semibold mt-2">Single Source of Truth</h3>
+            <p class="text-gray-600 mt-2">
+              Centralize all design decisions, eliminating ambiguity and
+              ensuring brand consistency across all platforms.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+            <div class="text-6xl font-bold text-[#FFD166]">75%</div>
+            <h3 class="text-xl font-semibold mt-2">Faster Updates</h3>
+            <p class="text-gray-600 mt-2">
+              Reduce the time spent on large-scale brand refreshes or UI
+              updates from weeks to days.
+            </p>
+          </div>
+          <div
+            class="kpi-card text-white rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+            <div class="text-6xl font-bold">100%</div>
+            <h3 class="text-xl font-semibold mt-2">Built-in Accessibility</h3>
+            <p class="mt-2">
+              Embed WCAG standards directly into your tokens to build
+              inclusive products from the ground up.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="hierarchy" class="bg-white rounded-lg shadow-lg p-6 md:p-10">
+        <h2 class="text-3xl font-bold text-center mb-2">
+          The Core Hierarchy
+        </h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          A mature token system uses a 3-tier structure to balance flexibility
+          with stability. Changes to foundational 'Primitive' tokens
+          automatically cascade down, making the entire system scalable and
+          easy to maintain.
+        </p>
+
+        <div class="flex flex-col items-center text-center">
+          <div class="w-full max-w-md">
+            <div class="bg-[#e6f4f8] border-2 border-[#118AB2] rounded-lg p-4 shadow">
+              <h4 class="font-bold text-lg text-[#073B4C]">
+                1. Primitive Tokens
+              </h4>
+              <p class="text-sm text-gray-700">
+                The raw, foundational values. They are not used directly.
+                <br />e.g.,
+                <code class="bg-gray-200 px-1 rounded text-xs">color.palette.blue.500: #118AB2</code>
+              </p>
+            </div>
+          </div>
+          <div class="flow-arrow"></div>
+          <div class="w-full max-w-md">
+            <div class="bg-[#fff6e0] border-2 border-[#FFD166] rounded-lg p-4 shadow">
+              <h4 class="font-bold text-lg text-[#073B4C]">
+                2. Semantic Tokens
+              </h4>
+              <p class="text-sm text-gray-700">
+                Provide context and intent. They reference primitive tokens
+                and are used to build UIs. <br />e.g.,
+                <code class="bg-gray-200 px-1 rounded text-xs">color.background.interactive:
+                    "{color.palette.blue.500}"</code>
+              </p>
+            </div>
+          </div>
+          <div class="flow-arrow"></div>
+          <div class="w-full max-w-md">
+            <div class="bg-[#d9f7f0] border-2 border-[#06D6A0] rounded-lg p-4 shadow">
+              <h4 class="font-bold text-lg text-[#073B4C]">
+                3. Component Tokens
+              </h4>
+              <p class="text-sm text-gray-700">
+                Scoped to a specific component for localized overrides. They
+                reference semantic tokens. <br />e.g.,
+                <code class="bg-gray-200 px-1 rounded text-xs">button.primary.background:
+                    "{color.background.interactive}"</code>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="types">
+        <h2 class="text-3xl font-bold text-center mb-10">
+          A Universe of Tokens
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="font-bold text-xl mb-4 text-center">
+              Typical Token Distribution
+            </h3>
+            <p class="text-center text-gray-600 mb-6">
+              A mature design system is comprised of many types of tokens.
+              While color is often the largest category, spacing and
+              typography are also critical for establishing visual rhythm and
+              hierarchy.
+            </p>
+            <div class="chart-container h-80 md:h-96">
+              <canvas id="tokenDistributionChart"></canvas>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="font-bold text-xl mb-4 text-center">
+              Token Categories
+            </h3>
+            <p class="text-center text-gray-600 mb-6">
+              A comprehensive system tokenizes every aspect of the UI, from
+              visual properties to non-visual feedback like sounds and
+              haptics, ensuring a holistic and consistent user experience.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🎨</span>
+                <p class="font-semibold mt-2">Color</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🔠</span>
+                <p class="font-semibold mt-2">Typography</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">📏</span>
+                <p class="font-semibold mt-2">Spacing</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🧊</span>
+                <p class="font-semibold mt-2">Shape</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">✨</span>
+                <p class="font-semibold mt-2">Elevation</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🎬</span>
+                <p class="font-semibold mt-2">Animation</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🔔</span>
+                <p class="font-semibold mt-2">Sounds</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">👋</span>
+                <p class="font-semibold mt-2">Haptics</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <span class="text-3xl">🧩</span>
+                <p class="font-semibold mt-2">Iconography</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="theming-accessibility">
+        <h2 class="text-3xl font-bold text-center mb-10">
+          Powering Themes & Accessibility
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="font-bold text-xl mb-4 text-center">
+              Dynamic Theming with a Single Token
+            </h3>
+            <p class="text-center text-gray-600 mb-6">
+              Semantic tokens are the key to theming. A single token, like
+              `color.background.surface`, can point to different primitive
+              colors based on the active theme (e.g., Light vs. Dark),
+              instantly changing the entire UI's appearance.
+            </p>
+            <div class="chart-container">
+              <canvas id="themingChart"></canvas>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="font-bold text-xl mb-4 text-center">
+              Enforcing WCAG Contrast Ratios
+            </h3>
+            <p class="text-center text-gray-600 mb-6">
+              Accessibility can be automated by defining token pairs (e.g.,
+              text on a background) that are guaranteed to meet WCAG AA or AAA
+              contrast requirements. This prevents inaccessible color
+              combinations from ever being used.
+            </p>
+            <div class="chart-container">
+              <canvas id="contrastChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="bg-white rounded-lg shadow-lg p-6 md:p-10">
+        <h2 class="text-3xl font-bold text-center mb-2">
+          Automated Multi-Platform Workflow
+        </h2>
+        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+          Design tokens live as structured data (JSON) that can be
+          automatically transformed and distributed to any platform, ensuring
+          that web, iOS, and Android applications all stay perfectly in sync
+          with the design system.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center text-center font-semibold">
+          <div class="p-4 bg-gray-100 rounded-lg shadow">
+            🖌️ <br />
+            Design Tool <br />
+            (Figma)
+          </div>
+          <div class="text-2xl text-[#118AB2] mx-auto hidden md:block">→</div>
+          <div class="p-4 bg-gray-100 rounded-lg shadow">
+            📄 <br />
+            Raw Tokens <br />
+            (JSON)
+          </div>
+          <div class="text-2xl text-[#118AB2] mx-auto hidden md:block">→</div>
+          <div class="p-4 kpi-card text-white rounded-lg shadow">
+            ⚙️ <br />
+            Transformer <br />
+            (Style Dictionary)
+          </div>
+          <div class="col-span-1 md:col-span-5 text-2xl text-[#118AB2] text-center my-4 hidden md:block">
+            ↓
+          </div>
+          <div class="col-span-1 md:col-span-5 md:flex justify-center gap-4 space-y-4 md:space-y-0">
+            <div class="p-4 bg-gray-100 rounded-lg shadow flex-1">
+              🌐 <br />
+              Web <br />
+              (CSS Vars)
+            </div>
+            <div class="p-4 bg-gray-100 rounded-lg shadow flex-1">
+              🍏 <br />
+              iOS <br />
+              (Swift Code)
+            </div>
+            <div class="p-4 bg-gray-100 rounded-lg shadow flex-1">
+              🤖 <br />
+              Android <br />
+              (XML)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="strategies">
+        <h2 class="text-3xl font-bold text-center mb-10">
+          Comparing Theming Strategies
+        </h2>
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 overflow-x-auto">
+          <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+            Choosing how to deliver themes to users involves a trade-off
+            between dynamic flexibility and initial load performance. Both
+            methods rely on the power of tokens to function.
+          </p>
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr>
+                <th class="p-4 border-b-2 border-[#073B4C] font-bold text-lg">
+                  Strategy
+                </th>
+                <th class="p-4 border-b-2 border-[#073B4C] font-bold text-lg">
+                  Pros
+                </th>
+                <th class="p-4 border-b-2 border-[#073B4C] font-bold text-lg">
+                  Cons
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover:bg-gray-50">
+                <td class="p-4 border-b border-gray-200 font-semibold align-top">
+                  Run-Time Theming
+                </td>
+                <td class="p-4 border-b border-gray-200 align-top">
+                  ✔ Instant theme switching (no reload)<br />✔ All themes
+                  available on client-side
+                </td>
+                <td class="p-4 border-b border-gray-200 align-top">
+                  ❌ Larger initial CSS bundle size<br />❌ Can slightly
+                  impact load performance
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="p-4 border-b border-gray-200 font-semibold align-top">
+                  Build-Time Theming
+                </td>
+                <td class="p-4 border-b border-gray-200 align-top">
+                  ✔ Optimized, smaller CSS bundles<br />✔ Faster initial
+                  page loads
+                </td>
+                <td class="p-4 border-b border-gray-200 align-top">
+                  ❌ More complex build pipeline<br />❌ Switching themes may
+                  require a reload
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center mt-20 py-8 border-t border-gray-200">
+      <p class="text-gray-600">
+        Design tokens are the future of product development. By adopting a
+        token-based system, you build a foundation for a more collaborative,
+        efficient, and consistent design process.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const FONT_COLOR = "#073B4C";
+    const GRID_COLOR = "#e2e8f0";
+    const PALETTE = {
+      red: "#FF6B6B",
+      yellow: "#FFD166",
+      green: "#06D6A0",
+      blue: "#118AB2",
+      darkBlue: "#073B4C",
+    };
+
+    const chartTooltipTitleCallback = (tooltipItems) => {
+      const item = tooltipItems[0];
+      let label = item.chart.data.labels[item.dataIndex];
+      if (Array.isArray(label)) {
+        return label.join(" ");
+      }
+      return label;
+    };
+
+    const wrapLabel = (label) => {
+      const maxLength = 16;
+      if (label.length <= maxLength) return label;
+      const words = label.split(" ");
+      const lines = [];
+      let currentLine = "";
+      words.forEach((word) => {
+        if ((currentLine + word).length > maxLength) {
+          lines.push(currentLine.trim());
+          currentLine = "";
+        }
+        currentLine += word + " ";
+      });
+      lines.push(currentLine.trim());
+      return lines;
+    };
+
+    const defaultChartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: FONT_COLOR,
+            font: {
+              size: 14,
+            },
+          },
+        },
+        tooltip: {
+          callbacks: {
+            title: chartTooltipTitleCallback,
+          },
+        },
+      },
+      scales: {
+        x: {
+          ticks: { color: FONT_COLOR, font: { size: 12 } },
+          grid: { color: GRID_COLOR },
+        },
+        y: {
+          ticks: { color: FONT_COLOR, font: { size: 12 } },
+          grid: { color: GRID_COLOR },
+        },
+      },
+    };
+
+    const tokenDistributionCtx = document
+      .getElementById("tokenDistributionChart")
+      .getContext("2d");
+    new Chart(tokenDistributionCtx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Color",
+          "Spacing",
+          "Typography",
+          "Shape",
+          "Elevation",
+          "Other",
+        ],
+        datasets: [
+          {
+            label: "Token Distribution",
+            data: [40, 25, 20, 5, 5, 5],
+            backgroundColor: [
+              PALETTE.blue,
+              PALETTE.green,
+              PALETTE.yellow,
+              PALETTE.red,
+              PALETTE.darkBlue,
+              "#cccccc",
+            ],
+            borderColor: "#f8fafc",
+            borderWidth: 4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "right",
+            labels: { color: FONT_COLOR, font: { size: 14 } },
+          },
+          tooltip: {
+            callbacks: {
+              title: chartTooltipTitleCallback,
+            },
+          },
+        },
+      },
+    });
+
+    const themingCtx = document
+      .getElementById("themingChart")
+      .getContext("2d");
+    new Chart(themingCtx, {
+      type: "bar",
+      data: {
+        labels: ["Light Theme", "Dark Theme", "High Contrast Theme"],
+        datasets: [
+          {
+            label: "Primitive Value for color.background.surface",
+            data: [1, 1, 1],
+            backgroundColor: ["#FFFFFF", "#073B4C", "#000000"],
+            borderColor: [PALETTE.darkBlue, PALETTE.green, PALETTE.yellow],
+            borderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        ...defaultChartOptions,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: chartTooltipTitleCallback,
+              label: (context) => {
+                const theme = context.label;
+                const color =
+                  context.dataset.backgroundColor[context.dataIndex];
+                return `Primitive Value: ${color}`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { color: FONT_COLOR, font: { size: 14 } },
+            grid: { display: false },
+          },
+          y: { display: false },
+        },
+      },
+    });
+
+    const contrastCtx = document
+      .getElementById("contrastChart")
+      .getContext("2d");
+    const contrastLabels = [
+      "Interactive Text on Primary Background",
+      "Body Text on Surface",
+      "Subtle Text on Surface",
+      "Disabled Text on Surface",
+    ].map(wrapLabel);
+
+    new Chart(contrastCtx, {
+      type: "bar",
+      data: {
+        labels: contrastLabels,
+        datasets: [
+          {
+            label: "Contrast Ratio",
+            data: [4.8, 11.2, 4.6, 2.9],
+            backgroundColor: [
+              PALETTE.green,
+              PALETTE.blue,
+              PALETTE.yellow,
+              PALETTE.red,
+            ],
+          },
+        ],
+      },
+      options: {
+        ...defaultChartOptions,
+        indexAxis: "y",
+        plugins: {
+          ...defaultChartOptions.plugins,
+          legend: { display: false },
+          annotation: {
+            annotations: {
+              lineAA: {
+                type: "line",
+                xMin: 4.5,
+                xMax: 4.5,
+                borderColor: PALETTE.darkBlue,
+                borderWidth: 2,
+                borderDash: [6, 6],
+                label: {
+                  content: "WCAG AA (4.5)",
+                  display: true,
+                  position: "start",
+                  backgroundColor: "rgba(7, 59, 76, 0.8)",
+                  color: "white",
+                  font: {
+                    weight: "bold",
+                  },
+                },
+              },
+              lineAAA: {
+                type: "line",
+                xMin: 7,
+                xMax: 7,
+                borderColor: PALETTE.darkBlue,
+                borderWidth: 2,
+                borderDash: [6, 6],
+                label: {
+                  content: "WCAG AAA (7.0)",
+                  display: true,
+                  position: "start",
+                  backgroundColor: "rgba(7, 59, 76, 0.8)",
+                  color: "white",
+                  font: {
+                    weight: "bold",
+                  },
+                },
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { color: FONT_COLOR },
+            grid: { color: GRID_COLOR },
+            title: {
+              display: true,
+              text: "Contrast Ratio",
+              color: FONT_COLOR,
+            },
+          },
+          y: {
+            ticks: { color: FONT_COLOR },
+            grid: { color: GRID_COLOR },
+          },
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
+
+<!-- TODO: Fix the missing references below:
+ 1. Token reference not found: theme.color.palette.yellow.500
+ 2. Token reference not found: theme.color.palette.red.500
+ 3. Token reference not found: theme.color.palette.red.700
+ 4. Token reference not found: theme.color.palette.blue.700
+ 5. Token reference not found: theme.color.palette.green.700
+ 6. Token reference not found: theme.color.palette.yellow.700
+-->

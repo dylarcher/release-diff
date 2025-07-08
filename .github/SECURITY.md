@@ -24,13 +24,13 @@ You should receive a response within 48 hours. If for some reason you do not, pl
 
 Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 
-*   Type of issue (e.g., buffer overflow, SQL injection, cross-site scripting, etc.)
-*   Full paths of source file(s) related to the manifestation of the vulnerability
-*   The location of the affected source code (tag/branch/commit or direct URL)
-*   Any special configuration required to reproduce the issue
-*   Step-by-step instructions to reproduce the issue
-*   Proof-of-concept or exploit code (if possible)
-*   Impact of the issue, including how an attacker might exploit the issue
+- Type of issue (e.g., buffer overflow, SQL injection, cross-site scripting, etc.)
+- Full paths of source file(s) related to the manifestation of the vulnerability
+- The location of the affected source code (tag/branch/commit or direct URL)
+- Any special configuration required to reproduce the issue
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the issue, including how an attacker might exploit the issue
 
 This information will help us triage your report more quickly.
 
@@ -42,10 +42,10 @@ We will issue security advisories for any confirmed vulnerabilities. These will 
 
 ## Our Commitment
 
-*   We will investigate all reported vulnerabilities promptly.
-*   We will work with you to understand and validate the vulnerability.
-*   We will take appropriate action to address the vulnerability.
-*   We will publicly disclose the vulnerability once a fix is available, unless there is a compelling reason not to.
+- We will investigate all reported vulnerabilities promptly.
+- We will work with you to understand and validate the vulnerability.
+- We will take appropriate action to address the vulnerability.
+- We will publicly disclose the vulnerability once a fix is available, unless there is a compelling reason not to.
 
 We appreciate your efforts to responsibly disclose your findings, and will make every effort to acknowledge your contributions.
 
