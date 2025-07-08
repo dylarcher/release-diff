@@ -324,7 +324,7 @@
       },
       "size-085": {
         "$description": "85% spacing",
-        "$type": "0.dimension",
+        "$type": "dimension",
         "$value": "85%"
       },
       "size-090": {
@@ -555,7 +555,7 @@
       },
       "size-085": {
         "$description": "85% dynamic viewport width spacing",
-        "$type": "0.dimension",
+        "$type": "dimension",
         "$value": "85dvw"
       },
       "size-090": {
@@ -662,7 +662,7 @@
       },
       "size-085": {
         "$description": "85% dynamic viewport height spacing",
-        "$type": "0.dimension",
+        "$type": "dimension",
         "$value": "85dvh"
       },
       "size-090": {
