@@ -192,7 +192,6 @@ export class SettingsManager {
                 try {
                     await saveThemePreference(defaultTheme);
                 } catch (error) {
-                    // Silently fail if we can't save
                 }
             }
         } catch (error) {
