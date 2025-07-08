@@ -1,0 +1,45 @@
+name: Lint & Format
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  eclint:
+    name: EditorConfig (fix non-compliant code)
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - name: Prepare Git Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACTIONS_PAT }}
+
+      - name: Setup NodeJS Env
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: npm
+
+      - name: Install eclint@^2.8.1
+        run: npm install -g eclint@^2.8.1
+
+      - name: Attempt Violations Fix
+        run: eclint fix .
+
+      - name: Validate Revised Files
+        id: verify-changed-files
+        run: echo "changed=$([ -n "$(git status --porcelain)" ] && echo true || echo false)" >> $GITHUB_OUTPUT
+
+      - name: Commit Repaired Syntax
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "fix: lints and formats non-compliant syntax" && git push origin HEAD:${{ github.head_ref || github.ref_name }}

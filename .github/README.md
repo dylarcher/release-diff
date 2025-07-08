@@ -2,7 +2,7 @@
 
 A browser extension that provides a consolidated summary and overview of software releases by integrating data from Jira and GitLab. It aims to bridge the information gap between issue tracking and code management platforms, enhancing release transparency and streamlining reporting.
 
-*The extension uses Chrome's side panel for a persistant interface while navigating between tabs providing a better workflow than the alternative "popup" integration.*
+_The extension uses Chrome's side panel for a persistant interface while navigating between tabs providing a better workflow than the alternative "popup" integration._
 
 > **Security Disclaimer Notice:**
 >
@@ -37,7 +37,7 @@ A browser extension that provides a consolidated summary and overview of softwar
   - Code changes found in GitLab but not formally planned in Jira (no linked Jira issue).
   - Jira issues linked in code but whose Jira status is not "Done".
 - Displays a summary of matched issues and identified discrepancies in a persistent side panel UI.
-- *Click* the extension icon to open the side panel interface.
+- _Click_ the extension icon to open the side panel interface.
 
 ## Getting Started
 
@@ -64,21 +64,24 @@ The extension is organized into several key files. Understanding their roles is 
 
 1. **Clone the repository:**
 
-  ```shell
-  git clone https://github.com/your-username/jira-gitlab-release-extension.git
-  cd jira-gitlab-release-extension
-  ```
+```shell
+git clone https://github.com/your-username/jira-gitlab-release-extension.git
+cd jira-gitlab-release-extension
+```
 
 2. **Open Extension Management:**
-  - Open your Chrome or Edge browser.
-  - Navigate to `chrome://extensions` (for Chrome) or `edge://extensions` (for Edge).
+
+- Open your Chrome or Edge browser.
+- Navigate to `chrome://extensions` (for Chrome) or `edge://extensions` (for Edge).
 
 3. **Enable Developer Mode:**
-  - Toggle the "Developer mode" switch in the top right corner.
+
+- Toggle the "Developer mode" switch in the top right corner.
 
 4. **Load the extension:**
-  - Click "Load unpacked".
-  - Select the `jira-gitlab-release-extension` directory you cloned.
+
+- Click "Load unpacked".
+- Select the `jira-gitlab-release-extension` directory you cloned.
 
 ### 3. Using the Side Panel
 
@@ -105,23 +108,24 @@ The extension is organized into several key files. Understanding their roles is 
 > Before using the extension, you need to configure your Jira and GitLab instance URLs and API Personal Access Tokens.
 
 1. **Open Options Page:**
-  - *Click* on the "Jira-GitLab Release Overview" extension icon in your browser toolbar.
+  - _Click_ on the "Jira-GitLab Release Overview" extension icon in your browser toolbar.
   - At the bottom of the popup, click the "Configure API Keys and URLs" link. This will open the options page in a new tab.
 2. Get Jira Personal Access Token (PAT):
-  - *Go to* your Atlassian account settings (for Jira Cloud) or your Jira profile (for Jira Server/Data Center).
+  - _Go to_ your Atlassian account settings (for Jira Cloud) or your Jira profile (for Jira Server/Data Center).
   - Generate an API token.
-  - **Important for Jira Cloud:** For Jira Cloud PATs, the `background.js` script uses Basic Authentication in the format `email:token` or `username:token`. When entering your PAT in the options,  **only provide the token itself**. The `background.js` will append the `:` internally. If your Jira instance requires `email:token`, you may need to adjust the authentication in `background.js` to `btoa("{EMAIL_ADDRESS}@{PROVIDER_DOMAIN}.com:" + token)`. For simplicity in this example, it assumes a token-only input for the PAT field, acting as a password in Basic Auth.
+  - **Important for Jira Cloud:** For Jira Cloud PATs, the `background.js` script uses Basic Authentication in the format `email:token` or `username:token`. When entering your PAT in the options, **only provide the token itself**. The `background.js` will append the `:` internally. If your Jira instance requires `email:token`, you may need to adjust the authentication in `background.js` to `btoa("{EMAIL_ADDRESS}@{PROVIDER_DOMAIN}.com:" + token)`. For simplicity in this example, it assumes a token-only input for the PAT field, acting as a password in Basic Auth.
 3. **Get GitLab Personal Access Token (PAT):**
   - Log in to your GitLab instance.
   - Go to your user settings -> Access Tokens.
   - Generate a new personal access token with at least `read_api` and `read_repository` scopes.
 4. **Enter Configuration Details:** (&hellip;in the extension options page)
-    - Enter your *Jira Base URL* (e.g. `https://jira.dell.net` or `https://jira.dell.com`).
-    - Enter your *Jira Personal Access Token (PAT)*.
-    - Enter your *GitLab Base URL* (e.g. `https://gitlab.com` or `https://gitlab.dell.com`).
-    - Enter your *GitLab Personal Access Token (PAT)*.
+  - Enter your _Jira Base URL_ (e.g. `https://jira.dell.net` or `https://jira.dell.com`).
+  - Enter your _Jira Personal Access Token (PAT)_.
+  - Enter your _GitLab Base URL_ (e.g. `https://gitlab.com` or `https://gitlab.dell.com`).
+  - Enter your _GitLab Personal Access Token (PAT)_.
 5. **Save Settings:**
-  - Click the "Save Settings" button. You should see a "Settings saved!" message.
+
+- Click the "Save Settings" button. You should see a "Settings saved!" message.
 
 ### 4. Update `manifest.json` Host Permissions
 
@@ -146,12 +150,14 @@ The extension is organized into several key files. Understanding their roles is 
 
 1. **Click the extension icon in your browser toolbar.**
 2. **Enter the required details:**
-  - **Jira Project Key** - The key for your Jira project (e.g. `DDSTM`).
-  - **Jira Fix Version** - The exact name of the Jira**`Fix Version` (e.g. `Release v1.0.0`).
-  - **GitLab Project ID** - The numerical ID of your GitLab project. You can find this on your GitLab project's overview page.
-  - **GitLab Current Release Tag** - The exact name of the Git tag for the current release (e.g. `v1.0.0`).
-  - **GitLab Previous Release Tag** - The exact name of the Git tag for the previous release (e.g. `v0.9.0`).
-3. *Click* "Generate Summary".
+
+- **Jira Project Key** - The key for your Jira project (e.g. `DDSTM`).
+- **Jira Fix Version** - The exact name of the Jira\*\*`Fix Version` (e.g. `Release v1.0.0`).
+- **GitLab Project ID** - The numerical ID of your GitLab project. You can find this on your GitLab project's overview page.
+- **GitLab Current Release Tag** - The exact name of the Git tag for the current release (e.g. `v1.0.0`).
+- **GitLab Previous Release Tag** - The exact name of the Git tag for the previous release (e.g. `v0.9.0`).
+
+3. _Click_ "Generate Summary".
 4. The extension will fetch data, perform the comparison, and display the summary, including total issues, and identified discrepancies.
 
 ### 6. Troubleshooting
@@ -201,14 +207,14 @@ The extension is organized into several key files. Understanding their roles is 
 
 ## Limitations and Future Improvements
 
-| **TOPIC** | **SUMMARY** |
-| --- | --- |
-| **Security of PATs** | As noted, storing PATs client-side is a security risk. For production, consider a backend service to handle API authentication and act as a proxy. |
-| **Jira OAuth 2.0** | Jira Cloud's OAuth 2.0 (3LO) is complex for client-side applications as it does not support implicit grant flow. A full OAuth implementation would require a backend component. |
-| **Error Handling** | Basic error handling is in place. More robust error handling, including exponential backoff for rate limits and more specific API error messages, could be implemented. |
-| **GitLab Pagination for Commits** | The GitLab Commits API does not provide total counts, which means the extension fetches pages iteratively. For very large commit histories between tags, this could be slow. |
-| **Jira Issue Linking Precision** | The extension relies on Jira issue keys being explicitly mentioned in GitLab commit messages/MR titles. Incorrect or missing links will result in discrepancies. |
-| **Merge Request Details** | The current version infers MR details from commit messages. A more robust solution would involve fetching GitLab Merge Request (MR) details directly via API.
-| **Customization** | The Jira issue key regex is hardcoded. It could be made configurable in the options page. |
-| **Interface Enhancements** | More advanced visualizations or filtering options could be added.
-| **Cross-Browser Compatibility** | While designed for Chrome/Edge, full cross-browser compatibility (Firefox, Safari) would require testing and potentially minor adjustments to browser-specific APIs (though `webextension-polyfill` can help). |
+| **TOPIC**                         | **SUMMARY**                                                                                                                                                                                                    |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Security of PATs**              | As noted, storing PATs client-side is a security risk. For production, consider a backend service to handle API authentication and act as a proxy.                                                             |
+| **Jira OAuth 2.0**                | Jira Cloud's OAuth 2.0 (3LO) is complex for client-side applications as it does not support implicit grant flow. A full OAuth implementation would require a backend component.                                |
+| **Error Handling**                | Basic error handling is in place. More robust error handling, including exponential backoff for rate limits and more specific API error messages, could be implemented.                                        |
+| **GitLab Pagination for Commits** | The GitLab Commits API does not provide total counts, which means the extension fetches pages iteratively. For very large commit histories between tags, this could be slow.                                   |
+| **Jira Issue Linking Precision**  | The extension relies on Jira issue keys being explicitly mentioned in GitLab commit messages/MR titles. Incorrect or missing links will result in discrepancies.                                               |
+| **Merge Request Details**         | The current version infers MR details from commit messages. A more robust solution would involve fetching GitLab Merge Request (MR) details directly via API.                                                  |
+| **Customization**                 | The Jira issue key regex is hardcoded. It could be made configurable in the options page.                                                                                                                      |
+| **Interface Enhancements**        | More advanced visualizations or filtering options could be added.                                                                                                                                              |
+| **Cross-Browser Compatibility**   | While designed for Chrome/Edge, full cross-browser compatibility (Firefox, Safari) would require testing and potentially minor adjustments to browser-specific APIs (though `webextension-polyfill` can help). |

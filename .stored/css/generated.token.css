@@ -129,28 +129,9 @@
   --depth-elevation-lg: 0 4px 8px #0006;
   --depth-elevation-md: 0 2px 4px #0004;
   --depth-elevation-sm: 0 1px 2px #0002;
-
-  --element-custom-templates-button-base-border-radius: {
-    elements.shape.border-radius.medium
-  }
-
-  ;
-
-  --element-custom-templates-button-base-border-width: {
-    elements.shape.border-width.thin
-  }
-
-  ;
-
-  --element-custom-templates-button-base-padding: {
-    elements.sizing.static.medium
-  }
-
-    {
-    elements.sizing.static.large
-  }
-
-  ;
+  --element-custom-templates-button-base-border-radius: 0.5rem;
+  --element-custom-templates-button-base-border-width: 1px;
+  --element-custom-templates-button-base-padding: 16px 24px;
   --element-shape-border-radius-full: 9999px;
   --element-shape-border-radius-large: 1rem;
   --element-shape-border-radius-medium: 0.5rem;
@@ -160,240 +141,113 @@
   --element-shape-border-width-none: 0;
   --element-shape-border-width-thick: 4px;
   --element-shape-border-width-thin: 1px;
-
-  --element-theme-background-error: {
-    theme.color.palette.red.500
-  }
-
-  ;
-
-  --element-theme-background-highlight: {
-    theme.color.palette.yellow.300
-  }
-
-  ;
-
-  --element-theme-background-info: {
-    theme.color.palette.blue.100
-  }
-
-  ;
-
-  --element-theme-background-success: {
-    theme.color.palette.green.500
-  }
-
-  ;
-
-  --element-theme-background-warning: {
-    theme.color.palette.yellow.500
-  }
-
-  ;
-
-  --element-theme-border-error: {
-    theme.color.palette.red.500
-  }
-
-  ;
-
-  --element-theme-text-state-error: {
-    theme.color.palette.red.700
-  }
-
-  ;
-
-  --element-theme-text-state-info: {
-    theme.color.palette.blue.700
-  }
-
-  ;
-
-  --element-theme-text-state-success: {
-    theme.color.palette.green.700
-  }
-
-  ;
-
-  --element-theme-text-state-warning: {
-    theme.color.palette.yellow.700
-  }
-
-  ;
-  --fonts-accesskey-fontFamily: 'Nimbus Mono PS',
-  'Courier New',
-  monospace;
+  --element-theme-background-error: #cc625b;
+  --element-theme-background-highlight: #f4e87f;
+  --element-theme-background-info: #d3d9f3;
+  --element-theme-background-success: #70b070;
+  --element-theme-background-warning: {theme.color.palette.yellow.500};
+  --element-theme-border-error: {theme.color.palette.red.500};
+  --element-theme-text-state-error: {theme.color.palette.red.700};
+  --element-theme-text-state-info: {theme.color.palette.blue.700};
+  --element-theme-text-state-success: {theme.color.palette.green.700};
+  --element-theme-text-state-warning: {theme.color.palette.yellow.700};
+  --fonts-accesskey-fontFamily: 'Nimbus Mono PS', 'Courier New', monospace;
   --fonts-accesskey-fontSize: 12;
   --fonts-accesskey-fontStyle: normal;
   --fonts-accesskey-fontWeight: 500;
   --fonts-accesskey-letterSpacing: 0.5;
   --fonts-accesskey-lineHeight: 1.4;
-  --fonts-action-fontFamily: Seravek,
-  'Gill Sans Nova',
-  Ubuntu,
-  Calibri,
-  'DejaVu Sans',
-  source-sans-pro,
-  sans-serif;
+  --fonts-action-fontFamily: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
   --fonts-action-fontSize: 14;
   --fonts-action-fontStyle: normal;
   --fonts-action-fontWeight: 500;
   --fonts-action-letterSpacing: 0.25;
   --fonts-action-lineHeight: 1.4;
-  --fonts-anchor-fontFamily: system-ui,
-  sans-serif;
+  --fonts-anchor-fontFamily: system-ui, sans-serif;
   --fonts-anchor-fontSize: 14;
   --fonts-anchor-fontStyle: normal;
   --fonts-anchor-fontWeight: 400;
   --fonts-anchor-letterSpacing: 0;
   --fonts-anchor-lineHeight: 1.5;
-  --fonts-citation-fontFamily: Optima,
-  Candara,
-  'Noto Sans',
-  source-sans-pro,
-  sans-serif;
+  --fonts-citation-fontFamily: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
   --fonts-citation-fontSize: 13;
   --fonts-citation-fontStyle: italic;
   --fonts-citation-fontWeight: 400;
   --fonts-citation-letterSpacing: 0.1;
   --fonts-citation-lineHeight: 1.6;
-  --fonts-code-fontFamily: ui-monospace,
-  'Cascadia Code',
-  'Source Code Pro',
-  Menlo,
-  Consolas,
-  'DejaVu Sans Mono',
-  monospace;
+  --fonts-code-fontFamily: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   --fonts-code-fontSize: 13;
   --fonts-code-fontStyle: normal;
   --fonts-code-fontWeight: 400;
   --fonts-code-letterSpacing: 0;
   --fonts-code-lineHeight: 1.6;
-  --fonts-fields-fontFamily: Avenir,
-  Montserrat,
-  Corbel,
-  'URW Gothic',
-  source-sans-pro,
-  sans-serif;
+  --fonts-fields-fontFamily: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
   --fonts-fields-fontSize: 14;
   --fonts-fields-fontStyle: normal;
   --fonts-fields-fontWeight: 400;
   --fonts-fields-letterSpacing: 0.1;
   --fonts-fields-lineHeight: 1.5;
-  --fonts-footnote-fontFamily: Avenir,
-  Montserrat,
-  Corbel,
-  'URW Gothic',
-  source-sans-pro,
-  sans-serif;
+  --fonts-footnote-fontFamily: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
   --fonts-footnote-fontSize: 12;
   --fonts-footnote-fontStyle: normal;
   --fonts-footnote-fontWeight: 400;
   --fonts-footnote-letterSpacing: 0.05;
   --fonts-footnote-lineHeight: 1.4;
-  --fonts-label-fontFamily: Inter,
-  Roboto,
-  'Helvetica Neue',
-  'Arial Nova',
-  'Nimbus Sans',
-  Arial,
-  sans-serif;
+  --fonts-label-fontFamily: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
   --fonts-label-fontSize: 14;
   --fonts-label-fontStyle: normal;
   --fonts-label-fontWeight: 500;
   --fonts-label-letterSpacing: 0.1;
   --fonts-label-lineHeight: 1.4;
-  --fonts-large-heading-fontFamily: ui-rounded,
-  'Hiragino Maru Gothic ProN',
-  Quicksand,
-  Comfortaa,
-  Manjari,
-  'Arial Rounded MT',
-  'Arial Rounded MT Bold',
-  Calibri,
-  source-sans-pro,
-  sans-serif;
+  --fonts-large-heading-fontFamily: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
   --fonts-large-heading-fontSize: 32;
   --fonts-large-heading-fontStyle: normal;
   --fonts-large-heading-fontWeight: 700;
   --fonts-large-heading-letterSpacing: -0.5;
   --fonts-large-heading-lineHeight: 1.2;
-  --fonts-link-fontFamily: Inter,
-  Roboto,
-  'Helvetica Neue',
-  'Arial Nova',
-  'Nimbus Sans',
-  Arial,
-  sans-serif;
+  --fonts-link-fontFamily: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
   --fonts-link-fontSize: 14;
   --fonts-link-fontStyle: normal;
   --fonts-link-fontWeight: 400;
   --fonts-link-letterSpacing: 0;
   --fonts-link-lineHeight: 1.5;
-  --fonts-medium-heading-fontFamily: 'Iowan Old Style',
-  'Palatino Linotype',
-  'URW Palladio L',
-  P052,
-  serif;
+  --fonts-medium-heading-fontFamily: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
   --fonts-medium-heading-fontSize: 24;
   --fonts-medium-heading-fontStyle: normal;
   --fonts-medium-heading-fontWeight: 600;
   --fonts-medium-heading-letterSpacing: -0.3;
   --fonts-medium-heading-lineHeight: 1.3;
-  --fonts-normal-fontFamily: system-ui,
-  sans-serif;
+  --fonts-normal-fontFamily: system-ui, sans-serif;
   --fonts-normal-fontSize: 14;
   --fonts-normal-fontStyle: normal;
   --fonts-normal-fontWeight: 400;
   --fonts-normal-letterSpacing: 0;
   --fonts-normal-lineHeight: 1.5;
-  --fonts-pretext-fontFamily: Fira Code,
-  monospace;
+  --fonts-pretext-fontFamily: Fira Code, monospace;
   --fonts-pretext-fontSize: 13;
   --fonts-pretext-fontStyle: normal;
   --fonts-pretext-fontWeight: 400;
   --fonts-pretext-letterSpacing: 0;
   --fonts-pretext-lineHeight: 1.6;
-  --fonts-quote-fontFamily: Didot,
-  'Bodoni MT',
-  'Noto Serif Display',
-  'URW Palladio L',
-  P052,
-  Sylfaen,
-  serif;
+  --fonts-quote-fontFamily: Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif;
   --fonts-quote-fontSize: 16;
   --fonts-quote-fontStyle: italic;
   --fonts-quote-fontWeight: 400;
   --fonts-quote-letterSpacing: 0.1;
   --fonts-quote-lineHeight: 1.6;
-  --fonts-small-heading-fontFamily: Bahnschrift,
-  'DIN Alternate',
-  'Franklin Gothic Medium',
-  'Nimbus Sans Narrow',
-  sans-serif-condensed,
-  sans-serif;
+  --fonts-small-heading-fontFamily: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
   --fonts-small-heading-fontSize: 18;
   --fonts-small-heading-fontStyle: normal;
   --fonts-small-heading-fontWeight: 600;
   --fonts-small-heading-letterSpacing: -0.1;
   --fonts-small-heading-lineHeight: 1.4;
-  --fonts-subheading-fontFamily: Bahnschrift,
-  'DIN Alternate',
-  'Franklin Gothic Medium',
-  'Nimbus Sans Narrow',
-  sans-serif-condensed,
-  sans-serif;
+  --fonts-subheading-fontFamily: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
   --fonts-subheading-fontSize: 16;
   --fonts-subheading-fontStyle: normal;
   --fonts-subheading-fontWeight: 500;
   --fonts-subheading-letterSpacing: 0.2;
   --fonts-subheading-lineHeight: 1.4;
-  --fonts-tag-fontFamily: Bahnschrift,
-  'DIN Alternate',
-  'Franklin Gothic Medium',
-  'Nimbus Sans Narrow',
-  sans-serif-condensed,
-  sans-serif;
+  --fonts-tag-fontFamily: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
   --fonts-tag-fontSize: 12;
   --fonts-tag-fontStyle: normal;
   --fonts-tag-fontWeight: 500;

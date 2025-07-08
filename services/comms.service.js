@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES, CONSOLE_MESSAGES } from '../shared/constants.js';
+import { ERROR_MESSAGES, CONSOLE_MESSAGES } from "../shared/constants.js";
 
 export class ChromeMessageHandler {
   static async sendMessageToBackgroundScript(action, data = {}) {
@@ -11,7 +11,10 @@ export class ChromeMessageHandler {
 
       return response;
     } catch (error) {
-      console.error(`${CONSOLE_MESSAGES.ERROR_SENDING_MESSAGE_WITH_ACTION} '${action}':`, error);
+      console.error(
+        `${CONSOLE_MESSAGES.ERROR_SENDING_MESSAGE_WITH_ACTION} '${action}':`,
+        error
+      );
       throw error;
     }
   }
@@ -23,11 +26,14 @@ export class ChromeMessageHandler {
           const result = await messageHandler(request, sender);
           sendResponse(result);
         } catch (error) {
-          console.error(CONSOLE_MESSAGES.BACKGROUND_MESSAGE_HANDLER_ERROR, error);
+          console.error(
+            CONSOLE_MESSAGES.BACKGROUND_MESSAGE_HANDLER_ERROR,
+            error
+          );
           sendResponse({
             success: false,
             message: error.message || ERROR_MESSAGES.UNKNOWN_ERROR_OCCURRED,
-            error: error.toString()
+            error: error.toString(),
           });
         }
       })();
@@ -36,5 +42,6 @@ export class ChromeMessageHandler {
     };
   }
 }
-export const { sendMessageToBackgroundScript, handleAsyncBackgroundMessage } = ChromeMessageHandler;
+export const { sendMessageToBackgroundScript, handleAsyncBackgroundMessage } =
+  ChromeMessageHandler;
 export default new ChromeMessageHandler();

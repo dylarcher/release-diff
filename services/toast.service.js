@@ -1,4 +1,4 @@
-import { STATUS_TYPES } from '../shared/constants.js';
+import { STATUS_TYPES } from "../shared/constants.js";
 
 export class ToastNotificationService {
   constructor() {
@@ -8,30 +8,40 @@ export class ToastNotificationService {
   }
 
   createToastContainer() {
-    if (!document.getElementById('toast-container')) {
-      const container = document.createElement('div');
-      container.id = 'toast-container';
-      container.className = 'toast-container';
+    if (!document.getElementById("toast-container")) {
+      const container = document.createElement("div");
+      container.id = "toast-container";
+      container.className = "toast-container";
       document.body.appendChild(container);
     }
   }
 
   /**
-  * Show a toast notification
-  * @param {string} message - The message to display
-  * @param {string} type - The type of toast (error, success, info, warning)
-  * @param {number} duration - Duration in milliseconds (0 for permanent)
-  * @param {boolean} showCloseButton - Whether to show close button
-  */
-  showToast(message, type = STATUS_TYPES.INFO, duration = 5000, showCloseButton = true) {
+   * Show a toast notification
+   * @param {string} message - The message to display
+   * @param {string} type - The type of toast (error, success, info, warning)
+   * @param {number} duration - Duration in milliseconds (0 for permanent)
+   * @param {boolean} showCloseButton - Whether to show close button
+   */
+  showToast(
+    message,
+    type = STATUS_TYPES.INFO,
+    duration = 5000,
+    showCloseButton = true
+  ) {
     const toastId = this.generateToastId();
-    const toast = this.createToastElement(toastId, message, type, showCloseButton);
+    const toast = this.createToastElement(
+      toastId,
+      message,
+      type,
+      showCloseButton
+    );
 
     this.addToastToContainer(toast);
 
     // Show the toast with animation
     requestAnimationFrame(() => {
-      toast.classList.add('show');
+      toast.classList.add("show");
     });
 
     // Auto-hide after duration if specified
@@ -45,23 +55,23 @@ export class ToastNotificationService {
   }
 
   createToastElement(id, message, type, showCloseButton) {
-    const toast = document.createElement('div');
+    const toast = document.createElement("div");
     toast.id = id;
     toast.className = `toast toast-${type}`;
-    toast.setAttribute('role', 'alert');
-    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute("role", "alert");
+    toast.setAttribute("aria-live", "polite");
 
-    const messageElement = document.createElement('p');
-    messageElement.className = 'toast-message';
+    const messageElement = document.createElement("p");
+    messageElement.className = "toast-message";
     messageElement.textContent = message;
 
     toast.appendChild(messageElement);
 
     if (showCloseButton) {
-      const closeButton = document.createElement('button');
-      closeButton.className = 'toast-close';
-      closeButton.setAttribute('aria-label', 'Close notification');
-      closeButton.addEventListener('click', () => this.hideToast(id));
+      const closeButton = document.createElement("button");
+      closeButton.className = "toast-close";
+      closeButton.setAttribute("aria-label", "Close notification");
+      closeButton.addEventListener("click", () => this.hideToast(id));
       toast.appendChild(closeButton);
     }
 
@@ -69,14 +79,14 @@ export class ToastNotificationService {
   }
 
   addToastToContainer(toast) {
-    const container = document.getElementById('toast-container');
+    const container = document.getElementById("toast-container");
     if (!container) {
       this.createToastContainer();
       return this.addToastToContainer(toast);
     }
 
     // Remove oldest toast if we've reached the maximum
-    const existingToasts = container.querySelectorAll('.toast');
+    const existingToasts = container.querySelectorAll(".toast");
     if (existingToasts.length >= this.maxToasts) {
       const oldestToast = existingToasts[0];
       this.hideToast(oldestToast.id);
@@ -88,7 +98,7 @@ export class ToastNotificationService {
   hideToast(toastId) {
     const toast = document.getElementById(toastId);
     if (toast) {
-      toast.classList.remove('show');
+      toast.classList.remove("show");
 
       // Remove from DOM after animation
       setTimeout(() => {
@@ -117,14 +127,14 @@ export class ToastNotificationService {
   }
 
   showWarning(message, duration = 5000) {
-    return this.showToast(message, 'warning', duration);
+    return this.showToast(message, "warning", duration);
   }
 
   clearAllToasts() {
-    const container = document.getElementById('toast-container');
+    const container = document.getElementById("toast-container");
     if (container) {
-      const toasts = container.querySelectorAll('.toast');
-      toasts.forEach(toast => this.hideToast(toast.id));
+      const toasts = container.querySelectorAll(".toast");
+      toasts.forEach((toast) => this.hideToast(toast.id));
     }
   }
 }

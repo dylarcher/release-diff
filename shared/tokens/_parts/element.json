@@ -60,17 +60,17 @@
           "border-radius": {
             "$description": "Standard button border radius",
             "$type": "dimension",
-            "$value": "{elements.shape.border-radius.medium}"
+            "$value": "{element.shape.border-radius.medium}"
           },
           "border-width": {
             "$description": "Standard button border width",
             "$type": "dimension",
-            "$value": "{elements.shape.border-width.thin}"
+            "$value": "{element.shape.border-width.thin}"
           },
           "padding": {
             "$description": "Standard button padding",
             "$type": "dimension",
-            "$value": "{elements.sizing.static.medium} {elements.sizing.static.large}"
+            "$value": "{sizing.static.size-16} {sizing.static.size-24}"
           }
         }
       }
@@ -131,17 +131,17 @@
         "error": {
           "$description": "Background for error messages.",
           "$type": "color",
-          "$value": "{theme.color.palette.red.500}"
+          "$value": "{colors.palette.legacy-red.medium}"
         },
         "highlight": {
           "$description": "Background for highlighted content.",
           "$type": "color",
-          "$value": "{theme.color.palette.yellow.300}"
+          "$value": "{colors.palette.legacy-yellow.light}"
         },
         "info": {
           "$description": "Background for informational messages.",
           "$type": "color",
-          "$value": "{theme.color.palette.blue.100}"
+          "$value": "{colors.palette.legacy-blue.light}"
         },
         "interactive": {
           "$description": "Consolidated interactive background colors",
@@ -193,7 +193,7 @@
         "success": {
           "$description": "Background for success messages.",
           "$type": "color",
-          "$value": "{theme.color.palette.green.500}"
+          "$value": "{colors.palette.legacy-green.medium}"
         },
         "surface": {
           "$description": "Background color for cards, modals, and other elevated surfaces",

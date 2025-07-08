@@ -1,8 +1,20 @@
-import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/constants.js';
+import {
+  AUTH_TYPES,
+  HTTP_HEADERS,
+  CONSOLE_MESSAGES,
+  ERROR_MESSAGES,
+  DEFAULT_VALUES,
+} from "../shared/constants.js";
 
 export class ApiRequestManager {
-  static async makeAuthenticatedApiRequest(url, token, tokenType = AUTH_TYPES.BEARER) {
-    const headers = { [HTTP_HEADERS.CONTENT_TYPE]: HTTP_HEADERS.APPLICATION_JSON };
+  static async makeAuthenticatedApiRequest(
+    url,
+    token,
+    tokenType = AUTH_TYPES.BEARER
+  ) {
+    const headers = {
+      [HTTP_HEADERS.CONTENT_TYPE]: HTTP_HEADERS.APPLICATION_JSON,
+    };
 
     const authHeaders = {
       [AUTH_TYPES.BASIC]: () => {
@@ -12,7 +24,7 @@ export class ApiRequestManager {
           : btoa(`${token}${DEFAULT_VALUES.COLON_SEPARATOR}`);
         return `${AUTH_TYPES.BASIC} ${encodedToken}`;
       },
-      [AUTH_TYPES.BEARER]: () => `${AUTH_TYPES.BEARER} ${token}`
+      [AUTH_TYPES.BEARER]: () => `${AUTH_TYPES.BEARER} ${token}`,
     };
 
     headers[HTTP_HEADERS.AUTHORIZATION] = authHeaders[tokenType]();
@@ -22,12 +34,21 @@ export class ApiRequestManager {
 
     try {
       const response = await fetch(url, { headers });
-      console.info(CONSOLE_MESSAGES.API_RESPONSE_STATUS, response.status, response.statusText);
+      console.info(
+        CONSOLE_MESSAGES.API_RESPONSE_STATUS,
+        response.status,
+        response.statusText
+      );
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error(CONSOLE_MESSAGES.API_ERROR_RESPONSE, `${errorText.substring(0, DEFAULT_VALUES.ERROR_TEXT_SUBSTRING_LENGTH)}...`);
-        throw new Error(`${ERROR_MESSAGES.API_CALL_FAILED} ${response.status} ${response.statusText} - ${errorText.substring(0, DEFAULT_VALUES.ERROR_MESSAGE_SUBSTRING_LENGTH)}`);
+        console.error(
+          CONSOLE_MESSAGES.API_ERROR_RESPONSE,
+          `${errorText.substring(0, DEFAULT_VALUES.ERROR_TEXT_SUBSTRING_LENGTH)}...`
+        );
+        throw new Error(
+          `${ERROR_MESSAGES.API_CALL_FAILED} ${response.status} ${response.statusText} - ${errorText.substring(0, DEFAULT_VALUES.ERROR_MESSAGE_SUBSTRING_LENGTH)}`
+        );
       }
 
       return await response.json();
@@ -38,10 +59,15 @@ export class ApiRequestManager {
   }
 
   static buildCleanApiUrl(baseUrl, endpoint) {
-    const cleanBase = baseUrl.endsWith(DEFAULT_VALUES.URL_PATH_SEPARATOR) ? baseUrl.slice(0, -1) : baseUrl;
-    const cleanEndpoint = endpoint.startsWith(DEFAULT_VALUES.URL_PATH_SEPARATOR) ? endpoint : `${DEFAULT_VALUES.URL_PATH_SEPARATOR}${endpoint}`;
+    const cleanBase = baseUrl.endsWith(DEFAULT_VALUES.URL_PATH_SEPARATOR)
+      ? baseUrl.slice(0, -1)
+      : baseUrl;
+    const cleanEndpoint = endpoint.startsWith(DEFAULT_VALUES.URL_PATH_SEPARATOR)
+      ? endpoint
+      : `${DEFAULT_VALUES.URL_PATH_SEPARATOR}${endpoint}`;
     return `${cleanBase}${cleanEndpoint}`;
   }
 }
-export const { makeAuthenticatedApiRequest, buildCleanApiUrl } = ApiRequestManager;
+export const { makeAuthenticatedApiRequest, buildCleanApiUrl } =
+  ApiRequestManager;
 export default new ApiRequestManager();

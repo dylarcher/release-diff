@@ -3,9 +3,7 @@
     "id": "5dbb261c4466474d4882610897f726b7234f910d",
     "short_id": "5dbb261c",
     "created_at": "2025-06-26T16:34:40.000-03:00",
-    "parent_ids": [
-      "e32e325812587b3b3c6fd802884a1a437fd2c0b8"
-    ],
+    "parent_ids": ["e32e325812587b3b3c6fd802884a1a437fd2c0b8"],
     "title": "chore: update changelog",
     "message": "chore: update changelog\n",
     "author_name": "Vitor_hugo_Maldaner",
@@ -22,9 +20,7 @@
     "id": "e32e325812587b3b3c6fd802884a1a437fd2c0b8",
     "short_id": "e32e3258",
     "created_at": "2025-06-26T16:23:44.000-03:00",
-    "parent_ids": [
-      "93622b48ab85825f54080dcf3795715d5da40550"
-    ],
+    "parent_ids": ["93622b48ab85825f54080dcf3795715d5da40550"],
     "title": "chore(release): 2.25.5",
     "message": "chore(release): 2.25.5\n",
     "author_name": "Vitor_hugo_Maldaner",
@@ -81,9 +77,7 @@
     "id": "6f5beeb37b8c085bf8917069a44af671fda0f67b",
     "short_id": "6f5beeb3",
     "created_at": "2025-06-26T14:48:17.000+00:00",
-    "parent_ids": [
-      "5c6e21b1b6fa03f2887fe800d4fd875f656b3833"
-    ],
+    "parent_ids": ["5c6e21b1b6fa03f2887fe800d4fd875f656b3833"],
     "title": "fix(table): removing no rows template from ribbon",
     "message": "fix(table): removing no rows template from ribbon\n",
     "author_name": "Stuker, Vitor",
@@ -120,9 +114,7 @@
     "id": "ec5acefddb29f71f36ec6e2f44d6a19720fcfbc8",
     "short_id": "ec5acefd",
     "created_at": "2025-06-25T14:48:27.000+00:00",
-    "parent_ids": [
-      "57a199588cb7c1ce3f761454b015bbae6c0dbf86"
-    ],
+    "parent_ids": ["57a199588cb7c1ce3f761454b015bbae6c0dbf86"],
     "title": "fix(dropdown): ensure the selected options tag inherits the inactive state from the dropdown",
     "message": "fix(dropdown): ensure the selected options tag inherits the inactive state from the dropdown\n",
     "author_name": "MaldanerCosta, VitorHugo",
@@ -159,9 +151,7 @@
     "id": "8f5098f2203b70a404be1b5389d22283fe872072",
     "short_id": "8f5098f2",
     "created_at": "2025-06-25T09:42:06.000-03:00",
-    "parent_ids": [
-      "223815b2dcb848fe4fdc69b376976f6342b3036d"
-    ],
+    "parent_ids": ["223815b2dcb848fe4fdc69b376976f6342b3036d"],
     "title": "chore(snyk): update pbkdf2 to version 3.1.3",
     "message": "chore(snyk): update pbkdf2 to version 3.1.3\n",
     "author_name": "Vitor_hugo_Maldaner",
@@ -198,9 +188,7 @@
     "id": "1bc380918c0aff00dd42fb805ac3660845d19bc8",
     "short_id": "1bc38091",
     "created_at": "2025-06-23T13:45:35.000+00:00",
-    "parent_ids": [
-      "84d12a46931154d1ae6bc18bc62cc6e9fbf9032e"
-    ],
+    "parent_ids": ["84d12a46931154d1ae6bc18bc62cc6e9fbf9032e"],
     "title": "docs(introduction): add angular 19 to multi-version pipeline",
     "message": "docs(introduction): add angular 19 to multi-version pipeline\n",
     "author_name": "Orta, Juan",
@@ -237,9 +225,7 @@
     "id": "c4c3058beab4ba79e678205cca0490f6ad59db60",
     "short_id": "c4c3058b",
     "created_at": "2025-06-18T18:05:16.000+00:00",
-    "parent_ids": [
-      "d827c9822e40e3f47b0fb14a98c9d218dc5c6f52"
-    ],
+    "parent_ids": ["d827c9822e40e3f47b0fb14a98c9d218dc5c6f52"],
     "title": "docs(text-input): correct missing code snippet",
     "message": "docs(text-input): correct missing code snippet\n",
     "author_name": "Silva Da Rocha, Annelise - Dell Team",
@@ -276,9 +262,7 @@
     "id": "d6c7fe1899135fca00644bc46744e1f3af175095",
     "short_id": "d6c7fe18",
     "created_at": "2025-06-16T16:20:00.000+00:00",
-    "parent_ids": [
-      "0421480413a551d5dbb95cfe0339c066f5621c01"
-    ],
+    "parent_ids": ["0421480413a551d5dbb95cfe0339c066f5621c01"],
     "title": "fix(table): table data updates reflect correctly in pagination when reducing the number of pages",
     "message": "fix(table): table data updates reflect correctly in pagination when reducing the number of pages\n",
     "author_name": "Deitos, Felipe",
@@ -315,9 +299,7 @@
     "id": "cf56b2749b38572a72e9da0a4134176a4ebefc01",
     "short_id": "cf56b274",
     "created_at": "2025-06-12T13:01:31.000+00:00",
-    "parent_ids": [
-      "5cc1f71334179f079020ffbc52d40f7f87bc2d76"
-    ],
+    "parent_ids": ["5cc1f71334179f079020ffbc52d40f7f87bc2d76"],
     "title": "chore: correct deepMerge import in drawer",
     "message": "chore: correct deepMerge import in drawer\n",
     "author_name": "MaldanerCosta, VitorHugo",
@@ -354,9 +336,7 @@
     "id": "5a560b839cbfbeff3951db2e2009dabbff7252cd",
     "short_id": "5a560b83",
     "created_at": "2025-06-11T21:48:44.000+00:00",
-    "parent_ids": [
-      "f6d9c11a4ff0c0c70e42abef2f3c627c8a7f37c3"
-    ],
+    "parent_ids": ["f6d9c11a4ff0c0c70e42abef2f3c627c8a7f37c3"],
     "title": "docs(foundations): update documentation and grammar fixes",
     "message": "docs(foundations): update documentation and grammar fixes\n",
     "author_name": "Archer, Dylan - Dell Team",
@@ -393,9 +373,7 @@
     "id": "6085d304d7a7ca480845797513be7fabd34e8522",
     "short_id": "6085d304",
     "created_at": "2025-06-10T17:46:14.000+00:00",
-    "parent_ids": [
-      "223e4ae521dc0be39cc6dd57af8245c15bfebca5"
-    ],
+    "parent_ids": ["223e4ae521dc0be39cc6dd57af8245c15bfebca5"],
     "title": "fix(file-input): storybook accepted files prop",
     "message": "fix(file-input): storybook accepted files prop\n",
     "author_name": "VirtuosoBecher, Cinthia",
@@ -432,9 +410,7 @@
     "id": "878930f27f919c9a8ef975845d331015213cabc6",
     "short_id": "878930f2",
     "created_at": "2025-06-06T12:46:14.000+00:00",
-    "parent_ids": [
-      "f6d9c11a4ff0c0c70e42abef2f3c627c8a7f37c3"
-    ],
+    "parent_ids": ["f6d9c11a4ff0c0c70e42abef2f3c627c8a7f37c3"],
     "title": "fix(table): adjusting loading height when using sticky-header and data-source",
     "message": "fix(table): adjusting loading height when using sticky-header and data-source\n",
     "author_name": "Stuker, Vitor",
@@ -471,9 +447,7 @@
     "id": "5bae80678fb2cfcce135f4bac081969d4de865a6",
     "short_id": "5bae8067",
     "created_at": "2025-06-04T18:11:35.000+00:00",
-    "parent_ids": [
-      "80ae7fd717bf5cafafe8544431805c6b7f7a0841"
-    ],
+    "parent_ids": ["80ae7fd717bf5cafafe8544431805c6b7f7a0841"],
     "title": "chore(input-password): import localization type",
     "message": "chore(input-password): import localization type\n",
     "author_name": "VirtuosoBecher, Cinthia",
@@ -510,9 +484,7 @@
     "id": "1a651de23db48da074b299d1f959f9cf936f3965",
     "short_id": "1a651de2",
     "created_at": "2025-06-04T11:07:07.000-03:00",
-    "parent_ids": [
-      "ede2823cf9172d3cd6e52307c1235b2c979982f8"
-    ],
+    "parent_ids": ["ede2823cf9172d3cd6e52307c1235b2c979982f8"],
     "title": "chore(snyk): update webpack-dev-server package to version 5.2.1",
     "message": "chore(snyk): update webpack-dev-server package to version 5.2.1\n",
     "author_name": "stukervitor",
@@ -549,9 +521,7 @@
     "id": "a924dce1a5b1ded29a96612c9e4c797f07612a09",
     "short_id": "a924dce1",
     "created_at": "2025-06-03T17:23:01.000-03:00",
-    "parent_ids": [
-      "4b20ad8aba652d5593c3d73a23a317912fe9a255"
-    ],
+    "parent_ids": ["4b20ad8aba652d5593c3d73a23a317912fe9a255"],
     "title": "chore(snyk): update package tar-fs to version 2.1.3",
     "message": "chore(snyk): update package tar-fs to version 2.1.3\n",
     "author_name": "Vitor_hugo_Maldaner",
@@ -588,9 +558,7 @@
     "id": "6e354e865f6d5ced2c4f8bbab339eef4b2d66358",
     "short_id": "6e354e86",
     "created_at": "2025-05-29T21:06:54.000+00:00",
-    "parent_ids": [
-      "5f104c195becbd80d51d4dafd1d7fac115167f10"
-    ],
+    "parent_ids": ["5f104c195becbd80d51d4dafd1d7fac115167f10"],
     "title": "fix(carousel): add check to reset active slide index when the number of items changes",
     "message": "fix(carousel): add check to reset active slide index when the number of items changes\n",
     "author_name": "MaldanerCosta, VitorHugo",
@@ -627,9 +595,7 @@
     "id": "6abbbcd9c18feb90a7409add379306450d3b667e",
     "short_id": "6abbbcd9",
     "created_at": "2025-05-29T15:58:41.000+00:00",
-    "parent_ids": [
-      "7a13a891c86d0c830ffed91836aa398f950d4396"
-    ],
+    "parent_ids": ["7a13a891c86d0c830ffed91836aa398f950d4396"],
     "title": "fix: multiple defects found during the Angular 17 migration",
     "message": "fix: multiple defects found during the Angular 17 migration\n",
     "author_name": "MaldanerCosta, VitorHugo",
@@ -666,9 +632,7 @@
     "id": "1c185c2513159c43e529dc1078359d6586aab2ed",
     "short_id": "1c185c25",
     "created_at": "2025-05-28T13:47:52.000+00:00",
-    "parent_ids": [
-      "3ca47272cd150ee90d20654a3dfc6f19000a1ff7"
-    ],
+    "parent_ids": ["3ca47272cd150ee90d20654a3dfc6f19000a1ff7"],
     "title": "fix(side-nav): should expand group when child item starts selected",
     "message": "fix(side-nav): should expand group when child item starts selected\n",
     "author_name": "Stuker, Vitor",
@@ -705,9 +669,7 @@
     "id": "708272086f58a7cf207619caab91aa3ee8c537b8",
     "short_id": "70827208",
     "created_at": "2025-05-23T17:53:12.000+00:00",
-    "parent_ids": [
-      "fa2820d1fc846d77bb0779f7ccefa5fc3471a58c"
-    ],
+    "parent_ids": ["fa2820d1fc846d77bb0779f7ccefa5fc3471a58c"],
     "title": "fix(table): refreshing after dynamic pin update",
     "message": "fix(table): refreshing after dynamic pin update\n",
     "author_name": "Stuker, Vitor",
@@ -744,9 +706,7 @@
     "id": "950300925113cc53a61257fd6762ff81a15451ae",
     "short_id": "95030092",
     "created_at": "2025-05-21T13:58:52.000+00:00",
-    "parent_ids": [
-      "d62c0da23594aa778e86579b92580a0ad5eb5eaf"
-    ],
+    "parent_ids": ["d62c0da23594aa778e86579b92580a0ad5eb5eaf"],
     "title": "docs(getting-started): remove strict-ssl guidance and add troubleshooting paragraph to npm installation section",
     "message": "docs(getting-started): remove strict-ssl guidance and add troubleshooting paragraph to npm installation section\n",
     "author_name": "Deitos, Felipe",
@@ -783,9 +743,7 @@
     "id": "19ff8684f7d7e6ffbf14759f54d94b55bb3d4d0e",
     "short_id": "19ff8684",
     "created_at": "2025-05-20T17:41:14.000+00:00",
-    "parent_ids": [
-      "f78bf849aa69ed088649a28879e83a5d2a7b682b"
-    ],
+    "parent_ids": ["f78bf849aa69ed088649a28879e83a5d2a7b682b"],
     "title": "fix(dropdown): error when searching with no values returned",
     "message": "fix(dropdown): error when searching with no values returned\n",
     "author_name": "Stuker, Vitor",
@@ -822,9 +780,7 @@
     "id": "47bf07d3cf077214772d4fce78e23da64e9c2eab",
     "short_id": "47bf07d3",
     "created_at": "2025-05-20T17:24:01.000+00:00",
-    "parent_ids": [
-      "464e749cfe51247cde1567ec7ac6ae2c2cbacd02"
-    ],
+    "parent_ids": ["464e749cfe51247cde1567ec7ac6ae2c2cbacd02"],
     "title": "docs(table): add a note to provide guidance on the data-source function declaration",
     "message": "docs(table): add a note to provide guidance on the data-source function declaration\n",
     "author_name": "MaldanerCosta, VitorHugo",
@@ -861,9 +817,7 @@
     "id": "918dda3cfa3dbee6392c06ea481d88256b1ad971",
     "short_id": "918dda3c",
     "created_at": "2025-05-20T14:02:30.000+00:00",
-    "parent_ids": [
-      "f78bf849aa69ed088649a28879e83a5d2a7b682b"
-    ],
+    "parent_ids": ["f78bf849aa69ed088649a28879e83a5d2a7b682b"],
     "title": "fix(text-area): adjust text overlapping error icon",
     "message": "fix(text-area): adjust text overlapping error icon\n",
     "author_name": "Suzin, Matheus",
@@ -900,9 +854,7 @@
     "id": "33b98cda6bcc2258c0abfb4a5a8ae84b7f6223cf",
     "short_id": "33b98cda",
     "created_at": "2025-05-20T12:54:13.000+00:00",
-    "parent_ids": [
-      "a3094065626b933333533e0cd246ad4432b4a911"
-    ],
+    "parent_ids": ["a3094065626b933333533e0cd246ad4432b4a911"],
     "title": "docs(notification): fix \"add notification\" button in the docs page",
     "message": "docs(notification): fix \"add notification\" button in the docs page\n",
     "author_name": "Stuker, Vitor",
@@ -939,9 +891,7 @@
     "id": "3d92266432d36d37c5b86d6ad0eec9a21d81341d",
     "short_id": "3d922664",
     "created_at": "2025-05-20T12:04:52.000+00:00",
-    "parent_ids": [
-      "fd22e9056c4d5882d849c24ba683675facad25b0"
-    ],
+    "parent_ids": ["fd22e9056c4d5882d849c24ba683675facad25b0"],
     "title": "chore(pipeline): update DAST_FOLDER_ITEM_ID with new id",
     "message": "chore(pipeline): update DAST_FOLDER_ITEM_ID with new id\n",
     "author_name": "Almeida, Igor",
@@ -978,9 +928,7 @@
     "id": "230b9e2f2a01a2b46f30d935fdbe3c65723e147b",
     "short_id": "230b9e2f",
     "created_at": "2025-05-13T16:35:47.000+00:00",
-    "parent_ids": [
-      "42b7ec5bd2d24f8ee57cb2f9272849b226f19f02"
-    ],
+    "parent_ids": ["42b7ec5bd2d24f8ee57cb2f9272849b226f19f02"],
     "title": "fix(message-bar): update default value of localization srCloseButton text",
     "message": "fix(message-bar): update default value of localization srCloseButton text\n",
     "author_name": "Silva Da Rocha, Annelise - Dell Team",
@@ -1017,9 +965,7 @@
     "id": "76ec583e8c36b2119127c9a0224ef628c0e6ff58",
     "short_id": "76ec583e",
     "created_at": "2025-05-13T16:02:33.000+00:00",
-    "parent_ids": [
-      "42b7ec5bd2d24f8ee57cb2f9272849b226f19f02"
-    ],
+    "parent_ids": ["42b7ec5bd2d24f8ee57cb2f9272849b226f19f02"],
     "title": "fix(side-nav): dynamic rendering",
     "message": "fix(side-nav): dynamic rendering\n",
     "author_name": "VirtuosoBecher, Cinthia",
@@ -1056,9 +1002,7 @@
     "id": "c76725ac9ab22de96aaab4bd59899b41909c0e86",
     "short_id": "c76725ac",
     "created_at": "2025-05-09T11:53:45.000-03:00",
-    "parent_ids": [
-      "5cbcd249c918a898535f537adfb75d12e99b58a3"
-    ],
+    "parent_ids": ["5cbcd249c918a898535f537adfb75d12e99b58a3"],
     "title": "fix(modal): update the modal to use the OnPush strategy",
     "message": "fix(modal): update the modal to use the OnPush strategy\n",
     "author_name": "Vitor_hugo_Maldaner",
@@ -1095,9 +1039,7 @@
     "id": "17a02a43b2f874926631c556215a5e4a49b69376",
     "short_id": "17a02a43",
     "created_at": "2025-05-08T17:19:03.000+00:00",
-    "parent_ids": [
-      "d12618878802a48eb5255ab3c09d2308b9d541e2"
-    ],
+    "parent_ids": ["d12618878802a48eb5255ab3c09d2308b9d541e2"],
     "title": "fix(date-picker): datepicker placeholder overflowing in sm",
     "message": "fix(date-picker): datepicker placeholder overflowing in sm\n",
     "author_name": "Garcia, Bruno",
@@ -1134,9 +1076,7 @@
     "id": "5d622631edce185e5dd9b382a5e01afb9501b473",
     "short_id": "5d622631",
     "created_at": "2025-05-08T14:57:12.000+00:00",
-    "parent_ids": [
-      "827bb2ee7872e3bc06914cf42ab4b7996a966e0f"
-    ],
+    "parent_ids": ["827bb2ee7872e3bc06914cf42ab4b7996a966e0f"],
     "title": "fix(drawer): adding correct title heading styles",
     "message": "fix(drawer): adding correct title heading styles\n",
     "author_name": "Stuker, Vitor",
@@ -1153,9 +1093,7 @@
     "id": "827bb2ee7872e3bc06914cf42ab4b7996a966e0f",
     "short_id": "827bb2ee",
     "created_at": "2025-05-07T14:22:04.000-03:00",
-    "parent_ids": [
-      "d68a580a15d531d582969a6f9f9e036f3104d9be"
-    ],
+    "parent_ids": ["d68a580a15d531d582969a6f9f9e036f3104d9be"],
     "title": "chore: add missing items to the changelog",
     "message": "chore: add missing items to the changelog\n",
     "author_name": "Vitor_hugo_Maldaner",
