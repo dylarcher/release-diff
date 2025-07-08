@@ -105,7 +105,7 @@ export class ExtensionUIManager {
 
   async handleDemoReportToggle(event) {
     if (event.target.open) {
-      console.log('View Demo Report details opened');
+      console.info('View Demo Report details opened');
       this.elements.jiraProjectKeyInput.value = 'DDSTM';
       this.elements.gitlabProjectIdInput.value = '82150';
       this.elements.jiraFixVersionInput.value = '57550';
@@ -117,7 +117,7 @@ export class ExtensionUIManager {
 
 
     } else {
-      console.log('View Demo Report details closed');
+      console.info('View Demo Report details closed');
     }
   }
 
@@ -257,7 +257,7 @@ export class ExtensionUIManager {
     toast.showInfo(loadingMessage, 3000);
 
     try {
-      console.log(CONSOLE_MESSAGES.SENDING_MESSAGE_TO_BACKGROUND);
+      console.info(CONSOLE_MESSAGES.SENDING_MESSAGE_TO_BACKGROUND);
 
       const response = await sendMessageToBackgroundScript(ACTIONS.GENERATE_RELEASE_SUMMARY, {
         jiraProjectKey,
@@ -267,7 +267,7 @@ export class ExtensionUIManager {
         gitlabPreviousTag
       });
 
-      console.log(CONSOLE_MESSAGES.RECEIVED_RESPONSE_FROM_BACKGROUND, response);
+      console.info(CONSOLE_MESSAGES.RECEIVED_RESPONSE_FROM_BACKGROUND, response);
       this.elements.loadingSpinner.classList.add(CSS_CLASSES.HIDDEN);
 
       const messageHandler = {

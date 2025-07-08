@@ -116,7 +116,7 @@ export class FallbackDataService {
       }
 
       const data = await response.json();
-      console.log(`Loaded mock ${dataType} data:`, data);
+      console.info(`Loaded mock ${dataType} data:`, data);
       return data;
     } catch (error) {
       console.error(`Error loading mock ${dataType} data:`, error);

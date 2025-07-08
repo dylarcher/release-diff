@@ -10,7 +10,7 @@ export class ChromeStorageManager {
         }[!Boolean(chrome.runtime.lastError)];
 
         if (success) {
-          console.log(CONSOLE_MESSAGES.FORM_VALUES_SAVED_TO_STORAGE);
+          console.info(CONSOLE_MESSAGES.FORM_VALUES_SAVED_TO_STORAGE);
           resolve(result);
         } else {
           reject(error);
@@ -95,7 +95,7 @@ export const {
 export const saveThemePreference = async theme => {
   try {
     await chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme });
-    console.log(CONSOLE_MESSAGES.THEME_SAVED, theme);
+    console.info(CONSOLE_MESSAGES.THEME_SAVED, theme);
   } catch (error) {
     console.error(CONSOLE_MESSAGES.SAVE_ERROR, error);
     throw error;

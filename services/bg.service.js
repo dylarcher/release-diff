@@ -17,7 +17,7 @@ import {
   JQL_TEMPLATES
 } from '../shared/constants.js';
 
-console.log(CONSOLE_MESSAGES.BACKGROUND_SCRIPT_LOADED);
+console.info(CONSOLE_MESSAGES.BACKGROUND_SCRIPT_LOADED);
 
 export class BackgroundService {
   constructor() {
@@ -49,12 +49,12 @@ export class BackgroundService {
 
     try {
       await sidePanelStrategies.tabLevel();
-      console.log(CONSOLE_MESSAGES.SIDE_PANEL_OPENED_TAB, tab.id);
+      console.info(CONSOLE_MESSAGES.SIDE_PANEL_OPENED_TAB, tab.id);
     } catch (error) {
       console.error(ERROR_MESSAGES.OPENING_SIDE_PANEL, error.message);
       try {
         await sidePanelStrategies.windowLevel();
-        console.log(CONSOLE_MESSAGES.SIDE_PANEL_OPENED_WINDOW, tab.windowId);
+        console.info(CONSOLE_MESSAGES.SIDE_PANEL_OPENED_WINDOW, tab.windowId);
       } catch (windowError) {
         console.error(ERROR_MESSAGES.WINDOW_LEVEL_SIDE_PANEL_FAILED, windowError.message);
       }
@@ -63,7 +63,7 @@ export class BackgroundService {
 
   handleMessages() {
     return handleAsyncBackgroundMessage(async (request, sender) => {
-      console.log(CONSOLE_MESSAGES.BACKGROUND_RECEIVED_MESSAGE, request);
+      console.info(CONSOLE_MESSAGES.BACKGROUND_RECEIVED_MESSAGE, request);
 
       const handler = this.messageHandlers.get(request.action);
       return handler
@@ -73,7 +73,7 @@ export class BackgroundService {
   }
 
   handleInstalled() {
-    console.log(CONSOLE_MESSAGES.EXTENSION_INSTALLED_UPDATED);
+    console.info(CONSOLE_MESSAGES.EXTENSION_INSTALLED_UPDATED);
   }
 
   async testHandler() {
@@ -187,11 +187,11 @@ export class JiraService {
           if (startAt >= data.total) break;
         }
 
-        console.log(`${CONSOLE_MESSAGES.SUCCESSFULLY_USED_JIRA_API} ${version}, found ${allIssues.length} issues`);
+        console.info(`${CONSOLE_MESSAGES.SUCCESSFULLY_USED_JIRA_API} ${version}, found ${allIssues.length} issues`);
         return allIssues;
 
       } catch (error) {
-        console.log(`${CONSOLE_MESSAGES.JIRA_API_FAILED} ${version} failed:`, error.message);
+        console.info(`${CONSOLE_MESSAGES.JIRA_API_FAILED} ${version} failed:`, error.message);
         lastError = error;
         allIssues = [];
         startAt = 0;

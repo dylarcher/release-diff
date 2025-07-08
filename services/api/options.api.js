@@ -36,16 +36,22 @@ export class SettingsManager {
             gitlabPatInput: document.getElementById(ELEMENT_IDS.GITLAB_PAT),
             saveButton: document.getElementById(ELEMENT_IDS.SAVE_BUTTON),
             statusDiv: document.getElementById(ELEMENT_IDS.STATUS),
-            themeToggle: document.getElementById(ELEMENT_IDS.THEME_TOGGLE)
+          themeToggle: document.getElementById(ELEMENT_IDS.THEME_TOGGLE),
+          testBtn: document.getElementById(ELEMENT_IDS.TEST_BTN),
+          testJiraBtn: document.getElementById(ELEMENT_IDS.TEST_JIRA_BTN),
+          testGitLabBtn: document.getElementById(ELEMENT_IDS.TEST_GITLAB_BTN)
         };
     }
 
     setupEventListeners() {
-        const { saveButton, themeToggle } = this.elements;
+      const { saveButton, themeToggle, testBtn, testJiraBtn, testGitLabBtn } = this.elements;
 
         this.eventHandlers = new Map([
             ['save', this.handleSave.bind(this)],
-            ['themeChange', this.handleThemeChange.bind(this)]
+          ['themeChange', this.handleThemeChange.bind(this)],
+          ['testGeneral', this.handleTestGeneral.bind(this)],
+          ['testJira', this.handleTestJira.bind(this)],
+          ['testGitLab', this.handleTestGitLab.bind(this)]
         ]);
 
         saveButton.addEventListener('click', this.eventHandlers.get('save'));
@@ -53,6 +59,21 @@ export class SettingsManager {
         if (themeToggle) {
             themeToggle.addEventListener('change', this.eventHandlers.get('themeChange'));
         }
+
+      if (testBtn) {
+        testBtn.addEventListener('click', this.eventHandlers.get('testGeneral'));
+        console.info('Test Connection button event listener attached');
+      }
+
+      if (testJiraBtn) {
+        testJiraBtn.addEventListener('click', this.eventHandlers.get('testJira'));
+        console.info('Test Jira button event listener attached');
+      }
+
+      if (testGitLabBtn) {
+        testGitLabBtn.addEventListener('click', this.eventHandlers.get('testGitLab'));
+        console.info('Test GitLab button event listener attached');
+      }
     }
 
     applyTheme(theme) {
@@ -86,8 +107,10 @@ export class SettingsManager {
         try {
             await saveApiConfigurationToStorage(config);
             displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.SETTINGS_SAVED_SUCCESSFULLY), STATUS_TYPES.SUCCESS);
+          toast.showSuccess(getMessage(USER_MESSAGES.SETTINGS_SAVED_SUCCESSFULLY));
         } catch (error) {
             displayStatusWithAutoHide(statusDiv, getMessage(USER_MESSAGES.ERROR_SAVING_SETTINGS), STATUS_TYPES.ERROR);
+          toast.showError(getMessage(USER_MESSAGES.ERROR_SAVING_SETTINGS));
             console.error(CONSOLE_MESSAGES.ERROR_SAVING_SETTINGS, error);
         }
     }
@@ -103,6 +126,7 @@ export class SettingsManager {
     }
 
     async handleTestGeneral() {
+      console.log('handleTestGeneral called');
         const { testBtn } = this.elements;
         await this.testConnectionWithFeedback(
             ACTIONS.TEST,
@@ -114,6 +138,7 @@ export class SettingsManager {
     }
 
     async handleTestJira() {
+      console.log('handleTestJira called');
         const { testJiraBtn } = this.elements;
         await this.testConnectionWithFeedback(
             ACTIONS.TEST_JIRA,
@@ -125,6 +150,7 @@ export class SettingsManager {
     }
 
     async handleTestGitLab() {
+      console.log('handleTestGitLab called');
         const { testGitLabBtn } = this.elements;
         await this.testConnectionWithFeedback(
             ACTIONS.TEST_GITLAB,
@@ -150,7 +176,7 @@ export class SettingsManager {
                     toast.showSuccess(successMessage);
                     button.textContent = successButtonText;
                     if (response.data) {
-                        console.log(`${action} ${CONSOLE_MESSAGES.RESPONSE_DATA}`, response.data);
+                      console.info(`${action} ${CONSOLE_MESSAGES.RESPONSE_DATA}`, response.data);
                     }
                 },
                 false: () => {
@@ -185,7 +211,7 @@ export class SettingsManager {
             apiType,
             () => {
                 toast.showInfo(getMessage('mockDataLoaded'));
-                console.log('Mock data fallback selected for', apiType);
+              console.info('Mock data fallback selected for', apiType);
             },
             statusDiv.parentElement
         );

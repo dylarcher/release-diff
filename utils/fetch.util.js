@@ -6,7 +6,7 @@ export class ApiRequestManager {
 
     const authHeaders = {
       [AUTH_TYPES.BASIC]: () => {
-        console.log(CONSOLE_MESSAGES.USING_BASIC_AUTH_FOR_JIRA);
+        console.info(CONSOLE_MESSAGES.USING_BASIC_AUTH_FOR_JIRA);
         const encodedToken = token.includes(DEFAULT_VALUES.COLON_SEPARATOR)
           ? btoa(token)
           : btoa(`${token}${DEFAULT_VALUES.COLON_SEPARATOR}`);
@@ -17,12 +17,12 @@ export class ApiRequestManager {
 
     headers[HTTP_HEADERS.AUTHORIZATION] = authHeaders[tokenType]();
 
-    console.log(CONSOLE_MESSAGES.MAKING_API_REQUEST_TO, url);
-    console.log(CONSOLE_MESSAGES.AUTH_TYPE, tokenType);
+    console.info(CONSOLE_MESSAGES.MAKING_API_REQUEST_TO, url);
+    console.info(CONSOLE_MESSAGES.AUTH_TYPE, tokenType);
 
     try {
       const response = await fetch(url, { headers });
-      console.log(CONSOLE_MESSAGES.API_RESPONSE_STATUS, response.status, response.statusText);
+      console.info(CONSOLE_MESSAGES.API_RESPONSE_STATUS, response.status, response.statusText);
 
       if (!response.ok) {
         const errorText = await response.text();
