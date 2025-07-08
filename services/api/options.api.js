@@ -18,7 +18,7 @@ import {
   STATUS_TYPES,
   CONSOLE_MESSAGES,
 } from "../../shared/constants.js";
-import { DS } from "../tokens/tokenize.js";
+import { DS } from "../../shared/tokens/tokenize.js";
 
 export class SettingsManager {
   constructor() {

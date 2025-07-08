@@ -30,7 +30,7 @@ import {
   URL_TEMPLATES,
   ELEMENT_IDS as EXT_ELEMENT_IDS,
 } from "../../shared/constants.js";
-import { DS } from "../tokens/tokenize.js";
+import { DS } from "../../shared/tokens/tokenize.js";
 
 export class ExtensionUIManager {
   constructor() {
