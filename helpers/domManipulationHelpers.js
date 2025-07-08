@@ -41,26 +41,18 @@ export function resetForm(elements) {
         versionsDatalist,
         viewDemoReportDetails
     } = elements;
-
-    // Clear input fields
     jiraProjectKeyInput.value = '';
     jiraFixVersionInput.value = '';
     gitlabProjectIdInput.value = '';
     gitlabCurrentTagInput.value = '';
     gitlabPreviousTagInput.value = '';
-
-    // Clear messages and results
     clearElementContent(statusMessageDiv);
     clearElementContent(summaryResultsDiv);
     clearElementContent(jiraTicketsDiv);
     clearElementContent(gitlabHistoryDiv);
     clearElementContent(versionsDatalist);
-
-    // Hide summary results and close demo details
     summaryResultsDiv.classList.add(CSS_CLASSES.HIDDEN);
     viewDemoReportDetails.open = false;
-
-    // Optionally, clear storage
     chrome.storage.local.remove(['formData']);
 
     displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.RESET_FORM), STATUS_TYPES.INFO);

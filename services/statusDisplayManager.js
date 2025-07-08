@@ -31,8 +31,6 @@ class StatusDisplayManager {
     }
   }
 }
-
-// Export individual functions for backward compatibility
 export const displayStatusMessage = StatusDisplayManager.displayStatusMessage;
 export const displayStatusWithAutoHide = StatusDisplayManager.displayStatusWithAutoHide;
 export default StatusDisplayManager;

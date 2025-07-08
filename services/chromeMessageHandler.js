@@ -36,8 +36,6 @@ class ChromeMessageHandler {
     };
   }
 }
-
-// Export individual functions for backward compatibility
 export const sendMessageToBackgroundScript = ChromeMessageHandler.sendMessageToBackgroundScript;
 export const handleAsyncBackgroundMessage = ChromeMessageHandler.handleAsyncBackgroundMessage;
 export default ChromeMessageHandler;

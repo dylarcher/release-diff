@@ -72,7 +72,6 @@ class SettingsManager {
             await saveThemePreference(newTheme);
         } catch (error) {
             console.error(CONSOLE_MESSAGES.THEME_SAVE_ERROR, error);
-            // Optionally, display a status message to the user
         }
     }
 
@@ -181,21 +180,17 @@ class SettingsManager {
             for (const [configKey, inputElement] of configFields) {
                 inputElement.value = config[configKey] || '';
             }
-
-            // Load and apply theme
             const savedTheme = await loadThemePreference();
             if (savedTheme) {
                 this.applyTheme(savedTheme);
             } else {
-                // If no theme is saved, try to use system preference and save it
                 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 const defaultTheme = prefersDark ? 'dark' : 'light';
                 this.applyTheme(defaultTheme);
-                await saveThemePreference(defaultTheme); // Save this initial theme
+                await saveThemePreference(defaultTheme);
             }
         } catch (error) {
             console.error(CONSOLE_MESSAGES.ERROR_LOADING_SETTINGS, error);
-            // Fallback to light theme if there's an error loading settings or theme
             this.applyTheme('light');
         }
     }

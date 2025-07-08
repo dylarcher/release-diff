@@ -43,8 +43,6 @@ class ApiRequestManager {
     return `${cleanBase}${cleanEndpoint}`;
   }
 }
-
-// Export individual functions for backward compatibility
 export const makeAuthenticatedApiRequest = ApiRequestManager.makeAuthenticatedApiRequest;
 export const buildCleanApiUrl = ApiRequestManager.buildCleanApiUrl;
 export default ApiRequestManager;

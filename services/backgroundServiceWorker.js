@@ -305,7 +305,7 @@ class GitLabService {
             const result = await makeAuthenticatedApiRequest(url, gitlabPat, AUTH_TYPES.BEARER);
             return {
                 success: true,
-                message: SUCCESS_MESSAGES.GITLAB_API_CONNECTION_SUCCESSFUL, // This is a user message key
+                message: SUCCESS_MESSAGES.GITLAB_API_CONNECTION_SUCCESSFUL,
                 data: result
             };
         } catch (error) {
@@ -316,7 +316,6 @@ class GitLabService {
             } else if (error.message.includes(HTTP_STATUS.NOT_FOUND)) {
                 throw new Error(ERROR_MESSAGES.GITLAB_API_ENDPOINT_NOT_FOUND);
             }
-            // Generic fallback
             throw error;
         }
     }
@@ -389,6 +388,4 @@ class AnalysisService {
         };
     }
 }
-
-// Initialize the background service
 new BackgroundService();

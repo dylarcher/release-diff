@@ -6,7 +6,5 @@ class JiraIssueKeyParser {
     return matches ? [...new Set(matches.map(key => key.toUpperCase()))] : [];
   }
 }
-
-// Export individual functions for backward compatibility
 export const extractJiraIssueKeysFromText = JiraIssueKeyParser.extractJiraIssueKeysFromText;
 export default JiraIssueKeyParser;

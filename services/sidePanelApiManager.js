@@ -16,10 +16,8 @@ import {
     CONSOLE_MESSAGES,
     TIMEOUTS,
     URL_TEMPLATES,
-    ELEMENT_IDS as EXT_ELEMENT_IDS // Alias to avoid conflict if mock data has 'ELEMENT_IDS'
+    ELEMENT_IDS as EXT_ELEMENT_IDS
 } from '../shared/presetConstants.js';
-
-// Mocked data will be loaded dynamically using import()
 
 class ExtensionUIManager {
     constructor() {
@@ -27,7 +25,7 @@ class ExtensionUIManager {
         this.setupElementReferences();
         this.setupEventListeners();
         this.loadFormValuesFromStorage();
-        this.loadAndApplyTheme(); // Added this line
+        this.loadAndApplyTheme();
     }
 
     async loadAndApplyTheme() {
@@ -36,14 +34,13 @@ class ExtensionUIManager {
             if (theme) {
                 document.body.dataset.theme = theme;
             } else {
-                // If no theme is saved, default to light or try to use system preference
                 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 document.body.dataset.theme = prefersDark ? 'dark' : 'light';
             }
         }
         catch (error) {
             console.error(CONSOLE_MESSAGES.THEME_LOAD_ERROR, error);
-            document.body.dataset.theme = 'light'; // Fallback to light theme
+            document.body.dataset.theme = 'light';
         }
     }
 
@@ -107,27 +104,18 @@ class ExtensionUIManager {
     async handleDemoReportToggle(event) {
         if (event.target.open) {
             console.log('View Demo Report details opened');
-            // Populate input fields with demo values
             this.elements.jiraProjectKeyInput.value = 'DDSTM';
             this.elements.gitlabProjectIdInput.value = '82150';
-            this.elements.jiraFixVersionInput.value = '57550'; // This is the ID
+            this.elements.jiraFixVersionInput.value = '57550';
             this.elements.gitlabCurrentTagInput.value = 'v2.25.5';
             this.elements.gitlabPreviousTagInput.value = 'v2.25.4';
-
-            // Save these populated values to storage
             await this.saveFormValuesToStorage();
-
-            // Populate the #exampleResults div
-            // This logic will be moved/adapted in the next step
-            this.elements.exampleResultsDiv.classList.remove(CSS_CLASSES.HIDDEN); // Should be visible by details open
-            // Call population methods here once they are integrated
+            this.elements.exampleResultsDiv.classList.remove(CSS_CLASSES.HIDDEN);
             await this.populateExampleReport();
 
 
         } else {
             console.log('View Demo Report details closed');
-            // Optionally clear the demo report content or fields if desired when closed
-            // clearElementContent(this.elements.exampleResultsDiv);
         }
     }
 
@@ -149,20 +137,15 @@ class ExtensionUIManager {
             if (this.elements.gitlabTagsExampleDiv) this.elements.gitlabTagsExampleDiv.innerHTML = errorMessage;
         }
     }
-
-    // --- Demo Data Fetching methods for the class ---
     async getDemoJiraData() {
-        // Dynamically import the Jira mock data
         return (await import('../shared/release-dds-angular-v2.26.0/jiraReleaseUserStories.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || {};
     }
 
     async getDemoGitlabTagData() {
-        // Dynamically import the GitLab tags mock data
         return (await import('../shared/release-dds-angular-v2.26.0/gitlabTagsFor2.25.5.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || [];
     }
 
     async getDemoGitlabCommitData() {
-        // Dynamically import the GitLab commits mock data
         return (await import('../shared/release-dds-angular-v2.26.0/gitlabCommitsSince2.25.4.mock.json', { assert: { type: 'json' }, with: { type: 'json' } }))?.default || [];
     }
 
@@ -173,7 +156,7 @@ class ExtensionUIManager {
             ul.className = 'list-style-none p-0';
             jiraData.issues.forEach(issue => {
                 const li = document.createElement('li');
-                li.className = CSS_CLASSES.DISCREPANCY_ITEM; // Consider if a different class is needed or if this is okay
+                li.className = CSS_CLASSES.DISCREPANCY_ITEM;
                 const issueHtml = `<strong><a href="${URL_TEMPLATES.JIRA_ISSUE.replace('{key}', issue.key)}" target="_blank" rel="noopener noreferrer">${issue.key}</a></strong>: ${issue.fields.summary} <br> <small>${getMessage('statusLabel')}${issue.fields.status.name}</small>`;
                 li.innerHTML = issueHtml;
                 ul.appendChild(li);
@@ -189,7 +172,7 @@ class ExtensionUIManager {
         if (commitData && commitData.length > 0 && this.elements.gitlabCommitsExampleDiv) {
             const ul = document.createElement('ul');
             ul.className = 'list-style-none p-0';
-            const gitlabProjectPath = 'dao/dell-digital-design/design-language-system/systems/dds-angular'; // Example path from mock data context
+            const gitlabProjectPath = 'dao/dell-digital-design/design-language-system/systems/dds-angular';
             commitData.forEach(commit => {
                 const li = document.createElement('li');
                 li.className = CSS_CLASSES.DISCREPANCY_ITEM;

@@ -84,14 +84,10 @@ class ChromeStorageManager {
     });
   }
 }
-
-// Export individual functions for backward compatibility
 export const saveFormDataToStorage = ChromeStorageManager.saveFormDataToStorage;
 export const loadFormDataFromStorage = ChromeStorageManager.loadFormDataFromStorage;
 export const saveApiConfigurationToStorage = ChromeStorageManager.saveApiConfigurationToStorage;
 export const loadApiConfigurationFromStorage = ChromeStorageManager.loadApiConfigurationFromStorage;
-
-// Theme preference functions
 export async function saveThemePreference(theme) {
   return new Promise((resolve, reject) => {
     chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme }, () => {

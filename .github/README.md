@@ -132,10 +132,10 @@ The extension is organized into several key files. Understanding their roles is 
 ```jsonc
 {
    "host_permissions": [
-      "https://{ORG_NAME}.atlassian.net/*",  // Replace with your Jira Cloud domain
-      "https://jira.{ORG_NAME}.com/*",       // Or your Jira Server/Data Center domain
-      "https://gitlab.com/*",                // If using GitLab.com
-      "https://gitlab.{ORG_NAME}.com/*"      // Or your self-hosted GitLab domain
+      "https://dell.atlassian.net/*",
+      "https://jira.dell.com/*",
+      "https://gitlab.com/*",
+      "https://gitlab.dell.com/*"å
    ],
 }
 ```

@@ -20,8 +20,6 @@ class FormValidationHelpers {
     return inputs.map(input => input.value.trim());
   }
 }
-
-// Export individual functions for backward compatibility
 export const validateRequiredFields = FormValidationHelpers.validateRequiredFields;
 export const extractFormFieldValues = FormValidationHelpers.extractFormFieldValues;
 export default FormValidationHelpers;
