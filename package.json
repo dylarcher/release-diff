@@ -39,7 +39,10 @@
   "repository": "https://github.com/dylarcher/release-diff.git",
   "scripts": {
     "lint": "npx eclint check . && npx eclint fix .",
-    "test": "npx c8 --experimental-monocart --per-file --check-coverage --100 --all -r=v8 -r=console-details -e=.js -x=node_modules/** -o=.tmp/lcov --temp-directory=.tmp -- node --test=**/*.test.js"
+    "test": "npx c8 --experimental-monocart --per-file --check-coverage --100 --all -r=v8 -r=console-details -e=.js -x=node_modules/** -o=.tmp/lcov --temp-directory=.tmp -- node --test=**/*.test.js",
+    "build:tokens": "rm -rf shared/tokens.css && node scripts/generate-token-css.js",
+    "build": "echo 'Build process: Extension is ready for deployment'"
+
   },
   "type": "module",
   "version": "1.2.0"

@@ -4,6 +4,8 @@ import { sendMessageToBackgroundScript } from '../comms.service.js';
 import { clearElementContent, populateDatalistWithOptions, createDiscrepancyItemDiv, resetForm } from '../../utils/dom.util.js';
 import { validateRequiredFields, extractFormFieldValues } from '../../utils/validation.util.js';
 import { initializeI18n, getMessage } from '../../utils/i18n.util.js';
+import { toast } from '../toast.service.js';
+import { fallbackService } from '../fallback.service.js';
 import {
   ELEMENT_IDS,
   ERROR_MESSAGES,
@@ -241,13 +243,18 @@ export class ExtensionUIManager {
     });
 
     if (!validation.isValid) {
-      displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.FILL_ALL_INPUT_FIELDS), STATUS_TYPES.ERROR);
+      const errorMessage = getMessage(USER_MESSAGES.FILL_ALL_INPUT_FIELDS);
+      displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+      toast.showError(errorMessage);
       return;
     }
 
     await this.saveFormValuesToStorage();
     this.showLoadingStateAndClearResults();
-    displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.FETCHING_AND_COMPARING_DATA), STATUS_TYPES.INFO);
+
+    const loadingMessage = getMessage(USER_MESSAGES.FETCHING_AND_COMPARING_DATA);
+    displayStatusMessage(statusMessageDiv, loadingMessage, STATUS_TYPES.INFO);
+    toast.showInfo(loadingMessage, 3000);
 
     try {
       console.log(CONSOLE_MESSAGES.SENDING_MESSAGE_TO_BACKGROUND);
@@ -265,20 +272,51 @@ export class ExtensionUIManager {
 
       const messageHandler = {
         true: () => {
-          displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.SUMMARY_GENERATED_SUCCESSFULLY), STATUS_TYPES.SUCCESS);
+          const successMessage = getMessage(USER_MESSAGES.SUMMARY_GENERATED_SUCCESSFULLY);
+          displayStatusMessage(statusMessageDiv, successMessage, STATUS_TYPES.SUCCESS);
+          toast.showSuccess(successMessage);
           this.displaySummaryResults(response.summary);
         },
         false: () => {
-          displayStatusMessage(statusMessageDiv, `${getMessage('errorPrefix')}${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR);
+          const errorMessage = `${getMessage('errorPrefix')}${response.message || getMessage('unknownSystemError')}`;
+          displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+          toast.showError(errorMessage, 8000);
+
+          // Check if this is a connection failure that might benefit from fallback
+          if (response.message && (response.message.includes('unreachable') || response.message.includes('timeout') || response.message.includes('network'))) {
+            this.showFallbackOption();
+          }
         }
       }[Boolean(response.success)];
 
       messageHandler();
     } catch (error) {
       this.elements.loadingSpinner.classList.add(CSS_CLASSES.HIDDEN);
-      displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.UNEXPECTED_ERROR_OCCURRED), STATUS_TYPES.ERROR);
+      const errorMessage = getMessage(USER_MESSAGES.UNEXPECTED_ERROR_OCCURRED);
+      displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+      toast.showError(errorMessage, 8000);
       console.error(CONSOLE_MESSAGES.SIDE_PANEL_SCRIPT_ERROR, error);
+
+      // Show fallback option for connection errors
+      this.showFallbackOption();
     }
+  }
+
+  showFallbackOption() {
+    const { statusMessageDiv } = this.elements;
+
+    fallbackService.showFallbackPrompt(
+      'both',
+      async () => {
+        try {
+          await fallbackService.populateMockData(this.elements);
+          toast.showSuccess(getMessage('mockDataLoaded'));
+        } catch (error) {
+          toast.showError(`Failed to load mock data: ${error.message}`);
+        }
+      },
+      statusMessageDiv.parentElement
+    );
   }
 
   handleVersionInput() {
@@ -297,14 +335,18 @@ export class ExtensionUIManager {
     const jiraProjectKey = jiraProjectKeyInput.value.trim();
 
     if (!jiraProjectKey) {
-      displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.ENTER_JIRA_PROJECT_KEY_FIRST), STATUS_TYPES.ERROR);
+      const errorMessage = getMessage(USER_MESSAGES.ENTER_JIRA_PROJECT_KEY_FIRST);
+      displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+      toast.showError(errorMessage);
       return;
     }
 
     this.abortPreviousFetchIfExists();
     this.setupNewFetchController();
 
-    displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.FETCHING_AVAILABLE_FIX_VERSIONS), STATUS_TYPES.INFO);
+    const loadingMessage = getMessage(USER_MESSAGES.FETCHING_AVAILABLE_FIX_VERSIONS);
+    displayStatusMessage(statusMessageDiv, loadingMessage, STATUS_TYPES.INFO);
+    toast.showInfo(loadingMessage, 3000);
     loadingSpinner.classList.remove(CSS_CLASSES.HIDDEN);
 
     try {
@@ -314,27 +356,59 @@ export class ExtensionUIManager {
 
       const resultHandler = {
         true: () => {
-          displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.FIX_VERSIONS_RETRIEVED_SUCCESSFULLY), STATUS_TYPES.SUCCESS);
+          const successMessage = getMessage(USER_MESSAGES.FIX_VERSIONS_RETRIEVED_SUCCESSFULLY);
+          displayStatusMessage(statusMessageDiv, successMessage, STATUS_TYPES.SUCCESS);
+          toast.showSuccess(successMessage);
           populateDatalistWithOptions(versionsDatalist, response.data);
         },
         false: () => {
-          displayStatusMessage(statusMessageDiv, `${ERROR_MESSAGES.FAILED_TO_GET_FIX_VERSIONS} ${response.message || ERROR_MESSAGES.UNKNOWN_ERROR}`, STATUS_TYPES.ERROR);
+          const errorMessage = `${ERROR_MESSAGES.FAILED_TO_GET_FIX_VERSIONS} ${response.message || ERROR_MESSAGES.UNKNOWN_ERROR}`;
+          displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+          toast.showError(errorMessage, 8000);
           clearElementContent(versionsDatalist);
+
+          // Check if this is a connection failure that might benefit from fallback
+          if (response.message && (response.message.includes('unreachable') || response.message.includes('timeout') || response.message.includes('network'))) {
+            this.showJiraFallbackOption();
+          }
         }
       }[Boolean(response.success)];
 
       resultHandler();
     } catch (error) {
       if (error.name !== 'AbortError') {
-        displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.ERROR_GETTING_FIX_VERSIONS), STATUS_TYPES.ERROR);
+        const errorMessage = getMessage(USER_MESSAGES.ERROR_GETTING_FIX_VERSIONS);
+        displayStatusMessage(statusMessageDiv, errorMessage, STATUS_TYPES.ERROR);
+        toast.showError(errorMessage, 8000);
         console.error(CONSOLE_MESSAGES.GET_VERSIONS_ERROR, error);
         clearElementContent(versionsDatalist);
+
+        // Show fallback option for connection errors
+        this.showJiraFallbackOption();
       }
     } finally {
       if (!this.fetchController.signal.aborted) {
         loadingSpinner.classList.add(CSS_CLASSES.HIDDEN);
       }
     }
+  }
+
+  showJiraFallbackOption() {
+    const { statusMessageDiv } = this.elements;
+
+    fallbackService.showFallbackPrompt(
+      'jira',
+      async () => {
+        try {
+          const versionsData = await fallbackService.loadMockData('versions');
+          fallbackService.populateVersions(this.elements.versionsDatalist, versionsData);
+          toast.showSuccess('Mock Jira versions loaded successfully');
+        } catch (error) {
+          toast.showError(`Failed to load mock versions: ${error.message}`);
+        }
+      },
+      statusMessageDiv.parentElement
+    );
   }
 
   displaySummaryResults(summary) {

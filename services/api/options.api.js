@@ -3,6 +3,8 @@ import { saveApiConfigurationToStorage, loadApiConfigurationFromStorage, saveThe
 import { sendMessageToBackgroundScript } from '../comms.service.js';
 import { validateRequiredFields } from '../../utils/validation.util.js';
 import { initializeI18n, getMessage } from '../../utils/i18n.util.js';
+import { toast } from '../toast.service.js';
+import { fallbackService } from '../fallback.service.js';
 import {
   ELEMENT_IDS,
     USER_MESSAGES,
@@ -137,6 +139,7 @@ export class SettingsManager {
         const { statusDiv } = this.elements;
 
         displayStatusWithAutoHide(statusDiv, loadingMessage, STATUS_TYPES.INFO, 0);
+        toast.showInfo(loadingMessage, 2000);
 
         try {
             const response = await sendMessageToBackgroundScript(action);
@@ -144,21 +147,48 @@ export class SettingsManager {
             const resultHandler = {
                 true: () => {
                     displayStatusWithAutoHide(statusDiv, successMessage, STATUS_TYPES.SUCCESS);
+                    toast.showSuccess(successMessage);
                     button.textContent = successButtonText;
                     if (response.data) {
                         console.log(`${action} ${CONSOLE_MESSAGES.RESPONSE_DATA}`, response.data);
                     }
                 },
                 false: () => {
-                    displayStatusWithAutoHide(statusDiv, `${getMessage('testFailedNotice', action)} ${response.message || getMessage('unknownSystemError')}`, STATUS_TYPES.ERROR, 10000);
+                    const errorMessage = `${getMessage('testFailedNotice', action)} ${response.message || getMessage('unknownSystemError')}`;
+                    displayStatusWithAutoHide(statusDiv, errorMessage, STATUS_TYPES.ERROR, 10000);
+                    toast.showError(errorMessage, 8000);
+
+                    // Check if this is a connection failure that might benefit from fallback
+                    if (response.message && (response.message.includes('unreachable') || response.message.includes('timeout') || response.message.includes('network'))) {
+                        this.showFallbackOption(action);
+                    }
                 }
             }[Boolean(response.success)];
 
             resultHandler();
         } catch (error) {
-            displayStatusWithAutoHide(statusDiv, getMessage('testFailedCheckConsoleNotice', action), STATUS_TYPES.ERROR);
+            const errorMessage = getMessage('testFailedCheckConsoleNotice', action);
+            displayStatusWithAutoHide(statusDiv, errorMessage, STATUS_TYPES.ERROR);
+            toast.showError(errorMessage, 8000);
             console.error(`${action} error:`, error);
+
+            // Show fallback option for connection errors
+            this.showFallbackOption(action);
         }
+    }
+
+    showFallbackOption(action) {
+        const { statusDiv } = this.elements;
+        const apiType = action.includes('JIRA') ? 'jira' : action.includes('GITLAB') ? 'gitlab' : 'both';
+
+        fallbackService.showFallbackPrompt(
+            apiType,
+            () => {
+                toast.showInfo(getMessage('mockDataLoaded'));
+                console.log('Mock data fallback selected for', apiType);
+            },
+            statusDiv.parentElement
+        );
     }
 
     async loadSavedSettingsIntoForm() {

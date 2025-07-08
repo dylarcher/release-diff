@@ -18,3 +18,7 @@ Thumbs.db
 # browser
 *.crx
 *.zip
+
+# build artifacts
+shared/design/generated-tokens.css
+scripts/

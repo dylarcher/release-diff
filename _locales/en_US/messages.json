@@ -384,5 +384,26 @@
   },
   "viewDemoReport": {
     "message": "Sample Review <code>v2.26</code> Report"
+  },
+  "jiraApiUnreachable": {
+    "message": "Jira API is currently unreachable. Would you like to use mock data for demonstration?"
+  },
+  "gitlabApiUnreachable": {
+    "message": "GitLab API is currently unreachable. Would you like to use mock data for demonstration?"
+  },
+  "bothApisUnreachable": {
+    "message": "Both Jira and GitLab APIs are currently unreachable. Would you like to use mock data for demonstration?"
+  },
+  "useMockData": {
+    "message": "Use Mock Data"
+  },
+  "dismiss": {
+    "message": "Dismiss"
+  },
+  "mockDataLoaded": {
+    "message": "Mock data loaded successfully for demonstration"
+  },
+  "populateMockData": {
+    "message": "Populate Mock Data"
   }
 }
