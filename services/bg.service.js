@@ -19,7 +19,7 @@ import {
 
 console.log(CONSOLE_MESSAGES.BACKGROUND_SCRIPT_LOADED);
 
-class BackgroundService {
+export class BackgroundService {
   constructor() {
     this.setupEventListeners();
     this.setupMessageHandlers();
@@ -153,8 +153,9 @@ class BackgroundService {
     return await GitLabService.testConnection(gitlabBaseUrl, gitlabPat);
   }
 }
+export default new BackgroundService();
 
-class JiraService {
+export class JiraService {
   static extractJiraIssueKeysFromText(text) {
     const matches = text.match(/([A-Z]{2,}-\d+)/g);
     return matches ? [...new Set(matches.map(key => key.toUpperCase()))] : [];
@@ -252,8 +253,9 @@ class JiraService {
     throw new Error(ERROR_MESSAGES.ALL_JIRA_ENDPOINTS_FAILED);
   }
 }
+export const Jira = new JiraService();
 
-class GitLabService {
+export class GitLabService {
   static async fetchProjectDetails(gitlabBaseUrl, gitlabPat, projectId) {
     const url = buildCleanApiUrl(gitlabBaseUrl, GITLAB_ENDPOINTS.PROJECT_DETAILS.replace('{projectId}', projectId));
     return await makeAuthenticatedApiRequest(url, gitlabPat, AUTH_TYPES.BEARER);
@@ -323,8 +325,9 @@ class GitLabService {
     }
   }
 }
+export const GitLab = new GitLabService();
 
-class AnalysisService {
+export class AnalysisService {
   static analyzeIssueAndCommitCorrelation(jiraIssues, gitlabCommits, plannedIssueKeys, gitlabProjectPath) {
     const issuesInCodeMap = new Map();
     const allIssueKeysInCode = new Set();
@@ -391,4 +394,4 @@ class AnalysisService {
     };
   }
 }
-new BackgroundService();
+export const Analysis = new AnalysisService();

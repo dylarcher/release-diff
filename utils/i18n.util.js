@@ -1,8 +1,6 @@
-
-
 import { CONSOLE_MESSAGES } from '../shared/constants.js';
 
-class InternationalizationHelper {
+export class InternationalizationHelper {
   static getMessage(messageName, substitutions = null) {
     try {
       return chrome.i18n.getMessage(messageName, substitutions);
@@ -48,11 +46,11 @@ class InternationalizationHelper {
     }
   }
 }
-export const getMessage = InternationalizationHelper.getMessage;
-export const initializeI18n = InternationalizationHelper.initializeI18n;
-export const updateElementText = InternationalizationHelper.updateElementText;
-export default InternationalizationHelper;
-const initializeWhenReady = () => {
+
+export const { getMessage, initializeI18n, updateElementText } = InternationalizationHelper;
+export default new InternationalizationHelper();
+
+(() => {
   const readyStateActions = {
     loading: () => document.addEventListener('DOMContentLoaded', InternationalizationHelper.initializeI18n),
     interactive: InternationalizationHelper.initializeI18n,
@@ -63,6 +61,5 @@ const initializeWhenReady = () => {
   } else {
     document.addEventListener('DOMContentLoaded', InternationalizationHelper.initializeI18n);
   }
-};
+})();
 
-initializeWhenReady();

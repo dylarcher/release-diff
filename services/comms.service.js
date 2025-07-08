@@ -1,6 +1,6 @@
 import { ERROR_MESSAGES, CONSOLE_MESSAGES } from '../shared/constants.js';
 
-class ChromeMessageHandler {
+export class ChromeMessageHandler {
   static async sendMessageToBackgroundScript(action, data = {}) {
     try {
       const response = await chrome.runtime.sendMessage({ action, data });
@@ -36,6 +36,5 @@ class ChromeMessageHandler {
     };
   }
 }
-export const sendMessageToBackgroundScript = ChromeMessageHandler.sendMessageToBackgroundScript;
-export const handleAsyncBackgroundMessage = ChromeMessageHandler.handleAsyncBackgroundMessage;
-export default ChromeMessageHandler;
+export const { sendMessageToBackgroundScript, handleAsyncBackgroundMessage } = ChromeMessageHandler;
+export default new ChromeMessageHandler();

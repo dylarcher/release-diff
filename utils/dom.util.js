@@ -57,3 +57,10 @@ export function resetForm(elements) {
 
     displayStatusMessage(statusMessageDiv, getMessage(USER_MESSAGES.RESET_FORM), STATUS_TYPES.INFO);
 }
+
+export default {
+  clearElementContent,
+  populateDatalistWithOptions,
+  createDiscrepancyItemDiv,
+  resetForm
+}

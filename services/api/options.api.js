@@ -4,18 +4,16 @@ import { sendMessageToBackgroundScript } from '../comms.service.js';
 import { validateRequiredFields } from '../../utils/validation.util.js';
 import { initializeI18n, getMessage } from '../../utils/i18n.util.js';
 import {
-    ELEMENT_IDS,
-    ERROR_MESSAGES,
-    SUCCESS_MESSAGES,
-    STATUS_MESSAGES,
+  ELEMENT_IDS,
     USER_MESSAGES,
     BUTTON_TEXT,
     ACTIONS,
     STATUS_TYPES,
     CONSOLE_MESSAGES
 } from '../../shared/constants.js';
+import { DS } from '../../shared/design/tokens.js';
 
-class SettingsManager {
+export class SettingsManager {
     constructor() {
         this.initializeI18n();
         this.setupElementReferences();
@@ -200,3 +198,5 @@ class SettingsManager {
 document.addEventListener('DOMContentLoaded', () => {
     new SettingsManager();
 });
+
+export default new SettingsManager();

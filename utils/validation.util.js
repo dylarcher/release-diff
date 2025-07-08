@@ -1,6 +1,4 @@
-import { DEFAULT_VALUES } from '../shared/constants.js';
-
-class FormValidationHelpers {
+export class FormValidationHelpers {
   static validateRequiredFields(fields) {
     const missingFields = [];
 
@@ -20,6 +18,6 @@ class FormValidationHelpers {
     return inputs.map(input => input.value.trim());
   }
 }
-export const validateRequiredFields = FormValidationHelpers.validateRequiredFields;
-export const extractFormFieldValues = FormValidationHelpers.extractFormFieldValues;
-export default FormValidationHelpers;
+
+export const { validateRequiredFields, extractFormFieldValues } = FormValidationHelpers;
+export default new FormValidationHelpers();

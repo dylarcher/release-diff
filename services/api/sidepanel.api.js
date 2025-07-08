@@ -7,8 +7,6 @@ import { initializeI18n, getMessage } from '../../utils/i18n.util.js';
 import {
   ELEMENT_IDS,
   ERROR_MESSAGES,
-  SUCCESS_MESSAGES,
-  STATUS_MESSAGES,
   USER_MESSAGES,
   ACTIONS,
   STATUS_TYPES,
@@ -18,9 +16,9 @@ import {
   URL_TEMPLATES,
   ELEMENT_IDS as EXT_ELEMENT_IDS
 } from '../../shared/constants.js';
-import { DS } from '../../shared/design/getStyles.js';
+import { DS } from '../../shared/design/tokens.js';
 
-class ExtensionUIManager {
+export class ExtensionUIManager {
   constructor() {
     this.initializeI18n();
     this.setupElementReferences();
@@ -405,3 +403,5 @@ class ExtensionUIManager {
 document.addEventListener('DOMContentLoaded', () => {
   new ExtensionUIManager();
 });
+
+export default new ExtensionUIManager();

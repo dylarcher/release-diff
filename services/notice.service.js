@@ -1,6 +1,6 @@
 import { CSS_CLASSES, STATUS_TYPES } from '../shared/constants.js';
 
-class StatusDisplayManager {
+export class StatusDisplayManager {
   static displayStatusMessage(messageElement, message, type) {
     messageElement.textContent = message;
 
@@ -31,6 +31,5 @@ class StatusDisplayManager {
     }
   }
 }
-export const displayStatusMessage = StatusDisplayManager.displayStatusMessage;
-export const displayStatusWithAutoHide = StatusDisplayManager.displayStatusWithAutoHide;
-export default StatusDisplayManager;
+export const { displayStatusMessage, displayStatusWithAutoHide } = StatusDisplayManager;
+export default new StatusDisplayManager();

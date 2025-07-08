@@ -1,6 +1,6 @@
 import { AUTH_TYPES, HTTP_HEADERS, CONSOLE_MESSAGES, ERROR_MESSAGES, DEFAULT_VALUES } from '../shared/constants.js';
 
-class ApiRequestManager {
+export class ApiRequestManager {
   static async makeAuthenticatedApiRequest(url, token, tokenType = AUTH_TYPES.BEARER) {
     const headers = { [HTTP_HEADERS.CONTENT_TYPE]: HTTP_HEADERS.APPLICATION_JSON };
 
@@ -43,6 +43,5 @@ class ApiRequestManager {
     return `${cleanBase}${cleanEndpoint}`;
   }
 }
-export const makeAuthenticatedApiRequest = ApiRequestManager.makeAuthenticatedApiRequest;
-export const buildCleanApiUrl = ApiRequestManager.buildCleanApiUrl;
-export default ApiRequestManager;
+export const { makeAuthenticatedApiRequest, buildCleanApiUrl } = ApiRequestManager;
+export default new ApiRequestManager();

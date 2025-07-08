@@ -1,6 +1,6 @@
 import { STORAGE_KEYS, CONSOLE_MESSAGES } from '../shared/constants.js';
 
-class ChromeStorageManager {
+export class ChromeStorageManager {
   static async saveFormDataToStorage(formData) {
     return new Promise((resolve, reject) => {
       chrome.storage.local.set({ [STORAGE_KEYS.FORM_DATA]: formData }, (result) => {
@@ -84,25 +84,25 @@ class ChromeStorageManager {
     });
   }
 }
-export const saveFormDataToStorage = ChromeStorageManager.saveFormDataToStorage;
-export const loadFormDataFromStorage = ChromeStorageManager.loadFormDataFromStorage;
-export const saveApiConfigurationToStorage = ChromeStorageManager.saveApiConfigurationToStorage;
-export const loadApiConfigurationFromStorage = ChromeStorageManager.loadApiConfigurationFromStorage;
-export async function saveThemePreference(theme) {
-  return new Promise((resolve, reject) => {
-    chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme }, () => {
-      if (chrome.runtime.lastError) {
-        console.error(CONSOLE_MESSAGES.SAVE_ERROR, chrome.runtime.lastError);
-        reject(chrome.runtime.lastError);
-      } else {
-        console.log(CONSOLE_MESSAGES.THEME_SAVED, theme);
-        resolve();
-      }
-    });
-  });
+
+export const {
+  saveFormDataToStorage,
+  loadFormDataFromStorage,
+  saveApiConfigurationToStorage,
+  loadApiConfigurationFromStorage
+} = ChromeStorageManager;
+
+export const saveThemePreference = async theme => {
+  try {
+    await chrome.storage.local.set({ [STORAGE_KEYS.THEME_PREFERENCE]: theme });
+    console.log(CONSOLE_MESSAGES.THEME_SAVED, theme);
+  } catch (error) {
+    console.error(CONSOLE_MESSAGES.SAVE_ERROR, error);
+    throw error;
+  }
 }
 
-export async function loadThemePreference() {
+export const loadThemePreference = async () => {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get([STORAGE_KEYS.THEME_PREFERENCE], (result) => {
       if (chrome.runtime.lastError) {
@@ -115,4 +115,4 @@ export async function loadThemePreference() {
   });
 }
 
-export default ChromeStorageManager;
+export default new ChromeStorageManager();
